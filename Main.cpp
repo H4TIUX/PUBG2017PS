@@ -9,27 +9,18 @@
 // TwiceHit is the funniest and chillest Romanian guy you'll ever meet
 // WackyHacky is a monkey (But we love him, respect) 
 // Jerry saved our asses many times (Unfuckery dev)
+// Tym helped us deploy the servers and develop the lobby, thank you sm <3
 
 #include <Windows.h>
-
 #include <chrono>
-
 #include <ctime>
-
 #include <fstream>
-
 #include <iostream>
-
 #include <random>
-
 #include <vector>
-
 #include "MinHook.h"
-
 #include "SDK.hpp"
-
 #include "SDK/Engine_parameters.hpp"
-
 #include "SDK/TslGame_parameters.hpp"
 
 #pragma warning(disable: 4996)
