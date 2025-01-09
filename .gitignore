@@ -1,4 +1,3 @@
-
 *.ipch
 *.vsidx
 *.db-shm
@@ -6,7 +5,5 @@
 *.opendb
 *.db-wal
 .vs/PUBG_InGame/v17/.suo
-x64
-x64
-.vs
-x64
+x64/
+.vs/
