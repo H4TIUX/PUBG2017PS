@@ -1,0 +1,11 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "d:\\vs 2022\\ide\\vc\\tools\\msvc\\14.41.34120\\modules\\std.compat.ixx",
+        "ProvidedModule": "std.compat",
+        "ImportedModules": [
+            "std"
+        ],
+        "ImportedHeaderUnits": []
+    }
+}
