@@ -1,9 +1,0 @@
-{
-    "Version": "1.1",
-    "Data": {
-        "Source": "d:\\vs 2022\\ide\\vc\\tools\\msvc\\14.41.34120\\modules\\std.ixx",
-        "ProvidedModule": "std",
-        "ImportedModules": [],
-        "ImportedHeaderUnits": []
-    }
-}
