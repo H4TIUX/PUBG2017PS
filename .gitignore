@@ -5,8 +5,8 @@
 *.db
 *.opendb
 *.db-wal
-PUBG_InGame/.vs/PUBG_InGame/v17/.suo
-PUBG_InGame/x64
-PUBG_InGame/x64
-PUBG_InGame/.vs
-PUBG_InGame/x64
+.vs/PUBG_InGame/v17/.suo
+x64
+x64
+.vs
+x64
