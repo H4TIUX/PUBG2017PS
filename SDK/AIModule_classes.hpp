@@ -615,7 +615,7 @@ public:
 	static bool IsValidAILocation(const struct FVector& Location);
 	static bool IsValidAIRotation(const struct FRotator& Rotation);
 	static void LockAIResourcesWithAnimation(class UAnimInstance* AnimInstance, bool bLockMovement, bool LockAILogic);
-	static void SendAIMessage(class APawn* Target, class FName Message, class UObject* MessageSource, bool bSuccess);
+	static void SendAIMessage(class APawn* Target, struct FName Message, class UObject* MessageSource, bool bSuccess);
 	static class APawn* SpawnAIFromClass(class UObject* WorldContextObject, TSubclassOf<class APawn> PawnClass, class UBehaviorTree* BehaviorTree, const struct FVector& Location, const struct FRotator& Rotation, bool bNoCollisionFail);
 	static void UnlockAIResourcesWithAnimation(class UAnimInstance* AnimInstance, bool bUnlockMovement, bool UnlockAILogic);
 
@@ -903,7 +903,7 @@ static_assert(sizeof(UAIDataProvider) == 0x000028, "Wrong size on UAIDataProvide
 class UAIDataProvider_QueryParams final : public UAIDataProvider
 {
 public:
-	class FName                                   ParamName;                                         // 0x0028(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   ParamName;                                         // 0x0028(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         FloatValue;                                        // 0x0030(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         IntValue;                                          // 0x0034(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          BoolValue;                                         // 0x0038(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1321,7 +1321,7 @@ public:
 	uint8                                         Pad_134[0x5C];                                     // 0x0134(0x005C)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	static void ReportNoiseEvent(class UObject* WorldContext, const struct FVector& NoiseLocation, float Loudness, class AActor* Instigator, float MaxRange, class FName Tag);
+	static void ReportNoiseEvent(class UObject* WorldContext, const struct FVector& NoiseLocation, float Loudness, class AActor* Instigator, float MaxRange, struct FName Tag);
 
 public:
 	static class UClass* StaticClass()
@@ -2186,31 +2186,31 @@ public:
 	uint8                                         Pad_138[0xB8];                                     // 0x0138(0x00B8)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	void ClearValue(const class FName& KeyName);
-	void SetValueAsBool(const class FName& KeyName, bool BoolValue);
-	void SetValueAsClass(const class FName& KeyName, class UClass* ClassValue);
-	void SetValueAsEnum(const class FName& KeyName, uint8 EnumValue);
-	void SetValueAsFloat(const class FName& KeyName, float FloatValue);
-	void SetValueAsInt(const class FName& KeyName, int32 IntValue);
-	void SetValueAsName(const class FName& KeyName, class FName NameValue);
-	void SetValueAsObject(const class FName& KeyName, class UObject* ObjectValue);
-	void SetValueAsRotator(const class FName& KeyName, const struct FRotator& VectorValue);
-	void SetValueAsString(const class FName& KeyName, const class FString& StringValue);
-	void SetValueAsVector(const class FName& KeyName, const struct FVector& VectorValue);
+	void ClearValue(const struct FName& KeyName);
+	void SetValueAsBool(const struct FName& KeyName, bool BoolValue);
+	void SetValueAsClass(const struct FName& KeyName, class UClass* ClassValue);
+	void SetValueAsEnum(const struct FName& KeyName, uint8 EnumValue);
+	void SetValueAsFloat(const struct FName& KeyName, float FloatValue);
+	void SetValueAsInt(const struct FName& KeyName, int32 IntValue);
+	void SetValueAsName(const struct FName& KeyName, struct FName NameValue);
+	void SetValueAsObject(const struct FName& KeyName, class UObject* ObjectValue);
+	void SetValueAsRotator(const struct FName& KeyName, const struct FRotator& VectorValue);
+	void SetValueAsString(const struct FName& KeyName, const class FString& StringValue);
+	void SetValueAsVector(const struct FName& KeyName, const struct FVector& VectorValue);
 
-	bool GetLocationFromEntry(const class FName& KeyName, struct FVector* ResultLocation) const;
-	bool GetRotationFromEntry(const class FName& KeyName, struct FRotator* ResultRotation) const;
-	bool GetValueAsBool(const class FName& KeyName) const;
-	class UClass* GetValueAsClass(const class FName& KeyName) const;
-	uint8 GetValueAsEnum(const class FName& KeyName) const;
-	float GetValueAsFloat(const class FName& KeyName) const;
-	int32 GetValueAsInt(const class FName& KeyName) const;
-	class FName GetValueAsName(const class FName& KeyName) const;
-	class UObject* GetValueAsObject(const class FName& KeyName) const;
-	struct FRotator GetValueAsRotator(const class FName& KeyName) const;
-	class FString GetValueAsString(const class FName& KeyName) const;
-	struct FVector GetValueAsVector(const class FName& KeyName) const;
-	bool IsVectorValueSet(const class FName& KeyName) const;
+	bool GetLocationFromEntry(const struct FName& KeyName, struct FVector* ResultLocation) const;
+	bool GetRotationFromEntry(const struct FName& KeyName, struct FRotator* ResultRotation) const;
+	bool GetValueAsBool(const struct FName& KeyName) const;
+	class UClass* GetValueAsClass(const struct FName& KeyName) const;
+	uint8 GetValueAsEnum(const struct FName& KeyName) const;
+	float GetValueAsFloat(const struct FName& KeyName) const;
+	int32 GetValueAsInt(const struct FName& KeyName) const;
+	struct FName GetValueAsName(const struct FName& KeyName) const;
+	class UObject* GetValueAsObject(const struct FName& KeyName) const;
+	struct FRotator GetValueAsRotator(const struct FName& KeyName) const;
+	class FString GetValueAsString(const struct FName& KeyName) const;
+	struct FVector GetValueAsVector(const struct FName& KeyName) const;
+	bool IsVectorValueSet(const struct FName& KeyName) const;
 
 public:
 	static class UClass* StaticClass()
@@ -2347,7 +2347,7 @@ public:
 	static uint8 GetBlackboardValueAsEnum(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
 	static float GetBlackboardValueAsFloat(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
 	static int32 GetBlackboardValueAsInt(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
-	static class FName GetBlackboardValueAsName(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
+	static struct FName GetBlackboardValueAsName(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
 	static class UObject* GetBlackboardValueAsObject(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
 	static struct FRotator GetBlackboardValueAsRotator(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
 	static class FString GetBlackboardValueAsString(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
@@ -2359,7 +2359,7 @@ public:
 	static void SetBlackboardValueAsEnum(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, uint8 Value);
 	static void SetBlackboardValueAsFloat(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, float Value);
 	static void SetBlackboardValueAsInt(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, int32 Value);
-	static void SetBlackboardValueAsName(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, class FName Value);
+	static void SetBlackboardValueAsName(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, struct FName Value);
 	static void SetBlackboardValueAsObject(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, class UObject* Value);
 	static void SetBlackboardValueAsRotator(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, const struct FRotator& Value);
 	static void SetBlackboardValueAsString(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, const class FString& Value);
@@ -2505,7 +2505,7 @@ class UBTDecorator_BlueprintBase final : public UBTDecorator
 public:
 	class AAIController*                          AIOwner;                                           // 0x0068(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	class AActor*                                 ActorOwner;                                        // 0x0070(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	TArray<class FName>                           ObservedKeyNames;                                  // 0x0078(0x0010)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	TArray<struct FName>                           ObservedKeyNames;                                  // 0x0078(0x0010)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
 	uint8                                         Pad_88[0x10];                                      // 0x0088(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
 	uint8                                         bShowPropertyDetails : 1;                          // 0x0098(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, DisableEditOnTemplate, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
 	uint8                                         bCheckConditionOnlyBlackBoardChanges : 1;          // 0x0098(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, DisableEditOnInstance, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
@@ -3163,8 +3163,8 @@ public:
 	void ReceiveExecuteAI(class AAIController* OwnerController, class APawn* ControlledPawn);
 	void ReceiveTick(class AActor* OwnerActor, float DeltaSeconds);
 	void ReceiveTickAI(class AAIController* OwnerController, class APawn* ControlledPawn, float DeltaSeconds);
-	void SetFinishOnMessage(class FName MessageName);
-	void SetFinishOnMessageWithId(class FName MessageName, int32 RequestID);
+	void SetFinishOnMessage(struct FName MessageName);
+	void SetFinishOnMessageWithId(struct FName MessageName, int32 RequestID);
 
 	bool IsTaskAborting() const;
 	bool IsTaskExecuting() const;
@@ -3493,7 +3493,7 @@ static_assert(offsetof(UCrowdManager, PathOptimizationInterval) == 0x000064, "Me
 class UEnvQuery final : public UDataAsset
 {
 public:
-	class FName                                   QueryName;                                         // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FName                                   QueryName;                                         // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	TArray<class UEnvQueryOption*>                Options;                                           // 0x0030(0x0010)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
 
 public:
@@ -3622,7 +3622,7 @@ public:
 	float GetItemScore(int32 ItemIndex);
 	TArray<class AActor*> GetResultsAsActors();
 	TArray<struct FVector> GetResultsAsLocations();
-	void SetNamedParam(class FName ParamName, float Value);
+	void SetNamedParam(struct FName ParamName, float Value);
 
 public:
 	static class UClass* StaticClass()

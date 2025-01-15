@@ -259,7 +259,7 @@ class UHudSettings final : public UObject
 public:
 	uint8                                         bShowHUD : 1;                                      // 0x0028(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FName>                           DebugDisplay;                                      // 0x0030(0x0010)(Edit, ZeroConstructor, Config, GlobalConfig, NativeAccessSpecifierPublic)
+	TArray<struct FName>                           DebugDisplay;                                      // 0x0030(0x0010)(Edit, ZeroConstructor, Config, GlobalConfig, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()

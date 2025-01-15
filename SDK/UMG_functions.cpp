@@ -1077,12 +1077,12 @@ void UUserWidget::Destruct()
 // Function UMG.UserWidget.ListenForInputAction
 // (Final, Native, Protected, BlueprintCallable)
 // Parameters:
-// class FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EInputEvent                             EventType                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bConsume                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TDelegate<void()>                       Callback                                               (Parm, ZeroConstructor, NoDestructor, NativeAccessSpecifierPublic)
 
-void UUserWidget::ListenForInputAction(class FName ActionName, EInputEvent EventType, bool bConsume, TDelegate<void()> Callback)
+void UUserWidget::ListenForInputAction(FName ActionName, EInputEvent EventType, bool bConsume, TDelegate<void()> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2402,10 +2402,10 @@ void UUserWidget::StopListeningForAllInputActions()
 // Function UMG.UserWidget.StopListeningForInputAction
 // (Final, Native, Protected, BlueprintCallable)
 // Parameters:
-// class FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EInputEvent                             EventType                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UUserWidget::StopListeningForInputAction(class FName ActionName, EInputEvent EventType)
+void UUserWidget::StopListeningForInputAction(FName ActionName, EInputEvent EventType)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2696,10 +2696,10 @@ bool UUserWidget::IsInViewport() const
 // Function UMG.UserWidget.IsListeningForInputAction
 // (Final, Native, Protected, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UUserWidget::IsListeningForInputAction(class FName ActionName) const
+bool UUserWidget::IsListeningForInputAction(FName ActionName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -6821,9 +6821,9 @@ void URetainerBox::SetEffectMaterial(class UMaterialInterface* EffectMaterial_0)
 // Function UMG.RetainerBox.SetTextureParameter
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             TextureParameter_0                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             TextureParameter_0                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void URetainerBox::SetTextureParameter(class FName TextureParameter_0)
+void URetainerBox::SetTextureParameter(FName TextureParameter_0)
 {
 	static class UFunction* Func = nullptr;
 
@@ -9618,10 +9618,10 @@ void UWidgetBlueprintLibrary::DrawText(struct FPaintContext& Context, const clas
 // struct FVector2D                        Position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // class UFont*                            Font                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   FontSize                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             FontTypeFace                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             FontTypeFace                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FLinearColor                     Tint                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UWidgetBlueprintLibrary::DrawTextFormatted(struct FPaintContext& Context, const class FText& Text, const struct FVector2D& Position, class UFont* Font, int32 FontSize, class FName FontTypeFace, const struct FLinearColor& Tint)
+void UWidgetBlueprintLibrary::DrawTextFormatted(struct FPaintContext& Context, const class FText& Text, const struct FVector2D& Position, class UFont* Font, int32 FontSize, FName FontTypeFace, const struct FLinearColor& Tint)
 {
 	static class UFunction* Func = nullptr;
 

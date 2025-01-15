@@ -377,7 +377,7 @@ static_assert(offsetof(UMaterialExpressionLandscapeLayerCoords, MappingPanV) == 
 class ULandscapeLayerInfoObject final : public UObject
 {
 public:
-	class FName                                   LayerName;                                         // 0x0028(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AssetRegistrySearchable, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   LayerName;                                         // 0x0028(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AssetRegistrySearchable, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UPhysicalMaterial*                      PhysMaterial;                                      // 0x0030(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Hardness;                                          // 0x0038(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FLinearColor                           LayerUsageDebugColor;                              // 0x003C(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
@@ -495,7 +495,7 @@ static_assert(offsetof(ULandscapeMeshProxyComponent, ProxyLOD) == 0x000828, "Mem
 class UMaterialExpressionLandscapeLayerSample final : public UMaterialExpression
 {
 public:
-	class FName                                   ParameterName;                                     // 0x0060(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   ParameterName;                                     // 0x0060(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         PreviewWeight;                                     // 0x0068(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FGuid                                  ExpressionGUID;                                    // 0x006C(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_7C[0x4];                                       // 0x007C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -798,7 +798,7 @@ class UMaterialExpressionLandscapeLayerSwitch final : public UMaterialExpression
 public:
 	struct FExpressionInput                       LayerUsed;                                         // 0x0060(0x0038)(NativeAccessSpecifierPublic)
 	struct FExpressionInput                       LayerNotUsed;                                      // 0x0098(0x0038)(NativeAccessSpecifierPublic)
-	class FName                                   ParameterName;                                     // 0x00D0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   ParameterName;                                     // 0x00D0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         PreviewUsed : 1;                                   // 0x00D8(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_D9[0x3];                                       // 0x00D9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FGuid                                  ExpressionGUID;                                    // 0x00DC(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
@@ -828,7 +828,7 @@ class UMaterialExpressionLandscapeLayerWeight final : public UMaterialExpression
 public:
 	struct FExpressionInput                       Base;                                              // 0x0060(0x0038)(NativeAccessSpecifierPublic)
 	struct FExpressionInput                       Layer;                                             // 0x0098(0x0038)(NativeAccessSpecifierPublic)
-	class FName                                   ParameterName;                                     // 0x00D0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   ParameterName;                                     // 0x00D0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         PreviewWeight;                                     // 0x00D8(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                ConstBase;                                         // 0x00DC(0x000C)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FGuid                                  ExpressionGUID;                                    // 0x00E8(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)

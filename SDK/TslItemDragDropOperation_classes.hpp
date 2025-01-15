@@ -44,11 +44,11 @@ public:
 	EEquipSlotID                                  MouseOverSlotId;                                   // 0x00EC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor)
 	uint8                                         Pad_ED[0x3];                                       // 0x00ED(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<TScriptInterface<class ISlotContainerInterface>> OtherContainerStack;                               // 0x00F0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
-	class FName                                   ActionName;                                        // 0x0100(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor)
+	struct FName                                   ActionName;                                        // 0x0100(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor)
 
 public:
 	void GetOptions(class FString* Options);
-	void GetActionName(class FName* ActionName_0);
+	void GetActionName(struct FName* ActionName_0);
 	void IsEnableAction(bool* IsEnableAction_0);
 	void EnterOtherContainer(TScriptInterface<class ISlotContainerInterface> NewOtherContainer);
 	void LeaveOtherContainer();

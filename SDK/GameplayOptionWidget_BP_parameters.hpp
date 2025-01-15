@@ -344,7 +344,7 @@ public:
 	class FString                                 CallFunc_GetSelectedOption_SelectedOption2;        // 0x0070(0x0010)(ZeroConstructor)
 	bool                                          CallFunc_Less_IntInt_ReturnValue2;                 // 0x0080(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	uint8                                         Pad_81[0x7];                                       // 0x0081(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   CallFunc_Conv_StringToName_ReturnValue;            // 0x0088(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	struct FName                                   CallFunc_Conv_StringToName_ReturnValue;            // 0x0088(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	ETslInputModes                                CallFunc_CastTslInputModeFromName_ReturnValue;     // 0x0090(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	bool                                          CallFunc_NotEqual_ByteByte_ReturnValue;            // 0x0091(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
 };

@@ -191,9 +191,9 @@ void UTslItemDragWidget_C::GetInventory(class AInventory** Inventory_0)
 // Function TslItemDragWidget.TslItemDragWidget_C.GetActionName
 // (Public, HasOutParams, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
-// class FName                             ActionName_0                                           (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
+// struct FName                             ActionName_0                                           (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
 
-void UTslItemDragWidget_C::GetActionName(class FName* ActionName_0)
+void UTslItemDragWidget_C::GetActionName(struct FName* ActionName_0)
 {
 	static class UFunction* Func = nullptr;
 

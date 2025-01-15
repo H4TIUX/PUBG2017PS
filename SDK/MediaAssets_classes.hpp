@@ -32,7 +32,7 @@ public:
 	UMulticastDelegateProperty_                   OnMediaOpenFailed;                                 // 0x0060(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	UMulticastDelegateProperty_                   OnPlaybackResumed;                                 // 0x0070(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	UMulticastDelegateProperty_                   OnPlaybackSuspended;                               // 0x0080(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	class FName                                   DesiredPlayerName;                                 // 0x0090(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   DesiredPlayerName;                                 // 0x0090(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          PlayOnOpen;                                        // 0x0098(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_99[0x3];                                       // 0x0099(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	uint8                                         Shuffle : 1;                                       // 0x009C(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -72,7 +72,7 @@ public:
 	void GetCaptions(TArray<struct FMediaPlayerOverlay>* OutCaptions) const;
 	struct FTimespan GetDuration() const;
 	int32 GetNumTracks(EMediaPlayerTrack TrackType) const;
-	class FName GetPlayerName() const;
+	struct FName GetPlayerName() const;
 	float GetRate() const;
 	int32 GetSelectedTrack(EMediaPlayerTrack TrackType) const;
 	void GetSubtitles(TArray<struct FMediaPlayerOverlay>* OutSubtitles) const;
@@ -179,7 +179,7 @@ class UMediaSource : public UObject
 {
 public:
 	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   PlayerName;                                        // 0x0030(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FName                                   PlayerName;                                        // 0x0030(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 
 public:
 	static class UClass* StaticClass()

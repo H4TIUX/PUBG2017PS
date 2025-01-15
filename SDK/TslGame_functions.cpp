@@ -1344,11 +1344,11 @@ void UHackReporterComponent::ServerOnWallHackDetected(float Distance)
 // Function TslGame.TslBaseHUD.BindActionKeyDelegateEvent
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EInputEvent                             InputEvent                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TDelegate<void()>                       ActionKeyDelegate                                      (Parm, ZeroConstructor, NoDestructor, NativeAccessSpecifierPublic)
 
-void ATslBaseHUD::BindActionKeyDelegateEvent(class FName ActionName, EInputEvent InputEvent, TDelegate<void()> ActionKeyDelegate)
+void ATslBaseHUD::BindActionKeyDelegateEvent(FName ActionName, EInputEvent InputEvent, TDelegate<void()> ActionKeyDelegate)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1498,10 +1498,10 @@ void ATslBaseHUD::ShowPopupDialog(const class FString& PopupWidgetName, EPopupSt
 // Function TslGame.TslBaseHUD.UnbindActionKeyDelegateEvent
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EInputEvent                             InputEvent                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ATslBaseHUD::UnbindActionKeyDelegateEvent(class FName ActionName, EInputEvent InputEvent)
+void ATslBaseHUD::UnbindActionKeyDelegateEvent(FName ActionName, EInputEvent InputEvent)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1848,11 +1848,11 @@ class UTexture* UItem::GetIconTexture()
 // (Native, Event, Public, BlueprintEvent)
 // Parameters:
 // class ATslCharacter*                    Character                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             TargetContainer                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             TargetContainer                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           Options                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UItem::PickUpBy(class ATslCharacter* Character, class FName TargetContainer, const class FString& Options)
+bool UItem::PickUpBy(class ATslCharacter* Character, FName TargetContainer, const class FString& Options)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2393,10 +2393,10 @@ class ATslBuff* UBuffComponet::AddBuff(TSubclassOf<class ATslBuff> TslBuffClass)
 // Function TslGame.BuffComponet.FindBuffWithOverlapId
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             BuffOverlapId                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BuffOverlapId                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class ATslBuff*                         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class ATslBuff* UBuffComponet::FindBuffWithOverlapId(class FName BuffOverlapId)
+class ATslBuff* UBuffComponet::FindBuffWithOverlapId(FName BuffOverlapId)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2421,9 +2421,9 @@ class ATslBuff* UBuffComponet::FindBuffWithOverlapId(class FName BuffOverlapId)
 // Function TslGame.BuffComponet.RemoveBuff
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             OverlapId                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             OverlapId                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UBuffComponet::RemoveBuff(class FName OverlapId)
+void UBuffComponet::RemoveBuff(FName OverlapId)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3727,10 +3727,10 @@ void ATslPlayerController::ClientNotifySpeedBoost(float Boost)
 // Function TslGame.TslPlayerController.ClientNotifyStartBuff
 // (Net, NetReliable, Native, Event, Public, NetClient, BlueprintCallable)
 // Parameters:
-// class FName                             BuffName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BuffName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bStart                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ATslPlayerController::ClientNotifyStartBuff(class FName BuffName, bool bStart)
+void ATslPlayerController::ClientNotifyStartBuff(FName BuffName, bool bStart)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4025,12 +4025,12 @@ void ATslPlayerController::ClientStartOnlineGame()
 // Function TslGame.TslPlayerController.ClientUpdateSpectatorCameraMode
 // (Net, NetReliable, Native, Event, Public, NetClient)
 // Parameters:
-// class FName                             InCameraName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InCameraName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    InbFirstPerson                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    InbIsInVehicle                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    InbIsScoping                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ATslPlayerController::ClientUpdateSpectatorCameraMode(class FName InCameraName, bool InbFirstPerson, bool InbIsInVehicle, bool InbIsScoping)
+void ATslPlayerController::ClientUpdateSpectatorCameraMode(FName InCameraName, bool InbFirstPerson, bool InbIsInVehicle, bool InbIsScoping)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4489,12 +4489,12 @@ void ATslPlayerController::OnShowCastingBarWidget(float CastTime, const class FT
 // (Final, Native, Protected)
 // Parameters:
 // class ATslCharacter*                    TslCharacter                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             InCameraName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InCameraName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    InbFirstPerson                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    InbIsInVehicle                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    InbIsScoping                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ATslPlayerController::OnUpdateSpectatorCameraMode(class ATslCharacter* TslCharacter, class FName InCameraName, bool InbFirstPerson, bool InbIsInVehicle, bool InbIsScoping)
+void ATslPlayerController::OnUpdateSpectatorCameraMode(class ATslCharacter* TslCharacter, FName InCameraName, bool InbFirstPerson, bool InbIsInVehicle, bool InbIsScoping)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4768,12 +4768,12 @@ void ATslPlayerController::ServerBroadCastCastingBar(float CastTime, const class
 // Function TslGame.TslPlayerController.ServerBroadCastUsedUpdateCameraMode
 // (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
 // Parameters:
-// class FName                             InCameraName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InCameraName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    InbFirstPerson                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    InbIsInVehicle                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    InbIsScoping                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ATslPlayerController::ServerBroadCastUsedUpdateCameraMode(class FName InCameraName, bool InbFirstPerson, bool InbIsInVehicle, bool InbIsScoping)
+void ATslPlayerController::ServerBroadCastUsedUpdateCameraMode(FName InCameraName, bool InbFirstPerson, bool InbIsInVehicle, bool InbIsScoping)
 {
 	static class UFunction* Func = nullptr;
 
@@ -5019,10 +5019,10 @@ void ATslPlayerController::ServerNotifyHitToGlassWindowInst(class UTslInstancedG
 // (Final, Net, NetReliable, Native, Event, Private, NetServer, NetValidate)
 // Parameters:
 // class UObject*                          DroppedItemObject                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             TargetContainer                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             TargetContainer                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           Options                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ATslPlayerController::ServerPickUpDroppedItem(class UObject* DroppedItemObject, class FName TargetContainer, const class FString& Options)
+void ATslPlayerController::ServerPickUpDroppedItem(class UObject* DroppedItemObject, FName TargetContainer, const class FString& Options)
 {
 	static class UFunction* Func = nullptr;
 
@@ -5049,10 +5049,10 @@ void ATslPlayerController::ServerPickUpDroppedItem(class UObject* DroppedItemObj
 // Parameters:
 // class UItem*                            Item                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class AItemPackage*                     Package                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             TargetContainer                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             TargetContainer                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           Options                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ATslPlayerController::ServerPickUpItemFromPackage(class UItem* Item, class AItemPackage* Package, class FName TargetContainer, const class FString& Options)
+void ATslPlayerController::ServerPickUpItemFromPackage(class UItem* Item, class AItemPackage* Package, FName TargetContainer, const class FString& Options)
 {
 	static class UFunction* Func = nullptr;
 
@@ -7108,10 +7108,10 @@ bool ISlotInterface::IsWeapon() const
 // (Native, Public, BlueprintCallable)
 // Parameters:
 // TScriptInterface<class ISlotInterface>  Slot                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, NativeAccessSpecifierPublic)
-// class FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           Options                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ISlotContainerInterface::DoActionWithSlot(TScriptInterface<class ISlotInterface> Slot, class FName ActionName, const class FString& Options)
+void ISlotContainerInterface::DoActionWithSlot(TScriptInterface<class ISlotInterface> Slot, FName ActionName, const class FString& Options)
 {
 	static class UFunction* Func = nullptr;
 
@@ -7136,10 +7136,10 @@ void ISlotContainerInterface::DoActionWithSlot(TScriptInterface<class ISlotInter
 // Function TslGame.SlotContainerInterface.DoSlotAction
 // (Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           Options                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ISlotContainerInterface::DoSlotAction(class FName ActionName, const class FString& Options)
+void ISlotContainerInterface::DoSlotAction(FName ActionName, const class FString& Options)
 {
 	static class UFunction* Func = nullptr;
 
@@ -7218,9 +7218,9 @@ void ISlotContainerInterface::DropSlotOnOtherContainer(TScriptInterface<class IS
 // (Native, Public, BlueprintCallable)
 // Parameters:
 // TScriptInterface<class ISlotInterface>  Slot                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, NativeAccessSpecifierPublic)
-// TArray<class FName>                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+// TArray<FName>                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 
-TArray<class FName> ISlotContainerInterface::GetAvailableSlotActions(TScriptInterface<class ISlotInterface> Slot)
+TArray<FName> ISlotContainerInterface::GetAvailableSlotActions(TScriptInterface<class ISlotInterface> Slot)
 {
 	static class UFunction* Func = nullptr;
 
@@ -7317,9 +7317,9 @@ void ISlotContainerInterface::ShowSlotContextMenu(TScriptInterface<class ISlotIn
 // TScriptInterface<class ISlotInterface>  Slot                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, NativeAccessSpecifierPublic)
 // TScriptInterface<class ISlotContainerInterface>OtherContainer                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, NativeAccessSpecifierPublic)
 // class FString                           Options                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName ISlotContainerInterface::GetActionName(TScriptInterface<class ISlotInterface> Slot, TScriptInterface<class ISlotContainerInterface> OtherContainer, const class FString& Options) const
+FName ISlotContainerInterface::GetActionName(TScriptInterface<class ISlotInterface> Slot, TScriptInterface<class ISlotContainerInterface> OtherContainer, const class FString& Options) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -7372,9 +7372,9 @@ TArray<TScriptInterface<class ISlotInterface>> ISlotContainerInterface::GetAllSl
 // (Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // TScriptInterface<class ISlotInterface>  Slot                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, NativeAccessSpecifierPublic)
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName ISlotContainerInterface::GetDefaultActionName(TScriptInterface<class ISlotInterface> Slot) const
+FName ISlotContainerInterface::GetDefaultActionName(TScriptInterface<class ISlotInterface> Slot) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -7399,9 +7399,9 @@ class FName ISlotContainerInterface::GetDefaultActionName(TScriptInterface<class
 // Function TslGame.SlotContainerInterface.GetSlotContainerName
 // (Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName ISlotContainerInterface::GetSlotContainerName() const
+FName ISlotContainerInterface::GetSlotContainerName() const
 {
 	static class UFunction* Func = nullptr;
 
@@ -7550,9 +7550,9 @@ float IExplorableItemInterface::GetExplorationDistance() const
 // Function TslGame.ExplorableItemInterface.GetInteractiveActionName
 // (Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName IExplorableItemInterface::GetInteractiveActionName() const
+FName IExplorableItemInterface::GetInteractiveActionName() const
 {
 	static class UFunction* Func = nullptr;
 
@@ -9340,10 +9340,10 @@ class FText IInteractionInterface::GetInteractiveObjectName() const
 // Function TslGame.AttachableItem.GetAttachmentData
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             WeaponTag                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             WeaponTag                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FWeaponAttachmentData            ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
-struct FWeaponAttachmentData UAttachableItem::GetAttachmentData(class FName WeaponTag) const
+struct FWeaponAttachmentData UAttachableItem::GetAttachmentData(FName WeaponTag) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -9368,10 +9368,10 @@ struct FWeaponAttachmentData UAttachableItem::GetAttachmentData(class FName Weap
 // Function TslGame.AttachableItem.GetAttachmentSlotID
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             WeaponTag                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             WeaponTag                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EWeaponAttachmentSlotID                 ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-EWeaponAttachmentSlotID UAttachableItem::GetAttachmentSlotID(class FName WeaponTag) const
+EWeaponAttachmentSlotID UAttachableItem::GetAttachmentSlotID(FName WeaponTag) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -9665,9 +9665,9 @@ void ATslWeapon::ClientInitByReconnection(bool bIsArmed)
 // Function TslGame.TslWeapon.OnAnimationNotify
 // (Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             NotifyName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             NotifyName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ATslWeapon::OnAnimationNotify(const class FName& NotifyName)
+void ATslWeapon::OnAnimationNotify(const FName& NotifyName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -10328,10 +10328,10 @@ const struct FWeaponAttachmentData ATslWeapon::GetWeaponAttachmentData(EWeaponAt
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // EWeaponAttachmentSlotID                 SlotID                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             Tag                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             Tag                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName ATslWeapon::GetWeaponAttachmentPoint(EWeaponAttachmentSlotID SlotID, class FName Tag) const
+FName ATslWeapon::GetWeaponAttachmentPoint(EWeaponAttachmentSlotID SlotID, FName Tag) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -11144,10 +11144,10 @@ void UItemToolTipWidget::UpdateVicinityOrInventorySlotItemToolTip(class UEquipab
 // Function TslGame.LobbyWidget.GameStateChanging
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// class FName                             NewState                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             OldState                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             NewState                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             OldState                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ULobbyWidget::GameStateChanging(class FName NewState, class FName OldState)
+void ULobbyWidget::GameStateChanging(FName NewState, FName OldState)
 {
 	static class UFunction* Func = nullptr;
 
@@ -12062,9 +12062,9 @@ void ATslWeapon_Gun::ManualFireCycleFinished()
 // Function TslGame.TslWeapon_Gun.OnAnimationNotify
 // (Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             NotifyName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             NotifyName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ATslWeapon_Gun::OnAnimationNotify(const class FName& NotifyName)
+void ATslWeapon_Gun::OnAnimationNotify(const FName& NotifyName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -15133,10 +15133,10 @@ class AInventoryFacade* ATslCharacter::GetInventoryFacade()
 // Function TslGame.TslCharacter.GetReactionBone
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName ATslCharacter::GetReactionBone(class FName BoneName)
+FName ATslCharacter::GetReactionBone(FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -16154,11 +16154,11 @@ void ATslCharacter::OnWeapon_5()
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UItem*                            Item                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             TargetContainer                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             TargetContainer                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           Options                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool ATslCharacter::PickUpItem(class UItem* Item, class FName TargetContainer, const class FString& Options)
+bool ATslCharacter::PickUpItem(class UItem* Item, FName TargetContainer, const class FString& Options)
 {
 	static class UFunction* Func = nullptr;
 
@@ -22633,10 +22633,10 @@ void UTslGameOption::ApplyMouseSensitivity()
 // Function TslGame.TslGameOption.CastTslInputModeFromName
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class FName                             InputModeName                                          (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InputModeName                                          (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // ETslInputModes                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-ETslInputModes UTslGameOption::CastTslInputModeFromName(const class FName& InputModeName)
+ETslInputModes UTslGameOption::CastTslInputModeFromName(const FName& InputModeName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -22786,14 +22786,14 @@ TArray<struct FCustomizableMouseSensitiveName> UTslGameOption::CustomizableMouse
 // Function TslGame.TslGameOption.GetActionKey
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bGamepad                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bDefault                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bWantAnyKey                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EKeyBindingSlot                         eKeySlot                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTslInputKey                     ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
-struct FTslInputKey UTslGameOption::GetActionKey(class FName ActionName, bool bGamepad, bool bDefault, bool bWantAnyKey, EKeyBindingSlot eKeySlot)
+struct FTslInputKey UTslGameOption::GetActionKey(FName ActionName, bool bGamepad, bool bDefault, bool bWantAnyKey, EKeyBindingSlot eKeySlot)
 {
 	static class UFunction* Func = nullptr;
 
@@ -22822,11 +22822,11 @@ struct FTslInputKey UTslGameOption::GetActionKey(class FName ActionName, bool bG
 // Function TslGame.TslGameOption.GetActionKeys
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bDefault                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TArray<struct FTslInputKey>             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 
-TArray<struct FTslInputKey> UTslGameOption::GetActionKeys(class FName ActionName, bool bDefault)
+TArray<struct FTslInputKey> UTslGameOption::GetActionKeys(FName ActionName, bool bDefault)
 {
 	static class UFunction* Func = nullptr;
 
@@ -22934,7 +22934,7 @@ TArray<class FString> UTslGameOption::GetAvailableProviderNames()
 // Function TslGame.TslGameOption.GetAxisKey
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class FName                             AxisName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             AxisName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Scale                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bGamepad                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bDefault                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -22942,7 +22942,7 @@ TArray<class FString> UTslGameOption::GetAvailableProviderNames()
 // EKeyBindingSlot                         eKeySlot                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTslInputKey                     ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
-struct FTslInputKey UTslGameOption::GetAxisKey(class FName AxisName, float Scale, bool bGamepad, bool bDefault, bool bWantAnyKey, EKeyBindingSlot eKeySlot)
+struct FTslInputKey UTslGameOption::GetAxisKey(FName AxisName, float Scale, bool bGamepad, bool bDefault, bool bWantAnyKey, EKeyBindingSlot eKeySlot)
 {
 	static class UFunction* Func = nullptr;
 
@@ -22972,12 +22972,12 @@ struct FTslInputKey UTslGameOption::GetAxisKey(class FName AxisName, float Scale
 // Function TslGame.TslGameOption.GetAxisKeys
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class FName                             AxisName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             AxisName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Scale                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bDefault                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TArray<struct FTslInputKey>             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 
-TArray<struct FTslInputKey> UTslGameOption::GetAxisKeys(class FName AxisName, float Scale, bool bDefault)
+TArray<struct FTslInputKey> UTslGameOption::GetAxisKeys(FName AxisName, float Scale, bool bDefault)
 {
 	static class UFunction* Func = nullptr;
 
@@ -23054,10 +23054,10 @@ TArray<struct FColorBlindType> UTslGameOption::GetColorBlindTypes()
 // Function TslGame.TslGameOption.GetConvertedMouseSensitivity
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class FName                             InMouseSensitiveName                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InMouseSensitiveName                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-float UTslGameOption::GetConvertedMouseSensitivity(class FName InMouseSensitiveName)
+float UTslGameOption::GetConvertedMouseSensitivity(FName InMouseSensitiveName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -23513,10 +23513,10 @@ TArray<struct FUiType> UTslGameOption::GetMiniMapTypes()
 // Function TslGame.TslGameOption.GetMouseSensitivity
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class FName                             InMouseSensitiveName                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InMouseSensitiveName                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-float UTslGameOption::GetMouseSensitivity(class FName InMouseSensitiveName)
+float UTslGameOption::GetMouseSensitivity(FName InMouseSensitiveName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -24449,10 +24449,10 @@ bool UTslGameOption::IsVSyncEnabled()
 // Function TslGame.TslGameOption.NotDuplicateCategoryNames
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class FName                             CatecoryName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TArray<class FName>                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+// FName                             CatecoryName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TArray<FName>                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 
-TArray<class FName> UTslGameOption::NotDuplicateCategoryNames(class FName CatecoryName)
+TArray<FName> UTslGameOption::NotDuplicateCategoryNames(FName CatecoryName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -24477,12 +24477,12 @@ TArray<class FName> UTslGameOption::NotDuplicateCategoryNames(class FName Cateco
 // Function TslGame.TslGameOption.SetActionKey
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             ActionName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ActionName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTslInputKey                     NewKey                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // EKeyBindingSlot                         InKeyBindingSlot                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bGamepad                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UTslGameOption::SetActionKey(const class FName& ActionName, const struct FTslInputKey& NewKey, EKeyBindingSlot InKeyBindingSlot, bool bGamepad)
+void UTslGameOption::SetActionKey(const FName& ActionName, const struct FTslInputKey& NewKey, EKeyBindingSlot InKeyBindingSlot, bool bGamepad)
 {
 	static class UFunction* Func = nullptr;
 
@@ -24508,10 +24508,10 @@ void UTslGameOption::SetActionKey(const class FName& ActionName, const struct FT
 // Function TslGame.TslGameOption.SetActionKeys
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             ActionName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ActionName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TArray<struct FTslInputKey>             NewKeys                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 
-void UTslGameOption::SetActionKeys(const class FName& ActionName, const TArray<struct FTslInputKey>& NewKeys)
+void UTslGameOption::SetActionKeys(const FName& ActionName, const TArray<struct FTslInputKey>& NewKeys)
 {
 	static class UFunction* Func = nullptr;
 
@@ -24535,9 +24535,9 @@ void UTslGameOption::SetActionKeys(const class FName& ActionName, const TArray<s
 // Function TslGame.TslGameOption.SetActionKeysToDefault
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             ActionName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ActionName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UTslGameOption::SetActionKeysToDefault(const class FName& ActionName)
+void UTslGameOption::SetActionKeysToDefault(const FName& ActionName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -24560,13 +24560,13 @@ void UTslGameOption::SetActionKeysToDefault(const class FName& ActionName)
 // Function TslGame.TslGameOption.SetAxisKey
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             AxisName                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             AxisName                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Scale                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTslInputKey                     NewKey                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // EKeyBindingSlot                         InKeyBindingSlot                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bGamepad                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UTslGameOption::SetAxisKey(const class FName& AxisName, float Scale, const struct FTslInputKey& NewKey, EKeyBindingSlot InKeyBindingSlot, bool bGamepad)
+void UTslGameOption::SetAxisKey(const FName& AxisName, float Scale, const struct FTslInputKey& NewKey, EKeyBindingSlot InKeyBindingSlot, bool bGamepad)
 {
 	static class UFunction* Func = nullptr;
 
@@ -24593,11 +24593,11 @@ void UTslGameOption::SetAxisKey(const class FName& AxisName, float Scale, const 
 // Function TslGame.TslGameOption.SetAxisKeys
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             AxisName                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             AxisName                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Scale                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TArray<struct FTslInputKey>             NewKeys                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 
-void UTslGameOption::SetAxisKeys(const class FName& AxisName, float Scale, const TArray<struct FTslInputKey>& NewKeys)
+void UTslGameOption::SetAxisKeys(const FName& AxisName, float Scale, const TArray<struct FTslInputKey>& NewKeys)
 {
 	static class UFunction* Func = nullptr;
 
@@ -24622,10 +24622,10 @@ void UTslGameOption::SetAxisKeys(const class FName& AxisName, float Scale, const
 // Function TslGame.TslGameOption.SetAxisKeysToDefault
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             AxisName                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             AxisName                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Scale                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UTslGameOption::SetAxisKeysToDefault(const class FName& AxisName, float Scale)
+void UTslGameOption::SetAxisKeysToDefault(const FName& AxisName, float Scale)
 {
 	static class UFunction* Func = nullptr;
 
@@ -25209,10 +25209,10 @@ void UTslGameOption::SetMotionBlur(bool bEnabled)
 // Function TslGame.TslGameOption.SetMouseSensitivity
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
-// class FName                             InMouseSensitiveName                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InMouseSensitiveName                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   InMouseSensitivity                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UTslGameOption::SetMouseSensitivity(class FName InMouseSensitiveName, float InMouseSensitivity)
+void UTslGameOption::SetMouseSensitivity(FName InMouseSensitiveName, float InMouseSensitivity)
 {
 	static class UFunction* Func = nullptr;
 
@@ -26967,11 +26967,11 @@ bool AInventoryFacade::IsAutoSwappable(EEquipSlotID SlotID) const
 // (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
 // Parameters:
 // struct FEquipPosition                   EquipPosition                                          (Parm, NativeAccessSpecifierPublic)
-// class FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EWeaponAttachmentSlotID                 SlotID                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bSoundPlay                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AEquipment::DetachItem(const struct FEquipPosition& EquipPosition, class FName ItemClassForVerify, EWeaponAttachmentSlotID SlotID, bool bSoundPlay)
+void AEquipment::DetachItem(const struct FEquipPosition& EquipPosition, FName ItemClassForVerify, EWeaponAttachmentSlotID SlotID, bool bSoundPlay)
 {
 	static class UFunction* Func = nullptr;
 
@@ -26998,11 +26998,11 @@ void AEquipment::DetachItem(const struct FEquipPosition& EquipPosition, class FN
 // (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
 // Parameters:
 // struct FEquipPosition                   EquipPosition                                          (Parm, NativeAccessSpecifierPublic)
-// class FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EWeaponAttachmentSlotID                 SlotID                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bSoundPlay                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AEquipment::DropAttachedItem(const struct FEquipPosition& EquipPosition, class FName ItemClassForVerify, EWeaponAttachmentSlotID SlotID, bool bSoundPlay)
+void AEquipment::DropAttachedItem(const struct FEquipPosition& EquipPosition, FName ItemClassForVerify, EWeaponAttachmentSlotID SlotID, bool bSoundPlay)
 {
 	static class UFunction* Func = nullptr;
 
@@ -27029,11 +27029,11 @@ void AEquipment::DropAttachedItem(const struct FEquipPosition& EquipPosition, cl
 // (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
 // Parameters:
 // struct FEquipPosition                   Position                                               (Parm, NativeAccessSpecifierPublic)
-// class FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bIsForce                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bSoundPlay                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AEquipment::DropItem(const struct FEquipPosition& Position, class FName ItemClassForVerify, bool bIsForce, bool bSoundPlay)
+void AEquipment::DropItem(const struct FEquipPosition& Position, FName ItemClassForVerify, bool bIsForce, bool bSoundPlay)
 {
 	static class UFunction* Func = nullptr;
 
@@ -27170,10 +27170,10 @@ bool AEquipment::TryEquipItem(class UItem* Item, bool bSoundPlay)
 // (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
 // Parameters:
 // struct FEquipPosition                   Position                                               (Parm, NativeAccessSpecifierPublic)
-// class FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bSoundPlay                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AEquipment::UnequipItem(const struct FEquipPosition& Position, class FName ItemClassForVerify, bool bSoundPlay)
+void AEquipment::UnequipItem(const struct FEquipPosition& Position, FName ItemClassForVerify, bool bSoundPlay)
 {
 	static class UFunction* Func = nullptr;
 
@@ -27200,11 +27200,11 @@ void AEquipment::UnequipItem(const struct FEquipPosition& Position, class FName 
 // Parameters:
 // struct FEquipPosition                   SourceWeapon                                           (Parm, NativeAccessSpecifierPublic)
 // struct FEquipPosition                   TargetWeapon                                           (Parm, NativeAccessSpecifierPublic)
-// class FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EWeaponAttachmentSlotID                 AttachmentSlotID                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bSoundPlay                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AEquipment::WeaponAttachmentSwap(const struct FEquipPosition& SourceWeapon, const struct FEquipPosition& TargetWeapon, class FName ItemClassForVerify, EWeaponAttachmentSlotID AttachmentSlotID, bool bSoundPlay)
+void AEquipment::WeaponAttachmentSwap(const struct FEquipPosition& SourceWeapon, const struct FEquipPosition& TargetWeapon, FName ItemClassForVerify, EWeaponAttachmentSlotID AttachmentSlotID, bool bSoundPlay)
 {
 	static class UFunction* Func = nullptr;
 
@@ -27574,11 +27574,11 @@ struct FEquipPosition AEquipment::WeaponIndexToEquipPosition(int32 WeaponIndex) 
 // (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
 // Parameters:
 // int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FEquipPosition                   EquipPosition                                          (Parm, NativeAccessSpecifierPublic)
 // bool                                    bSoundPlay                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AInventory::AttachItem(int32 Index_0, class FName ItemClassForVerify, const struct FEquipPosition& EquipPosition, bool bSoundPlay)
+void AInventory::AttachItem(int32 Index_0, FName ItemClassForVerify, const struct FEquipPosition& EquipPosition, bool bSoundPlay)
 {
 	static class UFunction* Func = nullptr;
 
@@ -27605,10 +27605,10 @@ void AInventory::AttachItem(int32 Index_0, class FName ItemClassForVerify, const
 // (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
 // Parameters:
 // int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bSoundPlay                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AInventory::AttachOrDropItem(int32 Index_0, class FName ItemClassForVerify, bool bSoundPlay)
+void AInventory::AttachOrDropItem(int32 Index_0, FName ItemClassForVerify, bool bSoundPlay)
 {
 	static class UFunction* Func = nullptr;
 
@@ -27683,11 +27683,11 @@ bool AInventory::ConsumeItemByClass(TSubclassOf<class UItem> ItemClass, int32 Co
 // (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
 // Parameters:
 // int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           Options                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bSoundPlay                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AInventory::DropItem(int32 Index_0, class FName ItemClassForVerify, const class FString& Options, bool bSoundPlay)
+void AInventory::DropItem(int32 Index_0, FName ItemClassForVerify, const class FString& Options, bool bSoundPlay)
 {
 	static class UFunction* Func = nullptr;
 
@@ -27714,10 +27714,10 @@ void AInventory::DropItem(int32 Index_0, class FName ItemClassForVerify, const c
 // (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
 // Parameters:
 // int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bSoundPlay                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AInventory::EquipItem(int32 Index_0, class FName ItemClassForVerify, bool bSoundPlay)
+void AInventory::EquipItem(int32 Index_0, FName ItemClassForVerify, bool bSoundPlay)
 {
 	static class UFunction* Func = nullptr;
 
@@ -27743,10 +27743,10 @@ void AInventory::EquipItem(int32 Index_0, class FName ItemClassForVerify, bool b
 // (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
 // Parameters:
 // int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bSoundPlay                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AInventory::EquipOrDropItem(int32 Index_0, class FName ItemClassForVerify, bool bSoundPlay)
+void AInventory::EquipOrDropItem(int32 Index_0, FName ItemClassForVerify, bool bSoundPlay)
 {
 	static class UFunction* Func = nullptr;
 
@@ -27872,9 +27872,9 @@ void AInventory::OnFinishUseCast(class UObject* CastObject)
 // (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
 // Parameters:
 // int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ItemClassForVerify                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AInventory::UseItem(int32 Index_0, class FName ItemClassForVerify)
+void AInventory::UseItem(int32 Index_0, FName ItemClassForVerify)
 {
 	static class UFunction* Func = nullptr;
 
@@ -29158,17 +29158,17 @@ void ATslParticle::OnParameterUpdated()
 // Function TslGame.TslParticle.OnParticleCollide
 // (Final, Native, Public, HasDefaults)
 // Parameters:
-// class FName                             EventName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             EventName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   EmitterTime                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   ParticleTime                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Location                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          Velocity                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          Direction                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          Normal                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UPhysicalMaterial*                PhysMat                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ATslParticle::OnParticleCollide(class FName EventName, float EmitterTime, int32 ParticleTime, const struct FVector& Location, const struct FVector& Velocity, const struct FVector& Direction, const struct FVector& Normal, class FName BoneName, class UPhysicalMaterial* PhysMat)
+void ATslParticle::OnParticleCollide(FName EventName, float EmitterTime, int32 ParticleTime, const struct FVector& Location, const struct FVector& Velocity, const struct FVector& Direction, const struct FVector& Normal, FName BoneName, class UPhysicalMaterial* PhysMat)
 {
 	static class UFunction* Func = nullptr;
 
@@ -32057,10 +32057,10 @@ void UTslAnimInstance::HandleSpeedAndDirection_CP()
 // (Event, Public, HasDefaults, BlueprintEvent)
 // Parameters:
 // EAnimWeaponType                         WeaponType                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Direction                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UTslAnimInstance::OnHitReaction(EAnimWeaponType WeaponType, class FName BoneName, const struct FVector& Direction)
+void UTslAnimInstance::OnHitReaction(EAnimWeaponType WeaponType, FName BoneName, const struct FVector& Direction)
 {
 	static class UFunction* Func = nullptr;
 
@@ -33497,12 +33497,12 @@ class UTslAccessoryComponent* ATslCharacterProxy::GetAccessorySlot(EAccessorySlo
 // Function TslGame.TslUserWidget.ListenForInputAxis
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             AxisName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             AxisName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Scale                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bConsume                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TDelegate<void(float Scale)>            Callback                                               (Parm, ZeroConstructor, NoDestructor, NativeAccessSpecifierPublic)
 
-void UTslUserWidget::ListenForInputAxis(class FName AxisName, float Scale, bool bConsume, TDelegate<void(float Scale)> Callback)
+void UTslUserWidget::ListenForInputAxis(FName AxisName, float Scale, bool bConsume, TDelegate<void(float Scale)> Callback)
 {
 	static class UFunction* Func = nullptr;
 
@@ -34453,16 +34453,16 @@ void ITslVehicleReactionInterface::OnImpactedByVehicle(const struct FHitResult& 
 // Function TslGame.TslExplosionEffect.OnParticleCollide
 // (Final, Native, Private, HasDefaults)
 // Parameters:
-// class FName                             EventName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             EventName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   EmitterTime                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   ParticleTime                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Location                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          Velocity                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          Direction                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          Normal                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ATslExplosionEffect::OnParticleCollide(class FName EventName, float EmitterTime, int32 ParticleTime, const struct FVector& Location, const struct FVector& Velocity, const struct FVector& Direction, const struct FVector& Normal, class FName BoneName)
+void ATslExplosionEffect::OnParticleCollide(FName EventName, float EmitterTime, int32 ParticleTime, const struct FVector& Location, const struct FVector& Velocity, const struct FVector& Direction, const struct FVector& Normal, FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -36611,9 +36611,9 @@ bool UTslGameInstance::UnPause()
 // Function TslGame.TslGameInstance.GetCurrentGameState
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName UTslGameInstance::GetCurrentGameState() const
+FName UTslGameInstance::GetCurrentGameState() const
 {
 	static class UFunction* Func = nullptr;
 
@@ -36760,10 +36760,10 @@ void ATslGameMode::BenchmarkFinished()
 // Function TslGame.TslGameMode.BroadcastGameModeEvent
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             EventName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             EventName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           Parameter                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ATslGameMode::BroadcastGameModeEvent(class FName EventName, const class FString& Parameter)
+void ATslGameMode::BroadcastGameModeEvent(FName EventName, const class FString& Parameter)
 {
 	static class UFunction* Func = nullptr;
 
@@ -38157,11 +38157,11 @@ bool ATslPostProcessEffect::SetMaterialBlendWeight(int32 idx, float Value)
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   idx                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool ATslPostProcessEffect::SetMaterialParameter(int32 idx, class FName ParameterName, float Value)
+bool ATslPostProcessEffect::SetMaterialParameter(int32 idx, FName ParameterName, float Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -38189,11 +38189,11 @@ bool ATslPostProcessEffect::SetMaterialParameter(int32 idx, class FName Paramete
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // int32                                   idx                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FLinearColor                     Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool ATslPostProcessEffect::SetMaterialVectorParameter(int32 idx, class FName ParameterName, const struct FLinearColor& Value)
+bool ATslPostProcessEffect::SetMaterialVectorParameter(int32 idx, FName ParameterName, const struct FLinearColor& Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -40251,9 +40251,9 @@ struct FVector UTslStatics::LocalPositionToServer(class UObject* WorldContextObj
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // EPhysicalSurface                        Type                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName UTslStatics::PhysicalSurfaceToName(EPhysicalSurface Type)
+FName UTslStatics::PhysicalSurfaceToName(EPhysicalSurface Type)
 {
 	static class UFunction* Func = nullptr;
 
@@ -42014,14 +42014,14 @@ void UTslKeyDisplayWidget::InitializeKeyDisplayWidget(bool bDefault)
 // Function TslGame.TslKeyDisplayWidget.SetupKeyDisplayWidget
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             InInputName                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InInputName                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FText                             InDisplayName                                          (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// class FName                             InCategoryName                                         (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InCategoryName                                         (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    InbAxisInput                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   InAxisScale                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    InbGamepad                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UTslKeyDisplayWidget::SetupKeyDisplayWidget(const class FName& InInputName, const class FText& InDisplayName, const class FName& InCategoryName, bool InbAxisInput, float InAxisScale, bool InbGamepad)
+void UTslKeyDisplayWidget::SetupKeyDisplayWidget(const FName& InInputName, const class FText& InDisplayName, const FName& InCategoryName, bool InbAxisInput, float InAxisScale, bool InbGamepad)
 {
 	static class UFunction* Func = nullptr;
 
@@ -42158,10 +42158,10 @@ void UTslKeySettingWidget::SetToDefault()
 // Function TslGame.TslKeySettingWidget.StartupKeySettingWidget
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             InCategoryName                                         (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InCategoryName                                         (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FText                             InDisplayText                                          (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
-void UTslKeySettingWidget::StartupKeySettingWidget(const class FName& InCategoryName, const class FText& InDisplayText)
+void UTslKeySettingWidget::StartupKeySettingWidget(const FName& InCategoryName, const class FText& InDisplayText)
 {
 	static class UFunction* Func = nullptr;
 
@@ -42212,10 +42212,10 @@ void UTslKeySettingWidget::TransferInputEvent(class UTslKeyDisplayWidget* KeyDis
 // Function TslGame.TslBuffIconListWidget.OnStartBuff
 // (Final, Native, Public)
 // Parameters:
-// class FName                             BuffName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BuffName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bStart                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UTslBuffIconListWidget::OnStartBuff(class FName BuffName, bool bStart)
+void UTslBuffIconListWidget::OnStartBuff(FName BuffName, bool bStart)
 {
 	static class UFunction* Func = nullptr;
 
@@ -43852,9 +43852,9 @@ void ATslWeapon_Melee::ClientHit_Confirmed(const struct FHitResult& Impact)
 // Function TslGame.TslWeapon_Melee.OnAnimationNotify
 // (Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             NotifyName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             NotifyName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ATslWeapon_Melee::OnAnimationNotify(const class FName& NotifyName)
+void ATslWeapon_Melee::OnAnimationNotify(const FName& NotifyName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -44027,9 +44027,9 @@ int32 ATslWeapon_Throwable::GetThrowableCountInInventory()
 // Function TslGame.TslWeapon_Throwable.OnAnimationNotify
 // (Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             NotifyName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             NotifyName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ATslWeapon_Throwable::OnAnimationNotify(const class FName& NotifyName)
+void ATslWeapon_Throwable::OnAnimationNotify(const FName& NotifyName)
 {
 	static class UFunction* Func = nullptr;
 

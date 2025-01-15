@@ -338,7 +338,7 @@ static_assert(offsetof(BlueprintGameplayTagLibrary_NotEqual_TagTag, ReturnValue)
 struct GameplayTagsManager_RequestGameplayTag final
 {
 public:
-	class FName                                   TagName;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   TagName;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ErrorIfNotFound;                                   // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FGameplayTag                           ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)

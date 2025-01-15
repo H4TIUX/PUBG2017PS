@@ -253,7 +253,7 @@ static_assert(sizeof(FUniqueNetIdWrapper) == 0x000001, "Wrong size on FUniqueNet
 struct alignas(0x08) FJoinabilitySettings final
 {
 public:
-	class FName                                   SessionName;                                       // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                         SessionName;                                       // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bPublicSearchable;                                 // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bAllowInvites;                                     // 0x0009(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bJoinViaPresence;                                  // 0x000A(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -318,7 +318,7 @@ static_assert(offsetof(FInt32Range, UpperBound) == 0x000008, "Member 'FInt32Rang
 
 // ScriptStruct CoreUObject.Vector
 // 0x000C (0x000C - 0x0000)
-struct FVector
+struct alignas(4) FVector
 {
 public:
 	using UnderlayingType = float;
@@ -436,7 +436,7 @@ static_assert(offsetof(FVector, Z) == 0x000008, "Member 'FVector::Z' has a wrong
 
 // ScriptStruct CoreUObject.LinearColor
 // 0x0010 (0x0010 - 0x0000)
-struct FLinearColor final
+struct alignas(4) FLinearColor final
 {
 public:
 	float                                         R;                                                 // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -632,7 +632,7 @@ static_assert(offsetof(FInterpCurveTwoVectors, LoopKeyOffset) == 0x000014, "Memb
 
 // ScriptStruct CoreUObject.Rotator
 // 0x000C (0x000C - 0x0000)
-struct FRotator final
+struct alignas(4) FRotator final
 {
 public:
 	float                                         Pitch;                                             // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -759,7 +759,7 @@ static_assert(offsetof(FPackedRGBA16N, ZW) == 0x000004, "Member 'FPackedRGBA16N:
 
 // ScriptStruct CoreUObject.IntPoint
 // 0x0008 (0x0008 - 0x0000)
-struct FIntPoint final
+struct alignas(4) FIntPoint final
 {
 public:
 	int32                                         X;                                                 // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -904,7 +904,7 @@ static_assert(offsetof(FOrientedBox, ExtentZ) == 0x000038, "Member 'FOrientedBox
 
 // ScriptStruct CoreUObject.StringAssetReference
 // 0x0010 (0x0010 - 0x0000)
-struct FStringAssetReference
+struct alignas(8) FStringAssetReference
 {
 public:
 	class FString                                 AssetLongPathname;                                 // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -915,7 +915,7 @@ static_assert(offsetof(FStringAssetReference, AssetLongPathname) == 0x000000, "M
 
 // ScriptStruct CoreUObject.InterpCurvePointVector2D
 // 0x0020 (0x0020 - 0x0000)
-struct FInterpCurvePointVector2D final
+struct alignas(4) FInterpCurvePointVector2D final
 {
 public:
 	float                                         InVal;                                             // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -951,7 +951,7 @@ static_assert(offsetof(FInterpCurveVector2D, LoopKeyOffset) == 0x000014, "Member
 
 // ScriptStruct CoreUObject.FloatInterval
 // 0x0008 (0x0008 - 0x0000)
-struct FFloatInterval final
+struct alignas(4) FFloatInterval final
 {
 public:
 	float                                         Min;                                               // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1021,7 +1021,7 @@ static_assert(sizeof(FFallbackStruct) == 0x000001, "Wrong size on FFallbackStruc
 
 // ScriptStruct CoreUObject.FloatRangeBound
 // 0x0008 (0x0008 - 0x0000)
-struct FFloatRangeBound final
+struct alignas(4) FFloatRangeBound final
 {
 public:
 	ERangeBoundTypes                              Type;                                              // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1035,7 +1035,7 @@ static_assert(offsetof(FFloatRangeBound, Value) == 0x000004, "Member 'FFloatRang
 
 // ScriptStruct CoreUObject.FloatRange
 // 0x0010 (0x0010 - 0x0000)
-struct FFloatRange final
+struct alignas(4) FFloatRange final
 {
 public:
 	struct FFloatRangeBound                       LowerBound;                                        // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
@@ -1048,7 +1048,7 @@ static_assert(offsetof(FFloatRange, UpperBound) == 0x000008, "Member 'FFloatRang
 
 // ScriptStruct CoreUObject.Int32Interval
 // 0x0008 (0x0008 - 0x0000)
-struct FInt32Interval final
+struct alignas(4) FInt32Interval final
 {
 public:
 	int32                                         Min;                                               // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)

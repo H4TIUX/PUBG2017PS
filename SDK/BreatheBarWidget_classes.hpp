@@ -45,7 +45,7 @@ public:
 	void ExecuteUbergraph_BreatheBarWidget(int32 EntryPoint);
 	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void Construct();
-	void OnStartBuff(class FName BuffName, bool bStart);
+	void OnStartBuff(struct FName BuffName, bool bStart);
 	void UpdateBreathGauge(class UWidget* BoundWidget);
 	void OnPrepass_0(class UWidget* BoundWidget);
 

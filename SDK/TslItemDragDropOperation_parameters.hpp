@@ -44,7 +44,7 @@ static_assert(offsetof(TslItemDragDropOperation_C_GetOptions, K2Node_Select_Defa
 struct alignas(0x08) TslItemDragDropOperation_C_GetActionName final
 {
 public:
-	class FName                                   ActionName_0;                                      // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
+	struct FName                                   ActionName_0;                                      // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
 };
 static_assert(alignof(TslItemDragDropOperation_C_GetActionName) == 0x000008, "Wrong alignment on TslItemDragDropOperation_C_GetActionName");
 static_assert(sizeof(TslItemDragDropOperation_C_GetActionName) == 0x000008, "Wrong size on TslItemDragDropOperation_C_GetActionName");
@@ -85,7 +85,7 @@ public:
 	bool                                          K2Node_DynamicCast_bSuccess;                       // 0x0058(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	uint8                                         Pad_59[0x7];                                       // 0x0059(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	class FString                                 CallFunc_GetOptions_Options2;                      // 0x0060(0x0010)(ZeroConstructor)
-	class FName                                   CallFunc_GetActionName_ReturnValue;                // 0x0070(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	struct FName                                   CallFunc_GetActionName_ReturnValue;                // 0x0070(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
 };
 static_assert(alignof(TslItemDragDropOperation_C_EnterOtherContainer) == 0x000008, "Wrong alignment on TslItemDragDropOperation_C_EnterOtherContainer");
 static_assert(sizeof(TslItemDragDropOperation_C_EnterOtherContainer) == 0x000078, "Wrong size on TslItemDragDropOperation_C_EnterOtherContainer");
@@ -148,7 +148,7 @@ public:
 	TScriptInterface<class ISlotContainerInterface> CallFunc_Array_Get_Item;                           // 0x0010(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0020(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   CallFunc_GetSlotContainerName_ReturnValue;         // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	struct FName                                   CallFunc_GetSlotContainerName_ReturnValue;         // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0030(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	bool                                          CallFunc_EqualEqual_NameName_ReturnValue;          // 0x0031(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
 };

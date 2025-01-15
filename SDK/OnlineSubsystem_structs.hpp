@@ -98,7 +98,7 @@ static_assert(offsetof(FInAppPurchaseRestoreInfo, TransactionIdentifier) == 0x00
 struct FNamedInterfaceDef final
 {
 public:
-	class FName                                   InterfaceName;                                     // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   InterfaceName;                                     // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 InterfaceClassName;                                // 0x0008(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FNamedInterfaceDef) == 0x000008, "Wrong alignment on FNamedInterfaceDef");
@@ -125,7 +125,7 @@ static_assert(offsetof(FInAppPurchaseProductRequest, bIsConsumable) == 0x000010,
 struct FNamedInterface final
 {
 public:
-	class FName                                   InterfaceName;                                     // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   InterfaceName;                                     // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UObject*                                InterfaceObject;                                   // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FNamedInterface) == 0x000008, "Wrong alignment on FNamedInterface");

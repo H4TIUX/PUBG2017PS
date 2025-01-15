@@ -128,6 +128,10 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <LanguageStandard_C>stdclatest</LanguageStandard_C>
+      <AdditionalOptions>
+      </AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -137,14 +141,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Config\IniSettings.cpp" />
+    <ClCompile Include="Helpers\Helpers.cpp" />
+    <ClCompile Include="Logs\Log.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Network\Network.cpp" />
     <ClCompile Include="SDK\Basic.cpp" />
     <ClCompile Include="SDK\CoreUObject_functions.cpp" />
     <ClCompile Include="SDK\Engine_functions.cpp" />
     <ClCompile Include="SDK\TslGame_functions.cpp" />
     <ClCompile Include="SDK\UMG_functions.cpp" />
+    <ClCompile Include="Spawners\ItemSpawner.cpp" />
+    <ClCompile Include="Spawners\SpawnEquipments.cpp" />
+    <ClCompile Include="SpawnPoints\Spawnpoints.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="Config\IniSettings.h" />
+    <ClInclude Include="Helpers\Helpers.h" />
+    <ClInclude Include="Logs\Log.h" />
+    <ClInclude Include="Network\Network.h" />
     <ClInclude Include="ProcessEventHook.h" />
     <ClInclude Include="SDK.hpp" />
     <ClInclude Include="SDK\Basic.hpp" />
@@ -152,6 +168,10 @@
     <ClInclude Include="SDK\Engine_classes.hpp" />
     <ClInclude Include="SDK\Engine_structs.hpp" />
     <ClInclude Include="SDK\TslGame_classes.hpp" />
+    <ClInclude Include="Spawners\AllSpawners.h" />
+    <ClInclude Include="Spawners\ItemSpawner.h" />
+    <ClInclude Include="Spawners\SpawnEquipments.h" />
+    <ClInclude Include="SpawnPoints\Spawnpoints.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

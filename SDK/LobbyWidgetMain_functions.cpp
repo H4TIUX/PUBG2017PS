@@ -40,10 +40,10 @@ void ULobbyWidgetMain_C::ExecuteUbergraph_LobbyWidgetMain(int32 EntryPoint)
 // Function LobbyWidgetMain.LobbyWidgetMain_C.GameStateChanging
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// class FName                             NewState                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
-// class FName                             OldState                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
+// struct FName                             NewState                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
+// struct FName                             OldState                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
 
-void ULobbyWidgetMain_C::GameStateChanging(class FName NewState, class FName OldState)
+void ULobbyWidgetMain_C::GameStateChanging(struct FName NewState, struct FName OldState)
 {
 	static class UFunction* Func = nullptr;
 
@@ -62,10 +62,10 @@ void ULobbyWidgetMain_C::GameStateChanging(class FName NewState, class FName Old
 // Function LobbyWidgetMain.LobbyWidgetMain_C.SendGameStateChangingToWeb
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// class FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
-// class FName                             InName2                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
+// struct FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
+// struct FName                             InName2                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
 
-void ULobbyWidgetMain_C::SendGameStateChangingToWeb(class FName InName, class FName InName2)
+void ULobbyWidgetMain_C::SendGameStateChangingToWeb(struct FName InName, struct FName InName2)
 {
 	static class UFunction* Func = nullptr;
 

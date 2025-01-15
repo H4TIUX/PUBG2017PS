@@ -69,7 +69,7 @@ static_assert(offsetof(UMovieScene, EndTime) == 0x0000A4, "Member 'UMovieScene::
 class UMovieSceneFolder final : public UObject
 {
 public:
-	class FName                                   FolderName;                                        // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FName                                   FolderName;                                        // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	TArray<class UMovieSceneFolder*>              ChildFolders;                                      // 0x0030(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
 	TArray<class UMovieSceneTrack*>               ChildMasterTracks;                                 // 0x0040(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
 	TArray<class FString>                         ChildObjectBindingStrings;                         // 0x0050(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)

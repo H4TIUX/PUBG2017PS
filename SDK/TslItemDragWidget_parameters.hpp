@@ -199,7 +199,7 @@ static_assert(offsetof(TslItemDragWidget_C_GetInventory, CallFunc_IsValid_Return
 struct TslItemDragWidget_C_GetActionName final
 {
 public:
-	class FName                                   ActionName_0;                                      // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
+	struct FName                                   ActionName_0;                                      // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
 	class FString                                 CallFunc_Conv_NameToString_ReturnValue;            // 0x0008(0x0010)(ZeroConstructor)
 };
 static_assert(alignof(TslItemDragWidget_C_GetActionName) == 0x000008, "Wrong alignment on TslItemDragWidget_C_GetActionName");

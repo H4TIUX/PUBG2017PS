@@ -952,11 +952,11 @@ void UAIBlueprintHelperLibrary::LockAIResourcesWithAnimation(class UAnimInstance
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class APawn*                            Target                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             Message                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             Message                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UObject*                          MessageSource                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bSuccess                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAIBlueprintHelperLibrary::SendAIMessage(class APawn* Target, class FName Message, class UObject* MessageSource, bool bSuccess)
+void UAIBlueprintHelperLibrary::SendAIMessage(class APawn* Target, struct FName Message, class UObject* MessageSource, bool bSuccess)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1790,9 +1790,9 @@ void UAISense_Damage::ReportDamageEvent(class UObject* WorldContext, class AActo
 // float                                   Loudness                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class AActor*                           Instigator                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   MaxRange                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             Tag                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             Tag                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAISense_Hearing::ReportNoiseEvent(class UObject* WorldContext, const struct FVector& NoiseLocation, float Loudness, class AActor* Instigator, float MaxRange, class FName Tag)
+void UAISense_Hearing::ReportNoiseEvent(class UObject* WorldContext, const struct FVector& NoiseLocation, float Loudness, class AActor* Instigator, float MaxRange, struct FName Tag)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2278,9 +2278,9 @@ float UBehaviorTreeComponent::GetTagCooldownEndTime(const struct FGameplayTag& C
 // Function AIModule.BlackboardComponent.ClearValue
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UBlackboardComponent::ClearValue(const class FName& KeyName)
+void UBlackboardComponent::ClearValue(const struct FName& KeyName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2303,10 +2303,10 @@ void UBlackboardComponent::ClearValue(const class FName& KeyName)
 // Function AIModule.BlackboardComponent.SetValueAsBool
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    BoolValue                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UBlackboardComponent::SetValueAsBool(const class FName& KeyName, bool BoolValue)
+void UBlackboardComponent::SetValueAsBool(const struct FName& KeyName, bool BoolValue)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2330,10 +2330,10 @@ void UBlackboardComponent::SetValueAsBool(const class FName& KeyName, bool BoolV
 // Function AIModule.BlackboardComponent.SetValueAsClass
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UClass*                           ClassValue                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UBlackboardComponent::SetValueAsClass(const class FName& KeyName, class UClass* ClassValue)
+void UBlackboardComponent::SetValueAsClass(const struct FName& KeyName, class UClass* ClassValue)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2357,10 +2357,10 @@ void UBlackboardComponent::SetValueAsClass(const class FName& KeyName, class UCl
 // Function AIModule.BlackboardComponent.SetValueAsEnum
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // uint8                                   EnumValue                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UBlackboardComponent::SetValueAsEnum(const class FName& KeyName, uint8 EnumValue)
+void UBlackboardComponent::SetValueAsEnum(const struct FName& KeyName, uint8 EnumValue)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2384,10 +2384,10 @@ void UBlackboardComponent::SetValueAsEnum(const class FName& KeyName, uint8 Enum
 // Function AIModule.BlackboardComponent.SetValueAsFloat
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   FloatValue                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UBlackboardComponent::SetValueAsFloat(const class FName& KeyName, float FloatValue)
+void UBlackboardComponent::SetValueAsFloat(const struct FName& KeyName, float FloatValue)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2411,10 +2411,10 @@ void UBlackboardComponent::SetValueAsFloat(const class FName& KeyName, float Flo
 // Function AIModule.BlackboardComponent.SetValueAsInt
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   IntValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UBlackboardComponent::SetValueAsInt(const class FName& KeyName, int32 IntValue)
+void UBlackboardComponent::SetValueAsInt(const struct FName& KeyName, int32 IntValue)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2438,10 +2438,10 @@ void UBlackboardComponent::SetValueAsInt(const class FName& KeyName, int32 IntVa
 // Function AIModule.BlackboardComponent.SetValueAsName
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             NameValue                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             NameValue                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UBlackboardComponent::SetValueAsName(const class FName& KeyName, class FName NameValue)
+void UBlackboardComponent::SetValueAsName(const struct FName& KeyName, struct FName NameValue)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2465,10 +2465,10 @@ void UBlackboardComponent::SetValueAsName(const class FName& KeyName, class FNam
 // Function AIModule.BlackboardComponent.SetValueAsObject
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UObject*                          ObjectValue                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UBlackboardComponent::SetValueAsObject(const class FName& KeyName, class UObject* ObjectValue)
+void UBlackboardComponent::SetValueAsObject(const struct FName& KeyName, class UObject* ObjectValue)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2492,10 +2492,10 @@ void UBlackboardComponent::SetValueAsObject(const class FName& KeyName, class UO
 // Function AIModule.BlackboardComponent.SetValueAsRotator
 // (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FRotator                         VectorValue                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UBlackboardComponent::SetValueAsRotator(const class FName& KeyName, const struct FRotator& VectorValue)
+void UBlackboardComponent::SetValueAsRotator(const struct FName& KeyName, const struct FRotator& VectorValue)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2519,10 +2519,10 @@ void UBlackboardComponent::SetValueAsRotator(const class FName& KeyName, const s
 // Function AIModule.BlackboardComponent.SetValueAsString
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           StringValue                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UBlackboardComponent::SetValueAsString(const class FName& KeyName, const class FString& StringValue)
+void UBlackboardComponent::SetValueAsString(const struct FName& KeyName, const class FString& StringValue)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2546,10 +2546,10 @@ void UBlackboardComponent::SetValueAsString(const class FName& KeyName, const cl
 // Function AIModule.BlackboardComponent.SetValueAsVector
 // (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          VectorValue                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UBlackboardComponent::SetValueAsVector(const class FName& KeyName, const struct FVector& VectorValue)
+void UBlackboardComponent::SetValueAsVector(const struct FName& KeyName, const struct FVector& VectorValue)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2573,11 +2573,11 @@ void UBlackboardComponent::SetValueAsVector(const class FName& KeyName, const st
 // Function AIModule.BlackboardComponent.GetLocationFromEntry
 // (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          ResultLocation                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UBlackboardComponent::GetLocationFromEntry(const class FName& KeyName, struct FVector* ResultLocation) const
+bool UBlackboardComponent::GetLocationFromEntry(const struct FName& KeyName, struct FVector* ResultLocation) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -2605,11 +2605,11 @@ bool UBlackboardComponent::GetLocationFromEntry(const class FName& KeyName, stru
 // Function AIModule.BlackboardComponent.GetRotationFromEntry
 // (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FRotator                         ResultRotation                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UBlackboardComponent::GetRotationFromEntry(const class FName& KeyName, struct FRotator* ResultRotation) const
+bool UBlackboardComponent::GetRotationFromEntry(const struct FName& KeyName, struct FRotator* ResultRotation) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -2637,10 +2637,10 @@ bool UBlackboardComponent::GetRotationFromEntry(const class FName& KeyName, stru
 // Function AIModule.BlackboardComponent.GetValueAsBool
 // (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UBlackboardComponent::GetValueAsBool(const class FName& KeyName) const
+bool UBlackboardComponent::GetValueAsBool(const struct FName& KeyName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -2665,10 +2665,10 @@ bool UBlackboardComponent::GetValueAsBool(const class FName& KeyName) const
 // Function AIModule.BlackboardComponent.GetValueAsClass
 // (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UClass*                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UClass* UBlackboardComponent::GetValueAsClass(const class FName& KeyName) const
+class UClass* UBlackboardComponent::GetValueAsClass(const struct FName& KeyName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -2693,10 +2693,10 @@ class UClass* UBlackboardComponent::GetValueAsClass(const class FName& KeyName) 
 // Function AIModule.BlackboardComponent.GetValueAsEnum
 // (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // uint8                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-uint8 UBlackboardComponent::GetValueAsEnum(const class FName& KeyName) const
+uint8 UBlackboardComponent::GetValueAsEnum(const struct FName& KeyName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -2721,10 +2721,10 @@ uint8 UBlackboardComponent::GetValueAsEnum(const class FName& KeyName) const
 // Function AIModule.BlackboardComponent.GetValueAsFloat
 // (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-float UBlackboardComponent::GetValueAsFloat(const class FName& KeyName) const
+float UBlackboardComponent::GetValueAsFloat(const struct FName& KeyName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -2749,10 +2749,10 @@ float UBlackboardComponent::GetValueAsFloat(const class FName& KeyName) const
 // Function AIModule.BlackboardComponent.GetValueAsInt
 // (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-int32 UBlackboardComponent::GetValueAsInt(const class FName& KeyName) const
+int32 UBlackboardComponent::GetValueAsInt(const struct FName& KeyName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -2777,10 +2777,10 @@ int32 UBlackboardComponent::GetValueAsInt(const class FName& KeyName) const
 // Function AIModule.BlackboardComponent.GetValueAsName
 // (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName UBlackboardComponent::GetValueAsName(const class FName& KeyName) const
+struct FName UBlackboardComponent::GetValueAsName(const struct FName& KeyName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -2805,10 +2805,10 @@ class FName UBlackboardComponent::GetValueAsName(const class FName& KeyName) con
 // Function AIModule.BlackboardComponent.GetValueAsObject
 // (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UObject*                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UObject* UBlackboardComponent::GetValueAsObject(const class FName& KeyName) const
+class UObject* UBlackboardComponent::GetValueAsObject(const struct FName& KeyName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -2833,10 +2833,10 @@ class UObject* UBlackboardComponent::GetValueAsObject(const class FName& KeyName
 // Function AIModule.BlackboardComponent.GetValueAsRotator
 // (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FRotator                         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FRotator UBlackboardComponent::GetValueAsRotator(const class FName& KeyName) const
+struct FRotator UBlackboardComponent::GetValueAsRotator(const struct FName& KeyName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -2861,10 +2861,10 @@ struct FRotator UBlackboardComponent::GetValueAsRotator(const class FName& KeyNa
 // Function AIModule.BlackboardComponent.GetValueAsString
 // (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FString UBlackboardComponent::GetValueAsString(const class FName& KeyName) const
+class FString UBlackboardComponent::GetValueAsString(const struct FName& KeyName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -2889,10 +2889,10 @@ class FString UBlackboardComponent::GetValueAsString(const class FName& KeyName)
 // Function AIModule.BlackboardComponent.GetValueAsVector
 // (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FVector UBlackboardComponent::GetValueAsVector(const class FName& KeyName) const
+struct FVector UBlackboardComponent::GetValueAsVector(const struct FName& KeyName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -2917,10 +2917,10 @@ struct FVector UBlackboardComponent::GetValueAsVector(const class FName& KeyName
 // Function AIModule.BlackboardComponent.IsVectorValueSet
 // (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             KeyName                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UBlackboardComponent::IsVectorValueSet(const class FName& KeyName) const
+bool UBlackboardComponent::IsVectorValueSet(const struct FName& KeyName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -3181,9 +3181,9 @@ int32 UBTFunctionLibrary::GetBlackboardValueAsInt(class UBTNode* NodeOwner, cons
 // Parameters:
 // class UBTNode*                          NodeOwner                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FBlackboardKeySelector           Key                                                    (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName UBTFunctionLibrary::GetBlackboardValueAsName(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key)
+struct FName UBTFunctionLibrary::GetBlackboardValueAsName(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3532,9 +3532,9 @@ void UBTFunctionLibrary::SetBlackboardValueAsInt(class UBTNode* NodeOwner, const
 // Parameters:
 // class UBTNode*                          NodeOwner                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FBlackboardKeySelector           Key                                                    (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// class FName                             Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UBTFunctionLibrary::SetBlackboardValueAsName(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, class FName Value)
+void UBTFunctionLibrary::SetBlackboardValueAsName(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, struct FName Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4459,9 +4459,9 @@ void UBTTask_BlueprintBase::ReceiveTickAI(class AAIController* OwnerController, 
 // Function AIModule.BTTask_BlueprintBase.SetFinishOnMessage
 // (Final, Native, Protected, BlueprintCallable)
 // Parameters:
-// class FName                             MessageName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             MessageName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UBTTask_BlueprintBase::SetFinishOnMessage(class FName MessageName)
+void UBTTask_BlueprintBase::SetFinishOnMessage(struct FName MessageName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4484,10 +4484,10 @@ void UBTTask_BlueprintBase::SetFinishOnMessage(class FName MessageName)
 // Function AIModule.BTTask_BlueprintBase.SetFinishOnMessageWithId
 // (Final, Native, Protected, BlueprintCallable)
 // Parameters:
-// class FName                             MessageName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             MessageName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   RequestID                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UBTTask_BlueprintBase::SetFinishOnMessageWithId(class FName MessageName, int32 RequestID)
+void UBTTask_BlueprintBase::SetFinishOnMessageWithId(struct FName MessageName, int32 RequestID)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4743,10 +4743,10 @@ TArray<struct FVector> UEnvQueryInstanceBlueprintWrapper::GetResultsAsLocations(
 // Function AIModule.EnvQueryInstanceBlueprintWrapper.SetNamedParam
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             ParamName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             ParamName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UEnvQueryInstanceBlueprintWrapper::SetNamedParam(class FName ParamName, float Value)
+void UEnvQueryInstanceBlueprintWrapper::SetNamedParam(struct FName ParamName, float Value)
 {
 	static class UFunction* Func = nullptr;
 

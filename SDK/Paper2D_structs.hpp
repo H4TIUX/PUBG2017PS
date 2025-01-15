@@ -179,7 +179,7 @@ struct FPaperSpriteSocket final
 {
 public:
 	struct FTransform                             LocalTransform;                                    // 0x0000(0x0030)(Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	class FName                                   SocketName;                                        // 0x0030(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   SocketName;                                        // 0x0030(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_38[0x8];                                       // 0x0038(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(FPaperSpriteSocket) == 0x000010, "Wrong alignment on FPaperSpriteSocket");
@@ -304,7 +304,7 @@ static_assert(offsetof(FPaperTileSetTerrain, CenterTileIndex) == 0x000010, "Memb
 struct FPaperTileMetadata final
 {
 public:
-	class FName                                   UserDataName;                                      // 0x0000(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   UserDataName;                                      // 0x0000(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FSpriteGeometryCollection              CollisionData;                                     // 0x0008(0x0030)(Edit, NativeAccessSpecifierPublic)
 	uint8                                         TerrainMembership[0x4];                            // 0x0038(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])

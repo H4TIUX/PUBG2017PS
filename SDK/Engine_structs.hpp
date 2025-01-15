@@ -4168,7 +4168,7 @@ static_assert(offsetof(FRichCurve, DefaultValue) == 0x000070, "Member 'FRichCurv
 
 // ScriptStruct Engine.RuntimeFloatCurve
 // 0x0080 (0x0080 - 0x0000)
-struct FRuntimeFloatCurve final
+struct alignas(8) FRuntimeFloatCurve final
 {
 public:
 	struct FRichCurve                             EditorCurveData;                                   // 0x0000(0x0078)(NativeAccessSpecifierPublic)
@@ -4191,7 +4191,7 @@ static_assert(sizeof(FParticleSystemReplayFrame) == 0x000010, "Wrong size on FPa
 
 // ScriptStruct Engine.DistributionLookupTable
 // 0x0028 (0x0028 - 0x0000)
-struct FDistributionLookupTable final
+struct alignas(8) FDistributionLookupTable final
 {
 public:
 	uint8                                         Op;                                                // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -4218,7 +4218,7 @@ static_assert(offsetof(FDistributionLookupTable, LockFlag) == 0x000020, "Member 
 
 // ScriptStruct Engine.Vector4Distribution
 // 0x0028 (0x0028 - 0x0000)
-struct FVector4Distribution final
+struct alignas(8) FVector4Distribution final
 {
 public:
 	struct FDistributionLookupTable               Table;                                             // 0x0000(0x0028)(ZeroConstructor, NativeAccessSpecifierPublic)
@@ -4258,13 +4258,13 @@ static_assert(offsetof(FAnimLinkableElement, LinkedSequence) == 0x000028, "Membe
 
 // ScriptStruct Engine.CompositeSection
 // 0x0028 (0x0058 - 0x0030)
-struct FCompositeSection final : public FAnimLinkableElement
+struct alignas(8) FCompositeSection final : public FAnimLinkableElement
 {
 public:
-	class FName                                   SectionName;                                       // 0x0030(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SectionName;                                       // 0x0030(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         StartTime;                                         // 0x0038(0x0004)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   NextSectionName;                                   // 0x0040(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   NextSectionName;                                   // 0x0040(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<class UAnimMetaData*>                  MetaData;                                          // 0x0048(0x0010)(Edit, ExportObject, ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FCompositeSection) == 0x000008, "Wrong alignment on FCompositeSection");
@@ -4289,7 +4289,7 @@ static_assert(sizeof(FTableRowBase) == 0x000008, "Wrong size on FTableRowBase");
 struct alignas(0x08) FBoneNode final
 {
 public:
-	class FName                                   Name;                                              // 0x0000(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Name;                                              // 0x0000(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         ParentIndex;                                       // 0x0008(0x0004)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EBoneTranslationRetargetingMode               TranslationRetargetingMode;                        // 0x000C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_D[0x3];                                        // 0x000D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -4302,7 +4302,7 @@ static_assert(offsetof(FBoneNode, TranslationRetargetingMode) == 0x00000C, "Memb
 
 // ScriptStruct Engine.RootMotionSourceStatus
 // 0x0001 (0x0001 - 0x0000)
-struct FRootMotionSourceStatus final
+struct alignas(1) FRootMotionSourceStatus final
 {
 public:
 	uint8                                         Flags;                                             // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -4313,7 +4313,7 @@ static_assert(offsetof(FRootMotionSourceStatus, Flags) == 0x000000, "Member 'FRo
 
 // ScriptStruct Engine.RootMotionSourceSettings
 // 0x0001 (0x0001 - 0x0000)
-struct FRootMotionSourceSettings final
+struct alignas(1) FRootMotionSourceSettings final
 {
 public:
 	uint8                                         Flags;                                             // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -4349,7 +4349,7 @@ public:
 	uint16                                        LocalID;                                           // 0x0012(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ERootMotionAccumulateMode                     AccumulateMode;                                    // 0x0014(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_15[0x3];                                       // 0x0015(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   InstanceName;                                      // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   InstanceName;                                      // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         StartTime;                                         // 0x0020(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         CurrentTime;                                       // 0x0024(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         PreviousTime;                                      // 0x0028(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -4382,7 +4382,7 @@ static_assert(offsetof(FRootMotionSource, RootMotionParams) == 0x000040, "Member
 struct alignas(0x08) FCollectionParameterBase
 {
 public:
-	class FName                                   ParameterName;                                     // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParameterName;                                     // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FGuid                                  ID;                                                // 0x0008(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FCollectionParameterBase) == 0x000008, "Wrong alignment on FCollectionParameterBase");
@@ -4406,7 +4406,7 @@ static_assert(offsetof(FCollectionVectorParameter, DefaultValue) == 0x000018, "M
 struct FPlatformInterfaceData final
 {
 public:
-	class FName                                   DataName;                                          // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   DataName;                                          // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EPlatformInterfaceDataType                    Type;                                              // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	int32                                         IntValue;                                          // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -4461,7 +4461,7 @@ public:
 	int32                                         MaskB;                                             // 0x0024(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         MaskA;                                             // 0x0028(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   ExpressionName;                                    // 0x0030(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ExpressionName;                                    // 0x0030(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FMaterialInput) == 0x000008, "Wrong alignment on FMaterialInput");
 static_assert(sizeof(FMaterialInput) == 0x000038, "Wrong size on FMaterialInput");
@@ -4666,8 +4666,8 @@ struct FExposedValueCopyRecord final
 {
 public:
 	class UProperty*                              SourceProperty;                                    // 0x0000(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   SourcePropertyName;                                // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   SourceSubPropertyName;                             // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SourcePropertyName;                                // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SourceSubPropertyName;                             // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         SourceArrayIndex;                                  // 0x0018(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	class UProperty*                              DestProperty;                                      // 0x0020(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -4701,7 +4701,7 @@ static_assert(offsetof(FExposedValueCopyRecord, CachedStructDestProperty) == 0x0
 struct FExposedValueHandler final
 {
 public:
-	class FName                                   BoundFunction;                                     // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   BoundFunction;                                     // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<struct FExposedValueCopyRecord>        CopyRecords;                                       // 0x0008(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_18[0x10];                                      // 0x0018(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -4724,7 +4724,7 @@ static_assert(offsetof(FAnimNode_Base, EvaluateGraphExposedInputs) == 0x000008, 
 
 // ScriptStruct Engine.RigidBodyErrorCorrection
 // 0x001C (0x001C - 0x0000)
-struct FRigidBodyErrorCorrection final
+struct alignas(4) FRigidBodyErrorCorrection final
 {
 public:
 	float                                         LinearDeltaThresholdSq;                            // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -4856,8 +4856,8 @@ struct alignas(0x08) FBlueprintInputAxisDelegateBinding final : public FBlueprin
 {
 public:
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   InputAxisName;                                     // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   FunctionNameToBind;                                // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   InputAxisName;                                     // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   FunctionNameToBind;                                // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FBlueprintInputAxisDelegateBinding) == 0x000008, "Wrong alignment on FBlueprintInputAxisDelegateBinding");
 static_assert(sizeof(FBlueprintInputAxisDelegateBinding) == 0x000018, "Wrong size on FBlueprintInputAxisDelegateBinding");
@@ -4878,7 +4878,7 @@ public:
 	int32                                         MaskB;                                             // 0x0024(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         MaskA;                                             // 0x0028(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   ExpressionName;                                    // 0x0030(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ExpressionName;                                    // 0x0030(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FExpressionInput) == 0x000008, "Wrong alignment on FExpressionInput");
 static_assert(sizeof(FExpressionInput) == 0x000038, "Wrong size on FExpressionInput");
@@ -5076,7 +5076,7 @@ static_assert(offsetof(FExpressionOutput, MaskA) == 0x000020, "Member 'FExpressi
 struct alignas(0x08) FAnimNotifyTrack final
 {
 public:
-	class FName                                   TrackName;                                         // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   TrackName;                                         // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FLinearColor                           TrackColor;                                        // 0x0008(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_18[0x20];                                      // 0x0018(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -5292,7 +5292,7 @@ public:
 	TWeakObjectPtr<class AActor>                  Actor;                                             // 0x0064(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, NativeAccessSpecifierPublic)
 	TWeakObjectPtr<class UPrimitiveComponent>     Component;                                         // 0x006C(0x0008)(ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, UObjectWrapper, NativeAccessSpecifierPublic)
 	uint8                                         Pad_74[0x4];                                       // 0x0074(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   BoneName;                                          // 0x0078(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   BoneName;                                          // 0x0078(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         FaceIndex;                                         // 0x0080(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_84[0x4];                                       // 0x0084(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -5329,7 +5329,7 @@ static_assert(sizeof(FFastArraySerializer) == 0x0000B0, "Wrong size on FFastArra
 struct alignas(0x08) FPhysicalAnimationData final
 {
 public:
-	class FName                                   BodyName;                                          // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   BodyName;                                          // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         bIsLocalSimulation : 1;                            // 0x0008(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         OrientationStrength;                               // 0x000C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -5367,7 +5367,7 @@ struct FLatentActionInfo final
 public:
 	int32                                         Linkage;                                           // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         UUID;                                              // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ExecutionFunction;                                 // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ExecutionFunction;                                 // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UObject*                                CallbackTarget;                                    // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FLatentActionInfo) == 0x000008, "Wrong alignment on FLatentActionInfo");
@@ -5414,7 +5414,7 @@ struct FSimpleMemberReference final
 {
 public:
 	class UObject*                                MemberParent;                                      // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   MemberName;                                        // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   MemberName;                                        // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FGuid                                  MemberGuid;                                        // 0x0010(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FSimpleMemberReference) == 0x000008, "Wrong alignment on FSimpleMemberReference");
@@ -5483,7 +5483,7 @@ public:
 	bool                                          bEnableShadowCasting;                              // 0x0008(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bRecomputeTangent;                                 // 0x0009(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_A[0x6];                                        // 0x000A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   MaterialSlotName;                                  // 0x0010(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   MaterialSlotName;                                  // 0x0010(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FMeshUVChannelInfo                     UVChannelData;                                     // 0x0018(0x0014)(Edit, BlueprintVisible, BlueprintReadOnly, EditConst, NativeAccessSpecifierPublic)
 	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -5872,7 +5872,7 @@ static_assert(offsetof(FTimerHandle, Handle) == 0x000000, "Member 'FTimerHandle:
 struct alignas(0x08) FCollisionProfileName final
 {
 public:
-	class FName                                   Name;                                              // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Name;                                              // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FCollisionProfileName) == 0x000008, "Wrong alignment on FCollisionProfileName");
 static_assert(sizeof(FCollisionProfileName) == 0x000008, "Wrong size on FCollisionProfileName");
@@ -6048,7 +6048,7 @@ static_assert(offsetof(FBlendSampleData, PreviousTime) == 0x000018, "Member 'FBl
 struct alignas(0x08) FLevelStreamingStatus final
 {
 public:
-	class FName                                   PackageName;                                       // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   PackageName;                                       // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         bShouldBeLoaded : 1;                               // 0x0008(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bShouldBeVisible : 1;                              // 0x0008(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
@@ -6080,7 +6080,7 @@ struct FAnimSequenceTrackContainer final
 {
 public:
 	TArray<struct FRawAnimSequenceTrack>          AnimationTracks;                                   // 0x0000(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<class FName>                           TrackNames;                                        // 0x0010(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<FName>                           TrackNames;                                        // 0x0010(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FAnimSequenceTrackContainer) == 0x000008, "Wrong alignment on FAnimSequenceTrackContainer");
 static_assert(sizeof(FAnimSequenceTrackContainer) == 0x000020, "Wrong size on FAnimSequenceTrackContainer");
@@ -6092,7 +6092,7 @@ static_assert(offsetof(FAnimSequenceTrackContainer, TrackNames) == 0x000010, "Me
 struct alignas(0x08) FAnimCurveParam final
 {
 public:
-	class FName                                   Name;                                              // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Name;                                              // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_8[0x8];                                        // 0x0008(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(FAnimCurveParam) == 0x000008, "Wrong alignment on FAnimCurveParam");
@@ -6104,7 +6104,7 @@ static_assert(offsetof(FAnimCurveParam, Name) == 0x000000, "Member 'FAnimCurvePa
 struct alignas(0x08) FBoneReference final
 {
 public:
-	class FName                                   BoneName;                                          // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   BoneName;                                          // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_8[0x8];                                        // 0x0008(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(FBoneReference) == 0x000008, "Wrong alignment on FBoneReference");
@@ -6244,7 +6244,7 @@ struct FPreviewAttachedObjectPair final
 public:
 	TSoftObjectPtr<class UObject>                 AttachedObject;                                    // 0x0000(0x0020)(UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	class UObject*                                Object;                                            // 0x0020(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class FName                                   AttachedTo;                                        // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   AttachedTo;                                        // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FPreviewAttachedObjectPair) == 0x000008, "Wrong alignment on FPreviewAttachedObjectPair");
 static_assert(sizeof(FPreviewAttachedObjectPair) == 0x000030, "Wrong size on FPreviewAttachedObjectPair");
@@ -6305,7 +6305,7 @@ static_assert(sizeof(FComponentSpacePoseLink) == 0x000018, "Wrong size on FCompo
 struct alignas(0x08) FBranchFilter final
 {
 public:
-	class FName                                   BoneName;                                          // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   BoneName;                                          // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         BlendDepth;                                        // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -6507,8 +6507,8 @@ static_assert(offsetof(FGeomSelection, SelectionIndex) == 0x000008, "Member 'FGe
 struct alignas(0x08) FRedirector final
 {
 public:
-	class FName                                   OldName;                                           // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   NewName;                                           // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   OldName;                                           // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   NewName;                                           // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FRedirector) == 0x000008, "Wrong alignment on FRedirector");
 static_assert(sizeof(FRedirector) == 0x000010, "Wrong size on FRedirector");
@@ -6521,7 +6521,7 @@ struct FComponentReference final
 {
 public:
 	class AActor*                                 OtherActor;                                        // 0x0000(0x0008)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ComponentProperty;                                 // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ComponentProperty;                                 // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_10[0x8];                                       // 0x0010(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(FComponentReference) == 0x000008, "Wrong alignment on FComponentReference");
@@ -6534,7 +6534,7 @@ static_assert(offsetof(FComponentReference, ComponentProperty) == 0x000008, "Mem
 struct alignas(0x08) FConstrainComponentPropName final
 {
 public:
-	class FName                                   ComponentName;                                     // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ComponentName;                                     // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FConstrainComponentPropName) == 0x000008, "Wrong alignment on FConstrainComponentPropName");
 static_assert(sizeof(FConstrainComponentPropName) == 0x000008, "Wrong size on FConstrainComponentPropName");
@@ -6564,8 +6564,8 @@ static_assert(offsetof(FDestructibleDebrisParameters, ValidBounds) == 0x000010, 
 struct alignas(0x08) FMarkerSyncAnimPosition final
 {
 public:
-	class FName                                   PreviousMarkerName;                                // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   NextMarkerName;                                    // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   PreviousMarkerName;                                // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   NextMarkerName;                                    // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         PositionBetweenMarkers;                            // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -6599,7 +6599,7 @@ public:
 	struct FVector_NetQuantize100                 RelativeScale3D;                                   // 0x0014(0x000C)(NativeAccessSpecifierPublic)
 	struct FRotator                               RotationOffset;                                    // 0x0020(0x000C)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   AttachSocket;                                      // 0x0030(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   AttachSocket;                                      // 0x0030(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class USceneComponent*                        AttachComponent;                                   // 0x0038(0x0008)(ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FRepAttachment) == 0x000008, "Wrong alignment on FRepAttachment");
@@ -6742,7 +6742,7 @@ struct FDataTableRowHandle final
 {
 public:
 	class UDataTable*                             DataTable;                                         // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   RowName;                                           // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   RowName;                                           // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FDataTableRowHandle) == 0x000008, "Wrong alignment on FDataTableRowHandle");
 static_assert(sizeof(FDataTableRowHandle) == 0x000010, "Wrong size on FDataTableRowHandle");
@@ -6828,7 +6828,7 @@ static_assert(offsetof(FAnimUpdateRateParameters, ShiftBucket) == 0x000084, "Mem
 struct alignas(0x08) FAnimSlotDesc final
 {
 public:
-	class FName                                   SlotName;                                          // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SlotName;                                          // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         NumChannels;                                       // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -6864,7 +6864,7 @@ static_assert(offsetof(FMaterialSpriteElement, DistanceToSizeCurve) == 0x000020,
 struct FAnimSlotInfo final
 {
 public:
-	class FName                                   SlotName;                                          // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SlotName;                                          // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<float>                                 ChannelWeights;                                    // 0x0008(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FAnimSlotInfo) == 0x000008, "Wrong alignment on FAnimSlotInfo");
@@ -6923,7 +6923,7 @@ static_assert(offsetof(FBakedStateExitTransition, PoseEvaluatorLinks) == 0x00001
 struct FBakedAnimationState final
 {
 public:
-	class FName                                   StateName;                                         // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   StateName;                                         // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<struct FBakedStateExitTransition>      Transitions;                                       // 0x0008(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 	int32                                         StateRootNodeIndex;                                // 0x0018(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         StartNotify;                                       // 0x001C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -7416,7 +7416,7 @@ static_assert(offsetof(FRigidBodyState, Flags) == 0x000038, "Member 'FRigidBodyS
 struct alignas(0x08) FResponseChannel final
 {
 public:
-	class FName                                   Channel;                                           // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Channel;                                           // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ECollisionResponse                            Response;                                          // 0x0008(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -8049,8 +8049,8 @@ public:
 	int32                                         MinLODSize;                                        // 0x001C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         MaxLODSize;                                        // 0x0020(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   MinMagFilter;                                      // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   MipFilter;                                         // 0x0030(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   MinMagFilter;                                      // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   MipFilter;                                         // 0x0030(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FTextureLODGroup) == 0x000008, "Wrong alignment on FTextureLODGroup");
 static_assert(sizeof(FTextureLODGroup) == 0x000038, "Wrong size on FTextureLODGroup");
@@ -8070,7 +8070,7 @@ struct alignas(0x08) FMaterialTextureInfo final
 public:
 	float                                         SamplingScale;                                     // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         UVChannelIndex;                                    // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   TextureName;                                       // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   TextureName;                                       // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FMaterialTextureInfo) == 0x000008, "Wrong alignment on FMaterialTextureInfo");
 static_assert(sizeof(FMaterialTextureInfo) == 0x000010, "Wrong size on FMaterialTextureInfo");
@@ -8096,7 +8096,7 @@ static_assert(offsetof(FBPInterfaceDescription, Graphs) == 0x000008, "Member 'FB
 struct FBPVariableMetaDataEntry final
 {
 public:
-	class FName                                   DataKey;                                           // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   DataKey;                                           // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 DataValue;                                         // 0x0008(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FBPVariableMetaDataEntry) == 0x000008, "Wrong alignment on FBPVariableMetaDataEntry");
@@ -8109,13 +8109,13 @@ static_assert(offsetof(FBPVariableMetaDataEntry, DataValue) == 0x000008, "Member
 struct FBPVariableDescription final
 {
 public:
-	class FName                                   VarName;                                           // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   VarName;                                           // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FGuid                                  VarGuid;                                           // 0x0008(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FEdGraphPinType                        VarType;                                           // 0x0018(0x0080)(Edit, NativeAccessSpecifierPublic)
 	class FString                                 FriendlyName;                                      // 0x0098(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FText                                   Category;                                          // 0x00A8(0x0018)(Edit, NativeAccessSpecifierPublic)
 	uint64                                        PropertyFlags;                                     // 0x00C0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   RepNotifyFunc;                                     // 0x00C8(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   RepNotifyFunc;                                     // 0x00C8(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ELifetimeCondition                            ReplicationCondition;                              // 0x00D0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_D1[0x7];                                       // 0x00D1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<struct FBPVariableMetaDataEntry>       MetaDataArray;                                     // 0x00D8(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
@@ -8158,7 +8158,7 @@ static_assert(offsetof(FRawDistributionVector, Distribution) == 0x000048, "Membe
 struct alignas(0x08) FBeamTargetData final
 {
 public:
-	class FName                                   TargetName;                                        // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   TargetName;                                        // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         TargetPercentage;                                  // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -8172,7 +8172,7 @@ static_assert(offsetof(FBeamTargetData, TargetPercentage) == 0x000008, "Member '
 struct FSpriteCategoryInfo final
 {
 public:
-	class FName                                   Category;                                          // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Category;                                          // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FText                                   DisplayName;                                       // 0x0008(0x0018)(NativeAccessSpecifierPublic)
 	class FText                                   Description;                                       // 0x0020(0x0018)(NativeAccessSpecifierPublic)
 };
@@ -8189,7 +8189,7 @@ struct FMemberReference final
 public:
 	class UObject*                                MemberParent;                                      // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	class FString                                 MemberScope;                                       // 0x0008(0x0010)(ZeroConstructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class FName                                   MemberName;                                        // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	FName                                   MemberName;                                        // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	struct FGuid                                  MemberGuid;                                        // 0x0020(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, NativeAccessSpecifierProtected)
 	bool                                          bSelfContext;                                      // 0x0030(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	bool                                          bWasDeprecated;                                    // 0x0031(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
@@ -8746,7 +8746,7 @@ static_assert(offsetof(FReverbSettings, FadeTime) == 0x000014, "Member 'FReverbS
 struct FTextureParameterValue final
 {
 public:
-	class FName                                   ParameterName;                                     // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParameterName;                                     // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UTexture*                               ParameterValue;                                    // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FGuid                                  ExpressionGUID;                                    // 0x0010(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 };
@@ -8777,7 +8777,7 @@ public:
 	EFullyLoadPackageType                         FullyLoadType;                                     // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	class FString                                 Tag;                                               // 0x0008(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<class FName>                           PackagesToLoad;                                    // 0x0018(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<FName>                           PackagesToLoad;                                    // 0x0018(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 	TArray<class UObject*>                        LoadedObjects;                                     // 0x0028(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FFullyLoadedPackagesInfo) == 0x000008, "Wrong alignment on FFullyLoadedPackagesInfo");
@@ -8879,7 +8879,7 @@ static_assert(offsetof(FNavAgentProperties, PreferredNavData) == 0x000018, "Memb
 struct FNavDataConfig final : public FNavAgentProperties
 {
 public:
-	class FName                                   Name;                                              // 0x0020(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Name;                                              // 0x0020(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FColor                                 Color;                                             // 0x0028(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FVector                                DefaultQueryExtent;                                // 0x002C(0x000C)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	TSubclassOf<class ANavigationData>            NavigationDataClass;                               // 0x0038(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -8898,7 +8898,7 @@ static_assert(offsetof(FNavDataConfig, NavigationDataClassName) == 0x000040, "Me
 struct FParticleRandomSeedInfo final
 {
 public:
-	class FName                                   ParameterName;                                     // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParameterName;                                     // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         bGetSeedFromInstance : 1;                          // 0x0008(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bInstanceSeedIsIndex : 1;                          // 0x0008(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bResetSeedOnEmitterLooping : 1;                    // 0x0008(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -8960,7 +8960,7 @@ static_assert(offsetof(FSoundConcurrencySettings, VolumeScale) == 0x00000C, "Mem
 struct FBranchingPoint final : public FAnimLinkableElement
 {
 public:
-	class FName                                   EventName;                                         // 0x0030(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   EventName;                                         // 0x0030(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         DisplayTime;                                       // 0x0038(0x0004)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         TriggerTimeOffset;                                 // 0x003C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
@@ -9099,7 +9099,7 @@ public:
 	struct FRotator                               Rotation;                                          // 0x0020(0x000C)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	class UPrimitiveComponent*                    MovementBase;                                      // 0x0030(0x0008)(ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   MovementBaseBoneName;                              // 0x0038(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   MovementBaseBoneName;                              // 0x0038(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bRelativePosition;                                 // 0x0040(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bRelativeRotation;                                 // 0x0041(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_42[0x6];                                       // 0x0042(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
@@ -9127,7 +9127,7 @@ static_assert(offsetof(FRepRootMotionMontage, LinearVelocity) == 0x000154, "Memb
 struct alignas(0x08) FAnimGroupInfo final
 {
 public:
-	class FName                                   Name;                                              // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Name;                                              // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FLinearColor                           Color;                                             // 0x0008(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FAnimGroupInfo) == 0x000008, "Wrong alignment on FAnimGroupInfo");
@@ -9216,7 +9216,7 @@ public:
 	uint8                                         Pad_0[0x14];                                       // 0x0000(0x0014)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FCollisionResponseContainer            ResponseToChannels;                                // 0x0014(0x0020)(Deprecated, NativeAccessSpecifierPublic)
 	uint8                                         Pad_34[0x4];                                       // 0x0034(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   CollisionProfileName;                              // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	FName                                   CollisionProfileName;                              // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	struct FCollisionResponse                     CollisionResponses;                                // 0x0040(0x0030)(Edit, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_70[0x4];                                       // 0x0070(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	uint8                                         bUseCCD : 1;                                       // 0x0074(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, BlueprintReadOnly, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -9493,7 +9493,7 @@ static_assert(offsetof(FAnimNode_TransitionResult, bCanEnterTransition) == 0x000
 struct FInterpGroupActorInfo final
 {
 public:
-	class FName                                   ObjectName;                                        // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ObjectName;                                        // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<class AActor*>                         Actors;                                            // 0x0008(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FInterpGroupActorInfo) == 0x000008, "Wrong alignment on FInterpGroupActorInfo");
@@ -9556,7 +9556,7 @@ static_assert(offsetof(FLevelCollection, Levels) == 0x000028, "Member 'FLevelCol
 struct alignas(0x08) FTTTrackBase
 {
 public:
-	class FName                                   TrackName;                                         // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   TrackName;                                         // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bIsExternalCurve;                                  // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -9667,7 +9667,7 @@ static_assert(offsetof(FPreviewAssetAttachContainer, AttachedObjects) == 0x00000
 struct alignas(0x08) FAnimSyncMarker final
 {
 public:
-	class FName                                   MarkerName;                                        // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   MarkerName;                                        // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Time;                                              // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -9694,8 +9694,8 @@ struct FDataTableCategoryHandle final
 {
 public:
 	class UDataTable*                             DataTable;                                         // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ColumnName;                                        // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   RowContents;                                       // 0x0010(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ColumnName;                                        // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   RowContents;                                       // 0x0010(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FDataTableCategoryHandle) == 0x000008, "Wrong alignment on FDataTableCategoryHandle");
 static_assert(sizeof(FDataTableCategoryHandle) == 0x000018, "Wrong size on FDataTableCategoryHandle");
@@ -9712,7 +9712,7 @@ public:
 	float                                         TriggerTimeOffset;                                 // 0x0034(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         EndTriggerTimeOffset;                              // 0x0038(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         TriggerWeightThreshold;                            // 0x003C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   NotifyName;                                        // 0x0040(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   NotifyName;                                        // 0x0040(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UAnimNotify*                            Notify;                                            // 0x0048(0x0008)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, PersistentInstance, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UAnimNotifyState*                       NotifyStateClass;                                  // 0x0050(0x0008)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, PersistentInstance, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Duration;                                          // 0x0058(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -9777,7 +9777,7 @@ static_assert(offsetof(FPerBoneBlendWeights, BoneBlendWeights) == 0x000000, "Mem
 struct alignas(0x08) FSmartName final
 {
 public:
-	class FName                                   DisplayName;                                       // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   DisplayName;                                       // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_8[0x8];                                        // 0x0008(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(FSmartName) == 0x000008, "Wrong alignment on FSmartName");
@@ -9867,9 +9867,9 @@ static_assert(sizeof(FCurveMetaData) == 0x000018, "Wrong size on FCurveMetaData"
 struct alignas(0x08) FVirtualBone final
 {
 public:
-	class FName                                   SourceBoneName;                                    // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   TargetBoneName;                                    // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   VirtualBoneName;                                   // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SourceBoneName;                                    // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   TargetBoneName;                                    // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   VirtualBoneName;                                   // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FVirtualBone) == 0x000008, "Wrong alignment on FVirtualBone");
 static_assert(sizeof(FVirtualBone) == 0x000018, "Wrong size on FVirtualBone");
@@ -9900,8 +9900,8 @@ static_assert(offsetof(FSoundGroup, DecompressedDuration) == 0x00001C, "Member '
 struct FAnimSlotGroup final
 {
 public:
-	class FName                                   GroupName;                                         // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<class FName>                           SlotNames;                                         // 0x0008(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	FName                                   GroupName;                                         // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<FName>                           SlotNames;                                         // 0x0008(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FAnimSlotGroup) == 0x000008, "Wrong alignment on FAnimSlotGroup");
 static_assert(sizeof(FAnimSlotGroup) == 0x000018, "Wrong size on FAnimSlotGroup");
@@ -9913,8 +9913,8 @@ static_assert(offsetof(FAnimSlotGroup, SlotNames) == 0x000008, "Member 'FAnimSlo
 struct alignas(0x08) FNameMapping final
 {
 public:
-	class FName                                   NodeName;                                          // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   BoneName;                                          // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   NodeName;                                          // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   BoneName;                                          // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FNameMapping) == 0x000008, "Wrong alignment on FNameMapping");
 static_assert(sizeof(FNameMapping) == 0x000010, "Wrong size on FNameMapping");
@@ -9983,7 +9983,7 @@ static_assert(offsetof(FAudioEQEffect, Bandwidth3) == 0x000034, "Member 'FAudioE
 struct FBoneReductionSetting final
 {
 public:
-	TArray<class FName>                           BonesToRemove;                                     // 0x0000(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<FName>                           BonesToRemove;                                     // 0x0000(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FBoneReductionSetting) == 0x000008, "Wrong alignment on FBoneReductionSetting");
 static_assert(sizeof(FBoneReductionSetting) == 0x000010, "Wrong size on FBoneReductionSetting");
@@ -10004,7 +10004,7 @@ static_assert(sizeof(FEndPhysicsTickFunction) == 0x000058, "Wrong size on FEndPh
 struct FReferencePose final
 {
 public:
-	class FName                                   PoseName;                                          // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   PoseName;                                          // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<struct FTransform>                     ReferencePose;                                     // 0x0008(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FReferencePose) == 0x000008, "Wrong alignment on FReferencePose");
@@ -10099,7 +10099,7 @@ static_assert(offsetof(FClothPhysicsProperties, FiberResistance) == 0x00004C, "M
 struct FClothingAssetData final
 {
 public:
-	class FName                                   AssetName;                                         // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   AssetName;                                         // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 ApexFileName;                                      // 0x0008(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bClothPropertiesChanged;                           // 0x0018(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_19[0x3];                                       // 0x0019(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
@@ -10124,7 +10124,7 @@ public:
 	ETriangleSortOption                           TriangleSorting;                                   // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ETriangleSortAxis                             CustomLeftRightAxis;                               // 0x0001(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_2[0x6];                                        // 0x0002(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   CustomLeftRightBoneName;                           // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   CustomLeftRightBoneName;                           // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FTriangleSortSettings) == 0x000008, "Wrong alignment on FTriangleSortSettings");
 static_assert(sizeof(FTriangleSortSettings) == 0x000010, "Wrong size on FTriangleSortSettings");
@@ -10168,7 +10168,7 @@ public:
 	struct FSkeletalMeshOptimizationSettings      ReductionSettings;                                 // 0x0040(0x0110)(Edit, NativeAccessSpecifierPublic)
 	struct FSimplygonRemeshingSettings            RemeshingSettings;                                 // 0x0150(0x0050)(Deprecated, NativeAccessSpecifierPublic)
 	struct FGroupedSkeletalOptimizationSettings   OptimizationSettings;                              // 0x01A0(0x0230)(Edit, NativeAccessSpecifierPublic)
-	TArray<class FName>                           RemovedBones;                                      // 0x03D0(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<FName>                           RemovedBones;                                      // 0x03D0(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FSkeletalMeshLODInfo) == 0x000008, "Wrong alignment on FSkeletalMeshLODInfo");
 static_assert(sizeof(FSkeletalMeshLODInfo) == 0x0003E0, "Wrong size on FSkeletalMeshLODInfo");
@@ -10197,8 +10197,8 @@ static_assert(sizeof(FAssetImportInfo) == 0x000001, "Wrong size on FAssetImportI
 struct alignas(0x08) FBoneMirrorExport final
 {
 public:
-	class FName                                   BoneName;                                          // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   SourceBoneName;                                    // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   BoneName;                                          // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SourceBoneName;                                    // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EAxis                                         BoneFlipAxis;                                      // 0x0010(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -10217,7 +10217,7 @@ public:
 	struct FInputChord                            InputChord;                                        // 0x0008(0x0020)(NativeAccessSpecifierPublic)
 	EInputEvent                                   InputKeyEvent;                                     // 0x0028(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   FunctionNameToBind;                                // 0x0030(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   FunctionNameToBind;                                // 0x0030(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FBlueprintInputKeyDelegateBinding) == 0x000008, "Wrong alignment on FBlueprintInputKeyDelegateBinding");
 static_assert(sizeof(FBlueprintInputKeyDelegateBinding) == 0x000038, "Wrong size on FBlueprintInputKeyDelegateBinding");
@@ -10244,7 +10244,7 @@ static_assert(offsetof(FBoneMirrorInfo, BoneFlipAxis) == 0x000004, "Member 'FBon
 struct alignas(0x08) FAnimationGroupReference final
 {
 public:
-	class FName                                   GroupName;                                         // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   GroupName;                                         // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EAnimGroupRole                                GroupRole;                                         // 0x0008(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -10363,7 +10363,7 @@ struct FBasedMovementInfo final
 {
 public:
 	class UPrimitiveComponent*                    MovementBase;                                      // 0x0000(0x0008)(ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   BoneName;                                          // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   BoneName;                                          // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector_NetQuantize100                 Location;                                          // 0x0010(0x000C)(NativeAccessSpecifierPublic)
 	struct FRotator                               Rotation;                                          // 0x001C(0x000C)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	bool                                          bServerHasBaseComponent;                           // 0x0028(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -10441,7 +10441,7 @@ static_assert(sizeof(FParticleSystemLOD) == 0x000001, "Wrong size on FParticleSy
 struct FAnimCurveBase
 {
 public:
-	class FName                                   LastObservedName;                                  // 0x0000(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   LastObservedName;                                  // 0x0000(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FSmartName                             Name;                                              // 0x0008(0x0010)(NativeAccessSpecifierPublic)
 	int32                                         CurveTypeFlags;                                    // 0x0018(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -10507,7 +10507,7 @@ struct alignas(0x08) FBlueprintInputTouchDelegateBinding final : public FBluepri
 public:
 	EInputEvent                                   InputKeyEvent;                                     // 0x0004(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   FunctionNameToBind;                                // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   FunctionNameToBind;                                // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FBlueprintInputTouchDelegateBinding) == 0x000008, "Wrong alignment on FBlueprintInputTouchDelegateBinding");
 static_assert(sizeof(FBlueprintInputTouchDelegateBinding) == 0x000010, "Wrong size on FBlueprintInputTouchDelegateBinding");
@@ -10519,7 +10519,7 @@ static_assert(offsetof(FBlueprintInputTouchDelegateBinding, FunctionNameToBind) 
 struct FInputActionKeyMapping final
 {
 public:
-	class FName                                   ActionName;                                        // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ActionName;                                        // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FKey                                   Key;                                               // 0x0008(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	uint8                                         bShift : 1;                                        // 0x0020(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bCtrl : 1;                                         // 0x0020(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -10702,7 +10702,7 @@ struct FComponentKey final
 {
 public:
 	class UClass*                                 OwnerClass;                                        // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class FName                                   SCSVariableName;                                   // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	FName                                   SCSVariableName;                                   // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	struct FGuid                                  AssociatedGuid;                                    // 0x0010(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPrivate)
 };
 static_assert(alignof(FComponentKey) == 0x000008, "Wrong alignment on FComponentKey");
@@ -10760,7 +10760,7 @@ struct FWheelSetup final
 public:
 	TSubclassOf<class UVehicleWheel>              WheelClass;                                        // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TSubclassOf<class UVehicleWheel>              PuncturedWheelClass;                               // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   BoneName;                                          // 0x0010(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   BoneName;                                          // 0x0010(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                AdditionalOffset;                                  // 0x0018(0x000C)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -10971,8 +10971,8 @@ static_assert(offsetof(FVehicleEngineData, DampingRateZeroThrottleClutchDisengag
 struct alignas(0x08) FGameNameRedirect final
 {
 public:
-	class FName                                   OldGameName;                                       // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   NewGameName;                                       // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   OldGameName;                                       // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   NewGameName;                                       // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FGameNameRedirect) == 0x000008, "Wrong alignment on FGameNameRedirect");
 static_assert(sizeof(FGameNameRedirect) == 0x000010, "Wrong size on FGameNameRedirect");
@@ -11008,7 +11008,7 @@ static_assert(offsetof(FVehicleDifferential4WData, RearBias) == 0x000018, "Membe
 struct alignas(0x08) FScalarParameterValue final
 {
 public:
-	class FName                                   ParameterName;                                     // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParameterName;                                     // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         ParameterValue;                                    // 0x0008(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FGuid                                  ExpressionGUID;                                    // 0x000C(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -11025,9 +11025,9 @@ struct alignas(0x10) FConstraintInstance final
 {
 public:
 	uint8                                         Pad_0[0x18];                                       // 0x0000(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   JointName;                                         // 0x0018(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ConstraintBone1;                                   // 0x0020(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ConstraintBone2;                                   // 0x0028(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   JointName;                                         // 0x0018(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ConstraintBone1;                                   // 0x0020(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ConstraintBone2;                                   // 0x0028(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                Pos1;                                              // 0x0030(0x000C)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FVector                                PriAxis1;                                          // 0x003C(0x000C)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FVector                                SecAxis1;                                          // 0x0048(0x000C)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
@@ -11098,7 +11098,7 @@ static_assert(offsetof(FEditorImportWorkflowDefinition, FactorySettings) == 0x00
 struct FAudioComponentParam final
 {
 public:
-	class FName                                   ParamName;                                         // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParamName;                                         // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         FloatParam;                                        // 0x0008(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          BoolParam;                                         // 0x000C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_D[0x3];                                        // 0x000D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
@@ -11175,8 +11175,8 @@ static_assert(sizeof(FInstancedStaticMeshMappingInfo) == 0x000008, "Wrong size o
 struct FNode final
 {
 public:
-	class FName                                   Name;                                              // 0x0000(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ParentName;                                        // 0x0008(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Name;                                              // 0x0000(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParentName;                                        // 0x0008(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FTransform                             Transform;                                         // 0x0010(0x0030)(IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	class FString                                 DisplayName;                                       // 0x0040(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bAdvanced;                                         // 0x0050(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -11261,7 +11261,7 @@ static_assert(offsetof(FLightmassMaterialInterfaceSettings, ExportResolutionScal
 struct FNamedEmitterMaterial final
 {
 public:
-	class FName                                   Name;                                              // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Name;                                              // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UMaterialInterface*                     Material;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FNamedEmitterMaterial) == 0x000008, "Wrong alignment on FNamedEmitterMaterial");
@@ -11303,7 +11303,7 @@ static_assert(offsetof(FMaterialRemapIndex, MaterialRemap) == 0x000008, "Member 
 struct alignas(0x10) FParticleSysParam final
 {
 public:
-	class FName                                   Name;                                              // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Name;                                              // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EParticleSysParamType                         ParamType;                                         // 0x0008(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         Scalar;                                            // 0x000C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -11346,7 +11346,7 @@ static_assert(offsetof(FEngineShowFlagsSetting, Enabled) == 0x000010, "Member 'F
 struct alignas(0x08) FAnimationTransitionRule final
 {
 public:
-	class FName                                   RuleToExecute;                                     // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   RuleToExecute;                                     // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          TransitionReturnVal;                               // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	int32                                         TransitionIndex;                                   // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -11362,7 +11362,7 @@ static_assert(offsetof(FAnimationTransitionRule, TransitionIndex) == 0x00000C, "
 struct alignas(0x08) FAnimationStateBase
 {
 public:
-	class FName                                   StateName;                                         // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   StateName;                                         // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FAnimationStateBase) == 0x000008, "Wrong alignment on FAnimationStateBase");
 static_assert(sizeof(FAnimationStateBase) == 0x000008, "Wrong size on FAnimationStateBase");
@@ -11394,8 +11394,8 @@ struct alignas(0x10) FTimelineVectorTrack final
 public:
 	class UCurveVector*                           VectorCurve;                                       // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TDelegate<void(const struct FVector& Output)> InterpFunc;                                        // 0x0008(0x0010)(ZeroConstructor, InstancedReference, NoDestructor, NativeAccessSpecifierPublic)
-	class FName                                   TrackName;                                         // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   VectorPropertyName;                                // 0x0020(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   TrackName;                                         // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   VectorPropertyName;                                // 0x0020(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UStructProperty*                        VectorProperty;                                    // 0x0028(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_30[0x40];                                      // 0x0030(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -11414,8 +11414,8 @@ struct alignas(0x10) FTimelineFloatTrack final
 public:
 	class UCurveFloat*                            FloatCurve;                                        // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TDelegate<void(float Output)>                 InterpFunc;                                        // 0x0008(0x0010)(ZeroConstructor, InstancedReference, NoDestructor, NativeAccessSpecifierPublic)
-	class FName                                   TrackName;                                         // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   FloatPropertyName;                                 // 0x0020(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   TrackName;                                         // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   FloatPropertyName;                                 // 0x0020(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UFloatProperty*                         FloatProperty;                                     // 0x0028(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_30[0x40];                                      // 0x0030(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -11434,8 +11434,8 @@ struct alignas(0x10) FTimelineLinearColorTrack final
 public:
 	class UCurveLinearColor*                      LinearColorCurve;                                  // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TDelegate<void(const struct FLinearColor& Output)> InterpFunc;                                        // 0x0008(0x0010)(ZeroConstructor, InstancedReference, NoDestructor, NativeAccessSpecifierPublic)
-	class FName                                   TrackName;                                         // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   LinearColorPropertyName;                           // 0x0020(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   TrackName;                                         // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   LinearColorPropertyName;                           // 0x0020(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UStructProperty*                        LinearColorProperty;                               // 0x0028(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_30[0x40];                                      // 0x0030(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -11470,7 +11470,7 @@ public:
 	TDelegate<void()>                             TimelineFinishedFunc;                              // 0x0068(0x0010)(ZeroConstructor, InstancedReference, RepSkip, NoDestructor, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_78[0x48];                                      // 0x0078(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
 	TWeakObjectPtr<class UObject>                 PropertySetObject;                                 // 0x00C0(0x0008)(ZeroConstructor, IsPlainOldData, RepSkip, NoDestructor, UObjectWrapper, NativeAccessSpecifierPrivate)
-	class FName                                   DirectionPropertyName;                             // 0x00C8(0x0008)(ZeroConstructor, IsPlainOldData, RepSkip, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	FName                                   DirectionPropertyName;                             // 0x00C8(0x0008)(ZeroConstructor, IsPlainOldData, RepSkip, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	class UByteProperty*                          DirectionProperty;                                 // 0x00D0(0x0008)(ZeroConstructor, Transient, IsPlainOldData, RepSkip, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_D8[0x8];                                       // 0x00D8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -11625,7 +11625,7 @@ struct alignas(0x08) FRigTransformConstraint final
 public:
 	EConstraintTransform                          TranformType;                                      // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   ParentSpace;                                       // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParentSpace;                                       // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Weight;                                            // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -11651,7 +11651,7 @@ static_assert(offsetof(FTransformBaseConstraint, TransformConstraints) == 0x0000
 struct FSlotAnimationTrack final
 {
 public:
-	class FName                                   SlotName;                                          // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SlotName;                                          // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FAnimTrack                             AnimTrack;                                         // 0x0008(0x0010)(Edit, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FSlotAnimationTrack) == 0x000008, "Wrong alignment on FSlotAnimationTrack");
@@ -11664,7 +11664,7 @@ static_assert(offsetof(FSlotAnimationTrack, AnimTrack) == 0x000008, "Member 'FSl
 struct FCurveTrack final
 {
 public:
-	class FName                                   CurveName;                                         // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   CurveName;                                         // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<float>                                 CurveWeights;                                      // 0x0008(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FCurveTrack) == 0x000008, "Wrong alignment on FCurveTrack");
@@ -11764,8 +11764,8 @@ struct FPoseDataContainer final
 public:
 	TArray<struct FSmartName>                     PoseNames;                                         // 0x0000(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
 	TArray<struct FPoseData>                      Poses;                                             // 0x0010(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
-	TArray<class FName>                           Tracks;                                            // 0x0020(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
-	TMap<class FName, int32>                      TrackMap;                                          // 0x0030(0x0050)(ZeroConstructor, Transient, NativeAccessSpecifierPrivate)
+	TArray<FName>                           Tracks;                                            // 0x0020(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
+	TMap<FName, int32>                      TrackMap;                                          // 0x0030(0x0050)(ZeroConstructor, Transient, NativeAccessSpecifierPrivate)
 	TArray<struct FAnimCurveBase>                 Curves;                                            // 0x0080(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
 };
 static_assert(alignof(FPoseDataContainer) == 0x000008, "Wrong alignment on FPoseDataContainer");
@@ -11812,7 +11812,7 @@ static_assert(offsetof(FAnimationTransitionBetweenStates, LogicType) == 0x000038
 struct FBakedAnimationStateMachine final
 {
 public:
-	class FName                                   MachineName;                                       // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   MachineName;                                       // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         InitialState;                                      // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<struct FBakedAnimationState>           States;                                            // 0x0010(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
@@ -11955,7 +11955,7 @@ static_assert(offsetof(FAnimParentNodeAssetOverride, ParentNodeGuid) == 0x000008
 struct FBlueprintComponentChangedPropertyInfo final
 {
 public:
-	class FName                                   PropertyName;                                      // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   PropertyName;                                      // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         ArrayIndex;                                        // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	class UStruct*                                PropertyScope;                                     // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -12001,7 +12001,7 @@ static_assert(offsetof(FRawDistributionFloat, Distribution) == 0x000030, "Member
 struct FEmitterDynamicParameter final
 {
 public:
-	class FName                                   ParamName;                                         // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParamName;                                         // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         bUseEmitterTime : 1;                               // 0x0008(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bSpawnTimeOnly : 1;                                // 0x0008(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
@@ -12157,7 +12157,7 @@ struct alignas(0x08) FPhysicsConstraintProfileHandle final
 public:
 	struct FConstraintProfileProperties           ProfileProperties;                                 // 0x0000(0x0104)(NativeAccessSpecifierPublic)
 	uint8                                         Pad_104[0x4];                                      // 0x0104(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   ProfileName;                                       // 0x0108(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ProfileName;                                       // 0x0108(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FPhysicsConstraintProfileHandle) == 0x000008, "Wrong alignment on FPhysicsConstraintProfileHandle");
 static_assert(sizeof(FPhysicsConstraintProfileHandle) == 0x000110, "Wrong size on FPhysicsConstraintProfileHandle");
@@ -12241,7 +12241,7 @@ static_assert(offsetof(FBlendProfileBoneEntry, BlendScale) == 0x000010, "Member 
 struct FCustomProfile final
 {
 public:
-	class FName                                   Name;                                              // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Name;                                              // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<struct FResponseChannel>               CustomResponses;                                   // 0x0008(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FCustomProfile) == 0x000008, "Wrong alignment on FCustomProfile");
@@ -12277,7 +12277,7 @@ struct alignas(0x08) FCustomChannelSetup final
 public:
 	ECollisionChannel                             Channel;                                           // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   Name;                                              // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Name;                                              // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ECollisionResponse                            DefaultResponse;                                   // 0x0010(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bTraceType;                                        // 0x0011(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bStaticObject;                                     // 0x0012(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -12296,10 +12296,10 @@ static_assert(offsetof(FCustomChannelSetup, bStaticObject) == 0x000012, "Member 
 struct FCollisionResponseTemplate final
 {
 public:
-	class FName                                   Name;                                              // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Name;                                              // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ECollisionEnabled                             CollisionEnabled;                                  // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   ObjectTypeName;                                    // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ObjectTypeName;                                    // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<struct FResponseChannel>               CustomResponses;                                   // 0x0018(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 	class FString                                 HelpMessage;                                       // 0x0028(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bCanModify;                                        // 0x0038(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -12409,8 +12409,8 @@ static_assert(offsetof(FTTFloatTrack, CurveFloat) == 0x000010, "Member 'FTTFloat
 struct alignas(0x08) FStructRedirect final
 {
 public:
-	class FName                                   OldStructName;                                     // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   NewStructName;                                     // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   OldStructName;                                     // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   NewStructName;                                     // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FStructRedirect) == 0x000008, "Wrong alignment on FStructRedirect");
 static_assert(sizeof(FStructRedirect) == 0x000010, "Wrong size on FStructRedirect");
@@ -12439,13 +12439,13 @@ static_assert(offsetof(FInterpEdSelKey, UnsnappedPosition) == 0x000014, "Member 
 struct alignas(0x08) FClassRedirect final
 {
 public:
-	class FName                                   ObjectName;                                        // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   OldClassName;                                      // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   NewClassName;                                      // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   OldSubobjName;                                     // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   NewSubobjName;                                     // 0x0020(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   NewClassClass;                                     // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   NewClassPackage;                                   // 0x0030(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ObjectName;                                        // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   OldClassName;                                      // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   NewClassName;                                      // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   OldSubobjName;                                     // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   NewSubobjName;                                     // 0x0020(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   NewClassClass;                                     // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   NewClassPackage;                                   // 0x0030(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          InstanceOnly;                                      // 0x0038(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -12525,7 +12525,7 @@ static_assert(offsetof(FInputAxisProperties, Exponent) == 0x000008, "Member 'FIn
 struct alignas(0x08) FInputAxisConfigEntry final
 {
 public:
-	class FName                                   AxisKeyName;                                       // 0x0000(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   AxisKeyName;                                       // 0x0000(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FInputAxisProperties                   AxisProperties;                                    // 0x0008(0x0010)(Edit, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FInputAxisConfigEntry) == 0x000008, "Wrong alignment on FInputAxisConfigEntry");
@@ -12597,9 +12597,9 @@ static_assert(offsetof(FSkeletalMeshLODGroupSettings, OptimizationSettings) == 0
 struct alignas(0x08) FNetDriverDefinition final
 {
 public:
-	class FName                                   DefName;                                           // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   DriverClassName;                                   // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   DriverClassNameFallback;                           // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   DefName;                                           // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   DriverClassName;                                   // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   DriverClassNameFallback;                           // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FNetDriverDefinition) == 0x000008, "Wrong alignment on FNetDriverDefinition");
 static_assert(sizeof(FNetDriverDefinition) == 0x000018, "Wrong size on FNetDriverDefinition");
@@ -12683,7 +12683,7 @@ static_assert(offsetof(FFunctionExpressionOutput, Output) == 0x000018, "Member '
 struct FPhysicalAnimationProfile final
 {
 public:
-	class FName                                   ProfileName;                                       // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ProfileName;                                       // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FPhysicalAnimationData                 PhysicalAnimationData;                             // 0x0008(0x0028)(Edit, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FPhysicalAnimationProfile) == 0x000008, "Wrong alignment on FPhysicalAnimationProfile");
@@ -12699,7 +12699,7 @@ public:
 	TArray<int32>                                 VertexIndices;                                     // 0x0000(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 	int32                                         Direction;                                         // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   ItemName;                                          // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ItemName;                                          // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         PolyFlags;                                         // 0x0020(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -12791,7 +12791,7 @@ struct FCurveTableRowHandle final
 {
 public:
 	class UCurveTable*                            CurveTable;                                        // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   RowName;                                           // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   RowName;                                           // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FCurveTableRowHandle) == 0x000008, "Wrong alignment on FCurveTableRowHandle");
 static_assert(sizeof(FCurveTableRowHandle) == 0x000010, "Wrong size on FCurveTableRowHandle");
@@ -12852,7 +12852,7 @@ struct alignas(0x08) FPhysicalSurfaceName final
 public:
 	EPhysicalSurface                              Type;                                              // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   Name;                                              // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Name;                                              // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FPhysicalSurfaceName) == 0x000008, "Wrong alignment on FPhysicalSurfaceName");
 static_assert(sizeof(FPhysicalSurfaceName) == 0x000010, "Wrong size on FPhysicalSurfaceName");
@@ -12864,9 +12864,9 @@ static_assert(offsetof(FPhysicalSurfaceName, Name) == 0x000008, "Member 'FPhysic
 struct alignas(0x08) FBlueprintComponentDelegateBinding final
 {
 public:
-	class FName                                   ComponentPropertyName;                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   DelegatePropertyName;                              // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   FunctionNameToBind;                                // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ComponentPropertyName;                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   DelegatePropertyName;                              // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   FunctionNameToBind;                                // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FBlueprintComponentDelegateBinding) == 0x000008, "Wrong alignment on FBlueprintComponentDelegateBinding");
 static_assert(sizeof(FBlueprintComponentDelegateBinding) == 0x000018, "Wrong size on FBlueprintComponentDelegateBinding");
@@ -12879,7 +12879,7 @@ static_assert(offsetof(FBlueprintComponentDelegateBinding, FunctionNameToBind) =
 struct alignas(0x08) FLocationBoneSocketInfo final
 {
 public:
-	class FName                                   BoneSocketName;                                    // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   BoneSocketName;                                    // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                Offset;                                            // 0x0008(0x000C)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -12894,10 +12894,10 @@ struct alignas(0x08) FBlueprintInputActionDelegateBinding final : public FBluepr
 {
 public:
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   InputActionName;                                   // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   InputActionName;                                   // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EInputEvent                                   InputKeyEvent;                                     // 0x0010(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   FunctionNameToBind;                                // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   FunctionNameToBind;                                // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FBlueprintInputActionDelegateBinding) == 0x000008, "Wrong alignment on FBlueprintInputActionDelegateBinding");
 static_assert(sizeof(FBlueprintInputActionDelegateBinding) == 0x000020, "Wrong size on FBlueprintInputActionDelegateBinding");
@@ -12912,7 +12912,7 @@ struct alignas(0x08) FEventTrackKey final
 public:
 	float                                         Time;                                              // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   EventName;                                         // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   EventName;                                         // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FEventTrackKey) == 0x000008, "Wrong alignment on FEventTrackKey");
 static_assert(sizeof(FEventTrackKey) == 0x000010, "Wrong size on FEventTrackKey");
@@ -12926,7 +12926,7 @@ struct FBlueprintInputAxisKeyDelegateBinding final : public FBlueprintInputDeleg
 public:
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FKey                                   AxisKey;                                           // 0x0008(0x0018)(NativeAccessSpecifierPublic)
-	class FName                                   FunctionNameToBind;                                // 0x0020(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   FunctionNameToBind;                                // 0x0020(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FBlueprintInputAxisKeyDelegateBinding) == 0x000008, "Wrong alignment on FBlueprintInputAxisKeyDelegateBinding");
 static_assert(sizeof(FBlueprintInputAxisKeyDelegateBinding) == 0x000028, "Wrong size on FBlueprintInputAxisKeyDelegateBinding");
@@ -12990,7 +12990,7 @@ static_assert(offsetof(FComponentOverrideRecord, CookedComponentInstancingData) 
 struct FInputAxisKeyMapping final
 {
 public:
-	class FName                                   AxisName;                                          // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   AxisName;                                          // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FKey                                   Key;                                               // 0x0008(0x0018)(Edit, NativeAccessSpecifierPublic)
 	float                                         Scale;                                             // 0x0020(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -13093,7 +13093,7 @@ struct alignas(0x08) FDirectorTrackCut final
 public:
 	float                                         Time;                                              // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         TransitionTime;                                    // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   TargetCamGroup;                                    // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   TargetCamGroup;                                    // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         ShotNumber;                                        // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -13132,7 +13132,7 @@ static_assert(offsetof(FAnimControlTrackKey, AnimPlayRate) == 0x000018, "Member 
 struct alignas(0x08) FInterpLookupPoint final
 {
 public:
-	class FName                                   GroupName;                                         // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   GroupName;                                         // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Time;                                              // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -13219,7 +13219,7 @@ struct FClientReceiveData final
 {
 public:
 	class APlayerController*                      LocalPC;                                           // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   MessageType;                                       // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   MessageType;                                       // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         MessageIndex;                                      // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	class FString                                 MessageString;                                     // 0x0018(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -13298,7 +13298,7 @@ static_assert(offsetof(FMaterialInstanceBasePropertyOverrides, ShadingModel) == 
 struct alignas(0x08) FVectorParameterValue final
 {
 public:
-	class FName                                   ParameterName;                                     // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParameterName;                                     // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FLinearColor                           ParameterValue;                                    // 0x0008(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FGuid                                  ExpressionGUID;                                    // 0x0018(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 };
@@ -13313,7 +13313,7 @@ static_assert(offsetof(FVectorParameterValue, ExpressionGUID) == 0x000018, "Memb
 struct FFontParameterValue final
 {
 public:
-	class FName                                   ParameterName;                                     // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParameterName;                                     // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UFont*                                  FontValue;                                         // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         FontPage;                                          // 0x0010(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FGuid                                  ExpressionGUID;                                    // 0x0014(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
@@ -13405,7 +13405,7 @@ public:
 	uint8                                         UseReflectedImpactVector : 1;                      // 0x000C(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bUseOrbitOffset : 1;                               // 0x000C(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_D[0x3];                                        // 0x000D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   CustomName;                                        // 0x0010(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   CustomName;                                        // 0x0010(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<class UParticleModuleEventSendToGame*> ParticleModuleEventsToSendToGame;                  // 0x0018(0x0010)(Edit, ExportObject, ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FParticleEvent_GenerateInfo) == 0x000008, "Wrong alignment on FParticleEvent_GenerateInfo");
@@ -13627,7 +13627,7 @@ static_assert(offsetof(FDebugDisplayProperty, WithinClass) == 0x000008, "Member 
 struct FTransformBase final
 {
 public:
-	class FName                                   Node;                                              // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Node;                                              // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FTransformBaseConstraint               Constraints[0x2];                                  // 0x0008(0x0010)(Edit, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FTransformBase) == 0x000008, "Wrong alignment on FTransformBase");
@@ -13768,7 +13768,7 @@ static_assert(offsetof(FDistanceDatum, Volume) == 0x000010, "Member 'FDistanceDa
 struct alignas(0x08) FModulatorContinuousParams final
 {
 public:
-	class FName                                   ParameterName;                                     // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParameterName;                                     // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Default;                                           // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         MinInput;                                          // 0x000C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         MaxInput;                                          // 0x0010(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -13793,7 +13793,7 @@ struct FStaticMaterial final
 {
 public:
 	class UMaterialInterface*                     MaterialInterface;                                 // 0x0000(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   MaterialSlotName;                                  // 0x0008(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   MaterialSlotName;                                  // 0x0008(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FMeshUVChannelInfo                     UVChannelData;                                     // 0x0010(0x0014)(Edit, BlueprintVisible, BlueprintReadOnly, EditConst, NativeAccessSpecifierPublic)
 	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -13938,7 +13938,7 @@ struct FAnimNode_SaveCachedPose final : public FAnimNode_Base
 {
 public:
 	struct FPoseLink                              Pose;                                              // 0x0030(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	class FName                                   CachePoseName;                                     // 0x0048(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   CachePoseName;                                     // 0x0048(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         GlobalWeight;                                      // 0x0050(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_54[0x54];                                      // 0x0054(0x0054)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -14018,8 +14018,8 @@ public:
 	class UAnimInstance*                          InstanceToRun;                                     // 0x0050(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<class UProperty*>                      InstanceProperties;                                // 0x0058(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPublic)
 	TArray<class UProperty*>                      SubInstanceProperties;                             // 0x0068(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPublic)
-	TArray<class FName>                           SourcePropertyNames;                               // 0x0078(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<class FName>                           DestPropertyNames;                                 // 0x0088(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<FName>                           SourcePropertyNames;                               // 0x0078(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<FName>                           DestPropertyNames;                                 // 0x0088(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_98[0x30];                                      // 0x0098(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(FAnimNode_SubInstance) == 0x000008, "Wrong alignment on FAnimNode_SubInstance");
@@ -14058,7 +14058,7 @@ struct FAnimNode_UseCachedPose final : public FAnimNode_Base
 {
 public:
 	struct FPoseLink                              LinkToCachingNode;                                 // 0x0030(0x0018)(NativeAccessSpecifierPublic)
-	class FName                                   CachePoseName;                                     // 0x0048(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   CachePoseName;                                     // 0x0048(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FAnimNode_UseCachedPose) == 0x000008, "Wrong alignment on FAnimNode_UseCachedPose");
 static_assert(sizeof(FAnimNode_UseCachedPose) == 0x000050, "Wrong size on FAnimNode_UseCachedPose");
@@ -14120,7 +14120,7 @@ struct alignas(0x08) FNameCurveKey final
 public:
 	float                                         Time;                                              // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   Value;                                             // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Value;                                             // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FNameCurveKey) == 0x000008, "Wrong alignment on FNameCurveKey");
 static_assert(sizeof(FNameCurveKey) == 0x000010, "Wrong size on FNameCurveKey");

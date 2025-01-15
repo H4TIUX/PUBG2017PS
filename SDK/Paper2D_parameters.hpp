@@ -803,7 +803,7 @@ struct TileMapBlueprintLibrary_GetTileUserData final
 {
 public:
 	struct FPaperTileInfo                         Tile;                                              // 0x0000(0x0010)(Parm, NativeAccessSpecifierPublic)
-	class FName                                   ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(TileMapBlueprintLibrary_GetTileUserData) == 0x000008, "Wrong alignment on TileMapBlueprintLibrary_GetTileUserData");
 static_assert(sizeof(TileMapBlueprintLibrary_GetTileUserData) == 0x000018, "Wrong size on TileMapBlueprintLibrary_GetTileUserData");

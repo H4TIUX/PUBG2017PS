@@ -84,7 +84,7 @@ class UClass;
 class UObject;
 class UFunction;
 
-class FName;
+struct FName;
 
 namespace BasicFilesImpleUtils
 {
@@ -100,7 +100,7 @@ namespace BasicFilesImpleUtils
 
 	UObject* GetObjectByIndex(int32 Index);
 
-	UFunction* FindFunctionByFName(const FName* Name);
+	UFunction* FindFunctionByFName(const struct FName* Name);
 }
 
 template<StringLiteral Name, bool bIsFullName = false>
@@ -430,7 +430,7 @@ static_assert(offsetof(FTextData, TextSource) == 0x000028, "Member 'FTextData::T
 
 // Predefined struct FText
 // 0x0018 (0x0018 - 0x0000)
-class FText final
+class alignas(8) FText final
 {
 public:
 	class FTextImpl::FTextData*                   TextData;                                          // 0x0000(0x0008)(NOT AUTO-GENERATED PROPERTY)

@@ -329,7 +329,7 @@ static_assert(offsetof(MediaPlayer_GetNumTracks, ReturnValue) == 0x000004, "Memb
 struct MediaPlayer_GetPlayerName final
 {
 public:
-	class FName                                   ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(MediaPlayer_GetPlayerName) == 0x000004, "Wrong alignment on MediaPlayer_GetPlayerName");
 static_assert(sizeof(MediaPlayer_GetPlayerName) == 0x000008, "Wrong size on MediaPlayer_GetPlayerName");

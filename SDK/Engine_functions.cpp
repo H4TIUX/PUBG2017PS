@@ -433,10 +433,10 @@ void UActorComponent::ToggleActive()
 // Function Engine.ActorComponent.ComponentHasTag
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             Tag                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             Tag                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UActorComponent::ComponentHasTag(class FName Tag) const
+bool UActorComponent::ComponentHasTag(FName Tag) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -1151,13 +1151,13 @@ float UMovementComponent::K2_GetModifiedMaxSpeed() const
 // Function Engine.Actor.AddComponent
 // (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             TemplateName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             TemplateName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bManualAttachment                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTransform                       RelativeTransform                                      (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // class UObject*                          ComponentTemplateContext                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UActorComponent*                  ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UActorComponent* AActor::AddComponent(class FName TemplateName, bool bManualAttachment, const struct FTransform& RelativeTransform, const class UObject* ComponentTemplateContext)
+class UActorComponent* AActor::AddComponent(FName TemplateName, bool bManualAttachment, const struct FTransform& RelativeTransform, const class UObject* ComponentTemplateContext)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1597,11 +1597,11 @@ void AActor::K2_AddActorWorldTransform(const struct FTransform& DeltaTransform, 
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class USceneComponent*                  InParent                                               (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EAttachLocation                         AttachLocationType                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bWeldSimulatedBodies                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AActor::K2_AttachRootComponentTo(class USceneComponent* InParent, class FName InSocketName, EAttachLocation AttachLocationType, bool bWeldSimulatedBodies)
+void AActor::K2_AttachRootComponentTo(class USceneComponent* InParent, FName InSocketName, EAttachLocation AttachLocationType, bool bWeldSimulatedBodies)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1628,11 +1628,11 @@ void AActor::K2_AttachRootComponentTo(class USceneComponent* InParent, class FNa
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class AActor*                           InParentActor                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EAttachLocation                         AttachLocationType                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bWeldSimulatedBodies                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AActor::K2_AttachRootComponentToActor(class AActor* InParentActor, class FName InSocketName, EAttachLocation AttachLocationType, bool bWeldSimulatedBodies)
+void AActor::K2_AttachRootComponentToActor(class AActor* InParentActor, FName InSocketName, EAttachLocation AttachLocationType, bool bWeldSimulatedBodies)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1659,13 +1659,13 @@ void AActor::K2_AttachRootComponentToActor(class AActor* InParentActor, class FN
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class AActor*                           ParentActor                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             SocketName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             SocketName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EAttachmentRule                         LocationRule                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EAttachmentRule                         RotationRule                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EAttachmentRule                         ScaleRule                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bWeldSimulatedBodies                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AActor::K2_AttachToActor(class AActor* ParentActor, class FName SocketName, EAttachmentRule LocationRule, EAttachmentRule RotationRule, EAttachmentRule ScaleRule, bool bWeldSimulatedBodies)
+void AActor::K2_AttachToActor(class AActor* ParentActor, FName SocketName, EAttachmentRule LocationRule, EAttachmentRule RotationRule, EAttachmentRule ScaleRule, bool bWeldSimulatedBodies)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1694,13 +1694,13 @@ void AActor::K2_AttachToActor(class AActor* ParentActor, class FName SocketName,
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class USceneComponent*                  Parent                                                 (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             SocketName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             SocketName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EAttachmentRule                         LocationRule                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EAttachmentRule                         RotationRule                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EAttachmentRule                         ScaleRule                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bWeldSimulatedBodies                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AActor::K2_AttachToComponent(class USceneComponent* Parent, class FName SocketName, EAttachmentRule LocationRule, EAttachmentRule RotationRule, EAttachmentRule ScaleRule, bool bWeldSimulatedBodies)
+void AActor::K2_AttachToComponent(class USceneComponent* Parent, FName SocketName, EAttachmentRule LocationRule, EAttachmentRule RotationRule, EAttachmentRule ScaleRule, bool bWeldSimulatedBodies)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2156,9 +2156,9 @@ class UMaterialInstanceDynamic* AActor::MakeMIDForMaterial(class UMaterialInterf
 // class APawn*                            NoiseInstigator                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          NoiseLocation                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // float                                   MaxRange                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             Tag                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             Tag                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AActor::MakeNoise(float Loudness, class APawn* NoiseInstigator, const struct FVector& NoiseLocation, float MaxRange, class FName Tag)
+void AActor::MakeNoise(float Loudness, class APawn* NoiseInstigator, const struct FVector& NoiseLocation, float MaxRange, FName Tag)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2581,13 +2581,13 @@ void AActor::ReceiveHit(class UPrimitiveComponent* MyComp, class AActor* Other, 
 // struct FVector                          HitLocation                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          HitNormal                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // class UPrimitiveComponent*              HitComponent                                           (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          ShotFromDirection                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // class AController*                      InstigatedBy                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class AActor*                           DamageCauser                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FHitResult                       HitInfo                                                (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
-void AActor::ReceivePointDamage(float Damage, const class UDamageType* DamageType, const struct FVector& HitLocation, const struct FVector& HitNormal, class UPrimitiveComponent* HitComponent, class FName BoneName, const struct FVector& ShotFromDirection, class AController* InstigatedBy, class AActor* DamageCauser, const struct FHitResult& HitInfo)
+void AActor::ReceivePointDamage(float Damage, const class UDamageType* DamageType, const struct FVector& HitLocation, const struct FVector& HitNormal, class UPrimitiveComponent* HitComponent, FName BoneName, const struct FVector& ShotFromDirection, class AController* InstigatedBy, class AActor* DamageCauser, const struct FHitResult& HitInfo)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3015,9 +3015,9 @@ void AActor::SetTickGroup(ETickingGroup NewTickGroup)
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class AActor*                           InParentActor                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AActor::SnapRootComponentTo(class AActor* InParentActor, class FName InSocketName)
+void AActor::SnapRootComponentTo(class AActor* InParentActor, FName InSocketName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3074,10 +3074,10 @@ void AActor::UserConstructionScript()
 // Function Engine.Actor.ActorHasTag
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             Tag                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             Tag                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool AActor::ActorHasTag(class FName Tag) const
+bool AActor::ActorHasTag(FName Tag) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -3477,10 +3477,10 @@ TArray<class UActorComponent*> AActor::GetComponentsByClass(TSubclassOf<class UA
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // TSubclassOf<class UActorComponent>      ComponentClass                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             Tag                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             Tag                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TArray<class UActorComponent*>          ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
-TArray<class UActorComponent*> AActor::GetComponentsByTag(TSubclassOf<class UActorComponent> ComponentClass, class FName Tag) const
+TArray<class UActorComponent*> AActor::GetComponentsByTag(TSubclassOf<class UActorComponent> ComponentClass, FName Tag) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -3646,10 +3646,10 @@ float AActor::GetInputAxisKeyValue(const struct FKey& InputAxisKey) const
 // Function Engine.Actor.GetInputAxisValue
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             InputAxisName                                          (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InputAxisName                                          (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-float AActor::GetInputAxisValue(const class FName InputAxisName) const
+float AActor::GetInputAxisValue(const FName InputAxisName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -4318,11 +4318,11 @@ void AHUD::AddDebugText(const class FString& DebugText, class AActor* SrcActor, 
 // Parameters:
 // struct FVector2D                        Position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector2D                        Size                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bConsumesInput                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   Priority                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AHUD::AddHitBox(const struct FVector2D& Position, const struct FVector2D& Size, class FName InName, bool bConsumesInput, int32 Priority)
+void AHUD::AddHitBox(const struct FVector2D& Position, const struct FVector2D& Size, FName InName, bool bConsumesInput, int32 Priority)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4728,9 +4728,9 @@ void AHUD::ReceiveDrawHUD(int32 SizeX, int32 SizeY)
 // Function Engine.HUD.ReceiveHitBoxBeginCursorOver
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// class FName                             BoxName                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoxName                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AHUD::ReceiveHitBoxBeginCursorOver(const class FName BoxName)
+void AHUD::ReceiveHitBoxBeginCursorOver(const FName BoxName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4748,9 +4748,9 @@ void AHUD::ReceiveHitBoxBeginCursorOver(const class FName BoxName)
 // Function Engine.HUD.ReceiveHitBoxClick
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// class FName                             BoxName                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoxName                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AHUD::ReceiveHitBoxClick(const class FName BoxName)
+void AHUD::ReceiveHitBoxClick(const FName BoxName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4768,9 +4768,9 @@ void AHUD::ReceiveHitBoxClick(const class FName BoxName)
 // Function Engine.HUD.ReceiveHitBoxEndCursorOver
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// class FName                             BoxName                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoxName                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AHUD::ReceiveHitBoxEndCursorOver(const class FName BoxName)
+void AHUD::ReceiveHitBoxEndCursorOver(const FName BoxName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4788,9 +4788,9 @@ void AHUD::ReceiveHitBoxEndCursorOver(const class FName BoxName)
 // Function Engine.HUD.ReceiveHitBoxRelease
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// class FName                             BoxName                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoxName                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AHUD::ReceiveHitBoxRelease(const class FName BoxName)
+void AHUD::ReceiveHitBoxRelease(const FName BoxName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4854,9 +4854,9 @@ void AHUD::RemoveDebugText(class AActor* SrcActor, bool bLeaveDurationText)
 // Function Engine.HUD.ShowDebug
 // (Exec, Native, Public)
 // Parameters:
-// class FName                             DebugType                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             DebugType                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AHUD::ShowDebug(class FName DebugType)
+void AHUD::ShowDebug(FName DebugType)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4904,9 +4904,9 @@ void AHUD::ShowDebugForReticleTargetToggle(TSubclassOf<class AActor> DesiredClas
 // Function Engine.HUD.ShowDebugToggleSubCategory
 // (Final, Exec, Native, Public)
 // Parameters:
-// class FName                             Category                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             Category                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AHUD::ShowDebugToggleSubCategory(class FName Category)
+void AHUD::ShowDebugToggleSubCategory(FName Category)
 {
 	static class UFunction* Func = nullptr;
 
@@ -5240,10 +5240,10 @@ void ALevelScriptActor::LevelReset()
 // Function Engine.LevelScriptActor.RemoteEvent
 // (Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             EventName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             EventName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool ALevelScriptActor::RemoteEvent(class FName EventName)
+bool ALevelScriptActor::RemoteEvent(FName EventName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -8228,11 +8228,11 @@ bool UKismetMathLibrary::EqualEqual_IntInt(int32 A, int32 B)
 // Function Engine.KismetMathLibrary.EqualEqual_NameName
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class FName                             A                                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             B                                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             A                                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             B                                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UKismetMathLibrary::EqualEqual_NameName(class FName A, class FName B)
+bool UKismetMathLibrary::EqualEqual_NameName(FName A, FName B)
 {
 	static class UFunction* Func = nullptr;
 
@@ -13399,11 +13399,11 @@ bool UKismetMathLibrary::NotEqual_IntInt(int32 A, int32 B)
 // Function Engine.KismetMathLibrary.NotEqual_NameName
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class FName                             A                                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             B                                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             A                                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             B                                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UKismetMathLibrary::NotEqual_NameName(class FName A, class FName B)
+bool UKismetMathLibrary::NotEqual_NameName(FName A, FName B)
 {
 	static class UFunction* Func = nullptr;
 
@@ -16687,12 +16687,12 @@ void USceneComponent::K2_AddWorldTransform(const struct FTransform& DeltaTransfo
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class USceneComponent*                  InParent                                               (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EAttachLocation                         AttachType                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bWeldSimulatedBodies                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool USceneComponent::K2_AttachTo(class USceneComponent* InParent, class FName InSocketName, EAttachLocation AttachType, bool bWeldSimulatedBodies)
+bool USceneComponent::K2_AttachTo(class USceneComponent* InParent, FName InSocketName, EAttachLocation AttachType, bool bWeldSimulatedBodies)
 {
 	static class UFunction* Func = nullptr;
 
@@ -16721,14 +16721,14 @@ bool USceneComponent::K2_AttachTo(class USceneComponent* InParent, class FName I
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class USceneComponent*                  Parent                                                 (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             SocketName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             SocketName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EAttachmentRule                         LocationRule                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EAttachmentRule                         RotationRule                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EAttachmentRule                         ScaleRule                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bWeldSimulatedBodies                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool USceneComponent::K2_AttachToComponent(class USceneComponent* Parent, class FName SocketName, EAttachmentRule LocationRule, EAttachmentRule RotationRule, EAttachmentRule ScaleRule, bool bWeldSimulatedBodies)
+bool USceneComponent::K2_AttachToComponent(class USceneComponent* Parent, FName SocketName, EAttachmentRule LocationRule, EAttachmentRule RotationRule, EAttachmentRule ScaleRule, bool bWeldSimulatedBodies)
 {
 	static class UFunction* Func = nullptr;
 
@@ -17361,10 +17361,10 @@ void USceneComponent::SetWorldScale3D(const struct FVector& NewScale)
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class USceneComponent*                  InParent                                               (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool USceneComponent::SnapTo(class USceneComponent* InParent, class FName InSocketName)
+bool USceneComponent::SnapTo(class USceneComponent* InParent, FName InSocketName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -17415,10 +17415,10 @@ void USceneComponent::ToggleVisibility(bool bPropagateToChildren)
 // Function Engine.SceneComponent.DoesSocketExist
 // (Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool USceneComponent::DoesSocketExist(class FName InSocketName) const
+bool USceneComponent::DoesSocketExist(FName InSocketName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -17443,9 +17443,9 @@ bool USceneComponent::DoesSocketExist(class FName InSocketName) const
 // Function Engine.SceneComponent.GetAllSocketNames
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// TArray<class FName>                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+// TArray<FName>                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 
-TArray<class FName> USceneComponent::GetAllSocketNames() const
+TArray<FName> USceneComponent::GetAllSocketNames() const
 {
 	static class UFunction* Func = nullptr;
 
@@ -17493,9 +17493,9 @@ class USceneComponent* USceneComponent::GetAttachParent() const
 // Function Engine.SceneComponent.GetAttachSocketName
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName USceneComponent::GetAttachSocketName() const
+FName USceneComponent::GetAttachSocketName() const
 {
 	static class UFunction* Func = nullptr;
 
@@ -17751,10 +17751,10 @@ struct FVector USceneComponent::GetRightVector() const
 // Function Engine.SceneComponent.GetSocketLocation
 // (Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FVector USceneComponent::GetSocketLocation(class FName InSocketName) const
+struct FVector USceneComponent::GetSocketLocation(FName InSocketName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -17779,10 +17779,10 @@ struct FVector USceneComponent::GetSocketLocation(class FName InSocketName) cons
 // Function Engine.SceneComponent.GetSocketQuaternion
 // (Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FQuat                            ReturnValue                                            (Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FQuat USceneComponent::GetSocketQuaternion(class FName InSocketName) const
+struct FQuat USceneComponent::GetSocketQuaternion(FName InSocketName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -17807,10 +17807,10 @@ struct FQuat USceneComponent::GetSocketQuaternion(class FName InSocketName) cons
 // Function Engine.SceneComponent.GetSocketRotation
 // (Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FRotator                         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FRotator USceneComponent::GetSocketRotation(class FName InSocketName) const
+struct FRotator USceneComponent::GetSocketRotation(FName InSocketName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -17835,11 +17835,11 @@ struct FRotator USceneComponent::GetSocketRotation(class FName InSocketName) con
 // Function Engine.SceneComponent.GetSocketTransform
 // (Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // ERelativeTransformSpace                 TransformSpace                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTransform                       ReturnValue                                            (Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FTransform USceneComponent::GetSocketTransform(class FName InSocketName, ERelativeTransformSpace TransformSpace) const
+struct FTransform USceneComponent::GetSocketTransform(FName InSocketName, ERelativeTransformSpace TransformSpace) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -17915,10 +17915,10 @@ bool USceneComponent::IsAnySimulatingPhysics() const
 // Function Engine.SceneComponent.IsSimulatingPhysics
 // (Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool USceneComponent::IsSimulatingPhysics(class FName BoneName) const
+bool USceneComponent::IsSimulatingPhysics(FName BoneName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -18069,10 +18069,10 @@ struct FTransform USceneComponent::K2_GetComponentToWorld() const
 // (Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // struct FVector                          Impulse                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bVelChange                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPrimitiveComponent::AddAngularImpulse(const struct FVector& Impulse, class FName BoneName, bool bVelChange)
+void UPrimitiveComponent::AddAngularImpulse(const struct FVector& Impulse, FName BoneName, bool bVelChange)
 {
 	static class UFunction* Func = nullptr;
 
@@ -18098,10 +18098,10 @@ void UPrimitiveComponent::AddAngularImpulse(const struct FVector& Impulse, class
 // (Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // struct FVector                          Force                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bAccelChange                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPrimitiveComponent::AddForce(const struct FVector& Force, class FName BoneName, bool bAccelChange)
+void UPrimitiveComponent::AddForce(const struct FVector& Force, FName BoneName, bool bAccelChange)
 {
 	static class UFunction* Func = nullptr;
 
@@ -18128,9 +18128,9 @@ void UPrimitiveComponent::AddForce(const struct FVector& Force, class FName Bone
 // Parameters:
 // struct FVector                          Force                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          Location                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPrimitiveComponent::AddForceAtLocation(const struct FVector& Force, const struct FVector& Location, class FName BoneName)
+void UPrimitiveComponent::AddForceAtLocation(const struct FVector& Force, const struct FVector& Location, FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -18156,10 +18156,10 @@ void UPrimitiveComponent::AddForceAtLocation(const struct FVector& Force, const 
 // (Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // struct FVector                          Impulse                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bVelChange                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPrimitiveComponent::AddImpulse(const struct FVector& Impulse, class FName BoneName, bool bVelChange)
+void UPrimitiveComponent::AddImpulse(const struct FVector& Impulse, FName BoneName, bool bVelChange)
 {
 	static class UFunction* Func = nullptr;
 
@@ -18186,9 +18186,9 @@ void UPrimitiveComponent::AddImpulse(const struct FVector& Impulse, class FName 
 // Parameters:
 // struct FVector                          Impulse                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          Location                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPrimitiveComponent::AddImpulseAtLocation(const struct FVector& Impulse, const struct FVector& Location, class FName BoneName)
+void UPrimitiveComponent::AddImpulseAtLocation(const struct FVector& Impulse, const struct FVector& Location, FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -18280,10 +18280,10 @@ void UPrimitiveComponent::AddRadialImpulse(const struct FVector& Origin, float R
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // struct FVector                          Torque                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bAccelChange                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPrimitiveComponent::AddTorque(const struct FVector& Torque, class FName BoneName, bool bAccelChange)
+void UPrimitiveComponent::AddTorque(const struct FVector& Torque, FName BoneName, bool bAccelChange)
 {
 	static class UFunction* Func = nullptr;
 
@@ -18484,10 +18484,10 @@ class UMaterialInstanceDynamic* UPrimitiveComponent::CreateDynamicMaterialInstan
 // Function Engine.PrimitiveComponent.GetCenterOfMass
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FVector UPrimitiveComponent::GetCenterOfMass(class FName BoneName)
+struct FVector UPrimitiveComponent::GetCenterOfMass(FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -18512,9 +18512,9 @@ struct FVector UPrimitiveComponent::GetCenterOfMass(class FName BoneName)
 // Function Engine.PrimitiveComponent.GetCollisionProfileName
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName UPrimitiveComponent::GetCollisionProfileName()
+FName UPrimitiveComponent::GetCollisionProfileName()
 {
 	static class UFunction* Func = nullptr;
 
@@ -18537,10 +18537,10 @@ class FName UPrimitiveComponent::GetCollisionProfileName()
 // Function Engine.PrimitiveComponent.GetPhysicsAngularVelocity
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FVector UPrimitiveComponent::GetPhysicsAngularVelocity(class FName BoneName)
+struct FVector UPrimitiveComponent::GetPhysicsAngularVelocity(FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -18565,10 +18565,10 @@ struct FVector UPrimitiveComponent::GetPhysicsAngularVelocity(class FName BoneNa
 // Function Engine.PrimitiveComponent.GetPhysicsLinearVelocity
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FVector UPrimitiveComponent::GetPhysicsLinearVelocity(class FName BoneName)
+struct FVector UPrimitiveComponent::GetPhysicsLinearVelocity(FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -18594,10 +18594,10 @@ struct FVector UPrimitiveComponent::GetPhysicsLinearVelocity(class FName BoneNam
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // struct FVector                          Point                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FVector UPrimitiveComponent::GetPhysicsLinearVelocityAtPoint(const struct FVector& Point, class FName BoneName)
+struct FVector UPrimitiveComponent::GetPhysicsLinearVelocityAtPoint(const struct FVector& Point, FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -18708,10 +18708,10 @@ bool UPrimitiveComponent::IsAnyRigidBodyAwake()
 // bool                                    bShowTrace                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          HitLocation                                            (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          HitNormal                                              (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UPrimitiveComponent::K2_LineTraceComponent(const struct FVector& TraceStart, const struct FVector& TraceEnd, bool bTraceComplex, bool bShowTrace, struct FVector* HitLocation, struct FVector* HitNormal, class FName* BoneName)
+bool UPrimitiveComponent::K2_LineTraceComponent(const struct FVector& TraceStart, const struct FVector& TraceEnd, bool bTraceComplex, bool bShowTrace, struct FVector* HitLocation, struct FVector* HitNormal, FName* BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -18748,9 +18748,9 @@ bool UPrimitiveComponent::K2_LineTraceComponent(const struct FVector& TraceStart
 // Function Engine.PrimitiveComponent.PutRigidBodyToSleep
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPrimitiveComponent::PutRigidBodyToSleep(class FName BoneName)
+void UPrimitiveComponent::PutRigidBodyToSleep(FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -18901,9 +18901,9 @@ void UPrimitiveComponent::SetCastShadow(bool NewCastShadow)
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // struct FVector                          CenterOfMassOffset                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPrimitiveComponent::SetCenterOfMass(const struct FVector& CenterOfMassOffset, class FName BoneName)
+void UPrimitiveComponent::SetCenterOfMass(const struct FVector& CenterOfMassOffset, FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -18977,9 +18977,9 @@ void UPrimitiveComponent::SetCollisionObjectType(ECollisionChannel Channel)
 // Function Engine.PrimitiveComponent.SetCollisionProfileName
 // (Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             InCollisionProfileName                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InCollisionProfileName                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPrimitiveComponent::SetCollisionProfileName(class FName InCollisionProfileName)
+void UPrimitiveComponent::SetCollisionProfileName(FName InCollisionProfileName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -19204,11 +19204,11 @@ void UPrimitiveComponent::SetLockedAxis(EDOFMode LockedAxis)
 // Function Engine.PrimitiveComponent.SetMassOverrideInKg
 // (Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   MassInKg                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bOverrideMass                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPrimitiveComponent::SetMassOverrideInKg(class FName BoneName, float MassInKg, bool bOverrideMass)
+void UPrimitiveComponent::SetMassOverrideInKg(FName BoneName, float MassInKg, bool bOverrideMass)
 {
 	static class UFunction* Func = nullptr;
 
@@ -19233,10 +19233,10 @@ void UPrimitiveComponent::SetMassOverrideInKg(class FName BoneName, float MassIn
 // Function Engine.PrimitiveComponent.SetMassScale
 // (Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   InMassScale                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPrimitiveComponent::SetMassScale(class FName BoneName, float InMassScale)
+void UPrimitiveComponent::SetMassScale(FName BoneName, float InMassScale)
 {
 	static class UFunction* Func = nullptr;
 
@@ -19287,10 +19287,10 @@ void UPrimitiveComponent::SetMaterial(int32 ElementIndex, class UMaterialInterfa
 // Function Engine.PrimitiveComponent.SetMaterialByName
 // (Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             MaterialSlotName                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             MaterialSlotName                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UMaterialInterface*               Material                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPrimitiveComponent::SetMaterialByName(class FName MaterialSlotName, class UMaterialInterface* Material)
+void UPrimitiveComponent::SetMaterialByName(FName MaterialSlotName, class UMaterialInterface* Material)
 {
 	static class UFunction* Func = nullptr;
 
@@ -19391,9 +19391,9 @@ void UPrimitiveComponent::SetOwnerNoSee(bool bNewOwnerNoSee)
 // Parameters:
 // struct FVector                          NewAngVel                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // bool                                    bAddToCurrent                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPrimitiveComponent::SetPhysicsAngularVelocity(const struct FVector& NewAngVel, bool bAddToCurrent, class FName BoneName)
+void UPrimitiveComponent::SetPhysicsAngularVelocity(const struct FVector& NewAngVel, bool bAddToCurrent, FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -19420,9 +19420,9 @@ void UPrimitiveComponent::SetPhysicsAngularVelocity(const struct FVector& NewAng
 // Parameters:
 // struct FVector                          NewVel                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // bool                                    bAddToCurrent                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPrimitiveComponent::SetPhysicsLinearVelocity(const struct FVector& NewVel, bool bAddToCurrent, class FName BoneName)
+void UPrimitiveComponent::SetPhysicsLinearVelocity(const struct FVector& NewVel, bool bAddToCurrent, FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -19449,9 +19449,9 @@ void UPrimitiveComponent::SetPhysicsLinearVelocity(const struct FVector& NewVel,
 // Parameters:
 // float                                   NewMaxAngVel                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bAddToCurrent                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPrimitiveComponent::SetPhysicsMaxAngularVelocity(float NewMaxAngVel, bool bAddToCurrent, class FName BoneName)
+void UPrimitiveComponent::SetPhysicsMaxAngularVelocity(float NewMaxAngVel, bool bAddToCurrent, FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -19645,9 +19645,9 @@ void UPrimitiveComponent::WakeAllRigidBodies()
 // Function Engine.PrimitiveComponent.WakeRigidBody
 // (Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPrimitiveComponent::WakeRigidBody(class FName BoneName)
+void UPrimitiveComponent::WakeRigidBody(FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -19725,10 +19725,10 @@ float UPrimitiveComponent::GetAngularDamping() const
 // Parameters:
 // struct FVector                          Point                                                  (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          OutPointOnBody                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-float UPrimitiveComponent::GetClosestPointOnCollision(const struct FVector& Point, struct FVector* OutPointOnBody, class FName BoneName) const
+float UPrimitiveComponent::GetClosestPointOnCollision(const struct FVector& Point, struct FVector* OutPointOnBody, FName BoneName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -19835,10 +19835,10 @@ ECollisionResponse UPrimitiveComponent::GetCollisionResponseToChannel(ECollision
 // Function Engine.PrimitiveComponent.GetInertiaTensor
 // (Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FVector UPrimitiveComponent::GetInertiaTensor(class FName BoneName) const
+struct FVector UPrimitiveComponent::GetInertiaTensor(FName BoneName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -19913,10 +19913,10 @@ float UPrimitiveComponent::GetMass() const
 // Function Engine.PrimitiveComponent.GetMassScale
 // (Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-float UPrimitiveComponent::GetMassScale(class FName BoneName) const
+float UPrimitiveComponent::GetMassScale(FName BoneName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -20256,10 +20256,10 @@ bool UPrimitiveComponent::K2_IsQueryCollisionEnabled() const
 // (Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // struct FVector                          InputVector                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FVector UPrimitiveComponent::ScaleByMomentOfInertia(const struct FVector& InputVector, class FName BoneName) const
+struct FVector UPrimitiveComponent::ScaleByMomentOfInertia(const struct FVector& InputVector, FName BoneName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -20786,10 +20786,10 @@ bool UAnimNotifyState::Received_NotifyTick(class USkeletalMeshComponent* MeshCom
 // Function Engine.MeshComponent.SetScalarParameterValueOnMaterials
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             ParameterName                                          (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ParameterValue                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMeshComponent::SetScalarParameterValueOnMaterials(const class FName ParameterName, const float ParameterValue)
+void UMeshComponent::SetScalarParameterValueOnMaterials(const FName ParameterName, const float ParameterValue)
 {
 	static class UFunction* Func = nullptr;
 
@@ -20813,10 +20813,10 @@ void UMeshComponent::SetScalarParameterValueOnMaterials(const class FName Parame
 // Function Engine.MeshComponent.SetVectorParameterValueOnMaterials
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             ParameterName                                          (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          ParameterValue                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UMeshComponent::SetVectorParameterValueOnMaterials(const class FName ParameterName, const struct FVector& ParameterValue)
+void UMeshComponent::SetVectorParameterValueOnMaterials(const FName ParameterName, const struct FVector& ParameterValue)
 {
 	static class UFunction* Func = nullptr;
 
@@ -20840,10 +20840,10 @@ void UMeshComponent::SetVectorParameterValueOnMaterials(const class FName Parame
 // Function Engine.MeshComponent.GetMaterialIndex
 // (Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             MaterialSlotName                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             MaterialSlotName                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-int32 UMeshComponent::GetMaterialIndex(class FName MaterialSlotName) const
+int32 UMeshComponent::GetMaterialIndex(FName MaterialSlotName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -20893,9 +20893,9 @@ TArray<class UMaterialInterface*> UMeshComponent::GetMaterials() const
 // Function Engine.MeshComponent.GetMaterialSlotNames
 // (Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// TArray<class FName>                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+// TArray<FName>                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 
-TArray<class FName> UMeshComponent::GetMaterialSlotNames() const
+TArray<FName> UMeshComponent::GetMaterialSlotNames() const
 {
 	static class UFunction* Func = nullptr;
 
@@ -20918,10 +20918,10 @@ TArray<class FName> UMeshComponent::GetMaterialSlotNames() const
 // Function Engine.MeshComponent.IsMaterialSlotNameValid
 // (Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             MaterialSlotName                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             MaterialSlotName                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UMeshComponent::IsMaterialSlotNameValid(class FName MaterialSlotName) const
+bool UMeshComponent::IsMaterialSlotNameValid(FName MaterialSlotName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -21054,10 +21054,10 @@ void UStaticMeshComponent::GetLocalBounds(struct FVector* Min, struct FVector* M
 // Function Engine.SkinnedMeshComponent.HideBoneByName
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EPhysBodyOp                             PhysBodyOption                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USkinnedMeshComponent::HideBoneByName(class FName BoneName, EPhysBodyOp PhysBodyOption)
+void USkinnedMeshComponent::HideBoneByName(FName BoneName, EPhysBodyOp PhysBodyOption)
 {
 	static class UFunction* Func = nullptr;
 
@@ -21081,10 +21081,10 @@ void USkinnedMeshComponent::HideBoneByName(class FName BoneName, EPhysBodyOp Phy
 // Function Engine.SkinnedMeshComponent.IsBoneHiddenByName
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool USkinnedMeshComponent::IsBoneHiddenByName(class FName BoneName)
+bool USkinnedMeshComponent::IsBoneHiddenByName(FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -21238,13 +21238,13 @@ void USkinnedMeshComponent::SetSkeletalMesh(class USkeletalMesh* NewMesh, bool b
 // Function Engine.SkinnedMeshComponent.TransformFromBoneSpace
 // (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          InPosition                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FRotator                         InRotation                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          OutPosition                                            (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FRotator                         OutRotation                                            (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void USkinnedMeshComponent::TransformFromBoneSpace(class FName BoneName, const struct FVector& InPosition, const struct FRotator& InRotation, struct FVector* OutPosition, struct FRotator* OutRotation)
+void USkinnedMeshComponent::TransformFromBoneSpace(FName BoneName, const struct FVector& InPosition, const struct FRotator& InRotation, struct FVector* OutPosition, struct FRotator* OutRotation)
 {
 	static class UFunction* Func = nullptr;
 
@@ -21275,9 +21275,9 @@ void USkinnedMeshComponent::TransformFromBoneSpace(class FName BoneName, const s
 // Function Engine.SkinnedMeshComponent.UnHideBoneByName
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USkinnedMeshComponent::UnHideBoneByName(class FName BoneName)
+void USkinnedMeshComponent::UnHideBoneByName(FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -21300,11 +21300,11 @@ void USkinnedMeshComponent::UnHideBoneByName(class FName BoneName)
 // Function Engine.SkinnedMeshComponent.BoneIsChildOf
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ParentBoneName                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParentBoneName                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool USkinnedMeshComponent::BoneIsChildOf(class FName BoneName, class FName ParentBoneName) const
+bool USkinnedMeshComponent::BoneIsChildOf(FName BoneName, FName ParentBoneName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -21334,9 +21334,9 @@ bool USkinnedMeshComponent::BoneIsChildOf(class FName BoneName, class FName Pare
 // struct FVector                          BoneLocation                                           (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // float                                   IgnoreScale                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bRequirePhysicsAsset                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName USkinnedMeshComponent::FindClosestBone_K2(const struct FVector& TestLocation, struct FVector* BoneLocation, float IgnoreScale, bool bRequirePhysicsAsset) const
+FName USkinnedMeshComponent::FindClosestBone_K2(const struct FVector& TestLocation, struct FVector* BoneLocation, float IgnoreScale, bool bRequirePhysicsAsset) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -21366,10 +21366,10 @@ class FName USkinnedMeshComponent::FindClosestBone_K2(const struct FVector& Test
 // Function Engine.SkinnedMeshComponent.GetBoneIndex
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-int32 USkinnedMeshComponent::GetBoneIndex(class FName BoneName) const
+int32 USkinnedMeshComponent::GetBoneIndex(FName BoneName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -21395,9 +21395,9 @@ int32 USkinnedMeshComponent::GetBoneIndex(class FName BoneName) const
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // int32                                   BoneIndex                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName USkinnedMeshComponent::GetBoneName(int32 BoneIndex) const
+FName USkinnedMeshComponent::GetBoneName(int32 BoneIndex) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -21447,10 +21447,10 @@ int32 USkinnedMeshComponent::GetNumBones() const
 // Function Engine.SkinnedMeshComponent.GetParentBone
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName USkinnedMeshComponent::GetParentBone(class FName BoneName) const
+FName USkinnedMeshComponent::GetParentBone(FName BoneName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -21475,10 +21475,10 @@ class FName USkinnedMeshComponent::GetParentBone(class FName BoneName) const
 // Function Engine.SkinnedMeshComponent.GetSocketBoneName
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName USkinnedMeshComponent::GetSocketBoneName(class FName InSocketName) const
+FName USkinnedMeshComponent::GetSocketBoneName(FName InSocketName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -21503,13 +21503,13 @@ class FName USkinnedMeshComponent::GetSocketBoneName(class FName InSocketName) c
 // Function Engine.SkinnedMeshComponent.TransformToBoneSpace
 // (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          InPosition                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FRotator                         InRotation                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          OutPosition                                            (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FRotator                         OutRotation                                            (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void USkinnedMeshComponent::TransformToBoneSpace(class FName BoneName, const struct FVector& InPosition, const struct FRotator& InRotation, struct FVector* OutPosition, struct FRotator* OutRotation) const
+void USkinnedMeshComponent::TransformToBoneSpace(FName BoneName, const struct FVector& InPosition, const struct FRotator& InRotation, struct FVector* OutPosition, struct FRotator* OutRotation) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -22376,9 +22376,9 @@ void APlayerController::AddYawInput(float Val)
 // Function Engine.PlayerController.Camera
 // (Exec, Native, Public)
 // Parameters:
-// class FName                             NewMode                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             NewMode                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void APlayerController::Camera(class FName NewMode)
+void APlayerController::Camera(FName NewMode)
 {
 	static class UFunction* Func = nullptr;
 
@@ -22640,9 +22640,9 @@ void APlayerController::ClientGameEnded(class AActor* EndGameFocus, bool bIsWinn
 // Function Engine.PlayerController.ClientGotoState
 // (Net, NetReliable, Native, Event, Public, NetClient)
 // Parameters:
-// class FName                             NewState                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             NewState                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void APlayerController::ClientGotoState(class FName NewState)
+void APlayerController::ClientGotoState(FName NewState)
 {
 	static class UFunction* Func = nullptr;
 
@@ -22716,10 +22716,10 @@ void APlayerController::ClientIgnoreMoveInput(bool bIgnore)
 // (Net, NetReliable, Native, Event, Public, NetClient)
 // Parameters:
 // class FString                           S                                                      (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             Type                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             Type                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   MsgLifeTime                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void APlayerController::ClientMessage(const class FString& S, class FName Type, float MsgLifeTime)
+void APlayerController::ClientMessage(const class FString& S, FName Type, float MsgLifeTime)
 {
 	static class UFunction* Func = nullptr;
 
@@ -22843,9 +22843,9 @@ void APlayerController::ClientPlayCameraShake(TSubclassOf<class UCameraShake> Sh
 // Parameters:
 // class UForceFeedbackEffect*             ForceFeedbackEffect                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bLooping                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             Tag                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             Tag                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void APlayerController::ClientPlayForceFeedback(class UForceFeedbackEffect* ForceFeedbackEffect, bool bLooping, class FName Tag)
+void APlayerController::ClientPlayForceFeedback(class UForceFeedbackEffect* ForceFeedbackEffect, bool bLooping, FName Tag)
 {
 	static class UFunction* Func = nullptr;
 
@@ -22930,11 +22930,11 @@ void APlayerController::ClientPlaySoundAtLocation(class USoundBase* Sound, const
 // Function Engine.PlayerController.ClientPrepareMapChange
 // (Net, NetReliable, Native, Event, Public, NetClient)
 // Parameters:
-// class FName                             LevelName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             LevelName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bFirst                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bLast                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void APlayerController::ClientPrepareMapChange(class FName LevelName, bool bFirst, bool bLast)
+void APlayerController::ClientPrepareMapChange(FName LevelName, bool bFirst, bool bLast)
 {
 	static class UFunction* Func = nullptr;
 
@@ -23194,9 +23194,9 @@ void APlayerController::ClientSetCameraFade(bool bEnableFading, const struct FCo
 // Function Engine.PlayerController.ClientSetCameraMode
 // (Net, NetReliable, Native, Event, Public, NetClient)
 // Parameters:
-// class FName                             NewCamMode                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             NewCamMode                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void APlayerController::ClientSetCameraMode(class FName NewCamMode)
+void APlayerController::ClientSetCameraMode(FName NewCamMode)
 {
 	static class UFunction* Func = nullptr;
 
@@ -23453,9 +23453,9 @@ void APlayerController::ClientStopCameraShake(TSubclassOf<class UCameraShake> Sh
 // (Net, NetReliable, Native, Event, Public, NetClient, BlueprintCallable)
 // Parameters:
 // class UForceFeedbackEffect*             ForceFeedbackEffect                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             Tag                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             Tag                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void APlayerController::ClientStopForceFeedback(class UForceFeedbackEffect* ForceFeedbackEffect, class FName Tag)
+void APlayerController::ClientStopForceFeedback(class UForceFeedbackEffect* ForceFeedbackEffect, FName Tag)
 {
 	static class UFunction* Func = nullptr;
 
@@ -23481,10 +23481,10 @@ void APlayerController::ClientStopForceFeedback(class UForceFeedbackEffect* Forc
 // Parameters:
 // class APlayerState*                     SenderPlayerState                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           S                                                      (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             Type                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             Type                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   MsgLifeTime                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void APlayerController::ClientTeamMessage(class APlayerState* SenderPlayerState, const class FString& S, class FName Type, float MsgLifeTime)
+void APlayerController::ClientTeamMessage(class APlayerState* SenderPlayerState, const class FString& S, FName Type, float MsgLifeTime)
 {
 	static class UFunction* Func = nullptr;
 
@@ -23597,13 +23597,13 @@ void APlayerController::ClientUnmutePlayer(const struct FUniqueNetIdRepl& Player
 // Function Engine.PlayerController.ClientUpdateLevelStreamingStatus
 // (Net, NetReliable, Native, Event, Public, NetClient)
 // Parameters:
-// class FName                             PackageName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PackageName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bNewShouldBeLoaded                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bNewShouldBeVisible                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bNewShouldBlockOnLoad                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   LODIndex                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void APlayerController::ClientUpdateLevelStreamingStatus(class FName PackageName, bool bNewShouldBeLoaded, bool bNewShouldBeVisible, bool bNewShouldBlockOnLoad, int32 LODIndex)
+void APlayerController::ClientUpdateLevelStreamingStatus(FName PackageName, bool bNewShouldBeLoaded, bool bNewShouldBeVisible, bool bNewShouldBlockOnLoad, int32 LODIndex)
 {
 	static class UFunction* Func = nullptr;
 
@@ -23951,9 +23951,9 @@ void APlayerController::ServerAcknowledgePossession(class APawn* P)
 // Function Engine.PlayerController.ServerCamera
 // (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
 // Parameters:
-// class FName                             NewMode                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             NewMode                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void APlayerController::ServerCamera(class FName NewMode)
+void APlayerController::ServerCamera(FName NewMode)
 {
 	static class UFunction* Func = nullptr;
 
@@ -24064,9 +24064,9 @@ void APlayerController::ServerMutePlayer(const struct FUniqueNetIdRepl& PlayerId
 // Function Engine.PlayerController.ServerNotifyLoadedWorld
 // (Final, Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
 // Parameters:
-// class FName                             WorldPackageName                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             WorldPackageName                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void APlayerController::ServerNotifyLoadedWorld(class FName WorldPackageName)
+void APlayerController::ServerNotifyLoadedWorld(FName WorldPackageName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -24269,10 +24269,10 @@ void APlayerController::ServerUpdateCamera(const struct FVector_NetQuantize& Cam
 // Function Engine.PlayerController.ServerUpdateLevelVisibility
 // (Final, Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
 // Parameters:
-// class FName                             PackageName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PackageName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bIsVisible                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void APlayerController::ServerUpdateLevelVisibility(class FName PackageName, bool bIsVisible)
+void APlayerController::ServerUpdateLevelVisibility(FName PackageName, bool bIsVisible)
 {
 	static class UFunction* Func = nullptr;
 
@@ -26821,10 +26821,10 @@ void ACharacter::OnWalkingOffLedge(const struct FVector& PreviousFloorImpactNorm
 // Parameters:
 // class UAnimMontage*                     AnimMontage                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   InPlayRate                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             StartSectionName                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             StartSectionName                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-float ACharacter::PlayAnimMontage(class UAnimMontage* AnimMontage, float InPlayRate, class FName StartSectionName)
+float ACharacter::PlayAnimMontage(class UAnimMontage* AnimMontage, float InPlayRate, FName StartSectionName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -29391,9 +29391,9 @@ class UEngine* UEngine::GetEngine()
 // struct FBox                             BoxShape                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // class FString                           Text                                                   (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FLinearColor                     ObjectColor                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             LogCategory                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             LogCategory                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UVisualLoggerKismetLibrary::LogBox(class UObject* WorldContextObject, const struct FBox& BoxShape, const class FString& Text, const struct FLinearColor& ObjectColor, class FName LogCategory)
+void UVisualLoggerKismetLibrary::LogBox(class UObject* WorldContextObject, const struct FBox& BoxShape, const class FString& Text, const struct FLinearColor& ObjectColor, FName LogCategory)
 {
 	static class UFunction* Func = nullptr;
 
@@ -29425,9 +29425,9 @@ void UVisualLoggerKismetLibrary::LogBox(class UObject* WorldContextObject, const
 // class FString                           Text                                                   (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FLinearColor                     ObjectColor                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // float                                   Radius                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             LogCategory                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             LogCategory                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UVisualLoggerKismetLibrary::LogLocation(class UObject* WorldContextObject, const struct FVector& Location, const class FString& Text, const struct FLinearColor& ObjectColor, float Radius, class FName LogCategory)
+void UVisualLoggerKismetLibrary::LogLocation(class UObject* WorldContextObject, const struct FVector& Location, const class FString& Text, const struct FLinearColor& ObjectColor, float Radius, FName LogCategory)
 {
 	static class UFunction* Func = nullptr;
 
@@ -29457,9 +29457,9 @@ void UVisualLoggerKismetLibrary::LogLocation(class UObject* WorldContextObject, 
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           Text                                                   (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             LogCategory                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             LogCategory                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UVisualLoggerKismetLibrary::LogText(class UObject* WorldContextObject, const class FString& Text, class FName LogCategory)
+void UVisualLoggerKismetLibrary::LogText(class UObject* WorldContextObject, const class FString& Text, FName LogCategory)
 {
 	static class UFunction* Func = nullptr;
 
@@ -30559,10 +30559,10 @@ void UKismetArrayLibrary::FilterArray(const TArray<class AActor*>& TargetArray, 
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TArray<int32>                           Value                                                  (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 
-void UKismetArrayLibrary::SetArrayPropertyByName(class UObject* Object, class FName PropertyName, const TArray<int32>& Value)
+void UKismetArrayLibrary::SetArrayPropertyByName(class UObject* Object, FName PropertyName, const TArray<int32>& Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -30734,12 +30734,12 @@ void UCharacterMovementComponent::ClientAckGoodMove(float TimeStamp)
 // struct FVector                          NewLoc                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          NewVel                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // class UPrimitiveComponent*              NewBase                                                (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             NewBaseBoneName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             NewBaseBoneName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bHasBase                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bBaseRelativePosition                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // uint8                                   ServerMovementMode                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCharacterMovementComponent::ClientAdjustPosition(float TimeStamp, const struct FVector& NewLoc, const struct FVector& NewVel, class UPrimitiveComponent* NewBase, class FName NewBaseBoneName, bool bHasBase, bool bBaseRelativePosition, uint8 ServerMovementMode)
+void UCharacterMovementComponent::ClientAdjustPosition(float TimeStamp, const struct FVector& NewLoc, const struct FVector& NewVel, class UPrimitiveComponent* NewBase, FName NewBaseBoneName, bool bHasBase, bool bBaseRelativePosition, uint8 ServerMovementMode)
 {
 	static class UFunction* Func = nullptr;
 
@@ -30775,12 +30775,12 @@ void UCharacterMovementComponent::ClientAdjustPosition(float TimeStamp, const st
 // struct FVector_NetQuantizeNormal        ServerRotation                                         (Parm, NativeAccessSpecifierPublic)
 // float                                   ServerVelZ                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UPrimitiveComponent*              ServerBase                                             (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ServerBoneName                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ServerBoneName                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bHasBase                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bBaseRelativePosition                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // uint8                                   ServerMovementMode                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCharacterMovementComponent::ClientAdjustRootMotionPosition(float TimeStamp, float ServerMontageTrackPosition, const struct FVector& ServerLoc, const struct FVector_NetQuantizeNormal& ServerRotation, float ServerVelZ, class UPrimitiveComponent* ServerBase, class FName ServerBoneName, bool bHasBase, bool bBaseRelativePosition, uint8 ServerMovementMode)
+void UCharacterMovementComponent::ClientAdjustRootMotionPosition(float TimeStamp, float ServerMontageTrackPosition, const struct FVector& ServerLoc, const struct FVector_NetQuantizeNormal& ServerRotation, float ServerVelZ, class UPrimitiveComponent* ServerBase, FName ServerBoneName, bool bHasBase, bool bBaseRelativePosition, uint8 ServerMovementMode)
 {
 	static class UFunction* Func = nullptr;
 
@@ -30820,12 +30820,12 @@ void UCharacterMovementComponent::ClientAdjustRootMotionPosition(float TimeStamp
 // struct FVector_NetQuantizeNormal        ServerRotation                                         (Parm, NativeAccessSpecifierPublic)
 // float                                   ServerVelZ                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UPrimitiveComponent*              ServerBase                                             (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ServerBoneName                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ServerBoneName                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bHasBase                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bBaseRelativePosition                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // uint8                                   ServerMovementMode                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCharacterMovementComponent::ClientAdjustRootMotionSourcePosition(float TimeStamp, const struct FRootMotionSourceGroup& ServerRootMotion, bool bHasAnimRootMotion, float ServerMontageTrackPosition, const struct FVector& ServerLoc, const struct FVector_NetQuantizeNormal& ServerRotation, float ServerVelZ, class UPrimitiveComponent* ServerBase, class FName ServerBoneName, bool bHasBase, bool bBaseRelativePosition, uint8 ServerMovementMode)
+void UCharacterMovementComponent::ClientAdjustRootMotionSourcePosition(float TimeStamp, const struct FRootMotionSourceGroup& ServerRootMotion, bool bHasAnimRootMotion, float ServerMontageTrackPosition, const struct FVector& ServerLoc, const struct FVector_NetQuantizeNormal& ServerRotation, float ServerVelZ, class UPrimitiveComponent* ServerBase, FName ServerBoneName, bool bHasBase, bool bBaseRelativePosition, uint8 ServerMovementMode)
 {
 	static class UFunction* Func = nullptr;
 
@@ -30862,12 +30862,12 @@ void UCharacterMovementComponent::ClientAdjustRootMotionSourcePosition(float Tim
 // float                                   TimeStamp                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          NewLoc                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // class UPrimitiveComponent*              NewBase                                                (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             NewBaseBoneName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             NewBaseBoneName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bHasBase                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bBaseRelativePosition                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // uint8                                   ServerMovementMode                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCharacterMovementComponent::ClientVeryShortAdjustPosition(float TimeStamp, const struct FVector& NewLoc, class UPrimitiveComponent* NewBase, class FName NewBaseBoneName, bool bHasBase, bool bBaseRelativePosition, uint8 ServerMovementMode)
+void UCharacterMovementComponent::ClientVeryShortAdjustPosition(float TimeStamp, const struct FVector& NewLoc, class UPrimitiveComponent* NewBase, FName NewBaseBoneName, bool bHasBase, bool bBaseRelativePosition, uint8 ServerMovementMode)
 {
 	static class UFunction* Func = nullptr;
 
@@ -30922,10 +30922,10 @@ void UCharacterMovementComponent::DisableMovement()
 // uint8                                   ClientRoll                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // uint32                                  View                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UPrimitiveComponent*              ClientMovementBase                                     (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ClientBaseBoneName                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ClientBaseBoneName                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // uint8                                   ClientMovementMode                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCharacterMovementComponent::ServerMove(float TimeStamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, uint8 CompressedMoveFlags, uint8 ClientRoll, uint32 View, class UPrimitiveComponent* ClientMovementBase, class FName ClientBaseBoneName, uint8 ClientMovementMode)
+void UCharacterMovementComponent::ServerMove(float TimeStamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, uint8 CompressedMoveFlags, uint8 ClientRoll, uint32 View, class UPrimitiveComponent* ClientMovementBase, FName ClientBaseBoneName, uint8 ClientMovementMode)
 {
 	static class UFunction* Func = nullptr;
 
@@ -30967,10 +30967,10 @@ void UCharacterMovementComponent::ServerMove(float TimeStamp, const struct FVect
 // uint8                                   ClientRoll                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // uint32                                  View                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UPrimitiveComponent*              ClientMovementBase                                     (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ClientBaseBoneName                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ClientBaseBoneName                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // uint8                                   ClientMovementMode                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCharacterMovementComponent::ServerMoveDual(float TimeStamp0, const struct FVector_NetQuantize10& InAccel0, uint8 PendingFlags, uint32 View0, float TimeStamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, uint8 NewFlags, uint8 ClientRoll, uint32 View, class UPrimitiveComponent* ClientMovementBase, class FName ClientBaseBoneName, uint8 ClientMovementMode)
+void UCharacterMovementComponent::ServerMoveDual(float TimeStamp0, const struct FVector_NetQuantize10& InAccel0, uint8 PendingFlags, uint32 View0, float TimeStamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, uint8 NewFlags, uint8 ClientRoll, uint32 View, class UPrimitiveComponent* ClientMovementBase, FName ClientBaseBoneName, uint8 ClientMovementMode)
 {
 	static class UFunction* Func = nullptr;
 
@@ -31016,10 +31016,10 @@ void UCharacterMovementComponent::ServerMoveDual(float TimeStamp0, const struct 
 // uint8                                   ClientRoll                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // uint32                                  View                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UPrimitiveComponent*              ClientMovementBase                                     (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ClientBaseBoneName                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ClientBaseBoneName                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // uint8                                   ClientMovementMode                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCharacterMovementComponent::ServerMoveDualHybridRootMotion(float TimeStamp0, const struct FVector_NetQuantize10& InAccel0, uint8 PendingFlags, uint32 View0, float TimeStamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, uint8 NewFlags, uint8 ClientRoll, uint32 View, class UPrimitiveComponent* ClientMovementBase, class FName ClientBaseBoneName, uint8 ClientMovementMode)
+void UCharacterMovementComponent::ServerMoveDualHybridRootMotion(float TimeStamp0, const struct FVector_NetQuantize10& InAccel0, uint8 PendingFlags, uint32 View0, float TimeStamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, uint8 NewFlags, uint8 ClientRoll, uint32 View, class UPrimitiveComponent* ClientMovementBase, FName ClientBaseBoneName, uint8 ClientMovementMode)
 {
 	static class UFunction* Func = nullptr;
 
@@ -32046,9 +32046,9 @@ float UAnimInstance::GetCurrentStateElapsedTime(int32 MachineIndex)
 // (Final, Native, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // int32                                   MachineIndex                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName UAnimInstance::GetCurrentStateName(int32 MachineIndex)
+FName UAnimInstance::GetCurrentStateName(int32 MachineIndex)
 {
 	static class UFunction* Func = nullptr;
 
@@ -32073,10 +32073,10 @@ class FName UAnimInstance::GetCurrentStateName(int32 MachineIndex)
 // Function Engine.AnimInstance.GetCurveValue
 // (Final, Native, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class FName                             CurveName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             CurveName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-float UAnimInstance::GetCurveValue(class FName CurveName)
+float UAnimInstance::GetCurveValue(FName CurveName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -32624,10 +32624,10 @@ void UAnimInstance::LockAIResources(bool bLockMovement, bool LockAILogic)
 // Function Engine.AnimInstance.Montage_JumpToSection
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             SectionName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             SectionName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UAnimMontage*                     Montage                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAnimInstance::Montage_JumpToSection(class FName SectionName, const class UAnimMontage* Montage)
+void UAnimInstance::Montage_JumpToSection(FName SectionName, const class UAnimMontage* Montage)
 {
 	static class UFunction* Func = nullptr;
 
@@ -32651,10 +32651,10 @@ void UAnimInstance::Montage_JumpToSection(class FName SectionName, const class U
 // Function Engine.AnimInstance.Montage_JumpToSectionsEnd
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             SectionName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             SectionName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UAnimMontage*                     Montage                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAnimInstance::Montage_JumpToSectionsEnd(class FName SectionName, const class UAnimMontage* Montage)
+void UAnimInstance::Montage_JumpToSectionsEnd(FName SectionName, const class UAnimMontage* Montage)
 {
 	static class UFunction* Func = nullptr;
 
@@ -32762,11 +32762,11 @@ void UAnimInstance::Montage_Resume(const class UAnimMontage* Montage)
 // Function Engine.AnimInstance.Montage_SetNextSection
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             SectionNameToChange                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             NextSection                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             SectionNameToChange                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             NextSection                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UAnimMontage*                     Montage                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAnimInstance::Montage_SetNextSection(class FName SectionNameToChange, class FName NextSection, const class UAnimMontage* Montage)
+void UAnimInstance::Montage_SetNextSection(FName SectionNameToChange, FName NextSection, const class UAnimMontage* Montage)
 {
 	static class UFunction* Func = nullptr;
 
@@ -32846,14 +32846,14 @@ void UAnimInstance::Montage_Stop(float InBlendOutTime, const class UAnimMontage*
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UAnimSequenceBase*                Asset                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             SlotNodeName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             SlotNodeName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   BlendInTime                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   BlendOutTime                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   InPlayRate                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   LoopCount                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-float UAnimInstance::PlaySlotAnimation(class UAnimSequenceBase* Asset, class FName SlotNodeName, float BlendInTime, float BlendOutTime, float InPlayRate, int32 LoopCount)
+float UAnimInstance::PlaySlotAnimation(class UAnimSequenceBase* Asset, FName SlotNodeName, float BlendInTime, float BlendOutTime, float InPlayRate, int32 LoopCount)
 {
 	static class UFunction* Func = nullptr;
 
@@ -32884,7 +32884,7 @@ float UAnimInstance::PlaySlotAnimation(class UAnimSequenceBase* Asset, class FNa
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UAnimSequenceBase*                Asset                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             SlotNodeName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             SlotNodeName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   BlendInTime                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   BlendOutTime                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   InPlayRate                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -32893,7 +32893,7 @@ float UAnimInstance::PlaySlotAnimation(class UAnimSequenceBase* Asset, class FNa
 // float                                   InTimeToStartMontageAt                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UAnimMontage*                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UAnimMontage* UAnimInstance::PlaySlotAnimationAsDynamicMontage(class UAnimSequenceBase* Asset, class FName SlotNodeName, float BlendInTime, float BlendOutTime, float InPlayRate, int32 LoopCount, float BlendOutTriggerTime, float InTimeToStartMontageAt)
+class UAnimMontage* UAnimInstance::PlaySlotAnimationAsDynamicMontage(class UAnimSequenceBase* Asset, FName SlotNodeName, float BlendInTime, float BlendOutTime, float InPlayRate, int32 LoopCount, float BlendOutTriggerTime, float InTimeToStartMontageAt)
 {
 	static class UFunction* Func = nullptr;
 
@@ -32925,10 +32925,10 @@ class UAnimMontage* UAnimInstance::PlaySlotAnimationAsDynamicMontage(class UAnim
 // Function Engine.AnimInstance.SetMorphTarget
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             MorphTargetName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             MorphTargetName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAnimInstance::SetMorphTarget(class FName MorphTargetName, float Value)
+void UAnimInstance::SetMorphTarget(FName MorphTargetName, float Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -32978,9 +32978,9 @@ void UAnimInstance::SetRootMotionMode(ERootMotionMode Value)
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InBlendOutTime                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             SlotNodeName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             SlotNodeName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAnimInstance::StopSlotAnimation(float InBlendOutTime, class FName SlotNodeName)
+void UAnimInstance::StopSlotAnimation(float InBlendOutTime, FName SlotNodeName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -33081,10 +33081,10 @@ class USkeletalMeshComponent* UAnimInstance::GetOwningComponent() const
 // Function Engine.AnimInstance.GetSyncGroupPosition
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             InSyncGroupName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InSyncGroupName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FMarkerSyncAnimPosition          ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
-struct FMarkerSyncAnimPosition UAnimInstance::GetSyncGroupPosition(class FName InSyncGroupName) const
+struct FMarkerSyncAnimPosition UAnimInstance::GetSyncGroupPosition(FName InSyncGroupName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -33109,12 +33109,12 @@ struct FMarkerSyncAnimPosition UAnimInstance::GetSyncGroupPosition(class FName I
 // Function Engine.AnimInstance.GetTimeToClosestMarker
 // (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             SyncGroup                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             MarkerName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             SyncGroup                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             MarkerName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   OutMarkerTime                                          (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UAnimInstance::GetTimeToClosestMarker(class FName SyncGroup, class FName MarkerName, float* OutMarkerTime) const
+bool UAnimInstance::GetTimeToClosestMarker(FName SyncGroup, FName MarkerName, float* OutMarkerTime) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -33143,11 +33143,11 @@ bool UAnimInstance::GetTimeToClosestMarker(class FName SyncGroup, class FName Ma
 // Function Engine.AnimInstance.HasMarkerBeenHitThisFrame
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             SyncGroup                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             MarkerName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             SyncGroup                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             MarkerName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UAnimInstance::HasMarkerBeenHitThisFrame(class FName SyncGroup, class FName MarkerName) const
+bool UAnimInstance::HasMarkerBeenHitThisFrame(FName SyncGroup, FName MarkerName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -33174,10 +33174,10 @@ bool UAnimInstance::HasMarkerBeenHitThisFrame(class FName SyncGroup, class FName
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class UAnimSequenceBase*                Asset                                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             SlotNodeName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             SlotNodeName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UAnimInstance::IsPlayingSlotAnimation(const class UAnimSequenceBase* Asset, class FName SlotNodeName) const
+bool UAnimInstance::IsPlayingSlotAnimation(const class UAnimSequenceBase* Asset, FName SlotNodeName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -33203,13 +33203,13 @@ bool UAnimInstance::IsPlayingSlotAnimation(const class UAnimSequenceBase* Asset,
 // Function Engine.AnimInstance.IsSyncGroupBetweenMarkers
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             InSyncGroupName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PreviousMarker                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             NextMarker                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InSyncGroupName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PreviousMarker                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             NextMarker                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bRespectMarkerOrder                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UAnimInstance::IsSyncGroupBetweenMarkers(class FName InSyncGroupName, class FName PreviousMarker, class FName NextMarker, bool bRespectMarkerOrder) const
+bool UAnimInstance::IsSyncGroupBetweenMarkers(FName InSyncGroupName, FName PreviousMarker, FName NextMarker, bool bRespectMarkerOrder) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -33238,9 +33238,9 @@ bool UAnimInstance::IsSyncGroupBetweenMarkers(class FName InSyncGroupName, class
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class UAnimMontage*                     Montage                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName UAnimInstance::Montage_GetCurrentSection(const class UAnimMontage* Montage) const
+FName UAnimInstance::Montage_GetCurrentSection(const class UAnimMontage* Montage) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -33860,10 +33860,10 @@ class FText UKismetTextLibrary::Conv_IntToText(int32 Value, bool bUseGrouping, i
 // Function Engine.KismetTextLibrary.Conv_NameToText
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
-class FText UKismetTextLibrary::Conv_NameToText(class FName InName)
+class FText UKismetTextLibrary::Conv_NameToText(FName InName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -35460,9 +35460,9 @@ void UCheatManager::LogLoc()
 // Function Engine.CheatManager.OnlyLoadLevel
 // (Exec, Native, Public)
 // Parameters:
-// class FName                             PackageName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PackageName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCheatManager::OnlyLoadLevel(class FName PackageName)
+void UCheatManager::OnlyLoadLevel(FName PackageName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -35658,9 +35658,9 @@ void UCheatManager::Slomo(float NewTimeDilation)
 // Function Engine.CheatManager.StreamLevelIn
 // (Exec, Native, Public)
 // Parameters:
-// class FName                             PackageName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PackageName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCheatManager::StreamLevelIn(class FName PackageName)
+void UCheatManager::StreamLevelIn(FName PackageName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -35683,9 +35683,9 @@ void UCheatManager::StreamLevelIn(class FName PackageName)
 // Function Engine.CheatManager.StreamLevelOut
 // (Exec, Native, Public)
 // Parameters:
-// class FName                             PackageName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PackageName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCheatManager::StreamLevelOut(class FName PackageName)
+void UCheatManager::StreamLevelOut(FName PackageName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -35809,9 +35809,9 @@ void UCheatManager::ToggleDebugCamera()
 // Function Engine.CheatManager.ViewActor
 // (Exec, Native, Public)
 // Parameters:
-// class FName                             ActorName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ActorName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCheatManager::ViewActor(class FName ActorName)
+void UCheatManager::ViewActor(FName ActorName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -35924,12 +35924,12 @@ void UCheatManager::Walk()
 // Parameters:
 // class UObject*                          WorldContextObject                                     (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UReverbEffect*                    ReverbEffect                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             TagName                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             TagName                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Priority                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Volume                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   FadeTime                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UGameplayStatics::ActivateReverbEffect(const class UObject* WorldContextObject, class UReverbEffect* ReverbEffect, class FName TagName, float Priority, float Volume, float FadeTime)
+void UGameplayStatics::ActivateReverbEffect(const class UObject* WorldContextObject, class UReverbEffect* ReverbEffect, FName TagName, float Priority, float Volume, float FadeTime)
 {
 	static class UFunction* Func = nullptr;
 
@@ -36345,13 +36345,13 @@ bool UGameplayStatics::BlueprintSuggestProjectileVelocity(const class UObject* W
 // class UPhysicalMaterial*                PhysMat                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class AActor*                           HitActor                                               (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UPrimitiveComponent*              HitComponent                                           (Parm, OutParm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             HitBoneName                                            (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             HitBoneName                                            (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   HitItem                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   FaceIndex                                              (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          TraceStart                                             (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          TraceEnd                                               (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UGameplayStatics::BreakHitResult(const struct FHitResult& Hit, bool* bBlockingHit, bool* bInitialOverlap, float* Time, struct FVector* Location, struct FVector* ImpactPoint, struct FVector* Normal, struct FVector* ImpactNormal, class UPhysicalMaterial** PhysMat, class AActor** HitActor, class UPrimitiveComponent** HitComponent, class FName* HitBoneName, int32* HitItem, int32* FaceIndex, struct FVector* TraceStart, struct FVector* TraceEnd)
+void UGameplayStatics::BreakHitResult(const struct FHitResult& Hit, bool* bBlockingHit, bool* bInitialOverlap, float* Time, struct FVector* Location, struct FVector* ImpactPoint, struct FVector* Normal, struct FVector* ImpactNormal, class UPhysicalMaterial** PhysMat, class AActor** HitActor, class UPrimitiveComponent** HitComponent, FName* HitBoneName, int32* HitItem, int32* FaceIndex, struct FVector* TraceStart, struct FVector* TraceEnd)
 {
 	static class UFunction* Func = nullptr;
 
@@ -36623,9 +36623,9 @@ class UAudioComponent* UGameplayStatics::CreateSound2D(const class UObject* Worl
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             TagName                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             TagName                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UGameplayStatics::DeactivateReverbEffect(const class UObject* WorldContextObject, class FName TagName)
+void UGameplayStatics::DeactivateReverbEffect(const class UObject* WorldContextObject, FName TagName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -37020,10 +37020,10 @@ void UGameplayStatics::GetAllActorsWithInterface(const class UObject* WorldConte
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             Tag                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             Tag                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TArray<class AActor*>                   OutActors                                              (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 
-void UGameplayStatics::GetAllActorsWithTag(const class UObject* WorldContextObject, class FName Tag, TArray<class AActor*>* OutActors)
+void UGameplayStatics::GetAllActorsWithTag(const class UObject* WorldContextObject, FName Tag, TArray<class AActor*>* OutActors)
 {
 	static class UFunction* Func = nullptr;
 
@@ -37543,10 +37543,10 @@ float UGameplayStatics::GetRealTimeSeconds(const class UObject* WorldContextObje
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PackageName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PackageName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class ULevelStreaming*                  ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class ULevelStreaming* UGameplayStatics::GetStreamingLevel(const class UObject* WorldContextObject, class FName PackageName)
+class ULevelStreaming* UGameplayStatics::GetStreamingLevel(const class UObject* WorldContextObject, FName PackageName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -37835,12 +37835,12 @@ class USaveGame* UGameplayStatics::LoadGameFromSlot(const class FString& SlotNam
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             LevelName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             LevelName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bMakeVisibleAfterLoad                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bShouldBlockOnLoad                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FLatentActionInfo                LatentInfo                                             (Parm, NativeAccessSpecifierPublic)
 
-void UGameplayStatics::LoadStreamLevel(const class UObject* WorldContextObject, class FName LevelName, bool bMakeVisibleAfterLoad, bool bShouldBlockOnLoad, const struct FLatentActionInfo& LatentInfo)
+void UGameplayStatics::LoadStreamLevel(const class UObject* WorldContextObject, FName LevelName, bool bMakeVisibleAfterLoad, bool bShouldBlockOnLoad, const struct FLatentActionInfo& LatentInfo)
 {
 	static class UFunction* Func = nullptr;
 
@@ -37877,14 +37877,14 @@ void UGameplayStatics::LoadStreamLevel(const class UObject* WorldContextObject, 
 // class UPhysicalMaterial*                PhysMat                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class AActor*                           HitActor                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UPrimitiveComponent*              HitComponent                                           (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             HitBoneName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             HitBoneName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   HitItem                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   FaceIndex                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          TraceStart                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          TraceEnd                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FHitResult                       ReturnValue                                            (Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
-struct FHitResult UGameplayStatics::MakeHitResult(bool bBlockingHit, bool bInitialOverlap, float Time, const struct FVector& Location, const struct FVector& ImpactPoint, const struct FVector& Normal, const struct FVector& ImpactNormal, class UPhysicalMaterial* PhysMat, class AActor* HitActor, class UPrimitiveComponent* HitComponent, class FName HitBoneName, int32 HitItem, int32 FaceIndex, const struct FVector& TraceStart, const struct FVector& TraceEnd)
+struct FHitResult UGameplayStatics::MakeHitResult(bool bBlockingHit, bool bInitialOverlap, float Time, const struct FVector& Location, const struct FVector& ImpactPoint, const struct FVector& Normal, const struct FVector& ImpactNormal, class UPhysicalMaterial* PhysMat, class AActor* HitActor, class UPrimitiveComponent* HitComponent, FName HitBoneName, int32 HitItem, int32 FaceIndex, const struct FVector& TraceStart, const struct FVector& TraceEnd)
 {
 	static class UFunction* Func = nullptr;
 
@@ -37924,11 +37924,11 @@ struct FHitResult UGameplayStatics::MakeHitResult(bool bBlockingHit, bool bIniti
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             LevelName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             LevelName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bAbsolute                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           Options                                                (Parm, ZeroConstructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UGameplayStatics::OpenLevel(const class UObject* WorldContextObject, class FName LevelName, bool bAbsolute, const class FString& Options)
+void UGameplayStatics::OpenLevel(const class UObject* WorldContextObject, FName LevelName, bool bAbsolute, const class FString& Options)
 {
 	static class UFunction* Func = nullptr;
 
@@ -38757,14 +38757,14 @@ class UDecalComponent* UGameplayStatics::SpawnDecalAtLocation(const class UObjec
 // class UMaterialInterface*               DecalMaterial                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          DecalSize                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // class USceneComponent*                  AttachToComponent                                      (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             AttachPointName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             AttachPointName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Location                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FRotator                         Rotation                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // EAttachLocation                         LocationType                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   LifeSpan                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UDecalComponent*                  ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UDecalComponent* UGameplayStatics::SpawnDecalAttached(class UMaterialInterface* DecalMaterial, const struct FVector& DecalSize, class USceneComponent* AttachToComponent, class FName AttachPointName, const struct FVector& Location, const struct FRotator& Rotation, EAttachLocation LocationType, float LifeSpan)
+class UDecalComponent* UGameplayStatics::SpawnDecalAttached(class UMaterialInterface* DecalMaterial, const struct FVector& DecalSize, class USceneComponent* AttachToComponent, FName AttachPointName, const struct FVector& Location, const struct FRotator& Rotation, EAttachLocation LocationType, float LifeSpan)
 {
 	static class UFunction* Func = nullptr;
 
@@ -38881,7 +38881,7 @@ class UAudioComponent* UGameplayStatics::SpawnDialogueAtLocation(const class UOb
 // class UDialogueWave*                    Dialogue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FDialogueContext                 Context                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // class USceneComponent*                  AttachToComponent                                      (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             AttachPointName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             AttachPointName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Location                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
 // struct FRotator                         Rotation                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
 // EAttachLocation                         LocationType                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -38892,7 +38892,7 @@ class UAudioComponent* UGameplayStatics::SpawnDialogueAtLocation(const class UOb
 // class USoundAttenuation*                AttenuationSettings                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UAudioComponent*                  ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UAudioComponent* UGameplayStatics::SpawnDialogueAttached(class UDialogueWave* Dialogue, const struct FDialogueContext& Context, class USceneComponent* AttachToComponent, class FName AttachPointName, const struct FVector& Location, const struct FRotator& Rotation, EAttachLocation LocationType, bool bStopWhenAttachedToDestroyed, float VolumeMultiplier, float PitchMultiplier, float StartTime, class USoundAttenuation* AttenuationSettings)
+class UAudioComponent* UGameplayStatics::SpawnDialogueAttached(class UDialogueWave* Dialogue, const struct FDialogueContext& Context, class USceneComponent* AttachToComponent, FName AttachPointName, const struct FVector& Location, const struct FRotator& Rotation, EAttachLocation LocationType, bool bStopWhenAttachedToDestroyed, float VolumeMultiplier, float PitchMultiplier, float StartTime, class USoundAttenuation* AttenuationSettings)
 {
 	static class UFunction* Func = nullptr;
 
@@ -38966,14 +38966,14 @@ class UParticleSystemComponent* UGameplayStatics::SpawnEmitterAtLocation(const c
 // Parameters:
 // class UParticleSystem*                  EmitterTemplate                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class USceneComponent*                  AttachToComponent                                      (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             AttachPointName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             AttachPointName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Location                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FRotator                         Rotation                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // EAttachLocation                         LocationType                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bAutoDestroy                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UParticleSystemComponent*         ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UParticleSystemComponent* UGameplayStatics::SpawnEmitterAttached(class UParticleSystem* EmitterTemplate, class USceneComponent* AttachToComponent, class FName AttachPointName, const struct FVector& Location, const struct FRotator& Rotation, EAttachLocation LocationType, bool bAutoDestroy)
+class UParticleSystemComponent* UGameplayStatics::SpawnEmitterAttached(class UParticleSystem* EmitterTemplate, class USceneComponent* AttachToComponent, FName AttachPointName, const struct FVector& Location, const struct FRotator& Rotation, EAttachLocation LocationType, bool bAutoDestroy)
 {
 	static class UFunction* Func = nullptr;
 
@@ -39120,7 +39120,7 @@ class UAudioComponent* UGameplayStatics::SpawnSoundAtLocation(const class UObjec
 // Parameters:
 // class USoundBase*                       Sound                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class USceneComponent*                  AttachToComponent                                      (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             AttachPointName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             AttachPointName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Location                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
 // struct FRotator                         Rotation                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
 // EAttachLocation                         LocationType                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -39132,7 +39132,7 @@ class UAudioComponent* UGameplayStatics::SpawnSoundAtLocation(const class UObjec
 // class USoundConcurrency*                ConcurrencySettings                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UAudioComponent*                  ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UAudioComponent* UGameplayStatics::SpawnSoundAttached(class USoundBase* Sound, class USceneComponent* AttachToComponent, class FName AttachPointName, const struct FVector& Location, const struct FRotator& Rotation, EAttachLocation LocationType, bool bStopWhenAttachedToDestroyed, float VolumeMultiplier, float PitchMultiplier, float StartTime, class USoundAttenuation* AttenuationSettings, class USoundConcurrency* ConcurrencySettings)
+class UAudioComponent* UGameplayStatics::SpawnSoundAttached(class USoundBase* Sound, class USceneComponent* AttachToComponent, FName AttachPointName, const struct FVector& Location, const struct FRotator& Rotation, EAttachLocation LocationType, bool bStopWhenAttachedToDestroyed, float VolumeMultiplier, float PitchMultiplier, float StartTime, class USoundAttenuation* AttenuationSettings, class USoundConcurrency* ConcurrencySettings)
 {
 	static class UFunction* Func = nullptr;
 
@@ -39209,10 +39209,10 @@ bool UGameplayStatics::SuggestProjectileVelocity_CustomArc(const class UObject* 
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             LevelName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             LevelName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FLatentActionInfo                LatentInfo                                             (Parm, NativeAccessSpecifierPublic)
 
-void UGameplayStatics::UnloadStreamLevel(const class UObject* WorldContextObject, class FName LevelName, const struct FLatentActionInfo& LatentInfo)
+void UGameplayStatics::UnloadStreamLevel(const class UObject* WorldContextObject, FName LevelName, const struct FLatentActionInfo& LatentInfo)
 {
 	static class UFunction* Func = nullptr;
 
@@ -40800,9 +40800,9 @@ void AGameMode::EndMatch()
 // Function Engine.GameMode.K2_OnSetMatchState
 // (Event, Protected, BlueprintEvent)
 // Parameters:
-// class FName                             NewState                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             NewState                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AGameMode::K2_OnSetMatchState(class FName NewState)
+void AGameMode::K2_OnSetMatchState(FName NewState)
 {
 	static class UFunction* Func = nullptr;
 
@@ -40958,9 +40958,9 @@ void AGameMode::StartMatch()
 // Function Engine.GameMode.GetMatchState
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName AGameMode::GetMatchState() const
+FName AGameMode::GetMatchState() const
 {
 	static class UFunction* Func = nullptr;
 
@@ -45308,11 +45308,11 @@ void UAnimSingleNodeInstance::SetPositionWithPreviousTime(float InPosition, floa
 // Function Engine.AnimSingleNodeInstance.SetPreviewCurveOverride
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             PoseName                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PoseName                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bRemoveIfZero                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAnimSingleNodeInstance::SetPreviewCurveOverride(const class FName& PoseName, float Value, bool bRemoveIfZero)
+void UAnimSingleNodeInstance::SetPreviewCurveOverride(const FName& PoseName, float Value, bool bRemoveIfZero)
 {
 	static class UFunction* Func = nullptr;
 
@@ -47129,10 +47129,10 @@ void AEmitter::OnRep_bCurrentlyActive()
 // Function Engine.Emitter.SetActorParameter
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class AActor*                           Param                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AEmitter::SetActorParameter(class FName ParameterName, class AActor* Param)
+void AEmitter::SetActorParameter(FName ParameterName, class AActor* Param)
 {
 	static class UFunction* Func = nullptr;
 
@@ -47156,10 +47156,10 @@ void AEmitter::SetActorParameter(class FName ParameterName, class AActor* Param)
 // Function Engine.Emitter.SetColorParameter
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FLinearColor                     Param                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void AEmitter::SetColorParameter(class FName ParameterName, const struct FLinearColor& Param)
+void AEmitter::SetColorParameter(FName ParameterName, const struct FLinearColor& Param)
 {
 	static class UFunction* Func = nullptr;
 
@@ -47183,10 +47183,10 @@ void AEmitter::SetColorParameter(class FName ParameterName, const struct FLinear
 // Function Engine.Emitter.SetFloatParameter
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Param                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AEmitter::SetFloatParameter(class FName ParameterName, float Param)
+void AEmitter::SetFloatParameter(FName ParameterName, float Param)
 {
 	static class UFunction* Func = nullptr;
 
@@ -47210,10 +47210,10 @@ void AEmitter::SetFloatParameter(class FName ParameterName, float Param)
 // Function Engine.Emitter.SetMaterialParameter
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UMaterialInterface*               Param                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AEmitter::SetMaterialParameter(class FName ParameterName, class UMaterialInterface* Param)
+void AEmitter::SetMaterialParameter(FName ParameterName, class UMaterialInterface* Param)
 {
 	static class UFunction* Func = nullptr;
 
@@ -47262,10 +47262,10 @@ void AEmitter::SetTemplate(class UParticleSystem* NewTemplate)
 // Function Engine.Emitter.SetVectorParameter
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Param                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void AEmitter::SetVectorParameter(class FName ParameterName, const struct FVector& Param)
+void AEmitter::SetVectorParameter(FName ParameterName, const struct FVector& Param)
 {
 	static class UFunction* Func = nullptr;
 
@@ -49550,10 +49550,10 @@ struct FBoxSphereBounds USkeletalMesh::GetImportedBounds()
 // Function Engine.SkeletalMesh.FindSocket
 // (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class USkeletalMeshSocket*              ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class USkeletalMeshSocket* USkeletalMesh::FindSocket(class FName InSocketName) const
+class USkeletalMeshSocket* USkeletalMesh::FindSocket(FName InSocketName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -49578,11 +49578,11 @@ class USkeletalMeshSocket* USkeletalMesh::FindSocket(class FName InSocketName) c
 // Function Engine.SkeletalMesh.FindSocketAndIndex
 // (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InSocketName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   OutIndex                                               (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class USkeletalMeshSocket*              ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class USkeletalMeshSocket* USkeletalMesh::FindSocketAndIndex(class FName InSocketName, int32* OutIndex) const
+class USkeletalMeshSocket* USkeletalMesh::FindSocketAndIndex(FName InSocketName, int32* OutIndex) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -49913,11 +49913,11 @@ void ASceneCaptureCube::OnInterpToggle(bool bEnable)
 // Function Engine.SkeletalMeshComponent.AccumulateAllBodiesBelowPhysicsBlendWeight
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             InBoneName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InBoneName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   AddPhysicsBlendWeight                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bSkipCustomPhysicsType                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USkeletalMeshComponent::AccumulateAllBodiesBelowPhysicsBlendWeight(const class FName& InBoneName, float AddPhysicsBlendWeight, bool bSkipCustomPhysicsType)
+void USkeletalMeshComponent::AccumulateAllBodiesBelowPhysicsBlendWeight(const FName& InBoneName, float AddPhysicsBlendWeight, bool bSkipCustomPhysicsType)
 {
 	static class UFunction* Func = nullptr;
 
@@ -49943,11 +49943,11 @@ void USkeletalMeshComponent::AccumulateAllBodiesBelowPhysicsBlendWeight(const cl
 // (Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // struct FVector                          Force                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bAccelChange                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bIncludeSelf                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USkeletalMeshComponent::AddForceToAllBodiesBelow(const struct FVector& Force, class FName BoneName, bool bAccelChange, bool bIncludeSelf)
+void USkeletalMeshComponent::AddForceToAllBodiesBelow(const struct FVector& Force, FName BoneName, bool bAccelChange, bool bIncludeSelf)
 {
 	static class UFunction* Func = nullptr;
 
@@ -49974,11 +49974,11 @@ void USkeletalMeshComponent::AddForceToAllBodiesBelow(const struct FVector& Forc
 // (Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // struct FVector                          Impulse                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bVelChange                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bIncludeSelf                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USkeletalMeshComponent::AddImpulseToAllBodiesBelow(const struct FVector& Impulse, class FName BoneName, bool bVelChange, bool bIncludeSelf)
+void USkeletalMeshComponent::AddImpulseToAllBodiesBelow(const struct FVector& Impulse, FName BoneName, bool bVelChange, bool bIncludeSelf)
 {
 	static class UFunction* Func = nullptr;
 
@@ -50025,9 +50025,9 @@ void USkeletalMeshComponent::BindClothToMasterPoseComponent()
 // Parameters:
 // struct FVector                          Impulse                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          HitLocation                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             InBoneName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InBoneName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USkeletalMeshComponent::BreakConstraint(const struct FVector& Impulse, const struct FVector& HitLocation, class FName InBoneName)
+void USkeletalMeshComponent::BreakConstraint(const struct FVector& Impulse, const struct FVector& HitLocation, FName InBoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -50072,9 +50072,9 @@ void USkeletalMeshComponent::ClearMorphTargets()
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   ConstraintIndex                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName USkeletalMeshComponent::FindConstraintBoneName(int32 ConstraintIndex)
+FName USkeletalMeshComponent::FindConstraintBoneName(int32 ConstraintIndex)
 {
 	static class UFunction* Func = nullptr;
 
@@ -50162,12 +50162,12 @@ float USkeletalMeshComponent::GetClothMaxDistanceScale()
 // Function Engine.SkeletalMeshComponent.GetCurrentJointAngles
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             InBoneName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InBoneName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Swing1Angle                                            (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   TwistAngle                                             (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Swing2Angle                                            (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USkeletalMeshComponent::GetCurrentJointAngles(class FName InBoneName, float* Swing1Angle, float* TwistAngle, float* Swing2Angle)
+void USkeletalMeshComponent::GetCurrentJointAngles(FName InBoneName, float* Swing1Angle, float* TwistAngle, float* Swing2Angle)
 {
 	static class UFunction* Func = nullptr;
 
@@ -50199,10 +50199,10 @@ void USkeletalMeshComponent::GetCurrentJointAngles(class FName InBoneName, float
 // Function Engine.SkeletalMeshComponent.IsBodyGravityEnabled
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool USkeletalMeshComponent::IsBodyGravityEnabled(class FName BoneName)
+bool USkeletalMeshComponent::IsBodyGravityEnabled(FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -50350,12 +50350,12 @@ void USkeletalMeshComponent::ResetClothTeleportMode()
 // Function Engine.SkeletalMeshComponent.SetAllBodiesBelowPhysicsBlendWeight
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             InBoneName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InBoneName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   PhysicsBlendWeight                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bSkipCustomPhysicsType                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bIncludeSelf                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USkeletalMeshComponent::SetAllBodiesBelowPhysicsBlendWeight(const class FName& InBoneName, float PhysicsBlendWeight, bool bSkipCustomPhysicsType, bool bIncludeSelf)
+void USkeletalMeshComponent::SetAllBodiesBelowPhysicsBlendWeight(const FName& InBoneName, float PhysicsBlendWeight, bool bSkipCustomPhysicsType, bool bIncludeSelf)
 {
 	static class UFunction* Func = nullptr;
 
@@ -50381,11 +50381,11 @@ void USkeletalMeshComponent::SetAllBodiesBelowPhysicsBlendWeight(const class FNa
 // Function Engine.SkeletalMeshComponent.SetAllBodiesBelowSimulatePhysics
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             InBoneName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InBoneName                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bNewSimulate                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bIncludeSelf                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USkeletalMeshComponent::SetAllBodiesBelowSimulatePhysics(const class FName& InBoneName, bool bNewSimulate, bool bIncludeSelf)
+void USkeletalMeshComponent::SetAllBodiesBelowSimulatePhysics(const FName& InBoneName, bool bNewSimulate, bool bIncludeSelf)
 {
 	static class UFunction* Func = nullptr;
 
@@ -50551,12 +50551,12 @@ void USkeletalMeshComponent::SetAllMotorsAngularVelocityDrive(bool bEnableSwingD
 // Function Engine.SkeletalMeshComponent.SetAngularLimits
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             InBoneName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InBoneName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Swing1LimitAngle                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   TwistLimitAngle                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Swing2LimitAngle                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USkeletalMeshComponent::SetAngularLimits(class FName InBoneName, float Swing1LimitAngle, float TwistLimitAngle, float Swing2LimitAngle)
+void USkeletalMeshComponent::SetAngularLimits(FName InBoneName, float Swing1LimitAngle, float TwistLimitAngle, float Swing2LimitAngle)
 {
 	static class UFunction* Func = nullptr;
 
@@ -50658,9 +50658,9 @@ void USkeletalMeshComponent::SetAnimInstanceClass(class UClass* NewClass)
 // (Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bNewNotifyRigidBodyCollision                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USkeletalMeshComponent::SetBodyNotifyRigidBodyCollision(bool bNewNotifyRigidBodyCollision, class FName BoneName)
+void USkeletalMeshComponent::SetBodyNotifyRigidBodyCollision(bool bNewNotifyRigidBodyCollision, FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -50709,11 +50709,11 @@ void USkeletalMeshComponent::SetClothMaxDistanceScale(float Scale)
 // Function Engine.SkeletalMeshComponent.SetConstraintProfile
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             JointName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ProfileName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             JointName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ProfileName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bDefaultIfNotFound                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USkeletalMeshComponent::SetConstraintProfile(class FName JointName, class FName ProfileName, bool bDefaultIfNotFound)
+void USkeletalMeshComponent::SetConstraintProfile(FName JointName, FName ProfileName, bool bDefaultIfNotFound)
 {
 	static class UFunction* Func = nullptr;
 
@@ -50738,10 +50738,10 @@ void USkeletalMeshComponent::SetConstraintProfile(class FName JointName, class F
 // Function Engine.SkeletalMeshComponent.SetConstraintProfileForAll
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             ProfileName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ProfileName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bDefaultIfNotFound                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USkeletalMeshComponent::SetConstraintProfileForAll(class FName ProfileName, bool bDefaultIfNotFound)
+void USkeletalMeshComponent::SetConstraintProfileForAll(FName ProfileName, bool bDefaultIfNotFound)
 {
 	static class UFunction* Func = nullptr;
 
@@ -50766,9 +50766,9 @@ void USkeletalMeshComponent::SetConstraintProfileForAll(class FName ProfileName,
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bEnableGravity                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USkeletalMeshComponent::SetEnableBodyGravity(bool bEnableGravity, class FName BoneName)
+void USkeletalMeshComponent::SetEnableBodyGravity(bool bEnableGravity, FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -50793,10 +50793,10 @@ void USkeletalMeshComponent::SetEnableBodyGravity(bool bEnableGravity, class FNa
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bEnableGravity                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bIncludeSelf                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USkeletalMeshComponent::SetEnableGravityOnAllBodiesBelow(bool bEnableGravity, class FName BoneName, bool bIncludeSelf)
+void USkeletalMeshComponent::SetEnableGravityOnAllBodiesBelow(bool bEnableGravity, FName BoneName, bool bIncludeSelf)
 {
 	static class UFunction* Func = nullptr;
 
@@ -50846,11 +50846,11 @@ void USkeletalMeshComponent::SetEnablePhysicsBlending(bool bNewBlendPhysics)
 // Function Engine.SkeletalMeshComponent.SetMorphTarget
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             MorphTargetName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             MorphTargetName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bRemoveZeroWeight                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USkeletalMeshComponent::SetMorphTarget(class FName MorphTargetName, float Value, bool bRemoveZeroWeight)
+void USkeletalMeshComponent::SetMorphTarget(FName MorphTargetName, float Value, bool bRemoveZeroWeight)
 {
 	static class UFunction* Func = nullptr;
 
@@ -50876,10 +50876,10 @@ void USkeletalMeshComponent::SetMorphTarget(class FName MorphTargetName, float V
 // (Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bNewNotifyRigidBodyCollision                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bIncludeSelf                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USkeletalMeshComponent::SetNotifyRigidBodyCollisionBelow(bool bNewNotifyRigidBodyCollision, class FName BoneName, bool bIncludeSelf)
+void USkeletalMeshComponent::SetNotifyRigidBodyCollisionBelow(bool bNewNotifyRigidBodyCollision, FName BoneName, bool bIncludeSelf)
 {
 	static class UFunction* Func = nullptr;
 
@@ -51075,11 +51075,11 @@ class UAnimInstance* USkeletalMeshComponent::GetAnimInstance() const
 // Function Engine.SkeletalMeshComponent.GetBoneMass
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bScaleMass                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-float USkeletalMeshComponent::GetBoneMass(class FName BoneName, bool bScaleMass) const
+float USkeletalMeshComponent::GetBoneMass(FName BoneName, bool bScaleMass) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -51105,10 +51105,10 @@ float USkeletalMeshComponent::GetBoneMass(class FName BoneName, bool bScaleMass)
 // Function Engine.SkeletalMeshComponent.GetMorphTarget
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             MorphTargetName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             MorphTargetName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-float USkeletalMeshComponent::GetMorphTarget(class FName MorphTargetName) const
+float USkeletalMeshComponent::GetMorphTarget(FName MorphTargetName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -51261,11 +51261,11 @@ bool USkeletalMeshComponent::IsPlaying() const
 // struct FVector                          WorldPosition                                          (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          ClosestWorldPosition                                   (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          Normal                                                 (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Distance                                               (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool USkeletalMeshComponent::K2_GetClosestPointOnPhysicsAsset(const struct FVector& WorldPosition, struct FVector* ClosestWorldPosition, struct FVector* Normal, class FName* BoneName, float* Distance) const
+bool USkeletalMeshComponent::K2_GetClosestPointOnPhysicsAsset(const struct FVector& WorldPosition, struct FVector* ClosestWorldPosition, struct FVector* Normal, FName* BoneName, float* Distance) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -51505,12 +51505,12 @@ void UPawnNoiseEmitterComponent::MakeNoise(class AActor* NoiseMaker, float Loudn
 // Function Engine.PhysicalAnimationComponent.ApplyPhysicalAnimationProfileBelow
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             BodyName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ProfileName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BodyName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ProfileName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bIncludeSelf                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bClearNotFound                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPhysicalAnimationComponent::ApplyPhysicalAnimationProfileBelow(class FName BodyName, class FName ProfileName, bool bIncludeSelf, bool bClearNotFound)
+void UPhysicalAnimationComponent::ApplyPhysicalAnimationProfileBelow(FName BodyName, FName ProfileName, bool bIncludeSelf, bool bClearNotFound)
 {
 	static class UFunction* Func = nullptr;
 
@@ -51536,10 +51536,10 @@ void UPhysicalAnimationComponent::ApplyPhysicalAnimationProfileBelow(class FName
 // Function Engine.PhysicalAnimationComponent.ApplyPhysicalAnimationSettings
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             BodyName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BodyName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FPhysicalAnimationData           PhysicalAnimationData                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
-void UPhysicalAnimationComponent::ApplyPhysicalAnimationSettings(class FName BodyName, const struct FPhysicalAnimationData& PhysicalAnimationData)
+void UPhysicalAnimationComponent::ApplyPhysicalAnimationSettings(FName BodyName, const struct FPhysicalAnimationData& PhysicalAnimationData)
 {
 	static class UFunction* Func = nullptr;
 
@@ -51563,11 +51563,11 @@ void UPhysicalAnimationComponent::ApplyPhysicalAnimationSettings(class FName Bod
 // Function Engine.PhysicalAnimationComponent.ApplyPhysicalAnimationSettingsBelow
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class FName                             BodyName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BodyName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FPhysicalAnimationData           PhysicalAnimationData                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // bool                                    bIncludeSelf                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPhysicalAnimationComponent::ApplyPhysicalAnimationSettingsBelow(class FName BodyName, const struct FPhysicalAnimationData& PhysicalAnimationData, bool bIncludeSelf)
+void UPhysicalAnimationComponent::ApplyPhysicalAnimationSettingsBelow(FName BodyName, const struct FPhysicalAnimationData& PhysicalAnimationData, bool bIncludeSelf)
 {
 	static class UFunction* Func = nullptr;
 
@@ -51643,11 +51643,11 @@ void UPhysicalAnimationComponent::SetStrengthMultiplyer(float InStrengthMultiply
 // (RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // class UPrimitiveComponent*              Component                                              (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             InBoneName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InBoneName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          GrabLocation                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // bool                                    bConstrainRotation                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPhysicsHandleComponent::GrabComponent(class UPrimitiveComponent* Component, class FName InBoneName, const struct FVector& GrabLocation, bool bConstrainRotation)
+void UPhysicsHandleComponent::GrabComponent(class UPrimitiveComponent* Component, FName InBoneName, const struct FVector& GrabLocation, bool bConstrainRotation)
 {
 	static class UFunction* Func = nullptr;
 
@@ -51674,10 +51674,10 @@ void UPhysicsHandleComponent::GrabComponent(class UPrimitiveComponent* Component
 // (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // class UPrimitiveComponent*              Component                                              (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             InBoneName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InBoneName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          GrabLocation                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UPhysicsHandleComponent::GrabComponentAtLocation(class UPrimitiveComponent* Component, class FName InBoneName, const struct FVector& GrabLocation)
+void UPhysicsHandleComponent::GrabComponentAtLocation(class UPrimitiveComponent* Component, FName InBoneName, const struct FVector& GrabLocation)
 {
 	static class UFunction* Func = nullptr;
 
@@ -51703,11 +51703,11 @@ void UPhysicsHandleComponent::GrabComponentAtLocation(class UPrimitiveComponent*
 // (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // class UPrimitiveComponent*              Component                                              (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             InBoneName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InBoneName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Location                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FRotator                         Rotation                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UPhysicsHandleComponent::GrabComponentAtLocationWithRotation(class UPrimitiveComponent* Component, class FName InBoneName, const struct FVector& Location, const struct FRotator& Rotation)
+void UPhysicsHandleComponent::GrabComponentAtLocationWithRotation(class UPrimitiveComponent* Component, FName InBoneName, const struct FVector& Location, const struct FRotator& Rotation)
 {
 	static class UFunction* Func = nullptr;
 
@@ -52494,10 +52494,10 @@ void UAudioComponent::Play(float StartTime)
 // Function Engine.AudioComponent.SetBoolParameter
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    InBool                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAudioComponent::SetBoolParameter(class FName InName, bool InBool)
+void UAudioComponent::SetBoolParameter(FName InName, bool InBool)
 {
 	static class UFunction* Func = nullptr;
 
@@ -52521,10 +52521,10 @@ void UAudioComponent::SetBoolParameter(class FName InName, bool InBool)
 // Function Engine.AudioComponent.SetFloatParameter
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   inFloat                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAudioComponent::SetFloatParameter(class FName InName, float inFloat)
+void UAudioComponent::SetFloatParameter(FName InName, float inFloat)
 {
 	static class UFunction* Func = nullptr;
 
@@ -52548,10 +52548,10 @@ void UAudioComponent::SetFloatParameter(class FName InName, float inFloat)
 // Function Engine.AudioComponent.SetIntParameter
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   inInt                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAudioComponent::SetIntParameter(class FName InName, int32 inInt)
+void UAudioComponent::SetIntParameter(FName InName, int32 inInt)
 {
 	static class UFunction* Func = nullptr;
 
@@ -52700,10 +52700,10 @@ void UAudioComponent::SetVolumeMultiplier(float NewVolumeMultiplier)
 // Function Engine.AudioComponent.SetWaveParameter
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class USoundWave*                       InWave                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAudioComponent::SetWaveParameter(class FName InName, class USoundWave* InWave)
+void UAudioComponent::SetWaveParameter(FName InName, class USoundWave* InWave)
 {
 	static class UFunction* Func = nullptr;
 
@@ -54037,11 +54037,11 @@ void UPhysicsConstraintComponent::SetAngularVelocityTarget(const struct FVector&
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UPrimitiveComponent*              Component1                                             (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             BoneName1                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName1                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UPrimitiveComponent*              Component2                                             (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             BoneName2                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName2                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPhysicsConstraintComponent::SetConstrainedComponents(class UPrimitiveComponent* Component1, class FName BoneName1, class UPrimitiveComponent* Component2, class FName BoneName2)
+void UPhysicsConstraintComponent::SetConstrainedComponents(class UPrimitiveComponent* Component1, FName BoneName1, class UPrimitiveComponent* Component2, FName BoneName2)
 {
 	static class UFunction* Func = nullptr;
 
@@ -54819,11 +54819,11 @@ void UPoseableMeshComponent::CopyPoseFromSkeletalComponent(const class USkeletal
 // Function Engine.PoseableMeshComponent.GetBoneLocationByName
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EBoneSpaces                             BoneSpace                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FVector UPoseableMeshComponent::GetBoneLocationByName(class FName BoneName, EBoneSpaces BoneSpace)
+struct FVector UPoseableMeshComponent::GetBoneLocationByName(FName BoneName, EBoneSpaces BoneSpace)
 {
 	static class UFunction* Func = nullptr;
 
@@ -54849,11 +54849,11 @@ struct FVector UPoseableMeshComponent::GetBoneLocationByName(class FName BoneNam
 // Function Engine.PoseableMeshComponent.GetBoneRotationByName
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EBoneSpaces                             BoneSpace                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FRotator                         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FRotator UPoseableMeshComponent::GetBoneRotationByName(class FName BoneName, EBoneSpaces BoneSpace)
+struct FRotator UPoseableMeshComponent::GetBoneRotationByName(FName BoneName, EBoneSpaces BoneSpace)
 {
 	static class UFunction* Func = nullptr;
 
@@ -54879,11 +54879,11 @@ struct FRotator UPoseableMeshComponent::GetBoneRotationByName(class FName BoneNa
 // Function Engine.PoseableMeshComponent.GetBoneScaleByName
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EBoneSpaces                             BoneSpace                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FVector UPoseableMeshComponent::GetBoneScaleByName(class FName BoneName, EBoneSpaces BoneSpace)
+struct FVector UPoseableMeshComponent::GetBoneScaleByName(FName BoneName, EBoneSpaces BoneSpace)
 {
 	static class UFunction* Func = nullptr;
 
@@ -54909,11 +54909,11 @@ struct FVector UPoseableMeshComponent::GetBoneScaleByName(class FName BoneName, 
 // Function Engine.PoseableMeshComponent.GetBoneTransformByName
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EBoneSpaces                             BoneSpace                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTransform                       ReturnValue                                            (Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FTransform UPoseableMeshComponent::GetBoneTransformByName(class FName BoneName, EBoneSpaces BoneSpace)
+struct FTransform UPoseableMeshComponent::GetBoneTransformByName(FName BoneName, EBoneSpaces BoneSpace)
 {
 	static class UFunction* Func = nullptr;
 
@@ -54939,9 +54939,9 @@ struct FTransform UPoseableMeshComponent::GetBoneTransformByName(class FName Bon
 // Function Engine.PoseableMeshComponent.ResetBoneTransformByName
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPoseableMeshComponent::ResetBoneTransformByName(class FName BoneName)
+void UPoseableMeshComponent::ResetBoneTransformByName(FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -54964,11 +54964,11 @@ void UPoseableMeshComponent::ResetBoneTransformByName(class FName BoneName)
 // Function Engine.PoseableMeshComponent.SetBoneLocationByName
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          InLocation                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // EBoneSpaces                             BoneSpace                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPoseableMeshComponent::SetBoneLocationByName(class FName BoneName, const struct FVector& InLocation, EBoneSpaces BoneSpace)
+void UPoseableMeshComponent::SetBoneLocationByName(FName BoneName, const struct FVector& InLocation, EBoneSpaces BoneSpace)
 {
 	static class UFunction* Func = nullptr;
 
@@ -54993,11 +54993,11 @@ void UPoseableMeshComponent::SetBoneLocationByName(class FName BoneName, const s
 // Function Engine.PoseableMeshComponent.SetBoneRotationByName
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FRotator                         InRotation                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // EBoneSpaces                             BoneSpace                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPoseableMeshComponent::SetBoneRotationByName(class FName BoneName, const struct FRotator& InRotation, EBoneSpaces BoneSpace)
+void UPoseableMeshComponent::SetBoneRotationByName(FName BoneName, const struct FRotator& InRotation, EBoneSpaces BoneSpace)
 {
 	static class UFunction* Func = nullptr;
 
@@ -55022,11 +55022,11 @@ void UPoseableMeshComponent::SetBoneRotationByName(class FName BoneName, const s
 // Function Engine.PoseableMeshComponent.SetBoneScaleByName
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          InScale3D                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // EBoneSpaces                             BoneSpace                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPoseableMeshComponent::SetBoneScaleByName(class FName BoneName, const struct FVector& InScale3D, EBoneSpaces BoneSpace)
+void UPoseableMeshComponent::SetBoneScaleByName(FName BoneName, const struct FVector& InScale3D, EBoneSpaces BoneSpace)
 {
 	static class UFunction* Func = nullptr;
 
@@ -55051,11 +55051,11 @@ void UPoseableMeshComponent::SetBoneScaleByName(class FName BoneName, const stru
 // Function Engine.PoseableMeshComponent.SetBoneTransformByName
 // (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTransform                       InTransform                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // EBoneSpaces                             BoneSpace                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPoseableMeshComponent::SetBoneTransformByName(class FName BoneName, const struct FTransform& InTransform, EBoneSpaces BoneSpace)
+void UPoseableMeshComponent::SetBoneTransformByName(FName BoneName, const struct FTransform& InTransform, EBoneSpaces BoneSpace)
 {
 	static class UFunction* Func = nullptr;
 
@@ -55860,12 +55860,12 @@ struct FVector USplineMeshComponent::GetStartTangent() const
 // Function Engine.ParticleSystemComponent.BeginTrails
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             InFirstSocketName                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             InSecondSocketName                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InFirstSocketName                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InSecondSocketName                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // ETrailWidthMode                         InWidthMode                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   InWidth                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UParticleSystemComponent::BeginTrails(class FName InFirstSocketName, class FName InSecondSocketName, ETrailWidthMode InWidthMode, float InWidth)
+void UParticleSystemComponent::BeginTrails(FName InFirstSocketName, FName InSecondSocketName, ETrailWidthMode InWidthMode, float InWidth)
 {
 	static class UFunction* Func = nullptr;
 
@@ -55891,11 +55891,11 @@ void UParticleSystemComponent::BeginTrails(class FName InFirstSocketName, class 
 // Function Engine.ParticleSystemComponent.CreateNamedDynamicMaterialInstance
 // (Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UMaterialInterface*               SourceMaterial                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UMaterialInstanceDynamic*         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UMaterialInstanceDynamic* UParticleSystemComponent::CreateNamedDynamicMaterialInstance(class FName InName, class UMaterialInterface* SourceMaterial)
+class UMaterialInstanceDynamic* UParticleSystemComponent::CreateNamedDynamicMaterialInstance(FName InName, class UMaterialInterface* SourceMaterial)
 {
 	static class UFunction* Func = nullptr;
 
@@ -55940,13 +55940,13 @@ void UParticleSystemComponent::EndTrails()
 // Function Engine.ParticleSystemComponent.GenerateParticleEvent
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             InEventName                                            (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InEventName                                            (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   InEmitterTime                                          (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          InLocation                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          InDirection                                            (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector                          InVelocity                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UParticleSystemComponent::GenerateParticleEvent(const class FName InEventName, const float InEmitterTime, const struct FVector& InLocation, const struct FVector& InDirection, const struct FVector& InVelocity)
+void UParticleSystemComponent::GenerateParticleEvent(const FName InEventName, const float InEmitterTime, const struct FVector& InLocation, const struct FVector& InDirection, const struct FVector& InVelocity)
 {
 	static class UFunction* Func = nullptr;
 
@@ -55973,10 +55973,10 @@ void UParticleSystemComponent::GenerateParticleEvent(const class FName InEventNa
 // Function Engine.ParticleSystemComponent.SetActorParameter
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class AActor*                           Param                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UParticleSystemComponent::SetActorParameter(class FName ParameterName, class AActor* Param)
+void UParticleSystemComponent::SetActorParameter(FName ParameterName, class AActor* Param)
 {
 	static class UFunction* Func = nullptr;
 
@@ -56001,12 +56001,12 @@ void UParticleSystemComponent::SetActorParameter(class FName ParameterName, clas
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class USceneComponent*                  Parent                                                 (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             SocketName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             SocketName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EAttachmentRule                         LocationRule                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EAttachmentRule                         RotationRule                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EAttachmentRule                         ScaleRule                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UParticleSystemComponent::SetAutoAttachmentParameters(class USceneComponent* Parent, class FName SocketName, EAttachmentRule LocationRule, EAttachmentRule RotationRule, EAttachmentRule ScaleRule)
+void UParticleSystemComponent::SetAutoAttachmentParameters(class USceneComponent* Parent, FName SocketName, EAttachmentRule LocationRule, EAttachmentRule RotationRule, EAttachmentRule ScaleRule)
 {
 	static class UFunction* Func = nullptr;
 
@@ -56034,10 +56034,10 @@ void UParticleSystemComponent::SetAutoAttachmentParameters(class USceneComponent
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class USceneComponent*                  Parent                                                 (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             SocketName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             SocketName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EAttachLocation                         LocationType                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UParticleSystemComponent::SetAutoAttachParams(class USceneComponent* Parent, class FName SocketName, EAttachLocation LocationType)
+void UParticleSystemComponent::SetAutoAttachParams(class USceneComponent* Parent, FName SocketName, EAttachLocation LocationType)
 {
 	static class UFunction* Func = nullptr;
 
@@ -56263,10 +56263,10 @@ void UParticleSystemComponent::SetBeamTargetTangent(int32 emitterIndex, const st
 // Function Engine.ParticleSystemComponent.SetColorParameter
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FLinearColor                     Param                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UParticleSystemComponent::SetColorParameter(class FName ParameterName, const struct FLinearColor& Param)
+void UParticleSystemComponent::SetColorParameter(FName ParameterName, const struct FLinearColor& Param)
 {
 	static class UFunction* Func = nullptr;
 
@@ -56290,10 +56290,10 @@ void UParticleSystemComponent::SetColorParameter(class FName ParameterName, cons
 // Function Engine.ParticleSystemComponent.SetEmitterEnable
 // (Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             EmitterName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             EmitterName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bNewEnableState                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UParticleSystemComponent::SetEmitterEnable(class FName EmitterName, bool bNewEnableState)
+void UParticleSystemComponent::SetEmitterEnable(FName EmitterName, bool bNewEnableState)
 {
 	static class UFunction* Func = nullptr;
 
@@ -56317,10 +56317,10 @@ void UParticleSystemComponent::SetEmitterEnable(class FName EmitterName, bool bN
 // Function Engine.ParticleSystemComponent.SetFloatParameter
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Param                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UParticleSystemComponent::SetFloatParameter(class FName ParameterName, float Param)
+void UParticleSystemComponent::SetFloatParameter(FName ParameterName, float Param)
 {
 	static class UFunction* Func = nullptr;
 
@@ -56344,10 +56344,10 @@ void UParticleSystemComponent::SetFloatParameter(class FName ParameterName, floa
 // Function Engine.ParticleSystemComponent.SetMaterialParameter
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UMaterialInterface*               Param                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UParticleSystemComponent::SetMaterialParameter(class FName ParameterName, class UMaterialInterface* Param)
+void UParticleSystemComponent::SetMaterialParameter(FName ParameterName, class UMaterialInterface* Param)
 {
 	static class UFunction* Func = nullptr;
 
@@ -56396,12 +56396,12 @@ void UParticleSystemComponent::SetTemplate(class UParticleSystem* NewTemplate)
 // Function Engine.ParticleSystemComponent.SetTrailSourceData
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             InFirstSocketName                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             InSecondSocketName                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InFirstSocketName                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InSecondSocketName                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // ETrailWidthMode                         InWidthMode                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   InWidth                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UParticleSystemComponent::SetTrailSourceData(class FName InFirstSocketName, class FName InSecondSocketName, ETrailWidthMode InWidthMode, float InWidth)
+void UParticleSystemComponent::SetTrailSourceData(FName InFirstSocketName, FName InSecondSocketName, ETrailWidthMode InWidthMode, float InWidth)
 {
 	static class UFunction* Func = nullptr;
 
@@ -56427,10 +56427,10 @@ void UParticleSystemComponent::SetTrailSourceData(class FName InFirstSocketName,
 // Function Engine.ParticleSystemComponent.SetVectorParameter
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Param                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UParticleSystemComponent::SetVectorParameter(class FName ParameterName, const struct FVector& Param)
+void UParticleSystemComponent::SetVectorParameter(FName ParameterName, const struct FVector& Param)
 {
 	static class UFunction* Func = nullptr;
 
@@ -56690,10 +56690,10 @@ bool UParticleSystemComponent::GetBeamTargetTangent(int32 emitterIndex, int32 Ta
 // Function Engine.ParticleSystemComponent.GetNamedMaterial
 // (Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UMaterialInterface*               ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UMaterialInterface* UParticleSystemComponent::GetNamedMaterial(class FName InName) const
+class UMaterialInterface* UParticleSystemComponent::GetNamedMaterial(FName InName) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -57786,9 +57786,9 @@ void UTimelineComponent::ReverseFromEnd()
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
 // class UCurveFloat*                      NewFloatCurve                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             FloatTrackName                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             FloatTrackName                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UTimelineComponent::SetFloatCurve(class UCurveFloat* NewFloatCurve, class FName FloatTrackName)
+void UTimelineComponent::SetFloatCurve(class UCurveFloat* NewFloatCurve, FName FloatTrackName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -57838,9 +57838,9 @@ void UTimelineComponent::SetIgnoreTimeDilation(bool bNewIgnoreTimeDilation)
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
 // class UCurveLinearColor*                NewLinearColorCurve                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             LinearColorTrackName                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             LinearColorTrackName                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UTimelineComponent::SetLinearColorCurve(class UCurveLinearColor* NewLinearColorCurve, class FName LinearColorTrackName)
+void UTimelineComponent::SetLinearColorCurve(class UCurveLinearColor* NewLinearColorCurve, FName LinearColorTrackName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -58019,9 +58019,9 @@ void UTimelineComponent::SetTimelineLengthMode(ETimelineLengthMode NewLengthMode
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
 // class UCurveVector*                     NewVectorCurve                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             VectorTrackName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             VectorTrackName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UTimelineComponent::SetVectorCurve(class UCurveVector* NewVectorCurve, class FName VectorTrackName)
+void UTimelineComponent::SetVectorCurve(class UCurveVector* NewVectorCurve, FName VectorTrackName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -58726,13 +58726,13 @@ void UBlueprintSetLibrary::Set_Union(const TSet<int32>& A, const TSet<int32>& B,
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // class UCurveTable*                      CurveTable                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             RowName                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             RowName                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   InXY                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EEvaluateCurveTableResult               OutResult                                              (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   OutXY                                                  (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           ContextString                                          (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UDataTableFunctionLibrary::EvaluateCurveTableRow(class UCurveTable* CurveTable, class FName RowName, float InXY, EEvaluateCurveTableResult* OutResult, float* OutXY, const class FString& ContextString)
+void UDataTableFunctionLibrary::EvaluateCurveTableRow(class UCurveTable* CurveTable, FName RowName, float InXY, EEvaluateCurveTableResult* OutResult, float* OutXY, const class FString& ContextString)
 {
 	static class UFunction* Func = nullptr;
 
@@ -58765,11 +58765,11 @@ void UDataTableFunctionLibrary::EvaluateCurveTableRow(class UCurveTable* CurveTa
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // class UDataTable*                       Table                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             RowName                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             RowName                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTableRowBase                    OutRow                                                 (Parm, OutParm, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UDataTableFunctionLibrary::GetDataTableRowFromName(class UDataTable* Table, class FName RowName, struct FTableRowBase* OutRow)
+bool UDataTableFunctionLibrary::GetDataTableRowFromName(class UDataTable* Table, FName RowName, struct FTableRowBase* OutRow)
 {
 	static class UFunction* Func = nullptr;
 
@@ -58799,9 +58799,9 @@ bool UDataTableFunctionLibrary::GetDataTableRowFromName(class UDataTable* Table,
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // class UDataTable*                       Table                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TArray<class FName>                     OutRowNames                                            (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+// TArray<FName>                     OutRowNames                                            (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 
-void UDataTableFunctionLibrary::GetDataTableRowNames(class UDataTable* Table, TArray<class FName>* OutRowNames)
+void UDataTableFunctionLibrary::GetDataTableRowNames(class UDataTable* Table, TArray<FName>* OutRowNames)
 {
 	static class UFunction* Func = nullptr;
 
@@ -63331,10 +63331,10 @@ int32 UKismetSystemLibrary::MakeLiteralInt(int32 Value)
 // Function Engine.KismetSystemLibrary.MakeLiteralName
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class FName                             Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName UKismetSystemLibrary::MakeLiteralName(class FName Value)
+FName UKismetSystemLibrary::MakeLiteralName(FName Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -63673,10 +63673,10 @@ void UKismetSystemLibrary::RetriggerableDelay(class UObject* WorldContextObject,
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TSoftClassPtr<class UClass>             Value                                                  (ConstParm, Parm, OutParm, ReferenceParm, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UKismetSystemLibrary::SetAssetClassPropertyByName(class UObject* Object, class FName PropertyName, const TSoftClassPtr<class UClass>& Value)
+void UKismetSystemLibrary::SetAssetClassPropertyByName(class UObject* Object, FName PropertyName, const TSoftClassPtr<class UClass>& Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -63702,10 +63702,10 @@ void UKismetSystemLibrary::SetAssetClassPropertyByName(class UObject* Object, cl
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TSoftObjectPtr<class UObject>           Value                                                  (ConstParm, Parm, OutParm, ReferenceParm, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UKismetSystemLibrary::SetAssetPropertyByName(class UObject* Object, class FName PropertyName, const TSoftObjectPtr<class UObject>& Value)
+void UKismetSystemLibrary::SetAssetPropertyByName(class UObject* Object, FName PropertyName, const TSoftObjectPtr<class UObject>& Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -63731,10 +63731,10 @@ void UKismetSystemLibrary::SetAssetPropertyByName(class UObject* Object, class F
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UKismetSystemLibrary::SetBoolPropertyByName(class UObject* Object, class FName PropertyName, bool Value)
+void UKismetSystemLibrary::SetBoolPropertyByName(class UObject* Object, FName PropertyName, bool Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -63760,10 +63760,10 @@ void UKismetSystemLibrary::SetBoolPropertyByName(class UObject* Object, class FN
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // uint8                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UKismetSystemLibrary::SetBytePropertyByName(class UObject* Object, class FName PropertyName, uint8 Value)
+void UKismetSystemLibrary::SetBytePropertyByName(class UObject* Object, FName PropertyName, uint8 Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -63789,10 +63789,10 @@ void UKismetSystemLibrary::SetBytePropertyByName(class UObject* Object, class FN
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TSubclassOf<class UObject>              Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UKismetSystemLibrary::SetClassPropertyByName(class UObject* Object, class FName PropertyName, TSubclassOf<class UObject> Value)
+void UKismetSystemLibrary::SetClassPropertyByName(class UObject* Object, FName PropertyName, TSubclassOf<class UObject> Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -63818,10 +63818,10 @@ void UKismetSystemLibrary::SetClassPropertyByName(class UObject* Object, class F
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FCollisionProfileName            Value                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
-void UKismetSystemLibrary::SetCollisionProfileNameProperty(class UObject* Object, class FName PropertyName, const struct FCollisionProfileName& Value)
+void UKismetSystemLibrary::SetCollisionProfileNameProperty(class UObject* Object, FName PropertyName, const struct FCollisionProfileName& Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -63847,10 +63847,10 @@ void UKismetSystemLibrary::SetCollisionProfileNameProperty(class UObject* Object
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UKismetSystemLibrary::SetFloatPropertyByName(class UObject* Object, class FName PropertyName, float Value)
+void UKismetSystemLibrary::SetFloatPropertyByName(class UObject* Object, FName PropertyName, float Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -63876,10 +63876,10 @@ void UKismetSystemLibrary::SetFloatPropertyByName(class UObject* Object, class F
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TScriptInterface<class IInterface>      Value                                                  (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, UObjectWrapper, NativeAccessSpecifierPublic)
 
-void UKismetSystemLibrary::SetInterfacePropertyByName(class UObject* Object, class FName PropertyName, const TScriptInterface<class IInterface>& Value)
+void UKismetSystemLibrary::SetInterfacePropertyByName(class UObject* Object, FName PropertyName, const TScriptInterface<class IInterface>& Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -63905,10 +63905,10 @@ void UKismetSystemLibrary::SetInterfacePropertyByName(class UObject* Object, cla
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UKismetSystemLibrary::SetIntPropertyByName(class UObject* Object, class FName PropertyName, int32 Value)
+void UKismetSystemLibrary::SetIntPropertyByName(class UObject* Object, FName PropertyName, int32 Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -63934,10 +63934,10 @@ void UKismetSystemLibrary::SetIntPropertyByName(class UObject* Object, class FNa
 // (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FLinearColor                     Value                                                  (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UKismetSystemLibrary::SetLinearColorPropertyByName(class UObject* Object, class FName PropertyName, const struct FLinearColor& Value)
+void UKismetSystemLibrary::SetLinearColorPropertyByName(class UObject* Object, FName PropertyName, const struct FLinearColor& Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -63963,10 +63963,10 @@ void UKismetSystemLibrary::SetLinearColorPropertyByName(class UObject* Object, c
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             Value                                                  (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             Value                                                  (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UKismetSystemLibrary::SetNamePropertyByName(class UObject* Object, class FName PropertyName, const class FName& Value)
+void UKismetSystemLibrary::SetNamePropertyByName(class UObject* Object, FName PropertyName, const FName& Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -63992,10 +63992,10 @@ void UKismetSystemLibrary::SetNamePropertyByName(class UObject* Object, class FN
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UObject*                          Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UKismetSystemLibrary::SetObjectPropertyByName(class UObject* Object, class FName PropertyName, class UObject* Value)
+void UKismetSystemLibrary::SetObjectPropertyByName(class UObject* Object, FName PropertyName, class UObject* Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -64021,10 +64021,10 @@ void UKismetSystemLibrary::SetObjectPropertyByName(class UObject* Object, class 
 // (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FRotator                         Value                                                  (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UKismetSystemLibrary::SetRotatorPropertyByName(class UObject* Object, class FName PropertyName, const struct FRotator& Value)
+void UKismetSystemLibrary::SetRotatorPropertyByName(class UObject* Object, FName PropertyName, const struct FRotator& Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -64050,10 +64050,10 @@ void UKismetSystemLibrary::SetRotatorPropertyByName(class UObject* Object, class
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           Value                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UKismetSystemLibrary::SetStringPropertyByName(class UObject* Object, class FName PropertyName, const class FString& Value)
+void UKismetSystemLibrary::SetStringPropertyByName(class UObject* Object, FName PropertyName, const class FString& Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -64079,10 +64079,10 @@ void UKismetSystemLibrary::SetStringPropertyByName(class UObject* Object, class 
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FGenericStruct                   Value                                                  (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UKismetSystemLibrary::SetStructurePropertyByName(class UObject* Object, class FName PropertyName, const struct FGenericStruct& Value)
+void UKismetSystemLibrary::SetStructurePropertyByName(class UObject* Object, FName PropertyName, const struct FGenericStruct& Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -64135,10 +64135,10 @@ void UKismetSystemLibrary::SetSuppressViewportTransitionMessage(class UObject* W
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FText                             Value                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
-void UKismetSystemLibrary::SetTextPropertyByName(class UObject* Object, class FName PropertyName, const class FText& Value)
+void UKismetSystemLibrary::SetTextPropertyByName(class UObject* Object, FName PropertyName, const class FText& Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -64164,10 +64164,10 @@ void UKismetSystemLibrary::SetTextPropertyByName(class UObject* Object, class FN
 // (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FTransform                       Value                                                  (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UKismetSystemLibrary::SetTransformPropertyByName(class UObject* Object, class FName PropertyName, const struct FTransform& Value)
+void UKismetSystemLibrary::SetTransformPropertyByName(class UObject* Object, FName PropertyName, const struct FTransform& Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -64218,10 +64218,10 @@ void UKismetSystemLibrary::SetUserActivity(const struct FUserActivity& UserActiv
 // (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
 // class UObject*                          Object                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Value                                                  (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UKismetSystemLibrary::SetVectorPropertyByName(class UObject* Object, class FName PropertyName, const struct FVector& Value)
+void UKismetSystemLibrary::SetVectorPropertyByName(class UObject* Object, FName PropertyName, const struct FVector& Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -65016,9 +65016,9 @@ void UHeadMountedDisplayFunctionLibrary::EnableLowPersistenceMode(bool bEnable)
 // Function Engine.HeadMountedDisplayFunctionLibrary.GetHMDDeviceName
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName UHeadMountedDisplayFunctionLibrary::GetHMDDeviceName()
+FName UHeadMountedDisplayFunctionLibrary::GetHMDDeviceName()
 {
 	static class UFunction* Func = nullptr;
 
@@ -65733,10 +65733,10 @@ class UMaterialInstanceDynamic* UKismetMaterialLibrary::CreateDynamicMaterialIns
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UMaterialParameterCollection*     Collection                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-float UKismetMaterialLibrary::GetScalarParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, class FName ParameterName)
+float UKismetMaterialLibrary::GetScalarParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, FName ParameterName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -65765,10 +65765,10 @@ float UKismetMaterialLibrary::GetScalarParameterValue(class UObject* WorldContex
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UMaterialParameterCollection*     Collection                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FLinearColor                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FLinearColor UKismetMaterialLibrary::GetVectorParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, class FName ParameterName)
+struct FLinearColor UKismetMaterialLibrary::GetVectorParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, FName ParameterName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -65797,10 +65797,10 @@ struct FLinearColor UKismetMaterialLibrary::GetVectorParameterValue(class UObjec
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UMaterialParameterCollection*     Collection                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ParameterValue                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UKismetMaterialLibrary::SetScalarParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, class FName ParameterName, float ParameterValue)
+void UKismetMaterialLibrary::SetScalarParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, FName ParameterName, float ParameterValue)
 {
 	static class UFunction* Func = nullptr;
 
@@ -65828,10 +65828,10 @@ void UKismetMaterialLibrary::SetScalarParameterValue(class UObject* WorldContext
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UMaterialParameterCollection*     Collection                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FLinearColor                     ParameterValue                                         (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UKismetMaterialLibrary::SetVectorParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, class FName ParameterName, const struct FLinearColor& ParameterValue)
+void UKismetMaterialLibrary::SetVectorParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, FName ParameterName, const struct FLinearColor& ParameterValue)
 {
 	static class UFunction* Func = nullptr;
 
@@ -65944,9 +65944,9 @@ void UKismetNodeHelperLibrary::ClearBit(int32* Data, int32 Index_0)
 // Parameters:
 // class UEnum*                            Enum                                                   (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // uint8                                   EnumeratorValue                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName UKismetNodeHelperLibrary::GetEnumeratorName(const class UEnum* Enum, uint8 EnumeratorValue)
+FName UKismetNodeHelperLibrary::GetEnumeratorName(const class UEnum* Enum, uint8 EnumeratorValue)
 {
 	static class UFunction* Func = nullptr;
 
@@ -66605,11 +66605,11 @@ class FString UKismetStringLibrary::BuildString_Int(const class FString& AppendT
 // Parameters:
 // class FString                           AppendTo                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           Prefix                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           Suffix                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FString UKismetStringLibrary::BuildString_Name(const class FString& AppendTo, const class FString& Prefix, class FName InName, const class FString& Suffix)
+class FString UKismetStringLibrary::BuildString_Name(const class FString& AppendTo, const class FString& Prefix, FName InName, const class FString& Suffix)
 {
 	static class UFunction* Func = nullptr;
 
@@ -66977,10 +66977,10 @@ class FString UKismetStringLibrary::Conv_IntToString(int32 inInt)
 // Function Engine.KismetStringLibrary.Conv_NameToString
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             InName                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FString UKismetStringLibrary::Conv_NameToString(class FName InName)
+class FString UKismetStringLibrary::Conv_NameToString(FName InName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -67151,9 +67151,9 @@ int32 UKismetStringLibrary::Conv_StringToInt(const class FString& inString)
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class FString                           inString                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName UKismetStringLibrary::Conv_StringToName(const class FString& inString)
+FName UKismetStringLibrary::Conv_StringToName(const class FString& inString)
 {
 	static class UFunction* Func = nullptr;
 
@@ -69051,9 +69051,9 @@ void UPlayerInput::ClearSmoothing()
 // Function Engine.PlayerInput.InvertAxis
 // (Final, Exec, Native, Public)
 // Parameters:
-// class FName                             AxisName                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             AxisName                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPlayerInput::InvertAxis(const class FName AxisName)
+void UPlayerInput::InvertAxis(const FName AxisName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -69101,10 +69101,10 @@ void UPlayerInput::InvertAxisKey(const struct FKey& AxisKey)
 // Function Engine.PlayerInput.SetBind
 // (Final, Exec, Native, Public)
 // Parameters:
-// class FName                             BindName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             BindName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           Command                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPlayerInput::SetBind(class FName BindName, const class FString& Command)
+void UPlayerInput::SetBind(FName BindName, const class FString& Command)
 {
 	static class UFunction* Func = nullptr;
 
@@ -69402,10 +69402,10 @@ void UMaterialInstanceDynamic::K2_CopyMaterialInstanceParameters(class UMaterial
 // Function Engine.MaterialInstanceDynamic.K2_GetScalarParameterValue
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-float UMaterialInstanceDynamic::K2_GetScalarParameterValue(class FName ParameterName)
+float UMaterialInstanceDynamic::K2_GetScalarParameterValue(FName ParameterName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -69430,10 +69430,10 @@ float UMaterialInstanceDynamic::K2_GetScalarParameterValue(class FName Parameter
 // Function Engine.MaterialInstanceDynamic.K2_GetTextureParameterValue
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UTexture*                         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UTexture* UMaterialInstanceDynamic::K2_GetTextureParameterValue(class FName ParameterName)
+class UTexture* UMaterialInstanceDynamic::K2_GetTextureParameterValue(FName ParameterName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -69458,10 +69458,10 @@ class UTexture* UMaterialInstanceDynamic::K2_GetTextureParameterValue(class FNam
 // Function Engine.MaterialInstanceDynamic.K2_GetVectorParameterValue
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FLinearColor                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FLinearColor UMaterialInstanceDynamic::K2_GetVectorParameterValue(class FName ParameterName)
+struct FLinearColor UMaterialInstanceDynamic::K2_GetVectorParameterValue(FName ParameterName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -69515,10 +69515,10 @@ void UMaterialInstanceDynamic::K2_InterpolateMaterialInstanceParams(class UMater
 // Function Engine.MaterialInstanceDynamic.SetScalarParameterValue
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMaterialInstanceDynamic::SetScalarParameterValue(class FName ParameterName, float Value)
+void UMaterialInstanceDynamic::SetScalarParameterValue(FName ParameterName, float Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -69542,10 +69542,10 @@ void UMaterialInstanceDynamic::SetScalarParameterValue(class FName ParameterName
 // Function Engine.MaterialInstanceDynamic.SetTextureParameterValue
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UTexture*                         Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMaterialInstanceDynamic::SetTextureParameterValue(class FName ParameterName, class UTexture* Value)
+void UMaterialInstanceDynamic::SetTextureParameterValue(FName ParameterName, class UTexture* Value)
 {
 	static class UFunction* Func = nullptr;
 
@@ -69569,10 +69569,10 @@ void UMaterialInstanceDynamic::SetTextureParameterValue(class FName ParameterNam
 // Function Engine.MaterialInstanceDynamic.SetVectorParameterValue
 // (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FName                             ParameterName                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FLinearColor                     Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UMaterialInstanceDynamic::SetVectorParameterValue(class FName ParameterName, const struct FLinearColor& Value)
+void UMaterialInstanceDynamic::SetVectorParameterValue(FName ParameterName, const struct FLinearColor& Value)
 {
 	static class UFunction* Func = nullptr;
 

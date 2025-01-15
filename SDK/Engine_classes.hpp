@@ -28,7 +28,7 @@ class UActorComponent : public UObject
 public:
 	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FActorComponentTickFunction            PrimaryComponentTick;                              // 0x0030(0x0058)(Edit, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	TArray<class FName>                           ComponentTags;                                     // 0x0088(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<FName>                           ComponentTags;                                     // 0x0088(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
 	TArray<class UAssetUserData*>                 AssetUserData;                                     // 0x0098(0x0010)(ExportObject, ZeroConstructor, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
 	uint8                                         BitPad_A8_0 : 3;                                   // 0x00A8(0x0001)(Fixing Bit-Field Size Between Bits [ Dumper-7 ])
 	uint8                                         bReplicates : 1;                                   // 0x00A8(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, BlueprintVisible, BlueprintReadOnly, Net, DisableEditOnInstance, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
@@ -72,7 +72,7 @@ public:
 	void SetTickGroup(ETickingGroup NewTickGroup);
 	void ToggleActive();
 
-	bool ComponentHasTag(class FName Tag) const;
+	bool ComponentHasTag(FName Tag) const;
 	float GetComponentTickInterval() const;
 	class AActor* GetOwner() const;
 	bool IsActive() const;
@@ -218,7 +218,7 @@ public:
 	uint8                                         BitPad_9E_2 : 1;                                   // 0x009E(0x0001)(Fixing Bit-Field Size Between Bits [ Dumper-7 ])
 	uint8                                         bReplicates : 1;                                   // 0x009E(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
 	uint8                                         Pad_9F[0x1];                                       // 0x009F(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   NetDriverName;                                     // 0x00A0(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	FName                                   NetDriverName;                                     // 0x00A0(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	ENetRole                                      RemoteRole;                                        // 0x00A8(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_A9[0x7];                                       // 0x00A9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	class AActor*                                 Owner;                                             // 0x00B0(0x0008)(Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
@@ -254,7 +254,7 @@ public:
 	TArray<class AMatineeActor*>                  ControllingMatineeActors;                          // 0x0188(0x0010)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
 	float                                         InitialLifeSpan;                                   // 0x0198(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         Pad_19C[0xC];                                      // 0x019C(0x000C)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FName>                           Layers;                                            // 0x01A8(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<FName>                           Layers;                                            // 0x01A8(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 	TWeakObjectPtr<class AActor>                  ParentComponentActor;                              // 0x01B8(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, UObjectWrapper, NativeAccessSpecifierPrivate)
 	TWeakObjectPtr<class UChildActorComponent>    ParentComponent;                                   // 0x01C0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, UObjectWrapper, NativeAccessSpecifierPrivate)
 	uint8                                         bAllowReceiveTickEventOnDedicatedServer : 1;       // 0x01C8(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
@@ -263,7 +263,7 @@ public:
 	uint8                                         bIgnoresOriginShifting : 1;                        // 0x01C8(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Edit, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bEnableAutoLODGeneration : 1;                      // 0x01C8(0x0001)(BitIndex: 0x06, PropSize: 0x0001 (Edit, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_1C9[0x7];                                      // 0x01C9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FName>                           Tags;                                              // 0x01D0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, AdvancedDisplay, NativeAccessSpecifierPublic)
+	TArray<FName>                           Tags;                                              // 0x01D0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, AdvancedDisplay, NativeAccessSpecifierPublic)
 	uint64                                        HiddenEditorViews;                                 // 0x01E0(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	UMulticastDelegateProperty_                   OnTakeAnyDamage;                                   // 0x01E8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	UMulticastDelegateProperty_                   OnTakePointDamage;                                 // 0x01F8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
@@ -286,7 +286,7 @@ public:
 	uint8                                         Pad_398[0x8];                                      // 0x0398(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	class UActorComponent* AddComponent(class FName TemplateName, bool bManualAttachment, const struct FTransform& RelativeTransform, const class UObject* ComponentTemplateContext);
+	class UActorComponent* AddComponent(FName TemplateName, bool bManualAttachment, const struct FTransform& RelativeTransform, const class UObject* ComponentTemplateContext);
 	void AddTickPrerequisiteActor(class AActor* PrerequisiteActor);
 	void AddTickPrerequisiteComponent(class UActorComponent* PrerequisiteComponent);
 	void DetachRootComponentFromParent(bool bMaintainWorldPosition);
@@ -302,10 +302,10 @@ public:
 	void K2_AddActorWorldOffset(const struct FVector& DeltaLocation, bool bSweep, struct FHitResult* SweepHitResult, bool bTeleport);
 	void K2_AddActorWorldRotation(const struct FRotator& DeltaRotation, bool bSweep, struct FHitResult* SweepHitResult, bool bTeleport);
 	void K2_AddActorWorldTransform(const struct FTransform& DeltaTransform, bool bSweep, struct FHitResult* SweepHitResult, bool bTeleport);
-	void K2_AttachRootComponentTo(class USceneComponent* InParent, class FName InSocketName, EAttachLocation AttachLocationType, bool bWeldSimulatedBodies);
-	void K2_AttachRootComponentToActor(class AActor* InParentActor, class FName InSocketName, EAttachLocation AttachLocationType, bool bWeldSimulatedBodies);
-	void K2_AttachToActor(class AActor* ParentActor, class FName SocketName, EAttachmentRule LocationRule, EAttachmentRule RotationRule, EAttachmentRule ScaleRule, bool bWeldSimulatedBodies);
-	void K2_AttachToComponent(class USceneComponent* Parent, class FName SocketName, EAttachmentRule LocationRule, EAttachmentRule RotationRule, EAttachmentRule ScaleRule, bool bWeldSimulatedBodies);
+	void K2_AttachRootComponentTo(class USceneComponent* InParent, FName InSocketName, EAttachLocation AttachLocationType, bool bWeldSimulatedBodies);
+	void K2_AttachRootComponentToActor(class AActor* InParentActor, FName InSocketName, EAttachLocation AttachLocationType, bool bWeldSimulatedBodies);
+	void K2_AttachToActor(class AActor* ParentActor, FName SocketName, EAttachmentRule LocationRule, EAttachmentRule RotationRule, EAttachmentRule ScaleRule, bool bWeldSimulatedBodies);
+	void K2_AttachToComponent(class USceneComponent* Parent, FName SocketName, EAttachmentRule LocationRule, EAttachmentRule RotationRule, EAttachmentRule ScaleRule, bool bWeldSimulatedBodies);
 	void K2_DestroyActor();
 	void K2_DestroyComponent(class UActorComponent* Component);
 	void K2_DetachFromActor(EDetachmentRule LocationRule, EDetachmentRule RotationRule, EDetachmentRule ScaleRule);
@@ -321,7 +321,7 @@ public:
 	bool K2_SetActorTransform(const struct FTransform& NewTransform, bool bSweep, struct FHitResult* SweepHitResult, bool bTeleport);
 	bool K2_TeleportTo(const struct FVector& DestLocation, const struct FRotator& DestRotation);
 	class UMaterialInstanceDynamic* MakeMIDForMaterial(class UMaterialInterface* Parent);
-	void MakeNoise(float Loudness, class APawn* NoiseInstigator, const struct FVector& NoiseLocation, float MaxRange, class FName Tag);
+	void MakeNoise(float Loudness, class APawn* NoiseInstigator, const struct FVector& NoiseLocation, float MaxRange, FName Tag);
 	void OnRep_AttachmentReplication();
 	void OnRep_Instigator();
 	void OnRep_Owner();
@@ -342,7 +342,7 @@ public:
 	void ReceiveDestroyed();
 	void ReceiveEndPlay(EEndPlayReason EndPlayReason);
 	void ReceiveHit(class UPrimitiveComponent* MyComp, class AActor* Other, class UPrimitiveComponent* OtherComp, bool bSelfMoved, const struct FVector& HitLocation, const struct FVector& HitNormal, const struct FVector& NormalImpulse, const struct FHitResult& Hit);
-	void ReceivePointDamage(float Damage, const class UDamageType* DamageType, const struct FVector& HitLocation, const struct FVector& HitNormal, class UPrimitiveComponent* HitComponent, class FName BoneName, const struct FVector& ShotFromDirection, class AController* InstigatedBy, class AActor* DamageCauser, const struct FHitResult& HitInfo);
+	void ReceivePointDamage(float Damage, const class UDamageType* DamageType, const struct FVector& HitLocation, const struct FVector& HitNormal, class UPrimitiveComponent* HitComponent, FName BoneName, const struct FVector& ShotFromDirection, class AController* InstigatedBy, class AActor* DamageCauser, const struct FHitResult& HitInfo);
 	void ReceiveRadialDamage(float DamageReceived, const class UDamageType* DamageType, const struct FVector& Origin, const struct FHitResult& HitInfo, class AController* InstigatedBy, class AActor* DamageCauser);
 	void ReceiveTick(float DeltaSeconds);
 	void RemoveTickPrerequisiteActor(class AActor* PrerequisiteActor);
@@ -359,11 +359,11 @@ public:
 	void SetReplicates(bool bInReplicates);
 	void SetTickableWhenPaused(bool bTickableWhenPaused);
 	void SetTickGroup(ETickingGroup NewTickGroup);
-	void SnapRootComponentTo(class AActor* InParentActor, class FName InSocketName);
+	void SnapRootComponentTo(class AActor* InParentActor, FName InSocketName);
 	void TearOff();
 	void UserConstructionScript();
 
-	bool ActorHasTag(class FName Tag) const;
+	bool ActorHasTag(FName Tag) const;
 	void GetActorBounds(bool bOnlyCollidingComponents, struct FVector* Origin, struct FVector* BoxExtent) const;
 	bool GetActorEnableCollision() const;
 	void GetActorEyesViewPoint(struct FVector* OutLocation, struct FRotator* OutRotation) const;
@@ -378,13 +378,13 @@ public:
 	void GetAttachedActors(TArray<class AActor*>* OutActors) const;
 	class UActorComponent* GetComponentByClass(TSubclassOf<class UActorComponent> ComponentClass) const;
 	TArray<class UActorComponent*> GetComponentsByClass(TSubclassOf<class UActorComponent> ComponentClass) const;
-	TArray<class UActorComponent*> GetComponentsByTag(TSubclassOf<class UActorComponent> ComponentClass, class FName Tag) const;
+	TArray<class UActorComponent*> GetComponentsByTag(TSubclassOf<class UActorComponent> ComponentClass, FName Tag) const;
 	float GetDistanceTo(const class AActor* OtherActor) const;
 	float GetDotProductTo(const class AActor* OtherActor) const;
 	float GetHorizontalDistanceTo(const class AActor* OtherActor) const;
 	float GetHorizontalDotProductTo(const class AActor* OtherActor) const;
 	float GetInputAxisKeyValue(const struct FKey& InputAxisKey) const;
-	float GetInputAxisValue(const class FName InputAxisName) const;
+	float GetInputAxisValue(const FName InputAxisName) const;
 	struct FVector GetInputVectorAxisValue(const struct FKey& InputAxisKey) const;
 	class APawn* GetInstigator() const;
 	class AController* GetInstigatorController() const;
@@ -557,8 +557,8 @@ public:
 	uint8                                         Pad_3A9[0x7];                                      // 0x03A9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<class AActor*>                         PostRenderedActors;                                // 0x03B0(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_3C0[0x8];                                      // 0x03C0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FName>                           DebugDisplay;                                      // 0x03C8(0x0010)(ZeroConstructor, Config, GlobalConfig, NativeAccessSpecifierPublic)
-	TArray<class FName>                           ToggledDebugCategories;                            // 0x03D8(0x0010)(ZeroConstructor, Config, GlobalConfig, NativeAccessSpecifierPublic)
+	TArray<FName>                           DebugDisplay;                                      // 0x03C8(0x0010)(ZeroConstructor, Config, GlobalConfig, NativeAccessSpecifierPublic)
+	TArray<FName>                           ToggledDebugCategories;                            // 0x03D8(0x0010)(ZeroConstructor, Config, GlobalConfig, NativeAccessSpecifierPublic)
 	class UCanvas*                                Canvas;                                            // 0x03E8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	class UCanvas*                                DebugCanvas;                                       // 0x03F0(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	TArray<struct FDebugTextInfo>                 DebugTextList;                                     // 0x03F8(0x0010)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
@@ -568,7 +568,7 @@ public:
 
 public:
 	void AddDebugText(const class FString& DebugText, class AActor* SrcActor, float Duration, const struct FVector& Offset, const struct FVector& DesiredOffset, const struct FColor& TextColor, bool bSkipOverwriteCheck, bool bAbsoluteLocation, bool bKeepAttachedToActor, class UFont* InFont, float FontScale, bool bDrawShadow);
-	void AddHitBox(const struct FVector2D& Position, const struct FVector2D& Size, class FName InName, bool bConsumesInput, int32 Priority);
+	void AddHitBox(const struct FVector2D& Position, const struct FVector2D& Size, FName InName, bool bConsumesInput, int32 Priority);
 	void DrawLine(float StartScreenX, float StartScreenY, float EndScreenX, float EndScreenY, const struct FLinearColor& LineColor, float LineThickness);
 	void DrawMaterial(class UMaterialInterface* Material, float ScreenX, float ScreenY, float ScreenW, float ScreenH, float MaterialU, float MaterialV, float MaterialUWidth, float MaterialVHeight, float Scale, bool bScalePosition, float Rotation, const struct FVector2D& RotPivot);
 	void DrawMaterialSimple(class UMaterialInterface* Material, float ScreenX, float ScreenY, float ScreenW, float ScreenH, float Scale, bool bScalePosition);
@@ -579,15 +579,15 @@ public:
 	void DrawTextureSimple(class UTexture* Texture, float ScreenX, float ScreenY, float Scale, bool bScalePosition);
 	void GetActorsInSelectionRectangle(TSubclassOf<class AActor> ClassFilter, const struct FVector2D& FirstPoint, const struct FVector2D& SecondPoint, TArray<class AActor*>* OutActors, bool bIncludeNonCollidingComponents, bool bActorMustBeFullyEnclosed);
 	void ReceiveDrawHUD(int32 SizeX, int32 SizeY);
-	void ReceiveHitBoxBeginCursorOver(const class FName BoxName);
-	void ReceiveHitBoxClick(const class FName BoxName);
-	void ReceiveHitBoxEndCursorOver(const class FName BoxName);
-	void ReceiveHitBoxRelease(const class FName BoxName);
+	void ReceiveHitBoxBeginCursorOver(const FName BoxName);
+	void ReceiveHitBoxClick(const FName BoxName);
+	void ReceiveHitBoxEndCursorOver(const FName BoxName);
+	void ReceiveHitBoxRelease(const FName BoxName);
 	void RemoveAllDebugStrings();
 	void RemoveDebugText(class AActor* SrcActor, bool bLeaveDurationText);
-	void ShowDebug(class FName DebugType);
+	void ShowDebug(FName DebugType);
 	void ShowDebugForReticleTargetToggle(TSubclassOf<class AActor> DesiredClass);
-	void ShowDebugToggleSubCategory(class FName Category);
+	void ShowDebugToggleSubCategory(FName Category);
 	void ShowHUD();
 
 	void Deproject(float ScreenX, float ScreenY, struct FVector* WorldPosition, struct FVector* WorldDirection) const;
@@ -624,10 +624,10 @@ static_assert(offsetof(AHUD, ShowDebugTargetActor) == 0x000410, "Member 'AHUD::S
 class alignas(0x10) ULevelStreaming : public UObject
 {
 public:
-	class FName                                   PackageName;                                       // 0x0028(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   PackageName;                                       // 0x0028(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TSoftObjectPtr<class UWorld>                  WorldAsset;                                        // 0x0030(0x0020)(Edit, BlueprintVisible, BlueprintReadOnly, EditConst, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class FName                                   PackageNameToLoad;                                 // 0x0050(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<class FName>                           LODPackageNames;                                   // 0x0058(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	FName                                   PackageNameToLoad;                                 // 0x0050(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<FName>                           LODPackageNames;                                   // 0x0058(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_68[0x18];                                      // 0x0068(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FTransform                             LevelTransform;                                    // 0x0080(0x0030)(Edit, BlueprintVisible, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_B0[0xC];                                       // 0x00B0(0x000C)(Fixing Size After Last Property [ Dumper-7 ])
@@ -725,7 +725,7 @@ public:
 
 public:
 	void LevelReset();
-	bool RemoteEvent(class FName EventName);
+	bool RemoteEvent(FName EventName);
 	void SetCinematicMode(bool bCinematicMode, bool bHidePlayer, bool bAffectsHUD, bool bAffectsMovement, bool bAffectsTurning);
 	void WorldOriginLocationChanged(const struct FIntVector& OldOriginLocation, const struct FIntVector& NewOriginLocation);
 
@@ -862,7 +862,7 @@ public:
 	static bool EqualEqual_DateTimeDateTime(const struct FDateTime& A, const struct FDateTime& B);
 	static bool EqualEqual_FloatFloat(float A, float B);
 	static bool EqualEqual_IntInt(int32 A, int32 B);
-	static bool EqualEqual_NameName(class FName A, class FName B);
+	static bool EqualEqual_NameName(FName A, FName B);
 	static bool EqualEqual_ObjectObject(class UObject* A, class UObject* B);
 	static bool EqualEqual_RotatorRotator(const struct FRotator& A, const struct FRotator& B, float ErrorTolerance);
 	static bool EqualEqual_TimespanTimespan(const struct FTimespan& A, const struct FTimespan& B);
@@ -1032,7 +1032,7 @@ public:
 	static bool NotEqual_DateTimeDateTime(const struct FDateTime& A, const struct FDateTime& B);
 	static bool NotEqual_FloatFloat(float A, float B);
 	static bool NotEqual_IntInt(int32 A, int32 B);
-	static bool NotEqual_NameName(class FName A, class FName B);
+	static bool NotEqual_NameName(FName A, FName B);
 	static bool NotEqual_ObjectObject(class UObject* A, class UObject* B);
 	static bool NotEqual_RotatorRotator(const struct FRotator& A, const struct FRotator& B, float ErrorTolerance);
 	static bool NotEqual_TimespanTimespan(const struct FTimespan& A, const struct FTimespan& B);
@@ -1193,7 +1193,7 @@ public:
 	class USceneComponent*                        AttachParent;                                      // 0x00F8(0x0008)(ExportObject, Net, ZeroConstructor, InstancedReference, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	TArray<class USceneComponent*>                AttachChildren;                                    // 0x0100(0x0010)(ExportObject, Net, ZeroConstructor, Transient, RepNotify, ContainsInstancedReference, NativeAccessSpecifierPrivate)
 	TSet<class USceneComponent*>                  ClientAttachedChildren;                            // 0x0110(0x0050)(ExportObject, ZeroConstructor, Transient, ContainsInstancedReference, NativeAccessSpecifierPrivate)
-	class FName                                   AttachSocketName;                                  // 0x0160(0x0008)(Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	FName                                   AttachSocketName;                                  // 0x0160(0x0008)(Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	uint8                                         BitPad_168_0 : 1;                                  // 0x0168(0x0001)(Fixing Bit-Field Size Between Bits [ Dumper-7 ])
 	uint8                                         bReplicatesAttachmentReference : 1;                // 0x0168(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, BlueprintVisible, BlueprintReadOnly, Net, DisableEditOnInstance, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
 	uint8                                         bReplicatesAttachment : 1;                         // 0x0168(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, BlueprintVisible, BlueprintReadOnly, Net, DisableEditOnInstance, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
@@ -1234,8 +1234,8 @@ public:
 	void K2_AddWorldOffset(const struct FVector& DeltaLocation, bool bSweep, struct FHitResult* SweepHitResult, bool bTeleport);
 	void K2_AddWorldRotation(const struct FRotator& DeltaRotation, bool bSweep, struct FHitResult* SweepHitResult, bool bTeleport);
 	void K2_AddWorldTransform(const struct FTransform& DeltaTransform, bool bSweep, struct FHitResult* SweepHitResult, bool bTeleport);
-	bool K2_AttachTo(class USceneComponent* InParent, class FName InSocketName, EAttachLocation AttachType, bool bWeldSimulatedBodies);
-	bool K2_AttachToComponent(class USceneComponent* Parent, class FName SocketName, EAttachmentRule LocationRule, EAttachmentRule RotationRule, EAttachmentRule ScaleRule, bool bWeldSimulatedBodies);
+	bool K2_AttachTo(class USceneComponent* InParent, FName InSocketName, EAttachLocation AttachType, bool bWeldSimulatedBodies);
+	bool K2_AttachToComponent(class USceneComponent* Parent, FName SocketName, EAttachmentRule LocationRule, EAttachmentRule RotationRule, EAttachmentRule ScaleRule, bool bWeldSimulatedBodies);
 	void K2_DetachFromComponent(EDetachmentRule LocationRule, EDetachmentRule RotationRule, EDetachmentRule ScaleRule, bool bCallModify);
 	void K2_SetRelativeLocation(const struct FVector& NewLocation, bool bSweep, struct FHitResult* SweepHitResult, bool bTeleport);
 	void K2_SetRelativeLocationAndRotation(const struct FVector& NewLocation, const struct FRotator& NewRotation, bool bSweep, struct FHitResult* SweepHitResult, bool bTeleport);
@@ -1258,13 +1258,13 @@ public:
 	void SetRelativeScale3D(const struct FVector& NewScale3D);
 	void SetVisibility(bool bNewVisibility, bool bPropagateToChildren);
 	void SetWorldScale3D(const struct FVector& NewScale);
-	bool SnapTo(class USceneComponent* InParent, class FName InSocketName);
+	bool SnapTo(class USceneComponent* InParent, FName InSocketName);
 	void ToggleVisibility(bool bPropagateToChildren);
 
-	bool DoesSocketExist(class FName InSocketName) const;
-	TArray<class FName> GetAllSocketNames() const;
+	bool DoesSocketExist(FName InSocketName) const;
+	TArray<FName> GetAllSocketNames() const;
 	class USceneComponent* GetAttachParent() const;
-	class FName GetAttachSocketName() const;
+	FName GetAttachSocketName() const;
 	class USceneComponent* GetChildComponent(int32 ChildIndex) const;
 	void GetChildrenComponents(bool bIncludeAllDescendants, TArray<class USceneComponent*>* Children) const;
 	struct FVector GetComponentVelocity() const;
@@ -1274,13 +1274,13 @@ public:
 	class APhysicsVolume* GetPhysicsVolume() const;
 	struct FTransform GetRelativeTransform() const;
 	struct FVector GetRightVector() const;
-	struct FVector GetSocketLocation(class FName InSocketName) const;
-	struct FQuat GetSocketQuaternion(class FName InSocketName) const;
-	struct FRotator GetSocketRotation(class FName InSocketName) const;
-	struct FTransform GetSocketTransform(class FName InSocketName, ERelativeTransformSpace TransformSpace) const;
+	struct FVector GetSocketLocation(FName InSocketName) const;
+	struct FQuat GetSocketQuaternion(FName InSocketName) const;
+	struct FRotator GetSocketRotation(FName InSocketName) const;
+	struct FTransform GetSocketTransform(FName InSocketName, ERelativeTransformSpace TransformSpace) const;
 	struct FVector GetUpVector() const;
 	bool IsAnySimulatingPhysics() const;
-	bool IsSimulatingPhysics(class FName BoneName) const;
+	bool IsSimulatingPhysics(FName BoneName) const;
 	bool IsVisible() const;
 	struct FVector K2_GetComponentLocation() const;
 	struct FRotator K2_GetComponentRotation() const;
@@ -1420,14 +1420,14 @@ public:
 	struct FPrimitiveComponentPostPhysicsTickFunction PostPhysicsComponentTick;                          // 0x0670(0x0058)(NativeAccessSpecifierPublic)
 
 public:
-	void AddAngularImpulse(const struct FVector& Impulse, class FName BoneName, bool bVelChange);
-	void AddForce(const struct FVector& Force, class FName BoneName, bool bAccelChange);
-	void AddForceAtLocation(const struct FVector& Force, const struct FVector& Location, class FName BoneName);
-	void AddImpulse(const struct FVector& Impulse, class FName BoneName, bool bVelChange);
-	void AddImpulseAtLocation(const struct FVector& Impulse, const struct FVector& Location, class FName BoneName);
+	void AddAngularImpulse(const struct FVector& Impulse, FName BoneName, bool bVelChange);
+	void AddForce(const struct FVector& Force, FName BoneName, bool bAccelChange);
+	void AddForceAtLocation(const struct FVector& Force, const struct FVector& Location, FName BoneName);
+	void AddImpulse(const struct FVector& Impulse, FName BoneName, bool bVelChange);
+	void AddImpulseAtLocation(const struct FVector& Impulse, const struct FVector& Location, FName BoneName);
 	void AddRadialForce(const struct FVector& Origin, float Radius, float Strength, ERadialImpulseFalloff Falloff, bool bAccelChange);
 	void AddRadialImpulse(const struct FVector& Origin, float Radius, float Strength, ERadialImpulseFalloff Falloff, bool bVelChange);
-	void AddTorque(const struct FVector& Torque, class FName BoneName, bool bAccelChange);
+	void AddTorque(const struct FVector& Torque, FName BoneName, bool bAccelChange);
 	void ClearMoveIgnoreActors();
 	void ClearMoveIgnoreComponents();
 	TArray<class AActor*> CopyArrayOfMoveIgnoreActors();
@@ -1435,25 +1435,25 @@ public:
 	class UMaterialInstanceDynamic* CreateAndSetMaterialInstanceDynamic(int32 ElementIndex);
 	class UMaterialInstanceDynamic* CreateAndSetMaterialInstanceDynamicFromMaterial(int32 ElementIndex, class UMaterialInterface* Parent);
 	class UMaterialInstanceDynamic* CreateDynamicMaterialInstance(int32 ElementIndex, class UMaterialInterface* SourceMaterial);
-	struct FVector GetCenterOfMass(class FName BoneName);
-	class FName GetCollisionProfileName();
-	struct FVector GetPhysicsAngularVelocity(class FName BoneName);
-	struct FVector GetPhysicsLinearVelocity(class FName BoneName);
-	struct FVector GetPhysicsLinearVelocityAtPoint(const struct FVector& Point, class FName BoneName);
+	struct FVector GetCenterOfMass(FName BoneName);
+	FName GetCollisionProfileName();
+	struct FVector GetPhysicsAngularVelocity(FName BoneName);
+	struct FVector GetPhysicsLinearVelocity(FName BoneName);
+	struct FVector GetPhysicsLinearVelocityAtPoint(const struct FVector& Point, FName BoneName);
 	void IgnoreActorWhenMoving(class AActor* Actor, bool bShouldIgnore);
 	void IgnoreComponentWhenMoving(class UPrimitiveComponent* Component, bool bShouldIgnore);
 	bool IsAnyRigidBodyAwake();
-	bool K2_LineTraceComponent(const struct FVector& TraceStart, const struct FVector& TraceEnd, bool bTraceComplex, bool bShowTrace, struct FVector* HitLocation, struct FVector* HitNormal, class FName* BoneName);
-	void PutRigidBodyToSleep(class FName BoneName);
+	bool K2_LineTraceComponent(const struct FVector& TraceStart, const struct FVector& TraceEnd, bool bTraceComplex, bool bShowTrace, struct FVector* HitLocation, struct FVector* HitNormal, FName* BoneName);
+	void PutRigidBodyToSleep(FName BoneName);
 	void SetAllMassScale(float InMassScale);
 	void SetAllPhysicsLinearVelocity(const struct FVector& NewVel, bool bAddToCurrent);
 	void SetAngularDamping(float InDamping);
 	void SetBoundsScale(float NewBoundsScale);
 	void SetCastShadow(bool NewCastShadow);
-	void SetCenterOfMass(const struct FVector& CenterOfMassOffset, class FName BoneName);
+	void SetCenterOfMass(const struct FVector& CenterOfMassOffset, FName BoneName);
 	void SetCollisionEnabled(ECollisionEnabled NewType);
 	void SetCollisionObjectType(ECollisionChannel Channel);
-	void SetCollisionProfileName(class FName InCollisionProfileName);
+	void SetCollisionProfileName(FName InCollisionProfileName);
 	void SetCollisionResponseToAllChannels(ECollisionResponse NewResponse);
 	void SetCollisionResponseToChannel(ECollisionChannel Channel, ECollisionResponse NewResponse);
 	void SetConstraintMode(EDOFMode ConstraintMode);
@@ -1462,16 +1462,16 @@ public:
 	void SetEnableGravity(bool bGravityEnabled);
 	void SetLinearDamping(float InDamping);
 	void SetLockedAxis(EDOFMode LockedAxis);
-	void SetMassOverrideInKg(class FName BoneName, float MassInKg, bool bOverrideMass);
-	void SetMassScale(class FName BoneName, float InMassScale);
+	void SetMassOverrideInKg(FName BoneName, float MassInKg, bool bOverrideMass);
+	void SetMassScale(FName BoneName, float InMassScale);
 	void SetMaterial(int32 ElementIndex, class UMaterialInterface* Material);
-	void SetMaterialByName(class FName MaterialSlotName, class UMaterialInterface* Material);
+	void SetMaterialByName(FName MaterialSlotName, class UMaterialInterface* Material);
 	void SetNotifyRigidBodyCollision(bool bNewNotifyRigidBodyCollision);
 	void SetOnlyOwnerSee(bool bNewOnlyOwnerSee);
 	void SetOwnerNoSee(bool bNewOwnerNoSee);
-	void SetPhysicsAngularVelocity(const struct FVector& NewAngVel, bool bAddToCurrent, class FName BoneName);
-	void SetPhysicsLinearVelocity(const struct FVector& NewVel, bool bAddToCurrent, class FName BoneName);
-	void SetPhysicsMaxAngularVelocity(float NewMaxAngVel, bool bAddToCurrent, class FName BoneName);
+	void SetPhysicsAngularVelocity(const struct FVector& NewAngVel, bool bAddToCurrent, FName BoneName);
+	void SetPhysicsLinearVelocity(const struct FVector& NewVel, bool bAddToCurrent, FName BoneName);
+	void SetPhysicsMaxAngularVelocity(float NewMaxAngVel, bool bAddToCurrent, FName BoneName);
 	void SetPhysMaterialOverride(class UPhysicalMaterial* NewPhysMaterial);
 	void SetRenderCustomDepth(bool bValue);
 	void SetRenderInMainPass(bool bValue);
@@ -1479,18 +1479,18 @@ public:
 	void SetTranslucentSortPriority(int32 NewTranslucentSortPriority);
 	void SetWalkableSlopeOverride(const struct FWalkableSlopeOverride& NewOverride);
 	void WakeAllRigidBodies();
-	void WakeRigidBody(class FName BoneName);
+	void WakeRigidBody(FName BoneName);
 
 	bool CanCharacterStepUp(class APawn* Pawn) const;
 	float GetAngularDamping() const;
-	float GetClosestPointOnCollision(const struct FVector& Point, struct FVector* OutPointOnBody, class FName BoneName) const;
+	float GetClosestPointOnCollision(const struct FVector& Point, struct FVector* OutPointOnBody, FName BoneName) const;
 	ECollisionEnabled GetCollisionEnabled() const;
 	ECollisionChannel GetCollisionObjectType() const;
 	ECollisionResponse GetCollisionResponseToChannel(ECollisionChannel Channel) const;
-	struct FVector GetInertiaTensor(class FName BoneName) const;
+	struct FVector GetInertiaTensor(FName BoneName) const;
 	float GetLinearDamping() const;
 	float GetMass() const;
-	float GetMassScale(class FName BoneName) const;
+	float GetMassScale(FName BoneName) const;
 	class UMaterialInterface* GetMaterial(int32 ElementIndex) const;
 	int32 GetNumMaterials() const;
 	const TArray<struct FOverlapInfo> GetOverlapInfos() const;
@@ -1503,7 +1503,7 @@ public:
 	bool K2_IsCollisionEnabled() const;
 	bool K2_IsPhysicsCollisionEnabled() const;
 	bool K2_IsQueryCollisionEnabled() const;
-	struct FVector ScaleByMomentOfInertia(const struct FVector& InputVector, class FName BoneName) const;
+	struct FVector ScaleByMomentOfInertia(const struct FVector& InputVector, FName BoneName) const;
 
 public:
 	static class UClass* StaticClass()
@@ -1747,8 +1747,8 @@ static_assert(offsetof(AGameStateBase, ServerWorldTimeSecondsUpdateFrequency) ==
 class AGameState : public AGameStateBase
 {
 public:
-	class FName                                   MatchState;                                        // 0x03E0(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class FName                                   PreviousMatchState;                                // 0x03E8(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	FName                                   MatchState;                                        // 0x03E0(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	FName                                   PreviousMatchState;                                // 0x03E8(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	int32                                         ElapsedTime;                                       // 0x03F0(0x0004)(BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_3F4[0xC];                                      // 0x03F4(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
@@ -1980,7 +1980,7 @@ class APrecomputedVisibilityOverrideVolume final : public AVolume
 public:
 	TArray<class AActor*>                         OverrideVisibleActors;                             // 0x03D8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
 	TArray<class AActor*>                         OverrideInvisibleActors;                           // 0x03E8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<class FName>                           OverrideInvisibleLevels;                           // 0x03F8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<FName>                           OverrideInvisibleLevels;                           // 0x03F8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -2057,7 +2057,7 @@ class UAnimNotifyState_TimedParticleEffect final : public UAnimNotifyState
 {
 public:
 	class UParticleSystem*                        PSTemplate;                                        // 0x0030(0x0008)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   SocketName;                                        // 0x0038(0x0008)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SocketName;                                        // 0x0038(0x0008)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                LocationOffset;                                    // 0x0040(0x000C)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FRotator                               RotationOffset;                                    // 0x004C(0x000C)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	bool                                          bDestroyAtEnd;                                     // 0x0058(0x0001)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -2331,13 +2331,13 @@ public:
 	uint8                                         Pad_6D8[0xA8];                                     // 0x06D8(0x00A8)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	void SetScalarParameterValueOnMaterials(const class FName ParameterName, const float ParameterValue);
-	void SetVectorParameterValueOnMaterials(const class FName ParameterName, const struct FVector& ParameterValue);
+	void SetScalarParameterValueOnMaterials(const FName ParameterName, const float ParameterValue);
+	void SetVectorParameterValueOnMaterials(const FName ParameterName, const struct FVector& ParameterValue);
 
-	int32 GetMaterialIndex(class FName MaterialSlotName) const;
+	int32 GetMaterialIndex(FName MaterialSlotName) const;
 	TArray<class UMaterialInterface*> GetMaterials() const;
-	TArray<class FName> GetMaterialSlotNames() const;
-	bool IsMaterialSlotNameValid(class FName MaterialSlotName) const;
+	TArray<FName> GetMaterialSlotNames() const;
+	bool IsMaterialSlotNameValid(FName MaterialSlotName) const;
 
 public:
 	static class UClass* StaticClass()
@@ -2560,24 +2560,24 @@ public:
 	uint8                                         Pad_8A3[0x4D];                                     // 0x08A3(0x004D)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	void HideBoneByName(class FName BoneName, EPhysBodyOp PhysBodyOption);
-	bool IsBoneHiddenByName(class FName BoneName);
+	void HideBoneByName(FName BoneName, EPhysBodyOp PhysBodyOption);
+	bool IsBoneHiddenByName(FName BoneName);
 	void SetForcedLOD(int32 InNewForcedLOD);
 	void SetMasterPoseComponent(class USkinnedMeshComponent* NewMasterBoneComponent);
 	void SetMinLOD(int32 InNewMinLOD);
 	void SetPhysicsAsset(class UPhysicsAsset* NewPhysicsAsset, bool bForceReInit);
 	void SetSkeletalMesh(class USkeletalMesh* NewMesh, bool bReinitPose);
-	void TransformFromBoneSpace(class FName BoneName, const struct FVector& InPosition, const struct FRotator& InRotation, struct FVector* OutPosition, struct FRotator* OutRotation);
-	void UnHideBoneByName(class FName BoneName);
+	void TransformFromBoneSpace(FName BoneName, const struct FVector& InPosition, const struct FRotator& InRotation, struct FVector* OutPosition, struct FRotator* OutRotation);
+	void UnHideBoneByName(FName BoneName);
 
-	bool BoneIsChildOf(class FName BoneName, class FName ParentBoneName) const;
-	class FName FindClosestBone_K2(const struct FVector& TestLocation, struct FVector* BoneLocation, float IgnoreScale, bool bRequirePhysicsAsset) const;
-	int32 GetBoneIndex(class FName BoneName) const;
-	class FName GetBoneName(int32 BoneIndex) const;
+	bool BoneIsChildOf(FName BoneName, FName ParentBoneName) const;
+	FName FindClosestBone_K2(const struct FVector& TestLocation, struct FVector* BoneLocation, float IgnoreScale, bool bRequirePhysicsAsset) const;
+	int32 GetBoneIndex(FName BoneName) const;
+	FName GetBoneName(int32 BoneIndex) const;
 	int32 GetNumBones() const;
-	class FName GetParentBone(class FName BoneName) const;
-	class FName GetSocketBoneName(class FName InSocketName) const;
-	void TransformToBoneSpace(class FName BoneName, const struct FVector& InPosition, const struct FRotator& InRotation, struct FVector* OutPosition, struct FRotator* OutRotation) const;
+	FName GetParentBone(FName BoneName) const;
+	FName GetSocketBoneName(FName InSocketName) const;
+	void TransformToBoneSpace(FName BoneName, const struct FVector& InPosition, const struct FRotator& InRotation, struct FVector* OutPosition, struct FRotator* OutRotation) const;
 
 public:
 	static class UClass* StaticClass()
@@ -2639,7 +2639,7 @@ public:
 	uint8                                         bAttachToPawn : 1;                                 // 0x03DC(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, DisableEditOnInstance, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
 	uint8                                         bIsPlayerController : 1;                           // 0x03DC(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
 	uint8                                         Pad_3DD[0x13];                                     // 0x03DD(0x0013)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   StateName;                                         // 0x03F0(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   StateName;                                         // 0x03F0(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	UMulticastDelegateProperty_                   OnInstigatedAnyDamage;                             // 0x03F8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPrivate)
 
 public:
@@ -2777,9 +2777,9 @@ static_assert(offsetof(ATextRenderActor, TextRender) == 0x0003A0, "Member 'AText
 class UMaterialExpressionParameter : public UMaterialExpression
 {
 public:
-	class FName                                   ParameterName;                                     // 0x0060(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParameterName;                                     // 0x0060(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FGuid                                  ExpressionGUID;                                    // 0x0068(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	class FName                                   Group;                                             // 0x0078(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Group;                                             // 0x0078(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -2889,7 +2889,7 @@ public:
 	void AddPitchInput(float Val);
 	void AddRollInput(float Val);
 	void AddYawInput(float Val);
-	void Camera(class FName NewMode);
+	void Camera(FName NewMode);
 	void ClearAudioListenerOverride();
 	void ClientAddTextureStreamingLoc(const struct FVector& InLoc, float Duration, bool bOverrideLocation);
 	void ClientCancelPendingMapChange();
@@ -2901,17 +2901,17 @@ public:
 	void ClientFlushLevelStreaming();
 	void ClientForceGarbageCollection();
 	void ClientGameEnded(class AActor* EndGameFocus, bool bIsWinner);
-	void ClientGotoState(class FName NewState);
+	void ClientGotoState(FName NewState);
 	void ClientIgnoreLookInput(bool bIgnore);
 	void ClientIgnoreMoveInput(bool bIgnore);
-	void ClientMessage(const class FString& S, class FName Type, float MsgLifeTime);
+	void ClientMessage(const class FString& S, FName Type, float MsgLifeTime);
 	void ClientMutePlayer(const struct FUniqueNetIdRepl& PlayerId);
 	void ClientPlayCameraAnim(class UCameraAnim* AnimToPlay, float Scale, float Rate, float BlendInTime, float BlendOutTime, bool bLoop, bool bRandomStartTime, ECameraAnimPlaySpace Space, const struct FRotator& CustomPlaySpace);
 	void ClientPlayCameraShake(TSubclassOf<class UCameraShake> Shake, float Scale, ECameraAnimPlaySpace PlaySpace, const struct FRotator& UserPlaySpaceRot);
-	void ClientPlayForceFeedback(class UForceFeedbackEffect* ForceFeedbackEffect, bool bLooping, class FName Tag);
+	void ClientPlayForceFeedback(class UForceFeedbackEffect* ForceFeedbackEffect, bool bLooping, FName Tag);
 	void ClientPlaySound(class USoundBase* Sound, float VolumeMultiplier, float PitchMultiplier);
 	void ClientPlaySoundAtLocation(class USoundBase* Sound, const struct FVector& Location, float VolumeMultiplier, float PitchMultiplier);
-	void ClientPrepareMapChange(class FName LevelName, bool bFirst, bool bLast);
+	void ClientPrepareMapChange(FName LevelName, bool bFirst, bool bLast);
 	void ClientPrestreamTextures(class AActor* ForcedActor, float ForceDuration, bool bEnableStreaming, int32 CinematicTextureGroups);
 	void ClientReceiveLocalizedMessage(TSubclassOf<class ULocalMessage> Message, int32 Switch, class APlayerState* RelatedPlayerState_1, class APlayerState* RelatedPlayerState_2, class UObject* OptionalObject);
 	void ClientRepObjRef(class UObject* Object);
@@ -2921,7 +2921,7 @@ public:
 	void ClientReturnToMainMenu(const class FString& ReturnReason);
 	void ClientSetBlockOnAsyncLoading();
 	void ClientSetCameraFade(bool bEnableFading, const struct FColor& FadeColor, const struct FVector2D& FadeAlpha, float FadeTime, bool bFadeAudio);
-	void ClientSetCameraMode(class FName NewCamMode);
+	void ClientSetCameraMode(FName NewCamMode);
 	void ClientSetCinematicMode(bool bInCinematicMode, bool bAffectsMovement, bool bAffectsTurning, bool bAffectsHUD);
 	void ClientSetForceMipLevelsToBeResident(class UMaterialInterface* Material, float ForceDuration, int32 CinematicTextureGroups);
 	void ClientSetHUD(TSubclassOf<class AHUD> NewHUDClass);
@@ -2931,12 +2931,12 @@ public:
 	void ClientStartOnlineSession();
 	void ClientStopCameraAnim(class UCameraAnim* AnimToStop);
 	void ClientStopCameraShake(TSubclassOf<class UCameraShake> Shake, bool bImmediately);
-	void ClientStopForceFeedback(class UForceFeedbackEffect* ForceFeedbackEffect, class FName Tag);
-	void ClientTeamMessage(class APlayerState* SenderPlayerState, const class FString& S, class FName Type, float MsgLifeTime);
+	void ClientStopForceFeedback(class UForceFeedbackEffect* ForceFeedbackEffect, FName Tag);
+	void ClientTeamMessage(class APlayerState* SenderPlayerState, const class FString& S, FName Type, float MsgLifeTime);
 	void ClientTravel(const class FString& URL, ETravelType TravelType, bool bSeamless, const struct FGuid& MapPackageGuid);
 	void ClientTravelInternal(const class FString& URL, ETravelType TravelType, bool bSeamless, const struct FGuid& MapPackageGuid);
 	void ClientUnmutePlayer(const struct FUniqueNetIdRepl& PlayerId);
-	void ClientUpdateLevelStreamingStatus(class FName PackageName, bool bNewShouldBeLoaded, bool bNewShouldBeVisible, bool bNewShouldBlockOnLoad, int32 LODIndex);
+	void ClientUpdateLevelStreamingStatus(FName PackageName, bool bNewShouldBeLoaded, bool bNewShouldBeVisible, bool bNewShouldBlockOnLoad, int32 LODIndex);
 	void ClientVoiceHandshakeComplete();
 	void ClientWasKicked(const class FText& KickReason);
 	void ConsoleKey(const struct FKey& Key);
@@ -2950,12 +2950,12 @@ public:
 	void RestartLevel();
 	void SendToConsole(const class FString& Command);
 	void ServerAcknowledgePossession(class APawn* P);
-	void ServerCamera(class FName NewMode);
+	void ServerCamera(FName NewMode);
 	void ServerChangeName(const class FString& S);
 	void ServerCheckClientPossession();
 	void ServerCheckClientPossessionReliable();
 	void ServerMutePlayer(const struct FUniqueNetIdRepl& PlayerId);
-	void ServerNotifyLoadedWorld(class FName WorldPackageName);
+	void ServerNotifyLoadedWorld(FName WorldPackageName);
 	void ServerPause();
 	void ServerRestartPlayer();
 	void ServerSetSpectatorLocation(const struct FVector& NewLoc, const struct FRotator& NewRot);
@@ -2964,7 +2964,7 @@ public:
 	void ServerToggleAILogging();
 	void ServerUnmutePlayer(const struct FUniqueNetIdRepl& PlayerId);
 	void ServerUpdateCamera(const struct FVector_NetQuantize& CamLoc, int32 CamPitchAndYaw);
-	void ServerUpdateLevelVisibility(class FName PackageName, bool bIsVisible);
+	void ServerUpdateLevelVisibility(FName PackageName, bool bIsVisible);
 	void ServerVerifyViewTarget();
 	void ServerViewNextPlayer();
 	void ServerViewPrevPlayer();
@@ -3737,7 +3737,7 @@ public:
 	bool                                          bAdditivePose;                                     // 0x0108(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_109[0x3];                                      // 0x0109(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	int32                                         BasePoseIndex;                                     // 0x010C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class FName                                   RetargetSource;                                    // 0x0110(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   RetargetSource;                                    // 0x0110(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_118[0x78];                                     // 0x0118(0x0078)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
@@ -3849,7 +3849,7 @@ public:
 	void OnRep_ReplicatedBasedMovement();
 	void OnRep_RootMotion();
 	void OnWalkingOffLedge(const struct FVector& PreviousFloorImpactNormal, const struct FVector& PreviousFloorContactNormal, const struct FVector& PreviousLocation, float TimeDelta);
-	float PlayAnimMontage(class UAnimMontage* AnimMontage, float InPlayRate, class FName StartSectionName);
+	float PlayAnimMontage(class UAnimMontage* AnimMontage, float InPlayRate, FName StartSectionName);
 	void SetReplicateMovement(bool bInReplicateMovement);
 	void StopAnimMontage(class UAnimMontage* AnimMontage);
 	void StopJumping();
@@ -4304,7 +4304,7 @@ static_assert(offsetof(UInterpTrackVectorBase, CurveTension) == 0x000088, "Membe
 class UInterpTrackVectorProp final : public UInterpTrackVectorBase
 {
 public:
-	class FName                                   PropertyName;                                      // 0x0090(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   PropertyName;                                      // 0x0090(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -4718,7 +4718,7 @@ static_assert(offsetof(USoundWave, LocalizedSubtitles) == 0x0000E0, "Member 'USo
 class APlayerStart : public ANavigationObjectBase
 {
 public:
-	class FName                                   PlayerStartTag;                                    // 0x03C8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   PlayerStartTag;                                    // 0x03C8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -5249,7 +5249,7 @@ static_assert(offsetof(UDistributionVectorConstant, LockedAxes) == 0x000048, "Me
 class UDistributionVectorParameterBase : public UDistributionVectorConstant
 {
 public:
-	class FName                                   ParameterName;                                     // 0x0050(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParameterName;                                     // 0x0050(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                MinInput;                                          // 0x0058(0x000C)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FVector                                MaxInput;                                          // 0x0064(0x000C)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FVector                                MinOutput;                                         // 0x0070(0x000C)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
@@ -5300,7 +5300,7 @@ class UInterpGroup : public UObject
 public:
 	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<class UInterpTrack*>                   InterpTracks;                                      // 0x0030(0x0010)(ExportObject, ZeroConstructor, NativeAccessSpecifierPublic)
-	class FName                                   GroupName;                                         // 0x0040(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   GroupName;                                         // 0x0040(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FColor                                 GroupColor;                                        // 0x0048(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	uint8                                         bCollapsed : 1;                                    // 0x004C(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bVisible : 1;                                      // 0x004C(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Transient, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -5347,9 +5347,9 @@ static_assert(sizeof(UInterpGroupDirector) == 0x000050, "Wrong size on UInterpGr
 class UVisualLoggerKismetLibrary final : public UBlueprintFunctionLibrary
 {
 public:
-	static void LogBox(class UObject* WorldContextObject, const struct FBox& BoxShape, const class FString& Text, const struct FLinearColor& ObjectColor, class FName LogCategory);
-	static void LogLocation(class UObject* WorldContextObject, const struct FVector& Location, const class FString& Text, const struct FLinearColor& ObjectColor, float Radius, class FName LogCategory);
-	static void LogText(class UObject* WorldContextObject, const class FString& Text, class FName LogCategory);
+	static void LogBox(class UObject* WorldContextObject, const struct FBox& BoxShape, const class FString& Text, const struct FLinearColor& ObjectColor, FName LogCategory);
+	static void LogLocation(class UObject* WorldContextObject, const struct FVector& Location, const class FString& Text, const struct FLinearColor& ObjectColor, float Radius, FName LogCategory);
+	static void LogText(class UObject* WorldContextObject, const class FString& Text, FName LogCategory);
 
 public:
 	static class UClass* StaticClass()
@@ -5538,7 +5538,7 @@ public:
 	static void Array_Set(const TArray<int32>& TargetArray, int32 Index_0, const int32& Item, bool bSizeToFit);
 	static void Array_Shuffle(const TArray<int32>& TargetArray);
 	static void FilterArray(const TArray<class AActor*>& TargetArray, TSubclassOf<class AActor> FilterClass, TArray<class AActor*>* FilteredArray);
-	static void SetArrayPropertyByName(class UObject* Object, class FName PropertyName, const TArray<int32>& Value);
+	static void SetArrayPropertyByName(class UObject* Object, FName PropertyName, const TArray<int32>& Value);
 
 public:
 	static class UClass* StaticClass()
@@ -5780,14 +5780,14 @@ public:
 	void CalcVelocity(float DeltaTime, float Friction, bool bFluid, float BrakingDeceleration);
 	void CapsuleTouched(class UPrimitiveComponent* OverlappedComp, class AActor* Other, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult);
 	void ClientAckGoodMove(float TimeStamp);
-	void ClientAdjustPosition(float TimeStamp, const struct FVector& NewLoc, const struct FVector& NewVel, class UPrimitiveComponent* NewBase, class FName NewBaseBoneName, bool bHasBase, bool bBaseRelativePosition, uint8 ServerMovementMode);
-	void ClientAdjustRootMotionPosition(float TimeStamp, float ServerMontageTrackPosition, const struct FVector& ServerLoc, const struct FVector_NetQuantizeNormal& ServerRotation, float ServerVelZ, class UPrimitiveComponent* ServerBase, class FName ServerBoneName, bool bHasBase, bool bBaseRelativePosition, uint8 ServerMovementMode);
-	void ClientAdjustRootMotionSourcePosition(float TimeStamp, const struct FRootMotionSourceGroup& ServerRootMotion, bool bHasAnimRootMotion, float ServerMontageTrackPosition, const struct FVector& ServerLoc, const struct FVector_NetQuantizeNormal& ServerRotation, float ServerVelZ, class UPrimitiveComponent* ServerBase, class FName ServerBoneName, bool bHasBase, bool bBaseRelativePosition, uint8 ServerMovementMode);
-	void ClientVeryShortAdjustPosition(float TimeStamp, const struct FVector& NewLoc, class UPrimitiveComponent* NewBase, class FName NewBaseBoneName, bool bHasBase, bool bBaseRelativePosition, uint8 ServerMovementMode);
+	void ClientAdjustPosition(float TimeStamp, const struct FVector& NewLoc, const struct FVector& NewVel, class UPrimitiveComponent* NewBase, FName NewBaseBoneName, bool bHasBase, bool bBaseRelativePosition, uint8 ServerMovementMode);
+	void ClientAdjustRootMotionPosition(float TimeStamp, float ServerMontageTrackPosition, const struct FVector& ServerLoc, const struct FVector_NetQuantizeNormal& ServerRotation, float ServerVelZ, class UPrimitiveComponent* ServerBase, FName ServerBoneName, bool bHasBase, bool bBaseRelativePosition, uint8 ServerMovementMode);
+	void ClientAdjustRootMotionSourcePosition(float TimeStamp, const struct FRootMotionSourceGroup& ServerRootMotion, bool bHasAnimRootMotion, float ServerMontageTrackPosition, const struct FVector& ServerLoc, const struct FVector_NetQuantizeNormal& ServerRotation, float ServerVelZ, class UPrimitiveComponent* ServerBase, FName ServerBoneName, bool bHasBase, bool bBaseRelativePosition, uint8 ServerMovementMode);
+	void ClientVeryShortAdjustPosition(float TimeStamp, const struct FVector& NewLoc, class UPrimitiveComponent* NewBase, FName NewBaseBoneName, bool bHasBase, bool bBaseRelativePosition, uint8 ServerMovementMode);
 	void DisableMovement();
-	void ServerMove(float TimeStamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, uint8 CompressedMoveFlags, uint8 ClientRoll, uint32 View, class UPrimitiveComponent* ClientMovementBase, class FName ClientBaseBoneName, uint8 ClientMovementMode);
-	void ServerMoveDual(float TimeStamp0, const struct FVector_NetQuantize10& InAccel0, uint8 PendingFlags, uint32 View0, float TimeStamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, uint8 NewFlags, uint8 ClientRoll, uint32 View, class UPrimitiveComponent* ClientMovementBase, class FName ClientBaseBoneName, uint8 ClientMovementMode);
-	void ServerMoveDualHybridRootMotion(float TimeStamp0, const struct FVector_NetQuantize10& InAccel0, uint8 PendingFlags, uint32 View0, float TimeStamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, uint8 NewFlags, uint8 ClientRoll, uint32 View, class UPrimitiveComponent* ClientMovementBase, class FName ClientBaseBoneName, uint8 ClientMovementMode);
+	void ServerMove(float TimeStamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, uint8 CompressedMoveFlags, uint8 ClientRoll, uint32 View, class UPrimitiveComponent* ClientMovementBase, FName ClientBaseBoneName, uint8 ClientMovementMode);
+	void ServerMoveDual(float TimeStamp0, const struct FVector_NetQuantize10& InAccel0, uint8 PendingFlags, uint32 View0, float TimeStamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, uint8 NewFlags, uint8 ClientRoll, uint32 View, class UPrimitiveComponent* ClientMovementBase, FName ClientBaseBoneName, uint8 ClientMovementMode);
+	void ServerMoveDualHybridRootMotion(float TimeStamp0, const struct FVector_NetQuantize10& InAccel0, uint8 PendingFlags, uint32 View0, float TimeStamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, uint8 NewFlags, uint8 ClientRoll, uint32 View, class UPrimitiveComponent* ClientMovementBase, FName ClientBaseBoneName, uint8 ClientMovementMode);
 	void ServerMoveOld(float OldTimeStamp, const struct FVector_NetQuantize10& OldAccel, uint8 OldMoveFlags);
 	void SetAvoidanceEnabled(bool bEnable);
 	void SetAvoidanceGroup(int32 GroupFlags);
@@ -6035,8 +6035,8 @@ public:
 	void ClearMorphTargets();
 	float GetAnimAssetPlayerTimeFromEnd(class UAnimationAsset* AnimAsset, float CurrentTime);
 	float GetCurrentStateElapsedTime(int32 MachineIndex);
-	class FName GetCurrentStateName(int32 MachineIndex);
-	float GetCurveValue(class FName CurveName);
+	FName GetCurrentStateName(int32 MachineIndex);
+	float GetCurveValue(FName CurveName);
 	float GetInstanceAssetPlayerLength(int32 AssetPlayerIndex);
 	float GetInstanceAssetPlayerTime(int32 AssetPlayerIndex);
 	float GetInstanceAssetPlayerTimeFraction(int32 AssetPlayerIndex);
@@ -6055,29 +6055,29 @@ public:
 	float GetRelevantAnimTimeRemainingFraction(int32 MachineIndex, int32 StateIndex);
 	float GetStateWeight(int32 MachineIndex, int32 StateIndex);
 	void LockAIResources(bool bLockMovement, bool LockAILogic);
-	void Montage_JumpToSection(class FName SectionName, const class UAnimMontage* Montage);
-	void Montage_JumpToSectionsEnd(class FName SectionName, const class UAnimMontage* Montage);
+	void Montage_JumpToSection(FName SectionName, const class UAnimMontage* Montage);
+	void Montage_JumpToSectionsEnd(FName SectionName, const class UAnimMontage* Montage);
 	void Montage_Pause(const class UAnimMontage* Montage);
 	float Montage_Play(class UAnimMontage* MontageToPlay, float InPlayRate, EMontagePlayReturnType ReturnValueType, float InTimeToStartMontageAt);
 	void Montage_Resume(const class UAnimMontage* Montage);
-	void Montage_SetNextSection(class FName SectionNameToChange, class FName NextSection, const class UAnimMontage* Montage);
+	void Montage_SetNextSection(FName SectionNameToChange, FName NextSection, const class UAnimMontage* Montage);
 	void Montage_SetPlayRate(const class UAnimMontage* Montage, float NewPlayRate);
 	void Montage_Stop(float InBlendOutTime, const class UAnimMontage* Montage);
-	float PlaySlotAnimation(class UAnimSequenceBase* Asset, class FName SlotNodeName, float BlendInTime, float BlendOutTime, float InPlayRate, int32 LoopCount);
-	class UAnimMontage* PlaySlotAnimationAsDynamicMontage(class UAnimSequenceBase* Asset, class FName SlotNodeName, float BlendInTime, float BlendOutTime, float InPlayRate, int32 LoopCount, float BlendOutTriggerTime, float InTimeToStartMontageAt);
-	void SetMorphTarget(class FName MorphTargetName, float Value);
+	float PlaySlotAnimation(class UAnimSequenceBase* Asset, FName SlotNodeName, float BlendInTime, float BlendOutTime, float InPlayRate, int32 LoopCount);
+	class UAnimMontage* PlaySlotAnimationAsDynamicMontage(class UAnimSequenceBase* Asset, FName SlotNodeName, float BlendInTime, float BlendOutTime, float InPlayRate, int32 LoopCount, float BlendOutTriggerTime, float InTimeToStartMontageAt);
+	void SetMorphTarget(FName MorphTargetName, float Value);
 	void SetRootMotionMode(ERootMotionMode Value);
-	void StopSlotAnimation(float InBlendOutTime, class FName SlotNodeName);
+	void StopSlotAnimation(float InBlendOutTime, FName SlotNodeName);
 	void UnlockAIResources(bool bUnlockMovement, bool UnlockAILogic);
 
 	class AActor* GetOwningActor() const;
 	class USkeletalMeshComponent* GetOwningComponent() const;
-	struct FMarkerSyncAnimPosition GetSyncGroupPosition(class FName InSyncGroupName) const;
-	bool GetTimeToClosestMarker(class FName SyncGroup, class FName MarkerName, float* OutMarkerTime) const;
-	bool HasMarkerBeenHitThisFrame(class FName SyncGroup, class FName MarkerName) const;
-	bool IsPlayingSlotAnimation(const class UAnimSequenceBase* Asset, class FName SlotNodeName) const;
-	bool IsSyncGroupBetweenMarkers(class FName InSyncGroupName, class FName PreviousMarker, class FName NextMarker, bool bRespectMarkerOrder) const;
-	class FName Montage_GetCurrentSection(const class UAnimMontage* Montage) const;
+	struct FMarkerSyncAnimPosition GetSyncGroupPosition(FName InSyncGroupName) const;
+	bool GetTimeToClosestMarker(FName SyncGroup, FName MarkerName, float* OutMarkerTime) const;
+	bool HasMarkerBeenHitThisFrame(FName SyncGroup, FName MarkerName) const;
+	bool IsPlayingSlotAnimation(const class UAnimSequenceBase* Asset, FName SlotNodeName) const;
+	bool IsSyncGroupBetweenMarkers(FName InSyncGroupName, FName PreviousMarker, FName NextMarker, bool bRespectMarkerOrder) const;
+	FName Montage_GetCurrentSection(const class UAnimMontage* Montage) const;
 	bool Montage_IsActive(const class UAnimMontage* Montage) const;
 	bool Montage_IsPlaying(const class UAnimMontage* Montage) const;
 	class APawn* TryGetPawnOwner() const;
@@ -6136,7 +6136,7 @@ class UInterpTrackFloatMaterialParam final : public UInterpTrackFloatBase
 {
 public:
 	TArray<class UMaterialInterface*>             TargetMaterials;                                   // 0x0090(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	class FName                                   ParamName;                                         // 0x00A0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParamName;                                         // 0x00A0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -6174,7 +6174,7 @@ public:
 	static class FText Conv_ColorToText(const struct FLinearColor& InColor);
 	static class FText Conv_FloatToText(float Value, ERoundingMode RoundingMode, bool bUseGrouping, int32 MinimumIntegralDigits, int32 MaximumIntegralDigits, int32 MinimumFractionalDigits, int32 MaximumFractionalDigits);
 	static class FText Conv_IntToText(int32 Value, bool bUseGrouping, int32 MinimumIntegralDigits, int32 MaximumIntegralDigits);
-	static class FText Conv_NameToText(class FName InName);
+	static class FText Conv_NameToText(FName InName);
 	static class FText Conv_ObjectToText(class UObject* InObj);
 	static class FText Conv_RotatorToText(const struct FRotator& InRot);
 	static class FText Conv_StringToText(const class FString& inString);
@@ -6430,7 +6430,7 @@ public:
 	uint8                                         bShouldBakeAndPrune : 1;                           // 0x0050(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_51[0x7];                                       // 0x0051(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	class UInterpGroupDirector*                   CachedDirectorGroup;                               // 0x0058(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<class FName>                           AllEventNames;                                     // 0x0060(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<FName>                           AllEventNames;                                     // 0x0060(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -6493,7 +6493,7 @@ public:
 	void God();
 	void InvertMouse();
 	void LogLoc();
-	void OnlyLoadLevel(class FName PackageName);
+	void OnlyLoadLevel(FName PackageName);
 	void PlayersOnly();
 	void RebuildNavigation();
 	void ReceiveEndPlay();
@@ -6503,14 +6503,14 @@ public:
 	void SetNavDrawDistance(float DrawDistance);
 	void SetWorldOrigin();
 	void Slomo(float NewTimeDilation);
-	void StreamLevelIn(class FName PackageName);
-	void StreamLevelOut(class FName PackageName);
+	void StreamLevelIn(FName PackageName);
+	void StreamLevelOut(FName PackageName);
 	void Summon(const class FString& ClassName);
 	void Teleport();
 	void TestCollisionDistance();
 	void ToggleAILogging();
 	void ToggleDebugCamera();
-	void ViewActor(class FName ActorName);
+	void ViewActor(FName ActorName);
 	void ViewClass(TSubclassOf<class AActor> DesiredClass);
 	void ViewPlayer(const class FString& S);
 	void ViewSelf();
@@ -6606,7 +6606,7 @@ static_assert(sizeof(UScriptViewportClient) == 0x000030, "Wrong size on UScriptV
 class ALevelStreamingVolume final : public AVolume
 {
 public:
-	TArray<class FName>                           StreamingLevelNames;                               // 0x03D8(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
+	TArray<FName>                           StreamingLevelNames;                               // 0x03D8(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
 	uint8                                         bEditorPreVisOnly : 1;                             // 0x03E8(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bDisabled : 1;                                     // 0x03E8(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_3E9[0x3];                                      // 0x03E9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
@@ -6667,7 +6667,7 @@ static_assert(sizeof(USaveGame) == 0x000028, "Wrong size on USaveGame");
 class UGameplayStatics final : public UBlueprintFunctionLibrary
 {
 public:
-	static void ActivateReverbEffect(const class UObject* WorldContextObject, class UReverbEffect* ReverbEffect, class FName TagName, float Priority, float Volume, float FadeTime);
+	static void ActivateReverbEffect(const class UObject* WorldContextObject, class UReverbEffect* ReverbEffect, FName TagName, float Priority, float Volume, float FadeTime);
 	static void ApplyDamage(class AActor* DamagedActor, float BaseDamage, class AController* EventInstigator, class AActor* DamageCauser, TSubclassOf<class UDamageType> DamageTypeClass);
 	static void ApplyPointDamage(class AActor* DamagedActor, float BaseDamage, const struct FVector& HitFromDirection, const struct FHitResult& HitInfo, class AController* EventInstigator, class AActor* DamageCauser, TSubclassOf<class UDamageType> DamageTypeClass);
 	static bool ApplyRadialDamage(const class UObject* WorldContextObject, float BaseDamage, const struct FVector& Origin, float DamageRadius, TSubclassOf<class UDamageType> DamageTypeClass, const TArray<class AActor*>& IgnoreActors, class AActor* DamageCauser, class AController* InstigatedByController, bool bDoFullDamage, ECollisionChannel DamagePreventionChannel);
@@ -6678,7 +6678,7 @@ public:
 	static class AActor* BeginSpawningActorFromBlueprint(class UObject* WorldContextObject, const class UBlueprint* Blueprint, const struct FTransform& SpawnTransform, bool bNoCollisionFail);
 	static class AActor* BeginSpawningActorFromClass(class UObject* WorldContextObject, TSubclassOf<class AActor> ActorClass, const struct FTransform& SpawnTransform, bool bNoCollisionFail, class AActor* Owner);
 	static bool BlueprintSuggestProjectileVelocity(const class UObject* WorldContextObject, struct FVector* TossVelocity, const struct FVector& StartLocation, const struct FVector& EndLocation, float LaunchSpeed, float OverrideGravityZ, ESuggestProjVelocityTraceOption TraceOption, float CollisionRadius, bool bFavorHighArc, bool bDrawDebug);
-	static void BreakHitResult(const struct FHitResult& Hit, bool* bBlockingHit, bool* bInitialOverlap, float* Time, struct FVector* Location, struct FVector* ImpactPoint, struct FVector* Normal, struct FVector* ImpactNormal, class UPhysicalMaterial** PhysMat, class AActor** HitActor, class UPrimitiveComponent** HitComponent, class FName* HitBoneName, int32* HitItem, int32* FaceIndex, struct FVector* TraceStart, struct FVector* TraceEnd);
+	static void BreakHitResult(const struct FHitResult& Hit, bool* bBlockingHit, bool* bInitialOverlap, float* Time, struct FVector* Location, struct FVector* ImpactPoint, struct FVector* Normal, struct FVector* ImpactNormal, class UPhysicalMaterial** PhysMat, class AActor** HitActor, class UPrimitiveComponent** HitComponent, FName* HitBoneName, int32* HitItem, int32* FaceIndex, struct FVector* TraceStart, struct FVector* TraceEnd);
 	static void CancelAsyncLoading();
 	static void ClearSoundMixClassOverride(const class UObject* WorldContextObject, class USoundMix* InSoundMixModifier, class USoundClass* InSoundClass, float FadeOutTime);
 	static void ClearSoundMixModifiers(const class UObject* WorldContextObject);
@@ -6686,7 +6686,7 @@ public:
 	static class USaveGame* CreateSaveGameObject(TSubclassOf<class USaveGame> SaveGameClass);
 	static class USaveGame* CreateSaveGameObjectFromBlueprint(class UBlueprint* SaveGameBlueprint);
 	static class UAudioComponent* CreateSound2D(const class UObject* WorldContextObject, class USoundBase* Sound, float VolumeMultiplier, float PitchMultiplier, float StartTime, class USoundConcurrency* ConcurrencySettings, bool bPersistAcrossLevelTransition);
-	static void DeactivateReverbEffect(const class UObject* WorldContextObject, class FName TagName);
+	static void DeactivateReverbEffect(const class UObject* WorldContextObject, FName TagName);
 	static bool DeleteGameInSlot(const class FString& SlotName, const int32 UserIndex);
 	static bool DeprojectScreenToWorld(class APlayerController* Player, const struct FVector2D& ScreenPosition, struct FVector* WorldPosition, struct FVector* WorldDirection);
 	static bool DoesSaveGameExist(const class FString& SlotName, const int32 UserIndex);
@@ -6699,7 +6699,7 @@ public:
 	static void GetActorArrayBounds(const TArray<class AActor*>& Actors, bool bOnlyCollidingComponents, struct FVector* Center, struct FVector* BoxExtent);
 	static void GetAllActorsOfClass(const class UObject* WorldContextObject, TSubclassOf<class AActor> ActorClass, TArray<class AActor*>* OutActors);
 	static void GetAllActorsWithInterface(const class UObject* WorldContextObject, TSubclassOf<class IInterface> Interface, TArray<class AActor*>* OutActors);
-	static void GetAllActorsWithTag(const class UObject* WorldContextObject, class FName Tag, TArray<class AActor*>* OutActors);
+	static void GetAllActorsWithTag(const class UObject* WorldContextObject, FName Tag, TArray<class AActor*>* OutActors);
 	static float GetAudioTimeSeconds(const class UObject* WorldContextObject);
 	static class FString GetCurrentLevelName(const class UObject* WorldContextObject, bool bRemovePrefixString);
 	static class UReverbEffect* GetCurrentReverbEffect(const class UObject* WorldContextObject);
@@ -6717,7 +6717,7 @@ public:
 	static int32 GetPlayerControllerID(class APlayerController* Player);
 	static class APawn* GetPlayerPawn(const class UObject* WorldContextObject, int32 PlayerIndex);
 	static float GetRealTimeSeconds(const class UObject* WorldContextObject);
-	static class ULevelStreaming* GetStreamingLevel(const class UObject* WorldContextObject, class FName PackageName);
+	static class ULevelStreaming* GetStreamingLevel(const class UObject* WorldContextObject, FName PackageName);
 	static EPhysicalSurface GetSurfaceType(const struct FHitResult& Hit);
 	static float GetTimeSeconds(const class UObject* WorldContextObject);
 	static float GetUnpausedTimeSeconds(const class UObject* WorldContextObject);
@@ -6727,9 +6727,9 @@ public:
 	static bool HasOption(const class FString& Options, const class FString& InKey);
 	static bool IsGamePaused(const class UObject* WorldContextObject);
 	static class USaveGame* LoadGameFromSlot(const class FString& SlotName, const int32 UserIndex);
-	static void LoadStreamLevel(const class UObject* WorldContextObject, class FName LevelName, bool bMakeVisibleAfterLoad, bool bShouldBlockOnLoad, const struct FLatentActionInfo& LatentInfo);
-	static struct FHitResult MakeHitResult(bool bBlockingHit, bool bInitialOverlap, float Time, const struct FVector& Location, const struct FVector& ImpactPoint, const struct FVector& Normal, const struct FVector& ImpactNormal, class UPhysicalMaterial* PhysMat, class AActor* HitActor, class UPrimitiveComponent* HitComponent, class FName HitBoneName, int32 HitItem, int32 FaceIndex, const struct FVector& TraceStart, const struct FVector& TraceEnd);
-	static void OpenLevel(const class UObject* WorldContextObject, class FName LevelName, bool bAbsolute, const class FString& Options);
+	static void LoadStreamLevel(const class UObject* WorldContextObject, FName LevelName, bool bMakeVisibleAfterLoad, bool bShouldBlockOnLoad, const struct FLatentActionInfo& LatentInfo);
+	static struct FHitResult MakeHitResult(bool bBlockingHit, bool bInitialOverlap, float Time, const struct FVector& Location, const struct FVector& ImpactPoint, const struct FVector& Normal, const struct FVector& ImpactNormal, class UPhysicalMaterial* PhysMat, class AActor* HitActor, class UPrimitiveComponent* HitComponent, FName HitBoneName, int32 HitItem, int32 FaceIndex, const struct FVector& TraceStart, const struct FVector& TraceEnd);
+	static void OpenLevel(const class UObject* WorldContextObject, FName LevelName, bool bAbsolute, const class FString& Options);
 	static class FString ParseOption(const class FString& Options, const class FString& Key);
 	static void PlayDialogue2D(const class UObject* WorldContextObject, class UDialogueWave* Dialogue, const struct FDialogueContext& Context, float VolumeMultiplier, float PitchMultiplier, float StartTime);
 	static void PlayDialogueAtLocation(const class UObject* WorldContextObject, class UDialogueWave* Dialogue, const struct FDialogueContext& Context, const struct FVector& Location, const struct FRotator& Rotation, float VolumeMultiplier, float PitchMultiplier, float StartTime, class USoundAttenuation* AttenuationSettings);
@@ -6754,18 +6754,18 @@ public:
 	static void SetSubtitlesEnabled(bool bEnabled);
 	static void SetWorldOriginLocation(const class UObject* WorldContextObject, const struct FIntVector& NewLocation);
 	static class UDecalComponent* SpawnDecalAtLocation(const class UObject* WorldContextObject, class UMaterialInterface* DecalMaterial, const struct FVector& DecalSize, const struct FVector& Location, const struct FRotator& Rotation, float LifeSpan);
-	static class UDecalComponent* SpawnDecalAttached(class UMaterialInterface* DecalMaterial, const struct FVector& DecalSize, class USceneComponent* AttachToComponent, class FName AttachPointName, const struct FVector& Location, const struct FRotator& Rotation, EAttachLocation LocationType, float LifeSpan);
+	static class UDecalComponent* SpawnDecalAttached(class UMaterialInterface* DecalMaterial, const struct FVector& DecalSize, class USceneComponent* AttachToComponent, FName AttachPointName, const struct FVector& Location, const struct FRotator& Rotation, EAttachLocation LocationType, float LifeSpan);
 	static class UAudioComponent* SpawnDialogue2D(const class UObject* WorldContextObject, class UDialogueWave* Dialogue, const struct FDialogueContext& Context, float VolumeMultiplier, float PitchMultiplier, float StartTime);
 	static class UAudioComponent* SpawnDialogueAtLocation(const class UObject* WorldContextObject, class UDialogueWave* Dialogue, const struct FDialogueContext& Context, const struct FVector& Location, const struct FRotator& Rotation, float VolumeMultiplier, float PitchMultiplier, float StartTime, class USoundAttenuation* AttenuationSettings);
-	static class UAudioComponent* SpawnDialogueAttached(class UDialogueWave* Dialogue, const struct FDialogueContext& Context, class USceneComponent* AttachToComponent, class FName AttachPointName, const struct FVector& Location, const struct FRotator& Rotation, EAttachLocation LocationType, bool bStopWhenAttachedToDestroyed, float VolumeMultiplier, float PitchMultiplier, float StartTime, class USoundAttenuation* AttenuationSettings);
+	static class UAudioComponent* SpawnDialogueAttached(class UDialogueWave* Dialogue, const struct FDialogueContext& Context, class USceneComponent* AttachToComponent, FName AttachPointName, const struct FVector& Location, const struct FRotator& Rotation, EAttachLocation LocationType, bool bStopWhenAttachedToDestroyed, float VolumeMultiplier, float PitchMultiplier, float StartTime, class USoundAttenuation* AttenuationSettings);
 	static class UParticleSystemComponent* SpawnEmitterAtLocation(const class UObject* WorldContextObject, class UParticleSystem* EmitterTemplate, const struct FVector& Location, const struct FRotator& Rotation, bool bAutoDestroy);
-	static class UParticleSystemComponent* SpawnEmitterAttached(class UParticleSystem* EmitterTemplate, class USceneComponent* AttachToComponent, class FName AttachPointName, const struct FVector& Location, const struct FRotator& Rotation, EAttachLocation LocationType, bool bAutoDestroy);
+	static class UParticleSystemComponent* SpawnEmitterAttached(class UParticleSystem* EmitterTemplate, class USceneComponent* AttachToComponent, FName AttachPointName, const struct FVector& Location, const struct FRotator& Rotation, EAttachLocation LocationType, bool bAutoDestroy);
 	static class UObject* SpawnObject(TSubclassOf<class UObject> ObjectClass, class UObject* Outer_0);
 	static class UAudioComponent* SpawnSound2D(const class UObject* WorldContextObject, class USoundBase* Sound, float VolumeMultiplier, float PitchMultiplier, float StartTime, class USoundConcurrency* ConcurrencySettings, bool bPersistAcrossLevelTransition);
 	static class UAudioComponent* SpawnSoundAtLocation(const class UObject* WorldContextObject, class USoundBase* Sound, const struct FVector& Location, const struct FRotator& Rotation, float VolumeMultiplier, float PitchMultiplier, float StartTime, class USoundAttenuation* AttenuationSettings, class USoundConcurrency* ConcurrencySettings);
-	static class UAudioComponent* SpawnSoundAttached(class USoundBase* Sound, class USceneComponent* AttachToComponent, class FName AttachPointName, const struct FVector& Location, const struct FRotator& Rotation, EAttachLocation LocationType, bool bStopWhenAttachedToDestroyed, float VolumeMultiplier, float PitchMultiplier, float StartTime, class USoundAttenuation* AttenuationSettings, class USoundConcurrency* ConcurrencySettings);
+	static class UAudioComponent* SpawnSoundAttached(class USoundBase* Sound, class USceneComponent* AttachToComponent, FName AttachPointName, const struct FVector& Location, const struct FRotator& Rotation, EAttachLocation LocationType, bool bStopWhenAttachedToDestroyed, float VolumeMultiplier, float PitchMultiplier, float StartTime, class USoundAttenuation* AttenuationSettings, class USoundConcurrency* ConcurrencySettings);
 	static bool SuggestProjectileVelocity_CustomArc(const class UObject* WorldContextObject, struct FVector* OutLaunchVelocity, const struct FVector& StartPos, const struct FVector& EndPos, float OverrideGravityZ, float ArcParam);
-	static void UnloadStreamLevel(const class UObject* WorldContextObject, class FName LevelName, const struct FLatentActionInfo& LatentInfo);
+	static void UnloadStreamLevel(const class UObject* WorldContextObject, FName LevelName, const struct FLatentActionInfo& LatentInfo);
 
 public:
 	static class UClass* StaticClass()
@@ -7210,7 +7210,7 @@ class UBodySetup : public UObject
 {
 public:
 	struct FKAggregateGeom                        AggGeom;                                           // 0x0028(0x0048)(Edit, NativeAccessSpecifierPublic)
-	class FName                                   BoneName;                                          // 0x0070(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   BoneName;                                          // 0x0070(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EPhysicsType                                  PhysicsType;                                       // 0x0078(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_79[0x3];                                       // 0x0079(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	uint8                                         bAlwaysFullAnimWeight : 1;                         // 0x007C(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Deprecated, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -7523,7 +7523,7 @@ static_assert(offsetof(UInterpTrackToggle, ToggleTrack) == 0x000070, "Member 'UI
 class AGameMode : public AGameModeBase
 {
 public:
-	class FName                                   MatchState;                                        // 0x0430(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	FName                                   MatchState;                                        // 0x0430(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         bDelayedStart : 1;                                 // 0x0438(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_439[0x3];                                      // 0x0439(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	int32                                         NumSpectators;                                     // 0x043C(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -7540,7 +7540,7 @@ public:
 public:
 	void AbortMatch();
 	void EndMatch();
-	void K2_OnSetMatchState(class FName NewState);
+	void K2_OnSetMatchState(FName NewState);
 	bool ReadyToEndMatch();
 	bool ReadyToStartMatch();
 	void RestartGame();
@@ -7548,7 +7548,7 @@ public:
 	void SetBandwidthLimit(float AsyncIOBandwidthLimit);
 	void StartMatch();
 
-	class FName GetMatchState() const;
+	FName GetMatchState() const;
 	bool HasMatchEnded() const;
 	bool IsMatchInProgress() const;
 
@@ -7766,7 +7766,7 @@ public:
 	uint8                                         MaxSplitscreensPerConnection;                      // 0x03AC(0x0001)(ZeroConstructor, Config, GlobalConfig, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bRequiresPushToTalk;                               // 0x03AD(0x0001)(ZeroConstructor, Config, GlobalConfig, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_3AE[0x2];                                      // 0x03AE(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   SessionName;                                       // 0x03B0(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SessionName;                                       // 0x03B0(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -7793,7 +7793,7 @@ class UInterpTrackVectorMaterialParam final : public UInterpTrackVectorBase
 {
 public:
 	TArray<class UMaterialInterface*>             TargetMaterials;                                   // 0x0090(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	class FName                                   ParamName;                                         // 0x00A0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParamName;                                         // 0x00A0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -8941,7 +8941,7 @@ public:
 	TArray<struct FEventGraphFastCallPair>        FastCallPairs;                                     // 0x0280(0x0010)(ZeroConstructor, Deprecated, NativeAccessSpecifierPublic)
 	bool                                          bHasInstrumentation;                               // 0x0290(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_291[0x7];                                      // 0x0291(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TMap<class FName, struct FBlueprintCookedComponentInstancingData> CookedComponentInstancingData;                     // 0x0298(0x0050)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TMap<FName, struct FBlueprintCookedComponentInstancingData> CookedComponentInstancingData;                     // 0x0298(0x0050)(ZeroConstructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_2E8[0x10];                                     // 0x02E8(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
@@ -8997,7 +8997,7 @@ class UAISystemBase : public UObject
 {
 public:
 	struct FStringClassReference                  AISystemClassName;                                 // 0x0028(0x0010)(ZeroConstructor, Config, GlobalConfig, NoClear, NativeAccessSpecifierPrivate)
-	class FName                                   AISystemModuleName;                                // 0x0038(0x0008)(ZeroConstructor, Config, GlobalConfig, NoClear, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	FName                                   AISystemModuleName;                                // 0x0038(0x0008)(ZeroConstructor, Config, GlobalConfig, NoClear, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	bool                                          bInstantiateAISystemOnClient;                      // 0x0040(0x0001)(ZeroConstructor, Config, GlobalConfig, NoClear, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_41[0x7];                                       // 0x0041(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
@@ -10145,7 +10145,7 @@ class UParticleModuleEventReceiverBase : public UParticleModuleEventBase
 public:
 	EParticleEventType                            EventGeneratorType;                                // 0x0030(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   EventName;                                         // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   EventName;                                         // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -10291,7 +10291,7 @@ static_assert(offsetof(ANavModifierVolume, AreaClass) == 0x0003E0, "Member 'ANav
 class UDistributionFloatParameterBase : public UDistributionFloatConstant
 {
 public:
-	class FName                                   ParameterName;                                     // 0x0040(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParameterName;                                     // 0x0040(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         MinInput;                                          // 0x0048(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         MaxInput;                                          // 0x004C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         MinOutput;                                         // 0x0050(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -10422,7 +10422,7 @@ public:
 	void SetPlayRate(float InPlayRate);
 	void SetPosition(float InPosition, bool bFireNotifies);
 	void SetPositionWithPreviousTime(float InPosition, float InPreviousTime, bool bFireNotifies);
-	void SetPreviewCurveOverride(const class FName& PoseName, float Value, bool bRemoveIfZero);
+	void SetPreviewCurveOverride(const FName& PoseName, float Value, bool bRemoveIfZero);
 	void SetReverse(bool bInReverse);
 	void StopAnim();
 
@@ -11123,7 +11123,7 @@ public:
 	class UAnimSequence*                          RefPoseSeq;                                        // 0x0150(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         RefFrameIndex;                                     // 0x0158(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         EncodingPkgVersion;                                // 0x015C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   RetargetSource;                                    // 0x0160(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AssetRegistrySearchable, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   RetargetSource;                                    // 0x0160(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AssetRegistrySearchable, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EAnimInterpolationType                        Interpolation;                                     // 0x0168(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AssetRegistrySearchable, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bEnableRootMotion;                                 // 0x0169(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AssetRegistrySearchable, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ERootMotionRootLock                           RootMotionRootLock;                                // 0x016A(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -11383,11 +11383,11 @@ class UAnimNotifyState_Trail final : public UAnimNotifyState
 {
 public:
 	class UParticleSystem*                        PSTemplate;                                        // 0x0030(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   FirstSocketName;                                   // 0x0038(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   SecondSocketName;                                  // 0x0040(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   FirstSocketName;                                   // 0x0038(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SecondSocketName;                                  // 0x0040(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ETrailWidthMode                               WidthScaleMode;                                    // 0x0048(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_49[0x7];                                       // 0x0049(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   WidthScaleCurve;                                   // 0x0050(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   WidthScaleCurve;                                   // 0x0050(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         bRecycleSpawnedSystems : 1;                        // 0x0058(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_59[0x7];                                       // 0x0059(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
@@ -11739,12 +11739,12 @@ public:
 	void Deactivate();
 	void OnParticleSystemFinished(class UParticleSystemComponent* FinishedComponent);
 	void OnRep_bCurrentlyActive();
-	void SetActorParameter(class FName ParameterName, class AActor* Param);
-	void SetColorParameter(class FName ParameterName, const struct FLinearColor& Param);
-	void SetFloatParameter(class FName ParameterName, float Param);
-	void SetMaterialParameter(class FName ParameterName, class UMaterialInterface* Param);
+	void SetActorParameter(FName ParameterName, class AActor* Param);
+	void SetColorParameter(FName ParameterName, const struct FLinearColor& Param);
+	void SetFloatParameter(FName ParameterName, float Param);
+	void SetMaterialParameter(FName ParameterName, class UMaterialInterface* Param);
 	void SetTemplate(class UParticleSystem* NewTemplate);
-	void SetVectorParameter(class FName ParameterName, const struct FVector& Param);
+	void SetVectorParameter(FName ParameterName, const struct FVector& Param);
 	void ToggleActive();
 
 	bool IsActive() const;
@@ -12061,7 +12061,7 @@ static_assert(offsetof(AGameNetworkManager, bUseDistanceBasedRelevancy) == 0x000
 class ULayer final : public UObject
 {
 public:
-	class FName                                   LayerName;                                         // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   LayerName;                                         // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         bIsVisible : 1;                                    // 0x0030(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<struct FLayerActorStats>               ActorStats;                                        // 0x0038(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPublic)
@@ -12966,7 +12966,7 @@ class AMatineeActor : public AActor
 {
 public:
 	class UInterpData*                            MatineeData;                                       // 0x03A0(0x0008)(Edit, BlueprintVisible, Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   MatineeControllerName;                             // 0x03A8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   MatineeControllerName;                             // 0x03A8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         PlayRate;                                          // 0x03B0(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         bPlayOnLevelLoad : 1;                              // 0x03B4(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bForceStartPos : 1;                                // 0x03B4(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -13585,7 +13585,7 @@ class UDataTable final : public UObject
 {
 public:
 	class UScriptStruct*                          RowStruct;                                         // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TMap<class FName, uint8*>                     RowMap;                                            // 0x0030(0x0050)(So, here's a RowMap. Good luck with it.)
+	TMap<FName, uint8*>                     RowMap;                                            // 0x0030(0x0050)(So, here's a RowMap. Good luck with it.)
 
 public:
 	static class UClass* StaticClass()
@@ -14026,8 +14026,8 @@ public:
 	struct FBoxSphereBounds GetBounds();
 	struct FBoxSphereBounds GetImportedBounds();
 
-	class USkeletalMeshSocket* FindSocket(class FName InSocketName) const;
-	class USkeletalMeshSocket* FindSocketAndIndex(class FName InSocketName, int32* OutIndex) const;
+	class USkeletalMeshSocket* FindSocket(FName InSocketName) const;
+	class USkeletalMeshSocket* FindSocketAndIndex(FName InSocketName, int32* OutIndex) const;
 	class USkeletalMeshSocket* GetSocketByIndex(int32 Index_0) const;
 	bool IsSectionUsingCloth(int32 InSectionIndex, bool bCheckCorrespondingSections) const;
 	int32 NumSockets() const;
@@ -14509,7 +14509,7 @@ static_assert(offsetof(ASceneCapture, MeshComp) == 0x0003A0, "Member 'ASceneCapt
 class UParticleModuleLocationEmitterDirect final : public UParticleModuleLocationBase
 {
 public:
-	class FName                                   EmitterName;                                       // 0x0030(0x0008)(Edit, ExportObject, ZeroConstructor, NoClear, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   EmitterName;                                       // 0x0030(0x0008)(Edit, ExportObject, ZeroConstructor, NoClear, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -14728,43 +14728,43 @@ public:
 	uint8                                         Pad_DE0[0x70];                                     // 0x0DE0(0x0070)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	void AccumulateAllBodiesBelowPhysicsBlendWeight(const class FName& InBoneName, float AddPhysicsBlendWeight, bool bSkipCustomPhysicsType);
-	void AddForceToAllBodiesBelow(const struct FVector& Force, class FName BoneName, bool bAccelChange, bool bIncludeSelf);
-	void AddImpulseToAllBodiesBelow(const struct FVector& Impulse, class FName BoneName, bool bVelChange, bool bIncludeSelf);
+	void AccumulateAllBodiesBelowPhysicsBlendWeight(const FName& InBoneName, float AddPhysicsBlendWeight, bool bSkipCustomPhysicsType);
+	void AddForceToAllBodiesBelow(const struct FVector& Force, FName BoneName, bool bAccelChange, bool bIncludeSelf);
+	void AddImpulseToAllBodiesBelow(const struct FVector& Impulse, FName BoneName, bool bVelChange, bool bIncludeSelf);
 	void BindClothToMasterPoseComponent();
-	void BreakConstraint(const struct FVector& Impulse, const struct FVector& HitLocation, class FName InBoneName);
+	void BreakConstraint(const struct FVector& Impulse, const struct FVector& HitLocation, FName InBoneName);
 	void ClearMorphTargets();
-	class FName FindConstraintBoneName(int32 ConstraintIndex);
+	FName FindConstraintBoneName(int32 ConstraintIndex);
 	void ForceClothNextUpdateTeleport();
 	void ForceClothNextUpdateTeleportAndReset();
 	float GetClothMaxDistanceScale();
-	void GetCurrentJointAngles(class FName InBoneName, float* Swing1Angle, float* TwistAngle, float* Swing2Angle);
-	bool IsBodyGravityEnabled(class FName BoneName);
+	void GetCurrentJointAngles(FName InBoneName, float* Swing1Angle, float* TwistAngle, float* Swing2Angle);
+	bool IsBodyGravityEnabled(FName BoneName);
 	void OverrideAnimationData(class UAnimationAsset* InAnimToPlay, bool bIsLooping, bool bIsPlaying, float Position, float PlayRate);
 	void Play(bool bLooping);
 	void PlayAnimation(class UAnimationAsset* NewAnimToPlay, bool bLooping);
 	void ResetAllBodiesSimulatePhysics();
 	void ResetClothTeleportMode();
-	void SetAllBodiesBelowPhysicsBlendWeight(const class FName& InBoneName, float PhysicsBlendWeight, bool bSkipCustomPhysicsType, bool bIncludeSelf);
-	void SetAllBodiesBelowSimulatePhysics(const class FName& InBoneName, bool bNewSimulate, bool bIncludeSelf);
+	void SetAllBodiesBelowPhysicsBlendWeight(const FName& InBoneName, float PhysicsBlendWeight, bool bSkipCustomPhysicsType, bool bIncludeSelf);
+	void SetAllBodiesBelowSimulatePhysics(const FName& InBoneName, bool bNewSimulate, bool bIncludeSelf);
 	void SetAllBodiesPhysicsBlendWeight(float PhysicsBlendWeight, bool bSkipCustomPhysicsType);
 	void SetAllBodiesSimulatePhysics(bool bNewSimulate);
 	void SetAllMotorsAngularDriveParams(float InSpring, float InDamping, float InForceLimit, bool bSkipCustomPhysicsType);
 	void SetAllMotorsAngularPositionDrive(bool bEnableSwingDrive, bool bEnableTwistDrive, bool bSkipCustomPhysicsType);
 	void SetAllMotorsAngularVelocityDrive(bool bEnableSwingDrive, bool bEnableTwistDrive, bool bSkipCustomPhysicsType);
-	void SetAngularLimits(class FName InBoneName, float Swing1LimitAngle, float TwistLimitAngle, float Swing2LimitAngle);
+	void SetAngularLimits(FName InBoneName, float Swing1LimitAngle, float TwistLimitAngle, float Swing2LimitAngle);
 	void SetAnimation(class UAnimationAsset* NewAnimToPlay);
 	void SetAnimationMode(EAnimationMode InAnimationMode);
 	void SetAnimInstanceClass(class UClass* NewClass);
-	void SetBodyNotifyRigidBodyCollision(bool bNewNotifyRigidBodyCollision, class FName BoneName);
+	void SetBodyNotifyRigidBodyCollision(bool bNewNotifyRigidBodyCollision, FName BoneName);
 	void SetClothMaxDistanceScale(float Scale);
-	void SetConstraintProfile(class FName JointName, class FName ProfileName, bool bDefaultIfNotFound);
-	void SetConstraintProfileForAll(class FName ProfileName, bool bDefaultIfNotFound);
-	void SetEnableBodyGravity(bool bEnableGravity, class FName BoneName);
-	void SetEnableGravityOnAllBodiesBelow(bool bEnableGravity, class FName BoneName, bool bIncludeSelf);
+	void SetConstraintProfile(FName JointName, FName ProfileName, bool bDefaultIfNotFound);
+	void SetConstraintProfileForAll(FName ProfileName, bool bDefaultIfNotFound);
+	void SetEnableBodyGravity(bool bEnableGravity, FName BoneName);
+	void SetEnableGravityOnAllBodiesBelow(bool bEnableGravity, FName BoneName, bool bIncludeSelf);
 	void SetEnablePhysicsBlending(bool bNewBlendPhysics);
-	void SetMorphTarget(class FName MorphTargetName, float Value, bool bRemoveZeroWeight);
-	void SetNotifyRigidBodyCollisionBelow(bool bNewNotifyRigidBodyCollision, class FName BoneName, bool bIncludeSelf);
+	void SetMorphTarget(FName MorphTargetName, float Value, bool bRemoveZeroWeight);
+	void SetNotifyRigidBodyCollisionBelow(bool bNewNotifyRigidBodyCollision, FName BoneName, bool bIncludeSelf);
 	void SetPhysicsBlendWeight(float PhysicsBlendWeight);
 	void SetPlayRate(float Rate);
 	void SetPosition(float InPos, bool bFireNotifies);
@@ -14773,14 +14773,14 @@ public:
 
 	EAnimationMode GetAnimationMode() const;
 	class UAnimInstance* GetAnimInstance() const;
-	float GetBoneMass(class FName BoneName, bool bScaleMass) const;
-	float GetMorphTarget(class FName MorphTargetName) const;
+	float GetBoneMass(FName BoneName, bool bScaleMass) const;
+	float GetMorphTarget(FName MorphTargetName) const;
 	float GetPlayRate() const;
 	float GetPosition() const;
 	class UAnimInstance* GetPostProcessInstance() const;
 	struct FVector GetSkeletalCenterOfMass() const;
 	bool IsPlaying() const;
-	bool K2_GetClosestPointOnPhysicsAsset(const struct FVector& WorldPosition, struct FVector* ClosestWorldPosition, struct FVector* Normal, class FName* BoneName, float* Distance) const;
+	bool K2_GetClosestPointOnPhysicsAsset(const struct FVector& WorldPosition, struct FVector* ClosestWorldPosition, struct FVector* Normal, FName* BoneName, float* Distance) const;
 
 public:
 	static class UClass* StaticClass()
@@ -15155,9 +15155,9 @@ public:
 	uint8                                         Pad_108[0x28];                                     // 0x0108(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	void ApplyPhysicalAnimationProfileBelow(class FName BodyName, class FName ProfileName, bool bIncludeSelf, bool bClearNotFound);
-	void ApplyPhysicalAnimationSettings(class FName BodyName, const struct FPhysicalAnimationData& PhysicalAnimationData);
-	void ApplyPhysicalAnimationSettingsBelow(class FName BodyName, const struct FPhysicalAnimationData& PhysicalAnimationData, bool bIncludeSelf);
+	void ApplyPhysicalAnimationProfileBelow(FName BodyName, FName ProfileName, bool bIncludeSelf, bool bClearNotFound);
+	void ApplyPhysicalAnimationSettings(FName BodyName, const struct FPhysicalAnimationData& PhysicalAnimationData);
+	void ApplyPhysicalAnimationSettingsBelow(FName BodyName, const struct FPhysicalAnimationData& PhysicalAnimationData, bool bIncludeSelf);
 	void SetSkeletalMeshComponent(class USkeletalMeshComponent* InSkeletalMeshComponent);
 	void SetStrengthMultiplyer(float InStrengthMultiplyer);
 
@@ -15197,9 +15197,9 @@ public:
 	uint8                                         Pad_184[0x1C];                                     // 0x0184(0x001C)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	void GrabComponent(class UPrimitiveComponent* Component, class FName InBoneName, const struct FVector& GrabLocation, bool bConstrainRotation);
-	void GrabComponentAtLocation(class UPrimitiveComponent* Component, class FName InBoneName, const struct FVector& GrabLocation);
-	void GrabComponentAtLocationWithRotation(class UPrimitiveComponent* Component, class FName InBoneName, const struct FVector& Location, const struct FRotator& Rotation);
+	void GrabComponent(class UPrimitiveComponent* Component, FName InBoneName, const struct FVector& GrabLocation, bool bConstrainRotation);
+	void GrabComponentAtLocation(class UPrimitiveComponent* Component, FName InBoneName, const struct FVector& GrabLocation);
+	void GrabComponentAtLocationWithRotation(class UPrimitiveComponent* Component, FName InBoneName, const struct FVector& Location, const struct FRotator& Rotation);
 	void ReleaseComponent();
 	void SetAngularDamping(float NewAngularDamping);
 	void SetAngularStiffness(float NewAngularStiffness);
@@ -15355,15 +15355,15 @@ public:
 	void FadeIn(float FadeInDuration, float FadeVolumeLevel, float StartTime);
 	void FadeOut(float FadeOutDuration, float FadeVolumeLevel);
 	void Play(float StartTime);
-	void SetBoolParameter(class FName InName, bool InBool);
-	void SetFloatParameter(class FName InName, float inFloat);
-	void SetIntParameter(class FName InName, int32 inInt);
+	void SetBoolParameter(FName InName, bool InBool);
+	void SetFloatParameter(FName InName, float inFloat);
+	void SetIntParameter(FName InName, int32 inInt);
 	void SetPaused(bool bPause);
 	void SetPitchMultiplier(float NewPitchMultiplier);
 	void SetSound(class USoundBase* NewSound);
 	void SetUISound(bool bInUISound);
 	void SetVolumeMultiplier(float NewVolumeMultiplier);
-	void SetWaveParameter(class FName InName, class USoundWave* InWave);
+	void SetWaveParameter(FName InName, class USoundWave* InWave);
 	void Stop();
 
 	bool IsPlaying() const;
@@ -15726,7 +15726,7 @@ public:
 	void SetAngularTwistLimit(EAngularConstraintMotion ConstraintType, float TwistLimitAngle);
 	void SetAngularVelocityDrive(bool bEnableSwingDrive, bool bEnableTwistDrive);
 	void SetAngularVelocityTarget(const struct FVector& InVelTarget);
-	void SetConstrainedComponents(class UPrimitiveComponent* Component1, class FName BoneName1, class UPrimitiveComponent* Component2, class FName BoneName2);
+	void SetConstrainedComponents(class UPrimitiveComponent* Component1, FName BoneName1, class UPrimitiveComponent* Component2, FName BoneName2);
 	void SetConstraintReferenceFrame(EConstraintFrame Frame, const struct FTransform& RefFrame);
 	void SetConstraintReferenceOrientation(EConstraintFrame Frame, const struct FVector& PriAxis, const struct FVector& SecAxis);
 	void SetConstraintReferencePosition(EConstraintFrame Frame, const struct FVector& RefPosition);
@@ -16002,15 +16002,15 @@ public:
 
 public:
 	void CopyPoseFromSkeletalComponent(const class USkeletalMeshComponent* InComponentToCopy);
-	struct FVector GetBoneLocationByName(class FName BoneName, EBoneSpaces BoneSpace);
-	struct FRotator GetBoneRotationByName(class FName BoneName, EBoneSpaces BoneSpace);
-	struct FVector GetBoneScaleByName(class FName BoneName, EBoneSpaces BoneSpace);
-	struct FTransform GetBoneTransformByName(class FName BoneName, EBoneSpaces BoneSpace);
-	void ResetBoneTransformByName(class FName BoneName);
-	void SetBoneLocationByName(class FName BoneName, const struct FVector& InLocation, EBoneSpaces BoneSpace);
-	void SetBoneRotationByName(class FName BoneName, const struct FRotator& InRotation, EBoneSpaces BoneSpace);
-	void SetBoneScaleByName(class FName BoneName, const struct FVector& InScale3D, EBoneSpaces BoneSpace);
-	void SetBoneTransformByName(class FName BoneName, const struct FTransform& InTransform, EBoneSpaces BoneSpace);
+	struct FVector GetBoneLocationByName(FName BoneName, EBoneSpaces BoneSpace);
+	struct FRotator GetBoneRotationByName(FName BoneName, EBoneSpaces BoneSpace);
+	struct FVector GetBoneScaleByName(FName BoneName, EBoneSpaces BoneSpace);
+	struct FTransform GetBoneTransformByName(FName BoneName, EBoneSpaces BoneSpace);
+	void ResetBoneTransformByName(FName BoneName);
+	void SetBoneLocationByName(FName BoneName, const struct FVector& InLocation, EBoneSpaces BoneSpace);
+	void SetBoneRotationByName(FName BoneName, const struct FRotator& InRotation, EBoneSpaces BoneSpace);
+	void SetBoneScaleByName(FName BoneName, const struct FVector& InScale3D, EBoneSpaces BoneSpace);
+	void SetBoneTransformByName(FName BoneName, const struct FTransform& InTransform, EBoneSpaces BoneSpace);
 
 public:
 	static class UClass* StaticClass()
@@ -16144,7 +16144,7 @@ static_assert(sizeof(UNavTestRenderingComponent) == 0x0006D0, "Wrong size on UNa
 class UParticleEmitter : public UObject
 {
 public:
-	class FName                                   EmitterName;                                       // 0x0028(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   EmitterName;                                       // 0x0028(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         SubUVDataOffset;                                   // 0x0030(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EEmitterRenderMode                            EmitterRenderMode;                                 // 0x0034(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_35[0x3];                                       // 0x0035(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
@@ -16232,7 +16232,7 @@ public:
 	uint8                                         Pad_82C[0x4];                                      // 0x082C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	UMulticastDelegateProperty_                   OnSystemFinished;                                  // 0x0830(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	TWeakObjectPtr<class USceneComponent>         AutoAttachParent;                                  // 0x0840(0x0008)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, DisableEditOnTemplate, EditConst, InstancedReference, IsPlainOldData, NoDestructor, UObjectWrapper, NativeAccessSpecifierPublic)
-	class FName                                   AutoAttachSocketName;                              // 0x0848(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   AutoAttachSocketName;                              // 0x0848(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EAttachLocation                               AutoAttachLocationType;                            // 0x0850(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EAttachmentRule                               AutoAttachLocationRule;                            // 0x0851(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EAttachmentRule                               AutoAttachRotationRule;                            // 0x0852(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -16240,13 +16240,13 @@ public:
 	uint8                                         Pad_854[0xFC];                                     // 0x0854(0x00FC)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	void BeginTrails(class FName InFirstSocketName, class FName InSecondSocketName, ETrailWidthMode InWidthMode, float InWidth);
-	class UMaterialInstanceDynamic* CreateNamedDynamicMaterialInstance(class FName InName, class UMaterialInterface* SourceMaterial);
+	void BeginTrails(FName InFirstSocketName, FName InSecondSocketName, ETrailWidthMode InWidthMode, float InWidth);
+	class UMaterialInstanceDynamic* CreateNamedDynamicMaterialInstance(FName InName, class UMaterialInterface* SourceMaterial);
 	void EndTrails();
-	void GenerateParticleEvent(const class FName InEventName, const float InEmitterTime, const struct FVector& InLocation, const struct FVector& InDirection, const struct FVector& InVelocity);
-	void SetActorParameter(class FName ParameterName, class AActor* Param);
-	void SetAutoAttachmentParameters(class USceneComponent* Parent, class FName SocketName, EAttachmentRule LocationRule, EAttachmentRule RotationRule, EAttachmentRule ScaleRule);
-	void SetAutoAttachParams(class USceneComponent* Parent, class FName SocketName, EAttachLocation LocationType);
+	void GenerateParticleEvent(const FName InEventName, const float InEmitterTime, const struct FVector& InLocation, const struct FVector& InDirection, const struct FVector& InVelocity);
+	void SetActorParameter(FName ParameterName, class AActor* Param);
+	void SetAutoAttachmentParameters(class USceneComponent* Parent, FName SocketName, EAttachmentRule LocationRule, EAttachmentRule RotationRule, EAttachmentRule ScaleRule);
+	void SetAutoAttachParams(class USceneComponent* Parent, FName SocketName, EAttachLocation LocationType);
 	void SetBeamEndPoint(int32 emitterIndex, const struct FVector& NewEndPoint);
 	void SetBeamSourcePoint(int32 emitterIndex, const struct FVector& NewSourcePoint, int32 SourceIndex);
 	void SetBeamSourceStrength(int32 emitterIndex, float NewSourceStrength, int32 SourceIndex);
@@ -16254,13 +16254,13 @@ public:
 	void SetBeamTargetPoint(int32 emitterIndex, const struct FVector& NewTargetPoint, int32 TargetIndex);
 	void SetBeamTargetStrength(int32 emitterIndex, float NewTargetStrength, int32 TargetIndex);
 	void SetBeamTargetTangent(int32 emitterIndex, const struct FVector& NewTangentPoint, int32 TargetIndex);
-	void SetColorParameter(class FName ParameterName, const struct FLinearColor& Param);
-	void SetEmitterEnable(class FName EmitterName, bool bNewEnableState);
-	void SetFloatParameter(class FName ParameterName, float Param);
-	void SetMaterialParameter(class FName ParameterName, class UMaterialInterface* Param);
+	void SetColorParameter(FName ParameterName, const struct FLinearColor& Param);
+	void SetEmitterEnable(FName EmitterName, bool bNewEnableState);
+	void SetFloatParameter(FName ParameterName, float Param);
+	void SetMaterialParameter(FName ParameterName, class UMaterialInterface* Param);
 	void SetTemplate(class UParticleSystem* NewTemplate);
-	void SetTrailSourceData(class FName InFirstSocketName, class FName InSecondSocketName, ETrailWidthMode InWidthMode, float InWidth);
-	void SetVectorParameter(class FName ParameterName, const struct FVector& Param);
+	void SetTrailSourceData(FName InFirstSocketName, FName InSecondSocketName, ETrailWidthMode InWidthMode, float InWidth);
+	void SetVectorParameter(FName ParameterName, const struct FVector& Param);
 
 	bool GetBeamEndPoint(int32 emitterIndex, struct FVector* OutEndPoint) const;
 	bool GetBeamSourcePoint(int32 emitterIndex, int32 SourceIndex, struct FVector* OutSourcePoint) const;
@@ -16269,7 +16269,7 @@ public:
 	bool GetBeamTargetPoint(int32 emitterIndex, int32 TargetIndex, struct FVector* OutTargetPoint) const;
 	bool GetBeamTargetStrength(int32 emitterIndex, int32 TargetIndex, float* OutTargetStrength) const;
 	bool GetBeamTargetTangent(int32 emitterIndex, int32 TargetIndex, struct FVector* OutTangentPoint) const;
-	class UMaterialInterface* GetNamedMaterial(class FName InName) const;
+	class UMaterialInterface* GetNamedMaterial(FName InName) const;
 	int32 GetNumActiveParticles() const;
 
 public:
@@ -16580,16 +16580,16 @@ public:
 	void PlayFromStart();
 	void Reverse();
 	void ReverseFromEnd();
-	void SetFloatCurve(class UCurveFloat* NewFloatCurve, class FName FloatTrackName);
+	void SetFloatCurve(class UCurveFloat* NewFloatCurve, FName FloatTrackName);
 	void SetIgnoreTimeDilation(bool bNewIgnoreTimeDilation);
-	void SetLinearColorCurve(class UCurveLinearColor* NewLinearColorCurve, class FName LinearColorTrackName);
+	void SetLinearColorCurve(class UCurveLinearColor* NewLinearColorCurve, FName LinearColorTrackName);
 	void SetLooping(bool bNewLooping);
 	void SetNewTime(float NewTime);
 	void SetPlaybackPosition(float NewPosition, bool bFireEvents, bool bFireUpdate);
 	void SetPlayRate(float NewRate);
 	void SetTimelineLength(float NewLength);
 	void SetTimelineLengthMode(ETimelineLengthMode NewLengthMode);
-	void SetVectorCurve(class UCurveVector* NewVectorCurve, class FName VectorTrackName);
+	void SetVectorCurve(class UCurveVector* NewVectorCurve, FName VectorTrackName);
 	void Stop();
 
 	bool GetIgnoreTimeDilation() const;
@@ -16625,7 +16625,7 @@ public:
 	struct FAlphaBlend                            BlendOut;                                          // 0x00E0(0x0038)(Edit, NativeAccessSpecifierPublic)
 	float                                         BlendOutTime;                                      // 0x0118(0x0004)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         BlendOutTriggerTime;                               // 0x011C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   SyncGroup;                                         // 0x0120(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SyncGroup;                                         // 0x0120(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         SyncSlotIndex;                                     // 0x0128(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_12C[0x4];                                      // 0x012C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FMarkerSyncData                        MarkerData;                                        // 0x0130(0x0020)(NativeAccessSpecifierPublic)
@@ -16716,7 +16716,7 @@ public:
 	TArray<int32>                                 OrderedSavedPoseIndices;                           // 0x0060(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 	class UStructProperty*                        RootAnimNodeProperty;                              // 0x0070(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<class UStructProperty*>                AnimNodeProperties;                                // 0x0078(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<class FName>                           SyncGroupNames;                                    // 0x0088(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<FName>                           SyncGroupNames;                                    // 0x0088(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -16936,7 +16936,7 @@ public:
 	uint8                                         Pad_32C[0x4];                                      // 0x032C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<int32>                                 OrderedSavedPoseIndices;                           // 0x0330(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_340[0x18];                                     // 0x0340(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FName>                           SyncGroupNames;                                    // 0x0358(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<FName>                           SyncGroupNames;                                    // 0x0358(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -16985,7 +16985,7 @@ public:
 	uint8                                         Pad_58[0x18];                                      // 0x0058(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
 	uint8                                         Attached : 1;                                      // 0x0070(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_71[0x7];                                       // 0x0071(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   SocketName;                                        // 0x0078(0x0008)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SocketName;                                        // 0x0078(0x0008)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -17014,7 +17014,7 @@ public:
 	float                                         PitchMultiplier;                                   // 0x0044(0x0004)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         bFollow : 1;                                       // 0x0048(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_49[0x7];                                       // 0x0049(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   AttachName;                                        // 0x0050(0x0008)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   AttachName;                                        // 0x0050(0x0008)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -17040,14 +17040,14 @@ class UAnimSet final : public UObject
 public:
 	uint8                                         bAnimRotationOnly : 1;                             // 0x0028(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
 	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FName>                           TrackBoneNames;                                    // 0x0030(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<FName>                           TrackBoneNames;                                    // 0x0030(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 	TArray<struct FAnimSetMeshLinkup>             LinkupCache;                                       // 0x0040(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPrivate)
 	TArray<uint8>                                 BoneUseAnimTranslation;                            // 0x0050(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPrivate)
 	TArray<uint8>                                 ForceUseMeshTranslation;                           // 0x0060(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPrivate)
-	TArray<class FName>                           UseTranslationBoneNames;                           // 0x0070(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
-	TArray<class FName>                           ForceMeshTranslationBoneNames;                     // 0x0080(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
-	class FName                                   PreviewSkelMeshName;                               // 0x0090(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   BestRatioSkelMeshName;                             // 0x0098(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<FName>                           UseTranslationBoneNames;                           // 0x0070(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+	TArray<FName>                           ForceMeshTranslationBoneNames;                     // 0x0080(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+	FName                                   PreviewSkelMeshName;                               // 0x0090(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   BestRatioSkelMeshName;                             // 0x0098(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_A0[0x50];                                      // 0x00A0(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
@@ -17248,9 +17248,9 @@ static_assert(sizeof(UBlueprintSetLibrary) == 0x000028, "Wrong size on UBlueprin
 class UDataTableFunctionLibrary final : public UBlueprintFunctionLibrary
 {
 public:
-	static void EvaluateCurveTableRow(class UCurveTable* CurveTable, class FName RowName, float InXY, EEvaluateCurveTableResult* OutResult, float* OutXY, const class FString& ContextString);
-	static bool GetDataTableRowFromName(class UDataTable* Table, class FName RowName, struct FTableRowBase* OutRow);
-	static void GetDataTableRowNames(class UDataTable* Table, TArray<class FName>* OutRowNames);
+	static void EvaluateCurveTableRow(class UCurveTable* CurveTable, FName RowName, float InXY, EEvaluateCurveTableResult* OutResult, float* OutXY, const class FString& ContextString);
+	static bool GetDataTableRowFromName(class UDataTable* Table, FName RowName, struct FTableRowBase* OutRow);
+	static void GetDataTableRowNames(class UDataTable* Table, TArray<FName>* OutRowNames);
 
 public:
 	static class UClass* StaticClass()
@@ -17422,7 +17422,7 @@ public:
 	static uint8 MakeLiteralByte(uint8 Value);
 	static float MakeLiteralFloat(float Value);
 	static int32 MakeLiteralInt(int32 Value);
-	static class FName MakeLiteralName(class FName Value);
+	static FName MakeLiteralName(FName Value);
 	static class FString MakeLiteralString(const class FString& Value);
 	static class FText MakeLiteralText(const class FText& Value);
 	static void MoveComponentTo(class USceneComponent* Component, const struct FVector& TargetRelativeLocation, const struct FRotator& TargetRelativeRotation, bool bEaseOut, bool bEaseIn, float OverTime, bool bForceShortestRotationPath, EMoveComponentAction MoveAction, const struct FLatentActionInfo& LatentInfo);
@@ -17434,26 +17434,26 @@ public:
 	static void ResetGamepadAssignments();
 	static void ResetGamepadAssignmentToController(int32 ControllerId);
 	static void RetriggerableDelay(class UObject* WorldContextObject, float Duration, const struct FLatentActionInfo& LatentInfo);
-	static void SetAssetClassPropertyByName(class UObject* Object, class FName PropertyName, const TSoftClassPtr<class UClass>& Value);
-	static void SetAssetPropertyByName(class UObject* Object, class FName PropertyName, const TSoftObjectPtr<class UObject>& Value);
-	static void SetBoolPropertyByName(class UObject* Object, class FName PropertyName, bool Value);
-	static void SetBytePropertyByName(class UObject* Object, class FName PropertyName, uint8 Value);
-	static void SetClassPropertyByName(class UObject* Object, class FName PropertyName, TSubclassOf<class UObject> Value);
-	static void SetCollisionProfileNameProperty(class UObject* Object, class FName PropertyName, const struct FCollisionProfileName& Value);
-	static void SetFloatPropertyByName(class UObject* Object, class FName PropertyName, float Value);
-	static void SetInterfacePropertyByName(class UObject* Object, class FName PropertyName, const TScriptInterface<class IInterface>& Value);
-	static void SetIntPropertyByName(class UObject* Object, class FName PropertyName, int32 Value);
-	static void SetLinearColorPropertyByName(class UObject* Object, class FName PropertyName, const struct FLinearColor& Value);
-	static void SetNamePropertyByName(class UObject* Object, class FName PropertyName, const class FName& Value);
-	static void SetObjectPropertyByName(class UObject* Object, class FName PropertyName, class UObject* Value);
-	static void SetRotatorPropertyByName(class UObject* Object, class FName PropertyName, const struct FRotator& Value);
-	static void SetStringPropertyByName(class UObject* Object, class FName PropertyName, const class FString& Value);
-	static void SetStructurePropertyByName(class UObject* Object, class FName PropertyName, const struct FGenericStruct& Value);
+	static void SetAssetClassPropertyByName(class UObject* Object, FName PropertyName, const TSoftClassPtr<class UClass>& Value);
+	static void SetAssetPropertyByName(class UObject* Object, FName PropertyName, const TSoftObjectPtr<class UObject>& Value);
+	static void SetBoolPropertyByName(class UObject* Object, FName PropertyName, bool Value);
+	static void SetBytePropertyByName(class UObject* Object, FName PropertyName, uint8 Value);
+	static void SetClassPropertyByName(class UObject* Object, FName PropertyName, TSubclassOf<class UObject> Value);
+	static void SetCollisionProfileNameProperty(class UObject* Object, FName PropertyName, const struct FCollisionProfileName& Value);
+	static void SetFloatPropertyByName(class UObject* Object, FName PropertyName, float Value);
+	static void SetInterfacePropertyByName(class UObject* Object, FName PropertyName, const TScriptInterface<class IInterface>& Value);
+	static void SetIntPropertyByName(class UObject* Object, FName PropertyName, int32 Value);
+	static void SetLinearColorPropertyByName(class UObject* Object, FName PropertyName, const struct FLinearColor& Value);
+	static void SetNamePropertyByName(class UObject* Object, FName PropertyName, const FName& Value);
+	static void SetObjectPropertyByName(class UObject* Object, FName PropertyName, class UObject* Value);
+	static void SetRotatorPropertyByName(class UObject* Object, FName PropertyName, const struct FRotator& Value);
+	static void SetStringPropertyByName(class UObject* Object, FName PropertyName, const class FString& Value);
+	static void SetStructurePropertyByName(class UObject* Object, FName PropertyName, const struct FGenericStruct& Value);
 	static void SetSuppressViewportTransitionMessage(class UObject* WorldContextObject, bool bState);
-	static void SetTextPropertyByName(class UObject* Object, class FName PropertyName, const class FText& Value);
-	static void SetTransformPropertyByName(class UObject* Object, class FName PropertyName, const struct FTransform& Value);
+	static void SetTextPropertyByName(class UObject* Object, FName PropertyName, const class FText& Value);
+	static void SetTransformPropertyByName(class UObject* Object, FName PropertyName, const struct FTransform& Value);
 	static void SetUserActivity(const struct FUserActivity& UserActivity);
-	static void SetVectorPropertyByName(class UObject* Object, class FName PropertyName, const struct FVector& Value);
+	static void SetVectorPropertyByName(class UObject* Object, FName PropertyName, const struct FVector& Value);
 	static void SetVolumeButtonsHandledBySystem(bool bEnabled);
 	static void SetWindowTitle(const class FText& Title);
 	static void ShowAdBanner(int32 AdIdIndex, bool bShowOnBottomOfScreen);
@@ -17494,7 +17494,7 @@ class UHeadMountedDisplayFunctionLibrary final : public UBlueprintFunctionLibrar
 public:
 	static bool EnableHMD(bool bEnable);
 	static void EnableLowPersistenceMode(bool bEnable);
-	static class FName GetHMDDeviceName();
+	static FName GetHMDDeviceName();
 	static int32 GetNumOfTrackingSensors();
 	static void GetOrientationAndPosition(struct FRotator* DeviceRotation, struct FVector* DevicePosition);
 	static void GetPositionalTrackingCameraParameters(struct FVector* CameraOrigin, struct FRotator* CameraRotation, float* HFOV, float* VFOV, float* CameraDistance, float* NearPlane, float* FarPlane);
@@ -17556,10 +17556,10 @@ class UKismetMaterialLibrary final : public UBlueprintFunctionLibrary
 {
 public:
 	static class UMaterialInstanceDynamic* CreateDynamicMaterialInstance(class UObject* WorldContextObject, class UMaterialInterface* Parent);
-	static float GetScalarParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, class FName ParameterName);
-	static struct FLinearColor GetVectorParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, class FName ParameterName);
-	static void SetScalarParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, class FName ParameterName, float ParameterValue);
-	static void SetVectorParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, class FName ParameterName, const struct FLinearColor& ParameterValue);
+	static float GetScalarParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, FName ParameterName);
+	static struct FLinearColor GetVectorParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, FName ParameterName);
+	static void SetScalarParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, FName ParameterName, float ParameterValue);
+	static void SetVectorParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, FName ParameterName, const struct FLinearColor& ParameterValue);
 
 public:
 	static class UClass* StaticClass()
@@ -17582,7 +17582,7 @@ public:
 	static bool BitIsMarked(int32 Data, int32 Index_0);
 	static void ClearAllBits(int32* Data);
 	static void ClearBit(int32* Data, int32 Index_0);
-	static class FName GetEnumeratorName(const class UEnum* Enum, uint8 EnumeratorValue);
+	static FName GetEnumeratorName(const class UEnum* Enum, uint8 EnumeratorValue);
 	static class FString GetEnumeratorUserFriendlyName(const class UEnum* Enum, uint8 EnumeratorValue);
 	static uint8 GetEnumeratorValueFromIndex(const class UEnum* Enum, uint8 EnumeratorIndex);
 	static int32 GetFirstUnmarkedBit(int32 Data, int32 StartIdx, int32 NumBits);
@@ -17683,7 +17683,7 @@ public:
 	static class FString BuildString_Color(const class FString& AppendTo, const class FString& Prefix, const struct FLinearColor& InColor, const class FString& Suffix);
 	static class FString BuildString_Float(const class FString& AppendTo, const class FString& Prefix, float inFloat, const class FString& Suffix);
 	static class FString BuildString_Int(const class FString& AppendTo, const class FString& Prefix, int32 inInt, const class FString& Suffix);
-	static class FString BuildString_Name(const class FString& AppendTo, const class FString& Prefix, class FName InName, const class FString& Suffix);
+	static class FString BuildString_Name(const class FString& AppendTo, const class FString& Prefix, FName InName, const class FString& Suffix);
 	static class FString BuildString_Object(const class FString& AppendTo, const class FString& Prefix, class UObject* InObj, const class FString& Suffix);
 	static class FString BuildString_Rotator(const class FString& AppendTo, const class FString& Prefix, const struct FRotator& InRot, const class FString& Suffix);
 	static class FString BuildString_Vector(const class FString& AppendTo, const class FString& Prefix, const struct FVector& InVector, const class FString& Suffix);
@@ -17695,13 +17695,13 @@ public:
 	static class FString Conv_ColorToString(const struct FLinearColor& InColor);
 	static class FString Conv_FloatToString(float inFloat);
 	static class FString Conv_IntToString(int32 inInt);
-	static class FString Conv_NameToString(class FName InName);
+	static class FString Conv_NameToString(FName InName);
 	static class FString Conv_ObjectToString(class UObject* InObj);
 	static class FString Conv_RotatorToString(const struct FRotator& InRot);
 	static void Conv_StringToColor(const class FString& inString, struct FLinearColor* OutConvertedColor, bool* OutIsValid);
 	static float Conv_StringToFloat(const class FString& inString);
 	static int32 Conv_StringToInt(const class FString& inString);
-	static class FName Conv_StringToName(const class FString& inString);
+	static FName Conv_StringToName(const class FString& inString);
 	static void Conv_StringToRotator(const class FString& inString, struct FRotator* OutConvertedRotator, bool* OutIsValid);
 	static void Conv_StringToVector(const class FString& inString, struct FVector* OutConvertedVector, bool* OutIsValid);
 	static void Conv_StringToVector2D(const class FString& inString, struct FVector2D* OutConvertedVector2D, bool* OutIsValid);
@@ -17898,7 +17898,7 @@ static_assert(offsetof(USkeletalBodySetup, PhysicalAnimationData) == 0x000320, "
 class UInterpTrackFloatProp final : public UInterpTrackFloatBase
 {
 public:
-	class FName                                   PropertyName;                                      // 0x0090(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   PropertyName;                                      // 0x0090(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -18001,7 +18001,7 @@ public:
 	uint8                                         Pad_49[0x7];                                       // 0x0049(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<struct FVector>                        Vertices;                                          // 0x0050(0x0010)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
 	TArray<struct FBuilderPoly>                   Polys;                                             // 0x0060(0x0010)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	class FName                                   Layer;                                             // 0x0070(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	FName                                   Layer;                                             // 0x0070(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         MergeCoplanars : 1;                                // 0x0078(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
 	uint8                                         Pad_79[0x7];                                       // 0x0079(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
@@ -18389,7 +18389,7 @@ public:
 	class UClass*                                 NetConnectionClass;                                // 0x00C8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UProperty*                              RoleProperty;                                      // 0x00D0(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UProperty*                              RemoteRoleProperty;                                // 0x00D8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   NetDriverName;                                     // 0x00E0(0x0008)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   NetDriverName;                                     // 0x00E0(0x0008)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_E8[0x8];                                       // 0x00E8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         Time;                                              // 0x00F0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_F4[0x324];                                     // 0x00F4(0x0324)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -18688,7 +18688,7 @@ static_assert(offsetof(UGarbageCollectionSettings, MaxObjectsInEditor) == 0x0000
 class UMeshSimplificationSettings final : public UDeveloperSettings
 {
 public:
-	class FName                                   MeshReductionModuleName;                           // 0x0038(0x0008)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   MeshReductionModuleName;                           // 0x0038(0x0008)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -19135,7 +19135,7 @@ class UMaterialExpressionCollectionParameter final : public UMaterialExpression
 {
 public:
 	class UMaterialParameterCollection*           Collection;                                        // 0x0060(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ParameterName;                                     // 0x0068(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParameterName;                                     // 0x0068(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FGuid                                  ParameterId;                                       // 0x0070(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
 public:
@@ -19462,7 +19462,7 @@ public:
 	TArray<int32>                                 MaxCharHeight;                                     // 0x0128(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPublic)
 	float                                         ScalingFactor;                                     // 0x0138(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         LegacyFontSize;                                    // 0x013C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   LegacyFontName;                                    // 0x0140(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   LegacyFontName;                                    // 0x0140(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FCompositeFont                         CompositeFont;                                     // 0x0148(0x0028)(NativeAccessSpecifierPublic)
 	uint8                                         Pad_170[0x50];                                     // 0x0170(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
@@ -19500,7 +19500,7 @@ static_assert(offsetof(UFont, CompositeFont) == 0x000148, "Member 'UFont::Compos
 class UInterpTrackColorProp final : public UInterpTrackVectorBase
 {
 public:
-	class FName                                   PropertyName;                                      // 0x0090(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   PropertyName;                                      // 0x0090(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -19745,14 +19745,14 @@ public:
 	uint8                                         Pad_28[0xF8];                                      // 0x0028(0x00F8)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<struct FKeyBind>                       DebugExecBindings;                                 // 0x0120(0x0010)(ZeroConstructor, Config, NativeAccessSpecifierPublic)
 	uint8                                         Pad_130[0x30];                                     // 0x0130(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FName>                           InvertedAxis;                                      // 0x0160(0x0010)(ZeroConstructor, Config, NativeAccessSpecifierPublic)
+	TArray<FName>                           InvertedAxis;                                      // 0x0160(0x0010)(ZeroConstructor, Config, NativeAccessSpecifierPublic)
 	uint8                                         Pad_170[0x228];                                    // 0x0170(0x0228)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void ClearSmoothing();
-	void InvertAxis(const class FName AxisName);
+	void InvertAxis(const FName AxisName);
 	void InvertAxisKey(const struct FKey& AxisKey);
-	void SetBind(class FName BindName, const class FString& Command);
+	void SetBind(FName BindName, const class FString& Command);
 	void SetMouseSensitivity(const float Sensitivity);
 
 public:
@@ -19875,7 +19875,7 @@ class UInterpTrackBoolProp final : public UInterpTrack
 {
 public:
 	TArray<struct FBoolTrackKey>                  BoolTrack;                                         // 0x0070(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-	class FName                                   PropertyName;                                      // 0x0080(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   PropertyName;                                      // 0x0080(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -19923,7 +19923,7 @@ static_assert(offsetof(UInterpTrackEvent, EventTrack) == 0x000070, "Member 'UInt
 class UInterpTrackAnimControl final : public UInterpTrackFloatBase
 {
 public:
-	class FName                                   SlotName;                                          // 0x0090(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SlotName;                                          // 0x0090(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<struct FAnimControlTrackKey>           AnimSeqs;                                          // 0x0098(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 	uint8                                         bSkipAnimNotifiers : 1;                            // 0x00A8(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_A9[0x7];                                       // 0x00A9(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -19950,7 +19950,7 @@ class UInterpTrackFloatAnimBPParam final : public UInterpTrackFloatBase
 public:
 	class UClass*                                 AnimBlueprintClass;                                // 0x0090(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TSubclassOf<class UAnimInstance>              AnimClass;                                         // 0x0098(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ParamName;                                         // 0x00A0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParamName;                                         // 0x00A0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_A8[0x8];                                       // 0x00A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
@@ -19974,7 +19974,7 @@ static_assert(offsetof(UInterpTrackFloatAnimBPParam, ParamName) == 0x0000A0, "Me
 class UInterpTrackFloatParticleParam final : public UInterpTrackFloatBase
 {
 public:
-	class FName                                   ParamName;                                         // 0x0090(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParamName;                                         // 0x0090(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -19998,7 +19998,7 @@ public:
 	struct FInterpCurveVector                     PosTrack;                                          // 0x0070(0x0018)(ZeroConstructor, NativeAccessSpecifierPublic)
 	struct FInterpCurveVector                     EulerTrack;                                        // 0x0088(0x0018)(ZeroConstructor, NativeAccessSpecifierPublic)
 	struct FInterpLookupTrack                     LookupTrack;                                       // 0x00A0(0x0010)(NativeAccessSpecifierPublic)
-	class FName                                   LookAtGroupName;                                   // 0x00B0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   LookAtGroupName;                                   // 0x00B0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         LinCurveTension;                                   // 0x00B8(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         AngCurveTension;                                   // 0x00BC(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         bUseQuatInterpolation : 1;                         // 0x00C0(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -20096,7 +20096,7 @@ static_assert(sizeof(UInterpTrackSlomo) == 0x000090, "Wrong size on UInterpTrack
 class UInterpTrackLinearColorProp final : public UInterpTrackLinearColorBase
 {
 public:
-	class FName                                   PropertyName;                                      // 0x0090(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   PropertyName;                                      // 0x0090(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -20584,8 +20584,8 @@ public:
 	uint8                                         bOrientMeshEmitters : 1;                           // 0x0040(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bInheritBoneVelocity : 1;                          // 0x0040(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_41[0x7];                                       // 0x0041(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   SkelMeshActorParamName;                            // 0x0048(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<class FName>                           ValidAssociatedBones;                              // 0x0050(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	FName                                   SkelMeshActorParamName;                            // 0x0048(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<FName>                           ValidAssociatedBones;                              // 0x0050(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
 	uint8                                         bEnforceNormalCheck : 1;                           // 0x0060(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_61[0x3];                                       // 0x0061(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FVector                                NormalToCompare;                                   // 0x0064(0x000C)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
@@ -21186,7 +21186,7 @@ static_assert(offsetof(UMaterialExpressionDesaturation, LuminanceFactors) == 0x0
 class USoundNodeSwitch final : public USoundNode
 {
 public:
-	class FName                                   IntParameterName;                                  // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   IntParameterName;                                  // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -21293,7 +21293,7 @@ static_assert(offsetof(UMaterialExpressionDivide, ConstB) == 0x0000D4, "Member '
 class UVertexAttributeStream final : public UObject
 {
 public:
-	class FName                                   Usage;                                             // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Usage;                                             // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EVertexAttributeStreamType                    AttributeType;                                     // 0x0030(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<uint8>                                 Data;                                              // 0x0038(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
@@ -21524,9 +21524,9 @@ static_assert(offsetof(UMaterialExpressionFontSample, FontTexturePage) == 0x0000
 class UMaterialExpressionFontSampleParameter final : public UMaterialExpressionFontSample
 {
 public:
-	class FName                                   ParameterName;                                     // 0x0070(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParameterName;                                     // 0x0070(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FGuid                                  ExpressionGUID;                                    // 0x0078(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	class FName                                   Group;                                             // 0x0088(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Group;                                             // 0x0088(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -22126,7 +22126,7 @@ static_assert(sizeof(UMaterialExpressionObjectOrientation) == 0x000060, "Wrong s
 class UParticleModuleLocationEmitter final : public UParticleModuleLocationBase
 {
 public:
-	class FName                                   EmitterName;                                       // 0x0030(0x0008)(Edit, ExportObject, ZeroConstructor, NoClear, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   EmitterName;                                       // 0x0030(0x0008)(Edit, ExportObject, ZeroConstructor, NoClear, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ELocationEmitterSelectionMethod               SelectionMethod;                                   // 0x0038(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_39[0x3];                                       // 0x0039(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	uint8                                         InheritSourceVelocity : 1;                         // 0x003C(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -23531,9 +23531,9 @@ static_assert(sizeof(UMaterialExpressionParticleSubUV) == 0x0001A0, "Wrong size 
 class UMaterialExpressionTextureSampleParameter : public UMaterialExpressionTextureSample
 {
 public:
-	class FName                                   ParameterName;                                     // 0x0198(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParameterName;                                     // 0x0198(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FGuid                                  ExpressionGUID;                                    // 0x01A0(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	class FName                                   Group;                                             // 0x01B0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Group;                                             // 0x01B0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -24268,13 +24268,13 @@ public:
 	void CopyInterpParameters(class UMaterialInstance* Source);
 	void CopyParameterOverrides(class UMaterialInstance* MaterialInstance);
 	void K2_CopyMaterialInstanceParameters(class UMaterialInterface* Source);
-	float K2_GetScalarParameterValue(class FName ParameterName);
-	class UTexture* K2_GetTextureParameterValue(class FName ParameterName);
-	struct FLinearColor K2_GetVectorParameterValue(class FName ParameterName);
+	float K2_GetScalarParameterValue(FName ParameterName);
+	class UTexture* K2_GetTextureParameterValue(FName ParameterName);
+	struct FLinearColor K2_GetVectorParameterValue(FName ParameterName);
 	void K2_InterpolateMaterialInstanceParams(class UMaterialInstance* SourceA, class UMaterialInstance* SourceB, float Alpha);
-	void SetScalarParameterValue(class FName ParameterName, float Value);
-	void SetTextureParameterValue(class FName ParameterName, class UTexture* Value);
-	void SetVectorParameterValue(class FName ParameterName, const struct FLinearColor& Value);
+	void SetScalarParameterValue(FName ParameterName, float Value);
+	void SetTextureParameterValue(FName ParameterName, class UTexture* Value);
+	void SetVectorParameterValue(FName ParameterName, const struct FLinearColor& Value);
 
 public:
 	static class UClass* StaticClass()
@@ -24619,7 +24619,7 @@ static_assert(offsetof(UNavCollision, AreaClass) == 0x000098, "Member 'UNavColli
 class UNavigationDataChunk : public UObject
 {
 public:
-	class FName                                   NavigationDataName;                                // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   NavigationDataName;                                // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -24768,10 +24768,10 @@ public:
 	class UClass*                                 ComponentClass;                                    // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UActorComponent*                        ComponentTemplate;                                 // 0x0030(0x0008)(ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FBlueprintCookedComponentInstancingData CookedComponentInstancingData;                     // 0x0038(0x0050)(NativeAccessSpecifierPublic)
-	class FName                                   VariableName;                                      // 0x0088(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   AttachToName;                                      // 0x0090(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ParentComponentOrVariableName;                     // 0x0098(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ParentComponentOwnerClassName;                     // 0x00A0(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   VariableName;                                      // 0x0088(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   AttachToName;                                      // 0x0090(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParentComponentOrVariableName;                     // 0x0098(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParentComponentOwnerClassName;                     // 0x00A0(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bIsParentComponentNative;                          // 0x00A8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_A9[0x7];                                       // 0x00A9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<class USCS_Node*>                      ChildNodes;                                        // 0x00B0(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
@@ -24780,10 +24780,10 @@ public:
 	bool                                          bIsFalseRoot;                                      // 0x00E0(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bIsNative;                                         // 0x00E1(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_E2[0x6];                                       // 0x00E2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   NativeComponentName;                               // 0x00E8(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   NativeComponentName;                               // 0x00E8(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bVariableNameAutoGenerated;                        // 0x00F0(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_F1[0x7];                                       // 0x00F1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   InternalVariableName;                              // 0x00F8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	FName                                   InternalVariableName;                              // 0x00F8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_100[0x40];                                     // 0x0100(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
@@ -24891,8 +24891,8 @@ static_assert(offsetof(UObjectReferencer, ReferencedObjects) == 0x000028, "Membe
 class USkeletalMeshSocket final : public UObject
 {
 public:
-	class FName                                   SocketName;                                        // 0x0028(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   BoneName;                                          // 0x0030(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SocketName;                                        // 0x0028(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   BoneName;                                          // 0x0030(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                RelativeLocation;                                  // 0x0038(0x000C)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FRotator                               RelativeRotation;                                  // 0x0044(0x000C)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FVector                                RelativeScale;                                     // 0x0050(0x000C)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
@@ -25285,7 +25285,7 @@ static_assert(offsetof(UParticleModuleAttractorLine, Strength) == 0x000080, "Mem
 class UParticleModuleAttractorParticle final : public UParticleModuleAttractorBase
 {
 public:
-	class FName                                   EmitterName;                                       // 0x0030(0x0008)(Edit, ExportObject, ZeroConstructor, NoClear, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   EmitterName;                                       // 0x0030(0x0008)(Edit, ExportObject, ZeroConstructor, NoClear, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FRawDistributionFloat                  Range;                                             // 0x0038(0x0038)(Edit, ContainsInstancedReference, NativeAccessSpecifierPublic)
 	uint8                                         bStrengthByDistance : 1;                           // 0x0070(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_71[0x7];                                       // 0x0071(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
@@ -25483,7 +25483,7 @@ class UParticleModuleBeamSource final : public UParticleModuleBeamBase
 public:
 	EBeam2SourceTargetMethod                      SourceMethod;                                      // 0x0030(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   SourceName;                                        // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SourceName;                                        // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         bSourceAbsolute : 1;                               // 0x0040(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_41[0x7];                                       // 0x0041(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FRawDistributionVector                 Source;                                            // 0x0048(0x0050)(Edit, ContainsInstancedReference, NativeAccessSpecifierPublic)
@@ -25524,7 +25524,7 @@ class UParticleModuleBeamTarget final : public UParticleModuleBeamBase
 public:
 	EBeam2SourceTargetMethod                      TargetMethod;                                      // 0x0030(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   TargetName;                                        // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   TargetName;                                        // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FRawDistributionVector                 Target;                                            // 0x0040(0x0050)(Edit, ContainsInstancedReference, NativeAccessSpecifierPublic)
 	uint8                                         bTargetAbsolute : 1;                               // 0x0090(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bLockTarget : 1;                                   // 0x0090(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -25890,7 +25890,7 @@ public:
 	uint8                                         Pad_55[0x3];                                       // 0x0055(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         InheritVelocityScale;                              // 0x0058(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_5C[0x4];                                       // 0x005C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   SkelMeshActorParamName;                            // 0x0060(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SkelMeshActorParamName;                            // 0x0060(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         NumPreSelectedIndices;                             // 0x0068(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_6C[0x4];                                       // 0x006C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
@@ -26132,7 +26132,7 @@ public:
 	struct FVector                                NormalsCylinderDirection;                          // 0x0130(0x000C)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	uint8                                         bOrbitModuleAffectsVelocityAlignment : 1;          // 0x013C(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_13D[0x3];                                      // 0x013D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FName>                           NamedMaterialOverrides;                            // 0x0140(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<FName>                           NamedMaterialOverrides;                            // 0x0140(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_150[0x20];                                     // 0x0150(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
@@ -26406,7 +26406,7 @@ class UParticleModuleTrailSource final : public UParticleModuleTrailBase
 public:
 	ETrail2SourceMethod                           SourceMethod;                                      // 0x0030(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   SourceName;                                        // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SourceName;                                        // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FRawDistributionFloat                  SourceStrength;                                    // 0x0040(0x0038)(Edit, ContainsInstancedReference, NativeAccessSpecifierPublic)
 	uint8                                         bLockSourceStength : 1;                            // 0x0078(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_79[0x3];                                       // 0x0079(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
@@ -26485,7 +26485,7 @@ public:
 	uint8                                         Pad_4D[0x3];                                       // 0x004D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	int32                                         UpVectorStepSize;                                  // 0x0050(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_54[0x4];                                       // 0x0054(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   BranchParentName;                                  // 0x0058(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   BranchParentName;                                  // 0x0058(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FRawDistributionFloat                  Distance;                                          // 0x0060(0x0038)(Edit, ContainsInstancedReference, NativeAccessSpecifierPublic)
 	EBeamTaperMethod                              TaperMethod;                                       // 0x0098(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_99[0x7];                                       // 0x0099(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
@@ -26869,7 +26869,7 @@ static_assert(offsetof(USoundNodeAttenuation, AttenuationOverrides) == 0x000040,
 class USoundNodeBranch final : public USoundNode
 {
 public:
-	class FName                                   BoolParameterName;                                 // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   BoolParameterName;                                 // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -26934,7 +26934,7 @@ static_assert(offsetof(USoundNodeDialoguePlayer, DialogueWaveParameter) == 0x000
 class USoundNodeParamCrossFade final : public USoundNodeDistanceCrossFade
 {
 public:
-	class FName                                   ParamName;                                         // 0x0048(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   ParamName;                                         // 0x0048(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -27184,7 +27184,7 @@ static_assert(offsetof(USoundNodeSoundClass, SoundClassOverride) == 0x000038, "M
 class USoundNodeWaveParam final : public USoundNode
 {
 public:
-	class FName                                   WaveParameterName;                                 // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   WaveParameterName;                                 // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -27278,7 +27278,7 @@ static_assert(offsetof(UStaticMesh, NavCollision) == 0x000140, "Member 'UStaticM
 class UStaticMeshSocket final : public UObject
 {
 public:
-	class FName                                   SocketName;                                        // 0x0028(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SocketName;                                        // 0x0028(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                RelativeLocation;                                  // 0x0030(0x000C)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FRotator                               RelativeRotation;                                  // 0x003C(0x000C)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	struct FVector                                RelativeScale;                                     // 0x0048(0x000C)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)

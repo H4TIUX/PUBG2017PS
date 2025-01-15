@@ -52,8 +52,8 @@ static_assert(offsetof(UAchievementQueryCallbackProxy, OnFailure) == 0x000038, "
 class UAchievementBlueprintLibrary final : public UBlueprintFunctionLibrary
 {
 public:
-	static void GetCachedAchievementDescription(class UObject* WorldContextObject, class APlayerController* PlayerController, class FName AchievementID, bool* bFoundID, class FText* Title, class FText* LockedDescription, class FText* UnlockedDescription, bool* bHidden);
-	static void GetCachedAchievementProgress(class UObject* WorldContextObject, class APlayerController* PlayerController, class FName AchievementID, bool* bFoundID, float* Progress);
+	static void GetCachedAchievementDescription(class UObject* WorldContextObject, class APlayerController* PlayerController, struct FName AchievementID, bool* bFoundID, class FText* Title, class FText* LockedDescription, class FText* UnlockedDescription, bool* bHidden);
+	static void GetCachedAchievementProgress(class UObject* WorldContextObject, class APlayerController* PlayerController, struct FName AchievementID, bool* bFoundID, float* Progress);
 
 public:
 	static class UClass* StaticClass()
@@ -78,7 +78,7 @@ public:
 	uint8                                         Pad_48[0x30];                                      // 0x0048(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	static class UAchievementWriteCallbackProxy* WriteAchievementProgress(class UObject* WorldContextObject, class APlayerController* PlayerController, class FName AchievementName, float Progress, int32 UserTag);
+	static class UAchievementWriteCallbackProxy* WriteAchievementProgress(class UObject* WorldContextObject, class APlayerController* PlayerController, struct FName AchievementName, float Progress, int32 UserTag);
 
 public:
 	static class UClass* StaticClass()
@@ -446,7 +446,7 @@ static_assert(offsetof(UJoinSessionCallbackProxy, OnFailure) == 0x000038, "Membe
 class ULeaderboardBlueprintLibrary final : public UBlueprintFunctionLibrary
 {
 public:
-	static bool WriteLeaderboardInteger(class APlayerController* PlayerController, class FName StatName, int32 StatValue);
+	static bool WriteLeaderboardInteger(class APlayerController* PlayerController, struct FName StatName, int32 StatValue);
 
 public:
 	static class UClass* StaticClass()
@@ -471,7 +471,7 @@ public:
 	uint8                                         Pad_48[0x58];                                      // 0x0048(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	static class ULeaderboardFlushCallbackProxy* CreateProxyObjectForFlush(class APlayerController* PlayerController, class FName SessionName);
+	static class ULeaderboardFlushCallbackProxy* CreateProxyObjectForFlush(class APlayerController* PlayerController, struct FName SessionName);
 
 public:
 	static class UClass* StaticClass()
@@ -498,7 +498,7 @@ public:
 	uint8                                         Pad_48[0x88];                                      // 0x0048(0x0088)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	static class ULeaderboardQueryCallbackProxy* CreateProxyObjectForIntQuery(class APlayerController* PlayerController, class FName StatName);
+	static class ULeaderboardQueryCallbackProxy* CreateProxyObjectForIntQuery(class APlayerController* PlayerController, struct FName StatName);
 
 public:
 	static class UClass* StaticClass()
@@ -603,12 +603,12 @@ static_assert(offsetof(AOnlineBeaconClient, ConnectionState) == 0x0003D8, "Membe
 class UPartyBeaconState final : public UObject
 {
 public:
-	class FName                                   SessionName;                                       // 0x0028(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FName                                   SessionName;                                       // 0x0028(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	int32                                         NumConsumedReservations;                           // 0x0030(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	int32                                         MaxReservations;                                   // 0x0034(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	int32                                         NumTeams;                                          // 0x0038(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	int32                                         NumPlayersPerTeam;                                 // 0x003C(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class FName                                   TeamAssignmentMethod;                              // 0x0040(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FName                                   TeamAssignmentMethod;                              // 0x0040(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	int32                                         ReservedHostTeamNum;                               // 0x0048(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	int32                                         ForceTeamNum;                                      // 0x004C(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	TArray<struct FPartyReservation>              Reservations;                                      // 0x0050(0x0010)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)

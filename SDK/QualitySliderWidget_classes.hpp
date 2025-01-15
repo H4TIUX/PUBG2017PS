@@ -30,7 +30,7 @@ public:
 	float                                         RangeMin;                                          // 0x0268(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn)
 	float                                         RangeMax;                                          // 0x026C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn)
 	class FText                                   QualityName;                                       // 0x0270(0x0018)(Edit, BlueprintVisible, ExposeOnSpawn)
-	class FName                                   MouseSensitiveName;                                // 0x0288(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn)
+	struct FName                                   MouseSensitiveName;                                // 0x0288(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn)
 
 public:
 	void ExecuteUbergraph_QualitySliderWidget(int32 EntryPoint);

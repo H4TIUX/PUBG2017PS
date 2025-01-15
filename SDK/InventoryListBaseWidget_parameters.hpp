@@ -499,7 +499,7 @@ public:
 	uint8                                         Pad_D1[0x7];                                       // 0x00D1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	TScriptInterface<class ISlotInterface>        CallFunc_GetSlotItem_SlotItem;                     // 0x00D8(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	TScriptInterface<class ISlotContainerInterface> CallFunc_GetSlotContainer_SlotContainer;           // 0x00E8(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	class FName                                   CallFunc_GetActionName_ReturnValue;                // 0x00F8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	struct FName                                   CallFunc_GetActionName_ReturnValue;                // 0x00F8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	bool                                          CallFunc_EqualEqual_NameName_ReturnValue;          // 0x0100(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
 };
 static_assert(alignof(InventoryListBaseWidget_C_OnDrop) == 0x000008, "Wrong alignment on InventoryListBaseWidget_C_OnDrop");

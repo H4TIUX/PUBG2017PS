@@ -622,11 +622,11 @@ bool UBlueprintGameplayTagLibrary::NotEqual_TagTag(const struct FGameplayTag& A,
 // Function GameplayTags.GameplayTagsManager.RequestGameplayTag
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             TagName                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             TagName                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ErrorIfNotFound                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FGameplayTag                     ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
-struct FGameplayTag UGameplayTagsManager::RequestGameplayTag(class FName TagName, bool ErrorIfNotFound) const
+struct FGameplayTag UGameplayTagsManager::RequestGameplayTag(struct FName TagName, bool ErrorIfNotFound) const
 {
 	static class UFunction* Func = nullptr;
 

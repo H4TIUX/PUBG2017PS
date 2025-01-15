@@ -197,7 +197,7 @@ class UAkGameplayStatics final : public UBlueprintFunctionLibrary
 public:
 	static void AddOutputCaptureMarker(const class FString& MarkerText);
 	static void ClearBanks();
-	static class UAkComponent* GetAkComponent(class USceneComponent* AttachToComponent, class FName AttachPointName, const struct FVector& Location, EAttachLocation LocationType);
+	static class UAkComponent* GetAkComponent(class USceneComponent* AttachToComponent, struct FName AttachPointName, const struct FVector& Location, EAttachLocation LocationType);
 	static void LoadBank(class UAkAudioBank* Bank, const class FString& BankName);
 	static void LoadBankByName(const class FString& BankName);
 	static void LoadBanks(const TArray<class UAkAudioBank*>& SoundBanks, bool SynchronizeSoundBanks);
@@ -205,14 +205,14 @@ public:
 	static int32 PostEvent(class UAkAudioEvent* AkEvent, class AActor* Actor, bool bStopWhenAttachedToDestroyed, const class FString& EventName);
 	static int32 PostEventAtLocation(class UAkAudioEvent* AkEvent, const struct FVector& Location, const struct FRotator& Orientation, const class FString& EventName, class UObject* WorldContextObject);
 	static void PostEventAtLocationByName(const class FString& EventName, const struct FVector& Location, const struct FRotator& Orientation, class UObject* WorldContextObject);
-	static int32 PostEventAttached(class UAkAudioEvent* AkEvent, class AActor* Actor, class FName AttachPointName, bool bStopWhenAttachedToDestroyed, const class FString& EventName);
+	static int32 PostEventAttached(class UAkAudioEvent* AkEvent, class AActor* Actor, struct FName AttachPointName, bool bStopWhenAttachedToDestroyed, const class FString& EventName);
 	static void PostEventByName(const class FString& EventName, class AActor* Actor, bool bStopWhenAttachedToDestroyed);
-	static void PostTrigger(class FName Trigger, class AActor* Actor);
+	static void PostTrigger(struct FName Trigger, class AActor* Actor);
 	static void SetOcclusionRefreshInterval(float RefreshInterval, class AActor* Actor);
 	static void SetOutputBusVolume(float BusVolume, class AActor* Actor);
-	static void SetRTPCValue(class FName RTPC, float Value, int32 InterpolationTimeMs, class AActor* Actor);
-	static void SetState(class FName StateGroup, class FName State);
-	static void SetSwitch(class FName SwitchGroup, class FName SwitchState, class AActor* Actor);
+	static void SetRTPCValue(struct FName RTPC, float Value, int32 InterpolationTimeMs, class AActor* Actor);
+	static void SetState(struct FName StateGroup, struct FName State);
+	static void SetSwitch(struct FName SwitchGroup, struct FName SwitchState, class AActor* Actor);
 	static class UAkComponent* SpawnAkComponentAtLocation(class UObject* WorldContextObject, class UAkAudioEvent* AkEvent, const struct FVector& Location, const struct FRotator& Orientation, bool AutoPost, const class FString& EventName, bool AutoDestroy);
 	static void StartAllAmbientSounds(class UObject* WorldContextObject);
 	static void StartOutputCapture(const class FString& Filename);

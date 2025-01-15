@@ -335,7 +335,7 @@ class UPropertyBinding : public UObject
 public:
 	TWeakObjectPtr<class UObject>                 SourceObject;                                      // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, NativeAccessSpecifierPublic)
 	struct FDynamicPropertyPath                   SourcePath;                                        // 0x0030(0x0010)(NativeAccessSpecifierPublic)
-	class FName                                   DestinationProperty;                               // 0x0040(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   DestinationProperty;                               // 0x0040(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -406,7 +406,7 @@ public:
 	void AddToViewport(int32 ZOrder);
 	void Construct();
 	void Destruct();
-	void ListenForInputAction(class FName ActionName, EInputEvent EventType, bool bConsume, TDelegate<void()> Callback);
+	void ListenForInputAction(struct FName ActionName, EInputEvent EventType, bool bConsume, TDelegate<void()> Callback);
 	struct FEventReply OnAnalogValueChanged(const struct FGeometry& MyGeometry, const struct FAnalogInputEvent& InAnalogInputEvent);
 	void OnAnimationFinished(const class UWidgetAnimation* Animation);
 	void OnAnimationStarted(const class UWidgetAnimation* Animation);
@@ -459,7 +459,7 @@ public:
 	void SetPositionInViewport(const struct FVector2D& Position, bool bRemoveDPIScale);
 	void StopAnimation(const class UWidgetAnimation* InAnimation);
 	void StopListeningForAllInputActions();
-	void StopListeningForInputAction(class FName ActionName, EInputEvent EventType);
+	void StopListeningForInputAction(struct FName ActionName, EInputEvent EventType);
 	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void UnregisterInputComponent();
 
@@ -472,7 +472,7 @@ public:
 	bool IsAnyAnimationPlaying() const;
 	bool IsInteractable() const;
 	bool IsInViewport() const;
-	bool IsListeningForInputAction(class FName ActionName) const;
+	bool IsListeningForInputAction(struct FName ActionName) const;
 	bool IsPlayingAnimation() const;
 	void OnPaint(struct FPaintContext& Context) const;
 
@@ -610,8 +610,8 @@ static_assert(sizeof(UMovieSceneMarginTrack) == 0x000050, "Wrong size on UMovieS
 class UMovieSceneWidgetMaterialTrack final : public UMovieSceneMaterialTrack
 {
 public:
-	TArray<class FName>                           BrushPropertyNamePath;                             // 0x0038(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
-	class FName                                   TrackName;                                         // 0x0048(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	TArray<struct FName>                           BrushPropertyNamePath;                             // 0x0038(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
+	struct FName                                   TrackName;                                         // 0x0048(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 
 public:
 	static class UClass* StaticClass()
@@ -2198,12 +2198,12 @@ public:
 	int32                                         Phase;                                             // 0x0140(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         PhaseCount;                                        // 0x0144(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UMaterialInterface*                     EffectMaterial;                                    // 0x0148(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class FName                                   TextureParameter;                                  // 0x0150(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FName                                   TextureParameter;                                  // 0x0150(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         Pad_158[0x10];                                     // 0x0158(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void SetEffectMaterial(class UMaterialInterface* EffectMaterial_0);
-	void SetTextureParameter(class FName TextureParameter_0);
+	void SetTextureParameter(struct FName TextureParameter_0);
 
 	class UMaterialInstanceDynamic* GetEffectMaterial() const;
 
@@ -3249,7 +3249,7 @@ public:
 	class UWidgetTree*                            WidgetTree;                                        // 0x02F8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<struct FDelegateRuntimeBinding>        Bindings;                                          // 0x0300(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 	TArray<class UWidgetAnimation*>               Animations;                                        // 0x0310(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<class FName>                           NamedSlots;                                        // 0x0320(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FName>                           NamedSlots;                                        // 0x0320(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 	uint8                                         bCanEverTick : 1;                                  // 0x0330(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bCanEverPaint : 1;                                 // 0x0330(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_331[0x7];                                      // 0x0331(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -3289,7 +3289,7 @@ public:
 	static void DrawLine(struct FPaintContext& Context, const struct FVector2D& PositionA, const struct FVector2D& PositionB, const struct FLinearColor& Tint, bool bAntiAlias);
 	static void DrawLines(struct FPaintContext& Context, const TArray<struct FVector2D>& Points, const struct FLinearColor& Tint, bool bAntiAlias);
 	static void DrawText(struct FPaintContext& Context, const class FString& inString, const struct FVector2D& Position, const struct FLinearColor& Tint);
-	static void DrawTextFormatted(struct FPaintContext& Context, const class FText& Text, const struct FVector2D& Position, class UFont* Font, int32 FontSize, class FName FontTypeFace, const struct FLinearColor& Tint);
+	static void DrawTextFormatted(struct FPaintContext& Context, const class FText& Text, const struct FVector2D& Position, class UFont* Font, int32 FontSize, struct FName FontTypeFace, const struct FLinearColor& Tint);
 	static struct FEventReply EndDragDrop(struct FEventReply& Reply);
 	static void GetAllWidgetsOfClass(class UObject* WorldContextObject, TArray<class UUserWidget*>* FoundWidgets, TSubclassOf<class UUserWidget> WidgetClass, bool TopLevelOnly);
 	static void GetAllWidgetsWithInterface(class UObject* WorldContextObject, TSubclassOf<class IInterface> Interface, TArray<class UUserWidget*>* FoundWidgets, bool TopLevelOnly);
@@ -3383,7 +3383,7 @@ public:
 	bool                                          bAddedToScreen;                                    // 0x0860(0x0001)(ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	bool                                          bEditTimeUsable;                                   // 0x0861(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         Pad_862[0x6];                                      // 0x0862(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   SharedLayerName;                                   // 0x0868(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FName                                   SharedLayerName;                                   // 0x0868(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	int32                                         LayerZOrder;                                       // 0x0870(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         Pad_874[0x3C];                                     // 0x0874(0x003C)(Fixing Struct Size After Last Property [ Dumper-7 ])
 

@@ -41,9 +41,9 @@ void UTslItemDragDropOperation_C::GetOptions(class FString* Options)
 // Function TslItemDragDropOperation.TslItemDragDropOperation_C.GetActionName
 // (Public, HasOutParams, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
-// class FName                             ActionName_0                                           (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
+// struct FName                             ActionName_0                                           (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
 
-void UTslItemDragDropOperation_C::GetActionName(class FName* ActionName_0)
+void UTslItemDragDropOperation_C::GetActionName(struct FName* ActionName_0)
 {
 	static class UFunction* Func = nullptr;
 

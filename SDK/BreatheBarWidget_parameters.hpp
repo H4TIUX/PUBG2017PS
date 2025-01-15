@@ -26,12 +26,12 @@ public:
 	int32                                         EntryPoint;                                        // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	class APlayerController*                      CallFunc_GetOwningPlayer_ReturnValue;              // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	TDelegate<void(class FName BuffName, bool bStart)> K2Node_CreateDelegate_OutputDelegate;              // 0x0010(0x0010)(ZeroConstructor, NoDestructor)
+	TDelegate<void(struct FName BuffName, bool bStart)> K2Node_CreateDelegate_OutputDelegate;              // 0x0010(0x0010)(ZeroConstructor, NoDestructor)
 	class AHUD*                                   CallFunc_GetHUD_ReturnValue;                       // 0x0020(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	class ATslHUD*                                K2Node_DynamicCast_AsTsl_HUD;                      // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	bool                                          K2Node_DynamicCast_bSuccess;                       // 0x0030(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   K2Node_CustomEvent_BuffName;                       // 0x0038(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	struct FName                                   K2Node_CustomEvent_BuffName;                       // 0x0038(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	bool                                          K2Node_CustomEvent_bStart;                         // 0x0040(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	bool                                          K2Node_SwitchName_CmpSuccess;                      // 0x0041(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	uint8                                         Pad_42[0x2];                                       // 0x0042(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
@@ -70,7 +70,7 @@ static_assert(offsetof(BreatheBarWidget_C_Tick, InDeltaTime) == 0x000034, "Membe
 struct alignas(0x08) BreatheBarWidget_C_OnStartBuff final
 {
 public:
-	class FName                                   BuffName;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
+	struct FName                                   BuffName;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
 	bool                                          bStart;                                            // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
 };
 static_assert(alignof(BreatheBarWidget_C_OnStartBuff) == 0x000008, "Wrong alignment on BreatheBarWidget_C_OnStartBuff");

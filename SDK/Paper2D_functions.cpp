@@ -1745,9 +1745,9 @@ struct FTransform UTileMapBlueprintLibrary::GetTileTransform(const struct FPaper
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // struct FPaperTileInfo                   Tile                                                   (Parm, NativeAccessSpecifierPublic)
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName UTileMapBlueprintLibrary::GetTileUserData(const struct FPaperTileInfo& Tile)
+struct FName UTileMapBlueprintLibrary::GetTileUserData(const struct FPaperTileInfo& Tile)
 {
 	static class UFunction* Func = nullptr;
 

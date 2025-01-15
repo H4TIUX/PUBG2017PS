@@ -332,7 +332,7 @@ public:
 	ESlateBrushImageType                          ImageType;                                         // 0x0062(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_63[0x5];                                       // 0x0063(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
 	class UObject*                                ResourceObject;                                    // 0x0068(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class FName                                   ResourceName;                                      // 0x0070(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FName                                   ResourceName;                                      // 0x0070(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	bool                                          bIsDynamicallyLoaded;                              // 0x0078(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	bool                                          bHasUObject;                                       // 0x0079(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         Pad_7A[0x2];                                       // 0x007A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
@@ -481,9 +481,9 @@ public:
 	struct FSlateSound                            CheckedSlateSound;                                 // 0x0580(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	struct FSlateSound                            UncheckedSlateSound;                               // 0x0598(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	struct FSlateSound                            HoveredSlateSound;                                 // 0x05B0(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	class FName                                   CheckedSound;                                      // 0x05C8(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   UncheckedSound;                                    // 0x05D0(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   HoveredSound;                                      // 0x05D8(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   CheckedSound;                                      // 0x05C8(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   UncheckedSound;                                    // 0x05D0(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   HoveredSound;                                      // 0x05D8(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FCheckBoxStyle) == 0x000008, "Wrong alignment on FCheckBoxStyle");
 static_assert(sizeof(FCheckBoxStyle) == 0x0005E0, "Wrong size on FCheckBoxStyle");
@@ -589,10 +589,10 @@ public:
 	class UObject*                                FontMaterial;                                      // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FFontOutlineSettings                   OutlineSettings;                                   // 0x0010(0x0028)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	uint8                                         Pad_38[0x10];                                      // 0x0038(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   TypefaceFontName;                                  // 0x0048(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   TypefaceFontName;                                  // 0x0048(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         Size;                                              // 0x0050(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_54[0x4];                                       // 0x0054(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   FontName;                                          // 0x0058(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FName                                   FontName;                                          // 0x0058(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	EFontHinting                                  Hinting;                                           // 0x0060(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_61[0x7];                                       // 0x0061(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -619,8 +619,8 @@ public:
 	struct FMargin                                PressedPadding;                                    // 0x0258(0x0010)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	struct FSlateSound                            PressedSlateSound;                                 // 0x0268(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	struct FSlateSound                            HoveredSlateSound;                                 // 0x0280(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	class FName                                   PressedSound;                                      // 0x0298(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   HoveredSound;                                      // 0x02A0(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   PressedSound;                                      // 0x0298(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   HoveredSound;                                      // 0x02A0(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FButtonStyle) == 0x000008, "Wrong alignment on FButtonStyle");
 static_assert(sizeof(FButtonStyle) == 0x0002A8, "Wrong size on FButtonStyle");
@@ -660,8 +660,8 @@ public:
 	struct FComboButtonStyle                      ComboButtonStyle;                                  // 0x0008(0x03E0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	struct FSlateSound                            PressedSlateSound;                                 // 0x03E8(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	struct FSlateSound                            SelectionChangeSlateSound;                         // 0x0400(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	class FName                                   PressedSound;                                      // 0x0418(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   SelectionChangeSound;                              // 0x0420(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   PressedSound;                                      // 0x0418(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   SelectionChangeSound;                              // 0x0420(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FComboBoxStyle) == 0x000008, "Wrong alignment on FComboBoxStyle");
 static_assert(sizeof(FComboBoxStyle) == 0x000428, "Wrong size on FComboBoxStyle");
@@ -704,7 +704,7 @@ static_assert(offsetof(FFontData, FontData) == 0x000020, "Member 'FFontData::Fon
 struct FTypefaceEntry final
 {
 public:
-	class FName                                   Name;                                              // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FName                                   Name;                                              // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FFontData                              Font;                                              // 0x0008(0x0030)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FTypefaceEntry) == 0x000008, "Wrong alignment on FTypefaceEntry");

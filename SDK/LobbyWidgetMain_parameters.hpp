@@ -21,8 +21,8 @@ struct alignas(0x08) LobbyWidgetMain_C_ExecuteUbergraph_LobbyWidgetMain final
 public:
 	int32                                         EntryPoint;                                        // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   K2Node_Event_NewState;                             // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	class FName                                   K2Node_Event_OldState;                             // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	struct FName                                   K2Node_Event_NewState;                             // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	struct FName                                   K2Node_Event_OldState;                             // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
 };
 static_assert(alignof(LobbyWidgetMain_C_ExecuteUbergraph_LobbyWidgetMain) == 0x000008, "Wrong alignment on LobbyWidgetMain_C_ExecuteUbergraph_LobbyWidgetMain");
 static_assert(sizeof(LobbyWidgetMain_C_ExecuteUbergraph_LobbyWidgetMain) == 0x000018, "Wrong size on LobbyWidgetMain_C_ExecuteUbergraph_LobbyWidgetMain");
@@ -35,8 +35,8 @@ static_assert(offsetof(LobbyWidgetMain_C_ExecuteUbergraph_LobbyWidgetMain, K2Nod
 struct alignas(0x08) LobbyWidgetMain_C_GameStateChanging final
 {
 public:
-	class FName                                   NewState;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
-	class FName                                   OldState;                                          // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
+	struct FName                                   NewState;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
+	struct FName                                   OldState;                                          // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
 };
 static_assert(alignof(LobbyWidgetMain_C_GameStateChanging) == 0x000008, "Wrong alignment on LobbyWidgetMain_C_GameStateChanging");
 static_assert(sizeof(LobbyWidgetMain_C_GameStateChanging) == 0x000010, "Wrong size on LobbyWidgetMain_C_GameStateChanging");
@@ -48,8 +48,8 @@ static_assert(offsetof(LobbyWidgetMain_C_GameStateChanging, OldState) == 0x00000
 struct LobbyWidgetMain_C_SendGameStateChangingToWeb final
 {
 public:
-	class FName                                   InName;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
-	class FName                                   InName2;                                           // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
+	struct FName                                   InName;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
+	struct FName                                   InName2;                                           // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
 	class FString                                 CallFunc_Conv_NameToString_ReturnValue;            // 0x0010(0x0010)(ZeroConstructor)
 	class UCoherentUIGTJSEvent*                   CallFunc_CreateJSEvent_ReturnValue;                // 0x0020(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	bool                                          CallFunc_IsReadyForBindings_ReturnValue;           // 0x0028(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)

@@ -179,7 +179,7 @@ static_assert(offsetof(FCompilationOptions, OptimizationLevel) == 0x000004, "Mem
 struct FCustomizedMaterialTexture2D final
 {
 public:
-	class FName                                   Name;                                              // 0x0000(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   Name;                                              // 0x0000(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UTexture2D*                             Texture;                                           // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FCustomizedMaterialTexture2D) == 0x000008, "Wrong alignment on FCustomizedMaterialTexture2D");

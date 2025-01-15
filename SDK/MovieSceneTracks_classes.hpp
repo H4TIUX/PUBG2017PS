@@ -21,7 +21,7 @@ namespace SDK
 
 // Class MovieSceneTracks.MovieScene3DConstraintSection
 // 0x0010 (0x0050 - 0x0040)
-class UMovieScene3DConstraintSection : public UMovieSceneSection
+class alignas(8) UMovieScene3DConstraintSection : public UMovieSceneSection
 {
 public:
 	struct FGuid                                  ConstraintId;                                      // 0x0040(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, NativeAccessSpecifierProtected)
@@ -45,8 +45,8 @@ static_assert(offsetof(UMovieScene3DConstraintSection, ConstraintId) == 0x000040
 class UMovieScene3DAttachSection final : public UMovieScene3DConstraintSection
 {
 public:
-	class FName                                   AttachSocketName;                                  // 0x0050(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   AttachComponentName;                               // 0x0058(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   AttachSocketName;                                  // 0x0050(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   AttachComponentName;                               // 0x0058(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         bConstrainTx : 1;                                  // 0x0060(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bConstrainTy : 1;                                  // 0x0060(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bConstrainTz : 1;                                  // 0x0060(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -381,7 +381,7 @@ static_assert(offsetof(UMovieSceneCameraAnimTrack, CameraAnimSections) == 0x0000
 
 // Class MovieSceneTracks.MovieSceneCameraCutSection
 // 0x0010 (0x0050 - 0x0040)
-class UMovieSceneCameraCutSection final : public UMovieSceneSection
+class alignas(8) UMovieSceneCameraCutSection final : public UMovieSceneSection
 {
 public:
 	struct FGuid                                  CameraGuid;                                        // 0x0040(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPrivate)
@@ -613,7 +613,7 @@ class UMovieSceneLevelVisibilitySection final : public UMovieSceneSection
 public:
 	ELevelVisibility                              Visibility;                                        // 0x0040(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_41[0x7];                                       // 0x0041(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FName>                           LevelNames;                                        // 0x0048(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+	TArray<struct FName>                           LevelNames;                                        // 0x0048(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
 
 public:
 	static class UClass* StaticClass()
@@ -635,7 +635,7 @@ static_assert(offsetof(UMovieSceneLevelVisibilitySection, LevelNames) == 0x00004
 class UMovieScenePropertyTrack : public UMovieSceneNameableTrack
 {
 public:
-	class FName                                   PropertyName;                                      // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FName                                   PropertyName;                                      // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	class FString                                 PropertyPath;                                      // 0x0030(0x0010)(ZeroConstructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	TArray<class UMovieSceneSection*>             Sections;                                          // 0x0040(0x0010)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
 
@@ -1020,7 +1020,7 @@ public:
 	float                                         PlayRate;                                          // 0x0058(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	uint8                                         bReverse : 1;                                      // 0x005C(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
 	uint8                                         Pad_5D[0x3];                                       // 0x005D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   SlotName;                                          // 0x0060(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	FName                                   SlotName;                                          // 0x0060(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 
 public:
 	static class UClass* StaticClass()

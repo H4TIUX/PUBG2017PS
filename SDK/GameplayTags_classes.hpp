@@ -302,7 +302,7 @@ public:
 	uint8                                         Pad_170[0xC0];                                     // 0x0170(0x00C0)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	struct FGameplayTag RequestGameplayTag(class FName TagName, bool ErrorIfNotFound) const;
+	struct FGameplayTag RequestGameplayTag(struct FName TagName, bool ErrorIfNotFound) const;
 
 public:
 	static class UClass* StaticClass()

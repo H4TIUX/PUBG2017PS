@@ -755,7 +755,7 @@ class UTileMapBlueprintLibrary final : public UBlueprintFunctionLibrary
 public:
 	static void BreakTile(const struct FPaperTileInfo& Tile, int32* TileIndex, class UPaperTileSet** TileSet, bool* bFlipH, bool* bFlipV, bool* bFlipD);
 	static struct FTransform GetTileTransform(const struct FPaperTileInfo& Tile);
-	static class FName GetTileUserData(const struct FPaperTileInfo& Tile);
+	static struct FName GetTileUserData(const struct FPaperTileInfo& Tile);
 	static struct FPaperTileInfo MakeTile(int32 TileIndex, class UPaperTileSet* TileSet, bool bFlipH, bool bFlipV, bool bFlipD);
 
 public:

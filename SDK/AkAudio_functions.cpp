@@ -549,12 +549,12 @@ void UAkGameplayStatics::ClearBanks()
 // (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // class USceneComponent*                  AttachToComponent                                      (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             AttachPointName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             AttachPointName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Location                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // EAttachLocation                         LocationType                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UAkComponent*                     ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UAkComponent* UAkGameplayStatics::GetAkComponent(class USceneComponent* AttachToComponent, class FName AttachPointName, const struct FVector& Location, EAttachLocation LocationType)
+class UAkComponent* UAkGameplayStatics::GetAkComponent(class USceneComponent* AttachToComponent, struct FName AttachPointName, const struct FVector& Location, EAttachLocation LocationType)
 {
 	static class UFunction* Func = nullptr;
 
@@ -783,12 +783,12 @@ void UAkGameplayStatics::PostEventAtLocationByName(const class FString& EventNam
 // Parameters:
 // class UAkAudioEvent*                    AkEvent                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class AActor*                           Actor                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             AttachPointName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             AttachPointName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bStopWhenAttachedToDestroyed                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           EventName                                              (Parm, ZeroConstructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-int32 UAkGameplayStatics::PostEventAttached(class UAkAudioEvent* AkEvent, class AActor* Actor, class FName AttachPointName, bool bStopWhenAttachedToDestroyed, const class FString& EventName)
+int32 UAkGameplayStatics::PostEventAttached(class UAkAudioEvent* AkEvent, class AActor* Actor, struct FName AttachPointName, bool bStopWhenAttachedToDestroyed, const class FString& EventName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -846,10 +846,10 @@ void UAkGameplayStatics::PostEventByName(const class FString& EventName, class A
 // Function AkAudio.AkGameplayStatics.PostTrigger
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
-// class FName                             Trigger                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             Trigger                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class AActor*                           Actor                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAkGameplayStatics::PostTrigger(class FName Trigger, class AActor* Actor)
+void UAkGameplayStatics::PostTrigger(struct FName Trigger, class AActor* Actor)
 {
 	static class UFunction* Func = nullptr;
 
@@ -927,12 +927,12 @@ void UAkGameplayStatics::SetOutputBusVolume(float BusVolume, class AActor* Actor
 // Function AkAudio.AkGameplayStatics.SetRTPCValue
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
-// class FName                             RTPC                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             RTPC                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   InterpolationTimeMs                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class AActor*                           Actor                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAkGameplayStatics::SetRTPCValue(class FName RTPC, float Value, int32 InterpolationTimeMs, class AActor* Actor)
+void UAkGameplayStatics::SetRTPCValue(struct FName RTPC, float Value, int32 InterpolationTimeMs, class AActor* Actor)
 {
 	static class UFunction* Func = nullptr;
 
@@ -958,10 +958,10 @@ void UAkGameplayStatics::SetRTPCValue(class FName RTPC, float Value, int32 Inter
 // Function AkAudio.AkGameplayStatics.SetState
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
-// class FName                             StateGroup                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             State                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             StateGroup                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             State                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAkGameplayStatics::SetState(class FName StateGroup, class FName State)
+void UAkGameplayStatics::SetState(struct FName StateGroup, struct FName State)
 {
 	static class UFunction* Func = nullptr;
 
@@ -985,11 +985,11 @@ void UAkGameplayStatics::SetState(class FName StateGroup, class FName State)
 // Function AkAudio.AkGameplayStatics.SetSwitch
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
-// class FName                             SwitchGroup                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             SwitchState                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             SwitchGroup                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             SwitchState                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class AActor*                           Actor                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UAkGameplayStatics::SetSwitch(class FName SwitchGroup, class FName SwitchState, class AActor* Actor)
+void UAkGameplayStatics::SetSwitch(struct FName SwitchGroup, struct FName SwitchState, class AActor* Actor)
 {
 	static class UFunction* Func = nullptr;
 

@@ -68,7 +68,7 @@ static_assert(offsetof(FGameplayTagTableRow, DevComment) == 0x000030, "Member 'F
 struct alignas(0x08) FGameplayTag final
 {
 public:
-	class FName                                   TagName;                                           // 0x0000(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FName                                   TagName;                                           // 0x0000(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 };
 static_assert(alignof(FGameplayTag) == 0x000008, "Wrong alignment on FGameplayTag");
 static_assert(sizeof(FGameplayTag) == 0x000008, "Wrong size on FGameplayTag");
@@ -110,7 +110,7 @@ struct FGameplayTagContainer final
 {
 public:
 	TArray<struct FGameplayTag>                   GameplayTags;                                      // 0x0000(0x0010)(BlueprintVisible, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	TArray<class FName>                           Tags;                                              // 0x0010(0x0010)(ZeroConstructor, Deprecated, NativeAccessSpecifierPrivate)
+	TArray<struct FName>                           Tags;                                              // 0x0010(0x0010)(ZeroConstructor, Deprecated, NativeAccessSpecifierPrivate)
 };
 static_assert(alignof(FGameplayTagContainer) == 0x000008, "Wrong alignment on FGameplayTagContainer");
 static_assert(sizeof(FGameplayTagContainer) == 0x000020, "Wrong size on FGameplayTagContainer");

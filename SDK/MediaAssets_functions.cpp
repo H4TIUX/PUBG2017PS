@@ -683,9 +683,9 @@ int32 UMediaPlayer::GetNumTracks(EMediaPlayerTrack TrackType) const
 // Function MediaAssets.MediaPlayer.GetPlayerName
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName UMediaPlayer::GetPlayerName() const
+struct FName UMediaPlayer::GetPlayerName() const
 {
 	static class UFunction* Func = nullptr;
 

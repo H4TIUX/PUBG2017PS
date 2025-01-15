@@ -27,8 +27,8 @@ public:
 
 public:
 	void ExecuteUbergraph_LobbyWidgetMain(int32 EntryPoint);
-	void GameStateChanging(class FName NewState, class FName OldState);
-	void SendGameStateChangingToWeb(class FName InName, class FName InName2);
+	void GameStateChanging(struct FName NewState, struct FName OldState);
+	void SendGameStateChangingToWeb(struct FName InName, struct FName InName2);
 
 public:
 	static class UClass* StaticClass()

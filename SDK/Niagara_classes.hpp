@@ -167,7 +167,7 @@ static_assert(offsetof(UNiagaraEffect, EmitterProps) == 0x000028, "Member 'UNiag
 class UNiagaraEffectRendererProperties : public UObject
 {
 public:
-	class FName                                   dummy;                                             // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   dummy;                                             // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -289,9 +289,9 @@ static_assert(offsetof(UNiagaraEventReceiverEmitterAction_SpawnParticles, NumPar
 class UNiagaraFunctionLibrary final : public UBlueprintFunctionLibrary
 {
 public:
-	static void SetUpdateScriptConstant(class UNiagaraComponent* Component, class FName EmitterName, class FName ConstantName, const struct FVector& Value);
+	static void SetUpdateScriptConstant(class UNiagaraComponent* Component, struct FName EmitterName, struct FName ConstantName, const struct FVector& Value);
 	static class UNiagaraComponent* SpawnEffectAtLocation(class UObject* WorldContextObject, class UNiagaraEffect* EffectTemplate, const struct FVector& Location, const struct FRotator& Rotation, bool bAutoDestroy);
-	static class UNiagaraComponent* SpawnEffectAttached(class UNiagaraEffect* EffectTemplate, class USceneComponent* AttachToComponent, class FName AttachPointName, const struct FVector& Location, const struct FRotator& Rotation, EAttachLocation LocationType, bool bAutoDestroy);
+	static class UNiagaraComponent* SpawnEffectAttached(class UNiagaraEffect* EffectTemplate, class USceneComponent* AttachToComponent, struct FName AttachPointName, const struct FVector& Location, const struct FRotator& Rotation, EAttachLocation LocationType, bool bAutoDestroy);
 
 public:
 	static class UClass* StaticClass()

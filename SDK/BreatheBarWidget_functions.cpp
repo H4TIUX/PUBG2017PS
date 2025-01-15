@@ -76,10 +76,10 @@ void UBreatheBarWidget_C::Construct()
 // Function BreatheBarWidget.BreatheBarWidget_C.OnStartBuff
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// class FName                             BuffName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
+// struct FName                             BuffName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
 // bool                                    bStart                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
 
-void UBreatheBarWidget_C::OnStartBuff(class FName BuffName, bool bStart)
+void UBreatheBarWidget_C::OnStartBuff(struct FName BuffName, bool bStart)
 {
 	static class UFunction* Func = nullptr;
 

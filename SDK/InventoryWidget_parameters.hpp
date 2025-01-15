@@ -562,7 +562,7 @@ public:
 	TScriptInterface<class ISlotInterface>        CallFunc_GetSlotItem_SlotItem;                     // 0x00E0(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	TScriptInterface<class ISlotContainerInterface> CallFunc_GetSlotContainer_SlotContainer;           // 0x00F0(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	class UAkAudioEvent*                          CallFunc_GetDropSound_ReturnValue;                 // 0x0100(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	class FName                                   CallFunc_GetActionName_ReturnValue;                // 0x0108(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	struct FName                                   CallFunc_GetActionName_ReturnValue;                // 0x0108(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	int32                                         CallFunc_PostEvent_ReturnValue;                    // 0x0110(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	bool                                          CallFunc_EqualEqual_NameName_ReturnValue;          // 0x0114(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x0115(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)

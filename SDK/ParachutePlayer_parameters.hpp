@@ -109,7 +109,7 @@ public:
 	class UPhysicalMaterial*                      CallFunc_BreakHitResult_PhysMat;                   // 0x03E8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	class AActor*                                 CallFunc_BreakHitResult_HitActor;                  // 0x03F0(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	class UPrimitiveComponent*                    CallFunc_BreakHitResult_HitComponent;              // 0x03F8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	class FName                                   CallFunc_BreakHitResult_HitBoneName;               // 0x0400(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	struct FName                                   CallFunc_BreakHitResult_HitBoneName;               // 0x0400(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	int32                                         CallFunc_BreakHitResult_HitItem;                   // 0x0408(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	int32                                         CallFunc_BreakHitResult_FaceIndex;                 // 0x040C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	struct FVector                                CallFunc_BreakHitResult_TraceStart;                // 0x0410(0x000C)(ZeroConstructor, IsPlainOldData, NoDestructor)

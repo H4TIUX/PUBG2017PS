@@ -34,7 +34,7 @@ public:
 	class ATslPlayerController*                   ShooterPlayerController;                           // 0x0280(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData, NoDestructor)
 	class AInventory*                             Inventory;                                         // 0x0288(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData, NoDestructor)
 	class UMaterialInstanceDynamic*               BackgroundMaterial;                                // 0x0290(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor)
-	class FName                                   ActionName;                                        // 0x0298(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor)
+	struct FName                                   ActionName;                                        // 0x0298(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor)
 	bool                                          bEnableAction;                                     // 0x02A0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor)
 	bool                                          bVicinityItem;                                     // 0x02A1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn)
 	uint8                                         Pad_2A2[0x2];                                      // 0x02A2(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
@@ -53,7 +53,7 @@ public:
 	void GetShooterPlayerController(class ATslPlayerController** ShooterPlayerController_0);
 	void GetAdditionalMaxStackCount(int32* Count);
 	void GetInventory(class AInventory** Inventory_0);
-	void GetActionName(class FName* ActionName_0);
+	void GetActionName(struct FName* ActionName_0);
 	void GettslItemDragDropOperation(class UTslItemDragDropOperation_C** AsTsl_Item_Drag_Drop_Operation);
 	void UpdateBackgroundImage(class UWidget* BoundWidget);
 	void IsEnable(bool* IsEnable_0);

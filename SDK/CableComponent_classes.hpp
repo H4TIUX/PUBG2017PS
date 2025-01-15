@@ -48,7 +48,7 @@ public:
 	bool                                          bAttachEnd;                                        // 0x0781(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_782[0x6];                                      // 0x0782(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FComponentReference                    AttachEndTo;                                       // 0x0788(0x0018)(Edit, NativeAccessSpecifierPublic)
-	class FName                                   AttachEndToSocketName;                             // 0x07A0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FName                                   AttachEndToSocketName;                             // 0x07A0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                EndLocation;                                       // 0x07A8(0x000C)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	float                                         CableLength;                                       // 0x07B4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         NumSegments;                                       // 0x07B8(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -66,7 +66,7 @@ public:
 	uint8                                         Pad_7E8[0x18];                                     // 0x07E8(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	void SetAttachEndTo(class AActor* Actor, class FName ComponentProperty, class FName SocketName);
+	void SetAttachEndTo(class AActor* Actor, struct FName ComponentProperty, struct FName SocketName);
 
 	class AActor* GetAttachedActor() const;
 	class USceneComponent* GetAttachedComponent() const;
