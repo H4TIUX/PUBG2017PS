@@ -35,3 +35,5 @@ class APawn* FindPossesablePawn();
 AStaticMeshActor* SpawnStaticMesh(UStaticMesh* Mesh, FTransform Location);
 
 void InitUEConsole();
+
+bool isMatchStarting();

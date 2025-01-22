@@ -126,23 +126,26 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <LanguageStandard_C>stdclatest</LanguageStandard_C>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalOptions>
       </AdditionalOptions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>libcmtd.lib</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Config\IniSettings.cpp" />
     <ClCompile Include="Helpers\Helpers.cpp" />
+    <ClCompile Include="Logics\Fixes.cpp" />
     <ClCompile Include="Logs\Log.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Network\Network.cpp" />
@@ -154,6 +157,8 @@
     <ClCompile Include="Spawners\ItemSpawner.cpp" />
     <ClCompile Include="Spawners\SpawnEquipments.cpp" />
     <ClCompile Include="SpawnPoints\Spawnpoints.cpp" />
+    <ClCompile Include="Logics\StartMatchAirplane.cpp" />
+    <ClCompile Include="Logics\StartMatchRandom.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h" />
@@ -172,6 +177,10 @@
     <ClInclude Include="Spawners\ItemSpawner.h" />
     <ClInclude Include="Spawners\SpawnEquipments.h" />
     <ClInclude Include="SpawnPoints\Spawnpoints.h" />
+    <ClInclude Include="Logics\Logics.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="settings.ini" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

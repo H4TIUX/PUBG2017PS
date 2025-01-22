@@ -1,8 +1,6 @@
 #include "Spawnpoints.h"
 int min_max_point = 30000;
 
-// Credits to Detanup01 for the spawn positions
-
 std::vector<FVector> ExistingSpawnpoints =
 {
     FVector(123000, 143400, 10000), // Zharki near field
@@ -30,6 +28,8 @@ std::vector<FVector> ExistingSpawnpoints =
     FVector(318000, 318000, 10000), // Ruins
     FVector(430000, 185000, 10000), // East bunkes és Yasnaya közötti rész
     FVector(318000, 185000, 10000), // Gun range Plane crach köze, hegytetõ
+
+    //FVector(0,0,0), // test
 };
 
 int random(int min, int max)
@@ -51,9 +51,18 @@ FVector RandomVector_FromExisting()
 
 FVector RandomizingVector(FVector vector)
 {
-    vector.X = random(vector.X - min_max_point, vector.X + min_max_point);
-    vector.Y = random(vector.Y - min_max_point, vector.Y + min_max_point);
+    vector.X = (float)random((int)vector.X - min_max_point, (int)vector.X + min_max_point);
+    vector.Y = (float)random((int)vector.Y - min_max_point, (int)vector.Y + min_max_point);
     return vector;
+}
+
+void InitSpawnpoints()
+{
+    auto points = GetSpawnpoints();
+    for (auto point : points)
+    {
+        ExistingSpawnpoints.push_back(point);
+    }
 }
 
 FVector GetRandomPoint()

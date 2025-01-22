@@ -10,12 +10,11 @@
 // WackyHacky is a monkey (But we love him, respect) 
 // Jerry saved our asses many times (Unfuckery dev)
 // Tym helped us deploy the servers and develop the lobby, thank you sm <3
-// Detanup01 helped us doing some code cleanup and adding different spawn points, credits to him 
-
-// To open the UE console in-game, press F2
+// Detanup01 by cleaning the big AF file to multiple smallers
 
 #include "Common.h"
 #include "Config/IniSettings.h"
+#include "Logics/Logics.h"
 #include "SpawnPoints/Spawnpoints.h"
 
 #pragma warning(disable: 4996)
@@ -29,11 +28,13 @@
 using namespace SDK;
 
 // Basic.cpp was added to the VS project
-// Engine_functions.cpp was added to the VS projec
+// Engine_functions.cpp was added to the VS project
+
 
 void DisableCullingForAllActors(UWorld* World) // Function half made by ChatGPT half made by me that saved my ass completely
 {
-    if (!World) {
+    if (!World)
+    {
         CUSTOMLOG("DisableCullingForAllActors: World is null.");
         return;
     }
@@ -44,34 +45,40 @@ void DisableCullingForAllActors(UWorld* World) // Function half made by ChatGPT 
     SDK::TArray < SDK::AActor* >& AllActors = Level->Actors;
 
     // Ignore persistent level, focus on streaming levels
-    for (ULevelStreaming* StreamingLevel : World->StreamingLevels) {
-        if (StreamingLevel) {
+    for (ULevelStreaming* StreamingLevel : World->StreamingLevels)
+    {
+        if (StreamingLevel)
+        {
             std::string LevelName = StreamingLevel->GetName();
 
             CUSTOMLOG("We are iterating the level: " + LevelName);
 
             // Skip persistent level and ignored levels
-            if (LevelName.contains("327")) {
+            if (LevelName.find("327") != std::string::npos)
+            {
                 CUSTOMLOG("Skipping level: " + LevelName);
                 continue;
             }
 
-            if (LevelName.contains("328")) {
+            if (LevelName.find("328") != std::string::npos)
+            {
                 CUSTOMLOG("Skipping level: " + LevelName);
                 continue;
             }
 
-            if (LevelName.contains("329")) {
+            if (LevelName.find("329") != std::string::npos)
+            {
                 CUSTOMLOG("Skipping level: " + LevelName);
                 continue;
             }
 
-            if (LevelName.contains("32")) {
+            if (LevelName.find("32") != std::string::npos)
+            {
                 CUSTOMLOG("Skipping level: " + LevelName);
                 continue;
             }
 
-            // Force load and visibility for the levels
+            // Force load and visibility for other levels
             StreamingLevel->bShouldBeLoaded = true;
             StreamingLevel->bShouldBeVisible = true;
             StreamingLevel->bDisableDistanceStreaming = true;
@@ -80,18 +87,6 @@ void DisableCullingForAllActors(UWorld* World) // Function half made by ChatGPT 
             CUSTOMLOG("Forcing load for level: " + LevelName);
         }
     }
-}
-
-// It does exactly what its name states
-bool isMatchStarting() {
-    ATslGameState* GameState = static_cast <ATslGameState*> (
-        UGameplayStatics::GetGameState(UWorld::GetWorld()));
-    if (GameState) {
-        if (GameState->RemainingTime <= 0) {
-            return true; // The match is starting (RemainingTime <= 0) so it returns true.
-        }
-    }
-    return false; // If no match is starting or GameState is null, return false.
 }
 
 std::vector<std::string> DontPrintFunctions =
@@ -112,31 +107,11 @@ std::vector<std::string> DontPrintFunctionContains =
     "OnParameterUpdated"
 };
 
-void startMatch()
-{
-    return;
-    auto MyGamemode = UGameplayStatics::GetGameMode(UWorld::GetWorld());
-    bool IsTsLGamemode = MyGamemode->IsA(ATslGameMode::StaticClass());
-
-    class ATslGameMode* _MyGamemode = static_cast <ATslGameMode*> (MyGamemode);
-
-    FText TeleportedMessage = UKismetTextLibrary::Conv_StringToText(
-        FString(L"YOU, MY FRIEND, HAVE BEEN TELEPORTED HERE!"));
-
-    TArray < class APawn* > AllPawn;
-
-    _MyGamemode->GetAllPawns(&AllPawn);
-
-    for (class APawn* CurrentPawn : AllPawn) {
-        ATslCharacter* TsL_CurrentPawn = static_cast <ATslCharacter*> (CurrentPawn);
-        TsL_CurrentPawn->bIsVaultingSystemEnabled = true; // Doesn't actually work, but test it if you want to mess around
-    }
-}
-
 void* (*ProcessEventO)(UObject* Obj, UFunction* Func, void* Func_Params);
 void* ProcessEventHook(UObject* Obj, UFunction* Func, void* Func_Params)
 {
-    if (Obj && Func) {
+    if (Obj && Func)
+    {
         std::string FuncName;
         std::string ObjName;
 
@@ -148,13 +123,12 @@ void* ProcessEventHook(UObject* Obj, UFunction* Func, void* Func_Params)
         {
             for (size_t i = 0; i < DontPrintFunctionContains.size(); i++)
             {
-                isPresent = FuncName.contains(DontPrintFunctionContains[i]);
+                isPresent = FuncName.find(DontPrintFunctionContains[i]) != std::string::npos;
                 if (isPresent)
                     break;
             }
         }
-
-        if (!isPresent && Obj->IsA(AInfo::StaticClass()) && !(FuncName.contains("BndEvt")))
+        if (!isPresent && Obj->IsA(AInfo::StaticClass()) && !(FuncName.find("BndEvt") != std::string::npos))
         {
             CUSTOMLOG(ObjName + " CALLED " + FuncName);
         }
@@ -164,44 +138,44 @@ void* ProcessEventHook(UObject* Obj, UFunction* Func, void* Func_Params)
             Params::GameMode_K2_OnSetMatchState* Parms = static_cast <Params::GameMode_K2_OnSetMatchState*> (Func_Params);
             CUSTOMLOG("K2_OnSetMatchState CALLED WITH NewState: " + Parms->NewState.ToString());
 
-            if (isMatchStarting() == true) 
+            // Fix if not inPorgress it still doing random shit.
+            if (isMatchStarting() == true && Parms->NewState.ToString().find("InProgress") != std::string::npos)
             {
-                startMatch();
+                // We calling all StartMatch logic here. We check inside the .cpp file respectivly what we using
+                StartRandomMatch();
+                StartAirplane();
             }
         }
 
-        // Teleports players to random locations right after they join
         if (FuncName == "K2_OnRestartPlayer")
         {
-            auto Params_Input = reinterpret_cast <Params::GameModeBase_K2_PostLogin*> (Func_Params);
-            auto NewPawn = Params_Input->NewPlayer->K2_GetPawn();
-
-            FTransform NewTransform;
-
-            NewTransform.Translation = GetRandomPoint();
-            FQuat Rotation;
-
-            Rotation.X = 0.0;
-            Rotation.Y = 0.0;
-            Rotation.Z = 0.0;
-            Rotation.W = 1.0;
-
-            NewTransform.Rotation = Rotation;
-            NewTransform.Scale3D = FVector(1.0, 1.0, 1.0);
-
-            struct FHitResult HitResultTeleport;
-
-            NewPawn->K2_SetActorTransform(NewTransform, false, &HitResultTeleport, true);
+            if (isMatchStarting())
+                RandomizePlayerPositionAfterMatchStart(Func_Params);
+            else
+            {
+                // this will only spawn if airplane
+                SpawnPlayerOnIsland(Func_Params);
+                // this will do when random
+                RandomizePlayerPosition(Func_Params);
+            }
+                
         }
+        if (FuncName == "K2_OnLogout" && isMatchStarting())
+        {
+            FixQuitPlayers(Func_Params);
+        }
+
         ProcessEventO(Obj, Func, Func_Params);
         return 0;
     }
 }
 
-DWORD MainThread(HMODULE Module) {
+DWORD MainThread(HMODULE Module)
+{
     /* Code to open a console window */
     AllocConsole();
     LoadIni(Module);
+    InitSpawnpoints();
     FILE* Dummy;
     freopen_s(&Dummy, "CONOUT$", "w", stdout);
     freopen_s(&Dummy, "CONIN$", "r", stdin);
@@ -214,15 +188,19 @@ DWORD MainThread(HMODULE Module) {
     SDK::UEngine* Engine = SDK::UEngine::GetEngine();
     SDK::UWorld* World = SDK::UWorld::GetWorld();
 
+    auto MyGamemode = UGameplayStatics::GetGameMode(World);
+    bool IsTsLGamemode = MyGamemode->IsA(ATslGameMode::StaticClass());
+
     /* Getting the PlayerController, World, OwningGameInstance, ... should all be
      * checked not to be nullptr! */
-    SDK::APlayerController* MyController =
-        UGameplayStatics::GetPlayerController(World, 0);
+    SDK::APlayerController* MyController =UGameplayStatics::GetPlayerController(World, 0);
 
-    if (MyController->HasAuthority()) {
-        SetCurrentNetworkStatus("SERVER_AUTHORITY");
+    if (IsTsLGamemode)
+    {
+        SetCurrentNetworkStatus("SERVER");
     }
-    else {
+    else
+    {
         SetCurrentNetworkStatus("CLIENT");
     }
 
@@ -231,34 +209,34 @@ DWORD MainThread(HMODULE Module) {
 
     CUSTOMLOG("MINHOOK STATUS INIT: " + StatusString);
 
-    if (InitStatus != MH_OK) {
+    if (InitStatus != MH_OK)
+    {
         CUSTOMLOG("MINHOOK STATUS INIT NOT OK!!!! ABORTING");
         return FALSE;
     }
 
-    uintptr_t ProcessEventAddr =
-        (uintptr_t(GetModuleHandle(0)) + Offsets::ProcessEvent);
+    uintptr_t ProcessEventAddr = (uintptr_t(GetModuleHandle(0)) + Offsets::ProcessEvent);
     // auto ProcessEventAddr = UObject::GObjects->GetByIndex(1)->Vft[0x40];
     ProcessEventO = decltype(ProcessEventO)(ProcessEventAddr);
 
-    auto HookResult = MH_CreateHook((PVOID&)ProcessEventAddr, ProcessEventHook,
-        reinterpret_cast <LPVOID*> (&ProcessEventO));
+    auto HookResult = MH_CreateHook((PVOID&)ProcessEventAddr, ProcessEventHook, reinterpret_cast <LPVOID*> (&ProcessEventO));
     std::string HookResultString = MH_StatusToString(HookResult);
 
-    if (HookResult != MH_STATUS::MH_OK) {
-        CUSTOMLOG("Process Event Hook CREATED FAILED WITH REASON : " +
-            HookResultString + " !");
+    if (HookResult != MH_STATUS::MH_OK)
+    {
+        CUSTOMLOG("Process Event Hook CREATED FAILED WITH REASON : " + HookResultString + " !");
         return FALSE;
     }
 
     CUSTOMLOG("Process Event Hook CREATED GOOD!");
 
-    if (MH_EnableHook((PVOID&)ProcessEventAddr) != MH_STATUS::MH_OK) {
+    if (MH_EnableHook((PVOID&)ProcessEventAddr) != MH_STATUS::MH_OK)
+    {
         CUSTOMLOG("Process Event Hook ENABLE FAILED!");
         return FALSE;
-
     }
-    else {
+    else
+    {
         CUSTOMLOG("Process Event Hook Enabled!");
     }
 
@@ -298,13 +276,14 @@ DWORD MainThread(HMODULE Module) {
     return 0;
 }
 
-BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason, LPVOID lpReserved) {
-    switch (reason) {
-    case DLL_PROCESS_ATTACH:
-        CreateThread(0, 0, (LPTHREAD_START_ROUTINE)MainThread, hModule, 0, 0);
-        break;
+BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason, LPVOID lpReserved)
+{
+    switch (reason)
+    {
+        case DLL_PROCESS_ATTACH:
+            CreateThread(0, 0, (LPTHREAD_START_ROUTINE)MainThread, hModule, 0, 0);
+            break;
     }
-
     return TRUE;
 }
 

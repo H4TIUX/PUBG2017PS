@@ -120,3 +120,17 @@ void InitUEConsole() {
     Engine->GameViewport->ViewportConsole =
         static_cast <SDK::UConsole*> (NewObject);
 }
+
+// It does exactly what its name states
+bool isMatchStarting()
+{
+    ATslGameState* GameState = static_cast<ATslGameState*>(UGameplayStatics::GetGameState(UWorld::GetWorld()));
+    if (GameState)
+    {
+        if (GameState->RemainingTime <= 0)
+        {
+            return true; // The match is starting (RemainingTime <= 0) so it returns true.
+        }
+    }
+    return false; // If no match is starting or GameState is null, return false.
+}
