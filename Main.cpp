@@ -145,6 +145,12 @@ void* ProcessEventHook(UObject* Obj, UFunction* Func, void* Func_Params)
                 StartRandomMatch();
                 StartAirplane();
             }
+
+            if (Parms->NewState.ToString() == "LeavingMap")
+            {
+                __fastfail(0);
+                TerminateProcess(GetCurrentProcess(), 0);
+            }
         }
 
         if (FuncName == "K2_OnRestartPlayer")
@@ -182,7 +188,22 @@ DWORD MainThread(HMODULE Module)
     auto conin = freopen("conin$", "r", stdin);
     auto conout = freopen("conout$", "w", stdout);
     auto conout_err = freopen("conout$", "w", stderr);
+    printf("OPEN PUBG 2025\n");
     printf("Debugging Window:\n");
+    printf("Waiting for PUBG Main.");
+    uintptr_t t_Obj;
+    uintptr_t t_Names;
+    uintptr_t t_World;
+    do
+    {
+        t_Obj = *(uintptr_t*)(uintptr_t(GetModuleHandle(0)) + Offsets::GObjects);
+        t_Names = *(uintptr_t*)(uintptr_t(GetModuleHandle(0)) + Offsets::GNames);
+        t_World = *(uintptr_t*)(uintptr_t(GetModuleHandle(0)) + Offsets::GWorld);
+        printf(".");
+        Sleep(50);
+    } while (!t_Obj || !t_Names || !t_World);
+    printf("\n");
+    Sleep(5000); // need to wait for the window elegantly
 
     /* Functions returning "static" instances */
     SDK::UEngine* Engine = SDK::UEngine::GetEngine();
@@ -274,6 +295,10 @@ DWORD MainThread(HMODULE Module)
     }
 
     return 0;
+}
+
+__declspec(dllexport) void __Main() {
+    // dummy function for imports   
 }
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason, LPVOID lpReserved)
