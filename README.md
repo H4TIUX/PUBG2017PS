@@ -15,3 +15,5 @@ HOW TO USE
 *If you want to actually see what's going on in the server by launching it in non-headless mode, remove "-nullrhi -nosound" from the "RUN_ListenServer.bat" file. 
 
 Telegram channel: https://t.me/ogbattlegrounds
+
+Join the Discord for support: https://discord.gg/XDG82cg6kX
