@@ -1,1 +1,0 @@
-TslGame.exe /Game/Maps/Erangel/Erangel_Main?listen?game=/Game/Blueprints/TSLGameMode.TSLGameMode_C -LOG -nullrhi -nosound -AllowJoinAnyMatchState -Windowed -Window -Server -port=8888 -NoVerifyGC -NoEAC -NoBattleEye

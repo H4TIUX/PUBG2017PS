@@ -1,0 +1,3 @@
+@echo off
+echo Starting server...
+TslGame.exe /Game/Maps/Erangel/Erangel_Main?listen -nullrhi -nosound -AllowJoinAnyMatchState -NoVerifyGC -NoEAC -NoBattleEye

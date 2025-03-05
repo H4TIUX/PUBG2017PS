@@ -1,0 +1,17 @@
+﻿KismetDebuggerMod : 1
+CheatManagerEnablerMod : 1
+ActorDumperMod : 0
+ConsoleCommandsMod : 1
+ConsoleEnablerMod : 1
+SplitScreenMod : 0
+LineTraceMod : 0
+BPML_GenericFunctions : 0
+BPModLoaderMod : 0
+jsbLuaProfilerMod : 0
+OGServerProxyLua : 1
+
+; Built-in keybinds, do not move up!
+Keybinds : 1
+
+;dll mods
+OGServerProxy : 1
