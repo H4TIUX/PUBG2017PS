@@ -1,3 +1,6 @@
+# This branch is under development and is used to implement matching and online lobby. 
+# When the development is completed, it will be merged into main
+
 # PUBG2017PS
 A PUBG 2017 Open Source Private Server.
 
