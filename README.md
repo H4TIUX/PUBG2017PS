@@ -2,7 +2,7 @@
 A PUBG 2017 Open Source Private Server.
 
 HOW TO USE
-  1. Download the game: https://drive.google.com/file/d/1CClhlqGgQafzK4556FLSTJ5CfZm96wXr/view
+  1. Download the game: https://www.mediafire.com/file/lz1u4ce3afq50ai/PUBG_11_OCTOBER_2017.rar/file
   2. Put all the files from this repository in /TslGame/Binaries/Win64/
   3. Run the batch file "RUN_LocalServer.bat" to start your server
   4. Enjoy!
