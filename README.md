@@ -14,5 +14,4 @@ Telegram channel: https://t.me/ogbattlegrounds
 
 Join the Discord for support: https://discord.gg/XDG82cg6kX
 
-# Due to legal issues and people reselling the project, I'm sad to inform you that this GitHub repository will be discontinued. For further updates, please join our Discord or Telegram community.
 -H4TIUX
