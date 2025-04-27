@@ -12,6 +12,6 @@ HOW TO USE
 
 Telegram channel: https://t.me/ogbattlegrounds
 
-Join the Discord for support: https://discord.gg/XDG82cg6kX
+Join the Discord for support: https://discord.gg/VQCTHh6wMB
 
 -H4TIUX
