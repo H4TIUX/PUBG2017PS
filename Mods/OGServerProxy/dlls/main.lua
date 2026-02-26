@@ -59,7 +59,7 @@ function DisableCullingForAllActors(World)
     World.StreamingLevels:ForEach(function (index, param)
         local streamLevel = param:get()
         local levelName = tostring(streamLevel:GetFullName())
-        -- print("Iterating Level: " .. levelName)
+        -- print("Iterating Level: " .. levelName .. "\n")
 
         if string.find(levelName, "32") then
             goto continue
@@ -75,9 +75,9 @@ function DisableCullingForAllActors(World)
 end
 
 function Init()
-    print("=== OG Server Proxy ===")
-    print("Checking FName Availbility...")
-    print("if this fails, delete the next line in the lua file and restart the server")
+    print("=== OG Server Proxy ===\n")
+    print("Checking FName Availbility...\n")
+    print("if this fails, delete the next line in the lua file and restart the server\n")
     -- if FName not available, delete the next line
     local fname = FName("Testing")
     if (fname ~= nil) then
@@ -85,7 +85,7 @@ function Init()
     end
     -- start init game
     RegisterInitGameStatePostHook(function(gameMode)
-        print("GameMode = " .. tostring(gameMode:get():GetFullName()))
+        print("GameMode = " .. tostring(gameMode:get():GetFullName()) .. "\n")
         local mode = gameMode:get()
         mode.PlayerRespawn = true
         -- setup the warmup time
@@ -100,17 +100,17 @@ function Init()
         local world = FindFirstOf("World")
 
         GamePlayStatics = static:GetCDO()
-        print("GamePlayStatics: " .. tostring(static:GetCDO():GetFullName()))
+        print("GamePlayStatics: " .. tostring(static:GetCDO():GetFullName()) .. "\n")
 
-        print(tostring(world) .. ", name=" .. tostring(world:GetFullName()))
+        print(tostring(world) .. ", name=" .. tostring(world:GetFullName()) .. "\n")
         LoopAsync(100, function()
-            -- print(tostring(world.GameState:GetFullName()))
+            -- print(tostring(world.GameState:GetFullName()) .. "\n")
             if world.GameState:GetFullName() == nil then
-                print("Waiting for GameState to be valid...")
+                print("Waiting for GameState to be valid...\n")
                 return false
             else
 
-                print("state= " .. tostring(world.GameState:GetFullName()))
+                print("state= " .. tostring(world.GameState:GetFullName()) .. "\n")
                 -- world.GameState.RemainingTime = 3600
 
                 -- Init the gamestate
@@ -120,13 +120,13 @@ function Init()
                 World = world
 
                 GameMode = mode
-                print("GameMode: " .. tostring(GameMode:GetFullName()))
+                print("GameMode: " .. tostring(GameMode:GetFullName()) .. "\n")
 
                 local serverPlayer = FindFirstOf("TslPlayerController")
                 if serverPlayer:IsValid() and serverPlayer:HasAuthority() then
 
-                    print("We are a server, continue to do our stuff")
-                    DisableCullingForAllActors(world)
+                    print("We are a server, continue to do our stuff\n")
+                    -- DisableCullingForAllActors(world)
                     GlobalTransportAirplane = SpawnAircraft()
                     GlobalTransportAirplane:EnterAtEjectionArea()
                     -- SpawnTestingPlayerPawn()
@@ -137,10 +137,10 @@ function Init()
                         if (GameState ~= nil) then
                             if (GameState.TotalWarningDuration ~= 0) then
                                 if (GameState.TotalWarningDuration ~= LastWarningTime) then
-                                    print("WarningDuration is changed, teleporting plane to the BlueZone center...")
+                                    print("WarningDuration is changed, teleporting plane to the BlueZone center...\n")
                                     GlobalTransportAirplane:K2_TeleportTo(FVector(GameState.PoisonGasWarningPosition.X, GameState.PoisonGasWarningPosition.Y, AirbroneMatchPreparer.AircraftAltitude), ZERO_ROTATION)
                                     print("WarningDuration is " .. tostring(GameState.TotalWarningDuration) 
-                                    .. "s, Fixing BlueZone Duration to " .. tostring(GameState.TotalWarningDuration / 2) .. "s...")
+                                    .. "s, Fixing BlueZone Duration to " .. tostring(GameState.TotalWarningDuration / 2) .. "s...\n")
                                     GameState.TotalWarningDuration = GameState.TotalWarningDuration / 2
                                     if (TaskGasWarning ~= nil) then
                                         TaskGasWarning.TotalRemainDuration = GameState.TotalWarningDuration
@@ -152,10 +152,10 @@ function Init()
 
                             if (GameState.TotalReleaseDuration ~= 0) then
                                 if (GameState.TotalReleaseDuration ~= LastReleaseTime) then
-                                    print("Gas is released, eject all players..")
+                                    print("Gas is released, eject all players...\n")
                                     DropoutPlayerInAirplane()
                                     print("ReleaseDuration is " .. tostring(GameState.TotalReleaseDuration) 
-                                    .. "s, Fixing RedZone Duration to " .. tostring(GameState.TotalReleaseDuration / 2) .. "s...")
+                                    .. "s, Fixing RedZone Duration to " .. tostring(GameState.TotalReleaseDuration / 2) .. "s...\n")
                                     GameState.TotalReleaseDuration = GameState.TotalReleaseDuration / 2
                                     LastReleaseTime = GameState.TotalReleaseDuration
                                 end
@@ -168,7 +168,7 @@ function Init()
                         return false
                     end)
                 else
-                    print("We are a client")
+                    print("We are a client\n")
                 end
 
                 return true
@@ -185,8 +185,8 @@ function SpawnTestingPlayerPawn()
     local defaultBot = StaticFindObject("/Script/TslGame.Default__TslBot")
     local playerStateClass = StaticFindObject("/Script/TslGame.TslPlayerState")
 
-    print("botControllerClass: " .. tostring(botControllerClass:GetFullName()))
-    print("defaultPawn: " .. tostring(defaultBot:GetFullName()))
+    print("botControllerClass: " .. tostring(botControllerClass:GetFullName()) .. "\n")
+    print("defaultPawn: " .. tostring(defaultBot:GetFullName()) .. "\n")
 
     -- mode.PlayerControllerClass = botControllerClass
 
@@ -201,7 +201,7 @@ function SpawnTestingPlayerPawn()
         ["Roll"] = 0.0
     })
 
-    print("controller = " .. tostring(controller:GetFullName()))
+    print("controller = " .. tostring(controller:GetFullName()) .. "\n")
 
     ---@type ATslCharacter
     local pawn = world:SpawnActor(defaultBot:GetClass(), {
@@ -214,7 +214,7 @@ function SpawnTestingPlayerPawn()
         ["Roll"] = 0.0
     })
 
-    print("pawn = " .. tostring(pawn:GetFullName()))
+    print("pawn = " .. tostring(pawn:GetFullName()) .. "\n")
 
     controller:Possess(pawn)
 
@@ -258,7 +258,7 @@ function GetAllPlayerPawns()
             end)
         return playerPawns
     else
-        print("GameState is nil")
+        print("GameState is nil\n")
         return nil
     end
 end
@@ -274,7 +274,7 @@ function GetAllPlayerControllers()
             end)
         return playerPawns
     else
-        print("GameState is nil")
+        print("GameState is nil\n")
         return nil
     end
 end
@@ -290,7 +290,7 @@ function GetAllPlayerStates()
             end)
         return playerPawns
     else
-        print("GameState is nil")
+        print("GameState is nil\n")
         return nil
     end
 end
@@ -298,10 +298,10 @@ end
 function TeleportPlayersToStartPoint()
     local pawns = GetAllPlayerPawns()
     if (pawns ~= nil) then
-        print("Teleporting players to start point")
+        print("Teleporting players to start point\n")
         for i = 1, #pawns do
             local pawn = pawns[i]
-            print("Teleporting player " .. pawn:GetFullName())
+            print("Teleporting player " .. pawn:GetFullName() .. "\n")
             pawn:K2_TeleportTo({
                 ["X"] = 338062.06,
                 ["Y"] = 170761.37,
@@ -318,14 +318,14 @@ end
 
 function DropoutPlayerInAirplane()
     if (GlobalTransportAirplane ~= nil and GlobalTransportAirplane:IsValid()) then
-        print("Dropout player in airplane!!!!")
+        print("Dropout player in airplane!!!!\n")
         local seats = GlobalTransportAirplane.VehicleSeatComponent:GetSeats()
             -- print("Seats = " .. tostring(seats))
             for index, seatparam in pairs(seats) do
                 ---@type UVehicleSeatInteractionComponent
                 local seat = seatparam:get()
                 if (seat:IsValid() and (seat.Rider:IsValid() == true)) then
-                    print("Found a valid seat #" .. index .. ", trying to drop player on aircraft...")
+                    print("Found a valid seat #" .. index .. ", trying to drop player on aircraft...\n")
                     GlobalTransportAirplane.VehicleSeatComponent:Leave(seat.Rider, seat, false)
                     seat.Rider:ResetParachute()
                     seat.Rider:SendSystemMessage(2, FText("Dropping!"))
@@ -343,12 +343,12 @@ function SpawnAircraft()
         if (AirbroneMatchPreparer == nil) then
             ---@type UClass
             local AirbronePreparerClass = GameMode.MatchPreparerClasses[2].Class
-            print("AirbronePreparerClass is " .. AirbronePreparerClass:GetFullName())
+            print("AirbronePreparerClass is " .. AirbronePreparerClass:GetFullName() .. "\n")
             AirbroneMatchPreparer = GamePlayStatics:SpawnObject(AirbronePreparerClass, World.PersistentLevel)
         end
 
-        print("preparer = " .. AirbroneMatchPreparer:GetFullName())
-        print("aircraft Class = " .. AirbroneMatchPreparer.AircraftClass:GetFullName())
+        print("preparer = " .. AirbroneMatchPreparer:GetFullName() .. "\n")
+        print("aircraft Class = " .. AirbroneMatchPreparer.AircraftClass:GetFullName() .. "\n")
 
         -- Spawn the aircraft
         local aircraft = World:SpawnActor(AirbroneMatchPreparer.AircraftClass, {
@@ -360,29 +360,29 @@ function SpawnAircraft()
                 ["Yaw"] = 0.0,
                 ["Roll"] = 0.0
             })
-        print("Aircraft spawned: " .. tostring(aircraft:IsValid()) .. "Aircraft = " .. aircraft:GetFullName())
+        print("Aircraft spawned: " .. tostring(aircraft:IsValid()) .. "Aircraft = " .. aircraft:GetFullName() .. "\n")
         return aircraft
     else
-        print("GameMode is nil")
+        print("GameMode is nil\n")
         return nil
     end
 end
 
 function Hook_K2_OnRestartPlayer(object, func, param)
     local player = param:get()
-    print("K2_OnRestartPlayer::before" .. player:K2_GetPawn():GetFName():ToString())
+    print("K2_OnRestartPlayer::before" .. player:K2_GetPawn():GetFName():ToString() .. "\n")
     ---@type ATslCharacter
     local playerPawn = player:K2_GetPawn()
     if (GameStarted) then
         if (GlobalTransportAirplane ~= nil and GlobalTransportAirplane:IsValid()) then
-            print("Trying to spawn player on aircraft...")
+            print("Trying to spawn player on aircraft...\n")
             local seats = GlobalTransportAirplane.VehicleSeatComponent:GetSeats()
             -- print("Seats = " .. tostring(seats))
             for index, seatparam in pairs(seats) do
                 ---@type UVehicleSeatInteractionComponent
                 local seat = seatparam:get()
                 if (seat:IsValid() and (seat.Rider:IsValid() == false)) then
-                    print("Found a valid seat #" .. index .. ", trying to spawn player on aircraft...")
+                    print("Found a valid seat #" .. index .. ", trying to spawn player on aircraft...\n")
                     GlobalTransportAirplane.VehicleSeatComponent:Ride(playerPawn, seat)
                     seat.Rider = playerPawn
                     -- playerPawn.
@@ -459,13 +459,13 @@ function Hook_GameStarted()
     -- GameStarted, we are going to find the Task_GasWarning and Task_GasRelease to fix the problem
     local taskGasWarningList = FindAllOf("Task_GasWarning_C")
     if not taskGasWarningList then
-        print("Task_GasWarning_C not found")
+        print("Task_GasWarning_C not found\n")
         return
     else
         ---@param taskGasWarning UTask_GasWarning_C
         for _, taskGasWarning in ipairs(taskGasWarningList) do
             if (taskGasWarning.ActorOwner:IsValid()) then
-                print("Task_GasWarning_C found, name = " .. taskGasWarning:GetFullName() .. ", ActorOwner = " .. taskGasWarning.ActorOwner:GetFullName())
+                print("Task_GasWarning_C found, name = " .. taskGasWarning:GetFullName() .. ", ActorOwner = " .. taskGasWarning.ActorOwner:GetFullName() .. "\n")
                 TaskGasWarning = taskGasWarning
             end
         end
@@ -473,13 +473,13 @@ function Hook_GameStarted()
 
     local taskGasReleaseList = FindAllOf("Task_GasRelease_C")
     if not taskGasReleaseList then
-        print("Task_GasRelease_C not found")
+        print("Task_GasRelease_C not found\n")
         return
     else
         ---@param taskGasRelease UTask_GasRelease_C
         for _, taskGasRelease in ipairs(taskGasReleaseList) do
             if (taskGasRelease.ActorOwner:IsValid()) then
-                print("Task_GasRelease_C found, name = " .. taskGasRelease:GetFullName() .. ", ActorOwner = " .. taskGasRelease.ActorOwner:GetFullName())
+                print("Task_GasRelease_C found, name = " .. taskGasRelease:GetFullName() .. ", ActorOwner = " .. taskGasRelease.ActorOwner:GetFullName() .. "\n")
                 TaskGasRelease = taskGasRelease
             end
         end
@@ -489,17 +489,17 @@ end
 
 function Hook_K2_OnSetMatchState(object, func, param)
     local state = param:get():ToString()
-    print("K2_OnSetMatchState::before, state=" .. state)
+    print("K2_OnSetMatchState::before, state=" .. state .. "\n")
 
     if state == "InProgress" then
-        print("Game is in progress, we can start our stuff")
+        print("Game is in progress, we can start our stuff\n")
         GameStarted = true
         Hook_GameStarted()
         -- TeleportPlayersToStartPoint()
     end
 
     if state == "WaitingPostMatch" then
-        print("Game Ended.Do Restarting...")
+        print("Game Ended.Do Restarting...\n")
         GameEnded = true
         if (GameMode ~= nil) then
             -- GameMode:RestartGame()
