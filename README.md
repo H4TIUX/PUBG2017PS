@@ -10,6 +10,8 @@ HOW TO USE
 *To join as a client and play the game, run the "RUN_LocalClientJoin.bat" batch file
 *If you want to actually see what's going on in the server by launching it in non-headless mode, remove "-nullrhi -nosound" from the "RUN_ListenServer.bat" file. 
 
+If you enjoy my work and dedication, I'd appreciate a tip!: https://xmrchat.com/h4tiux
+
 Telegram channel: https://t.me/ogbattlegrounds
 
 Join the Discord for support: https://discord.gg/VQCTHh6wMB
