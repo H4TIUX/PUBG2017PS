@@ -199,13 +199,6 @@ function Init()
                                                     ),
                                                     ZERO_ROTATION
                                                 )
-                                                print(
-                                                    "WarningDuration is " ..
-                                                        tostring(GameState.TotalWarningDuration) ..
-                                                            "s, Fixing BlueZone Duration to " ..
-                                                                tostring(GameState.TotalWarningDuration / 2) .. "s...\n"
-                                                )
-                                                GameState.TotalWarningDuration = GameState.TotalWarningDuration / 2
                                                 if (TaskGasWarning ~= nil) then
                                                     TaskGasWarning.TotalRemainDuration = GameState.TotalWarningDuration
                                                     TaskGasWarning.RemainDuration = GameState.TotalWarningDuration
