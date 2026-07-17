@@ -1,6 +1,17 @@
 # PUBG2017PS
 A PUBG 2017 Open Source Private Server.
 
+# LICENSE NOTICE 
+This project is licensed under the GNU General Public License v3.0 (GPLv3).
+
+If you redistribute this project or a modified version, you must comply with the terms of the GPLv3, including:
+
+Making the corresponding source code available.
+Preserving all existing copyright and license notices.
+Licensing your redistributed or modified version under GPLv3.
+
+For the full terms and conditions, see the LICENSE file included in this repository.
+
 # HOW TO USE
   1. Download the game: https://www.mediafire.com/file/lz1u4ce3afq50ai/PUBG_11_OCTOBER_2017.rar/file
   2. Put all the files from this repository in /TslGame/Binaries/Win64/
