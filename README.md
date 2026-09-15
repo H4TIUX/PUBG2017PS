@@ -31,6 +31,6 @@ If you enjoy my work and dedication, I'd appreciate a tip!: https://xmrchat.com/
 
 Telegram channel: https://t.me/ogbattlegrounds
 
-Join the Discord for support: https://discord.gg/VQCTHh6wMB
+Join the Discord for support: https://discord.gg/Qx9Cqx4VEq
 
 -H4TIUX
