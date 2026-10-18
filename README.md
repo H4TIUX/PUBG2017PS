@@ -34,3 +34,8 @@ Telegram channel: https://t.me/ogbattlegrounds
 Join the Discord for support: https://discord.gg/Qx9Cqx4VEq
 
 -H4TIUX
+
+edit
+All mods and server files now in the releases, lobby_miniweb still required , all source given and links to orig repos for info about the mods with them 
+
+-MWMODZ
